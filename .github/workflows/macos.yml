@@ -1,0 +1,42 @@
+name: macOS validation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [macos-support]
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: ${{ matrix.runner }} / Python 3.12
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [macos-15, macos-15-intel]
+    env:
+      TOKENBUFFET_NO_BROWSER: "1"
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Build and install the wheel
+        run: |
+          python -m pip wheel . --no-deps --wheel-dir "$RUNNER_TEMP/tokenbuffet-wheels"
+          python -m pip install "$RUNNER_TEMP"/tokenbuffet-wheels/*.whl
+          python -m pip check
+      - name: Validate macOS runtime without vendor accounts
+        run: python scripts/ci/macos_smoke.py
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-report-${{ matrix.runner }}
+          path: macos-report/
+          if-no-files-found: warn
+          retention-days: 7

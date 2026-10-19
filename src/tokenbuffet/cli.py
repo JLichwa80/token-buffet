@@ -260,6 +260,10 @@ def status_fleet():
 
 def stop_fleet():
     """Stop all running services."""
+    if sys.platform == "darwin":
+        from tokenbuffet.platforms.macos.processes import stop_fleet as stop_macos_fleet
+        return stop_macos_fleet(Path("data/providers_status"))
+
     status_dir = Path("data/providers_status")
     if not status_dir.exists():
         print("No services running.")

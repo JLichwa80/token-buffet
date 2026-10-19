@@ -6,6 +6,7 @@ import json
 import os
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 
@@ -26,6 +27,12 @@ def prepare_demo(app_path):
 
 def launch(app_path):
     target, spec = _launch_spec(app_path)
+    if sys.platform == "darwin":
+        from tokenbuffet.platforms.macos.terminal import launch as launch_terminal
+        expand = lambda value: value.replace("{workspace}", str(target))
+        launch_terminal(list(map(expand, spec["command"])), target,
+                        {key: expand(value) for key, value in spec["env"].items()})
+        return
     if os.name != "nt":
         raise ValueError(f"Open this chatbot manually from {target} on this system")
     expand = lambda value: value.replace("{workspace}", str(target))

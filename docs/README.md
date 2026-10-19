@@ -27,5 +27,6 @@ Reference documentation for Token Buffet.
 | File | What it covers |
 |------|---------------|
 | [planning/futureideas.md](planning/futureideas.md) | Roadmap and multimodal ingestion proposal |
+| [planning/macos_support.md](planning/macos_support.md) | Isolated macOS adapters, GitHub Actions validation, and setup commands |
 | [planning/packaging_and_setup_design.md](planning/packaging_and_setup_design.md) | Locked design decisions for `tbuffet setup`, installer UX, workspace layout |
 | [planning/outreach_draft.md](planning/outreach_draft.md) | Video walkthrough and blog post plan |

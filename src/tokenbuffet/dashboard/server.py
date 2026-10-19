@@ -433,6 +433,11 @@ def stop_provider(data):
     pid = status.get("pid")
     if status.get("status") != "running" or not isinstance(pid, int) or not listening(status.get("port")):
         raise ValueError("No confirmed running provider process")
+    if sys.platform == "darwin":
+        from tokenbuffet.platforms.macos.processes import stop_service
+        if not stop_service(pid, "tokenbuffet.cli_proxy_server", provider=name):
+            raise ValueError("Provider process has already exited")
+        return {"stopping": True, "pid": pid}
     if os.name == "nt":
         result = subprocess.run(["powershell", "-NoProfile", "-Command",
                                  "(Get-CimInstance Win32_Process -Filter 'ProcessId=" + str(pid) + "').CommandLine"],
@@ -462,7 +467,9 @@ def login_provider(data):
         process = subprocess.Popen(["cmd.exe", "/k", shutil.which(command[0])], cwd=ROOT,
                                    creationflags=subprocess.CREATE_NEW_CONSOLE)
     elif sys.platform == "darwin":
-        process = subprocess.Popen(["open", "-a", "Terminal", command[0]], cwd=ROOT)
+        from tokenbuffet.platforms.macos.terminal import launch
+        launch([command[0]], ROOT)
+        return {"opened": True}
     else:
         raise ValueError("Open the provider CLI in a terminal on this system")
     return {"opened": True, "pid": process.pid}
@@ -519,6 +526,11 @@ def stop_router(data):
     pid = status.get("pid")
     if not isinstance(pid, int) or not listening(status.get("port")):
         raise ValueError("No confirmed running router process")
+    if sys.platform == "darwin":
+        from tokenbuffet.platforms.macos.processes import stop_service
+        if not stop_service(pid, "tokenbuffet.local_router"):
+            raise ValueError("Router process has already exited")
+        return {"done": True, "output": f"Router stopping (pid {pid})"}
     if os.name == "nt":
         result = subprocess.run(["taskkill", "/PID", str(pid), "/T"], capture_output=True, text=True, timeout=10)
         if result.returncode:

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "wiki/sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248.md",
+                "file": "wiki/concepts/after-tax-return.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "10-09-keynote-the-tax-trap-in-bond-investing_42c248"
+              "title": "after-tax-return"
             }
           }
         ]
@@ -93,7 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 796.1666870117188
+    "width": 200
   },
   "right": {
     "id": "d78c64784e623e77",
@@ -183,7 +183,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "wiki/sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248.md"
+                "file": "wiki/concepts/after-tax-return.md"
               },
               "icon": "lucide-info",
               "title": "File properties"
@@ -206,12 +206,14 @@
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
       "karpathywiki:Ingest current file": false,
-      "karpathywiki:Query wiki": false,
-      "find-n-replace:Find-n-Replace": false
+      "karpathywiki:Query wiki": false
     }
   },
-  "active": "baa35d86eabcf581",
+  "active": "fc3e480c0f2aba05",
   "lastOpenFiles": [
+    "archive-wiki/log.md",
+    "archive-wiki/concepts/40-act-fund.md",
+    "wiki/sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248.md",
     "README.md",
     "wiki/log.md",
     "wiki/index.md",
@@ -235,9 +237,6 @@
     "wiki/entities/fidelity.md",
     "wiki/entities/separately-managed-accounts-smas.md",
     "wiki/entities/massachusetts.md",
-    "wiki/entities/massachusetts-municipal-bonds.md",
-    "wiki/entities/jamie.md",
-    "wiki/sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248.md",
     "wiki/schema",
     "wiki/sources",
     "wiki/concepts",

@@ -707,6 +707,9 @@ class ProxyHandler(BaseHTTPRequestHandler):
         if sandbox.get("enabled"):
             temp_sandbox_dir = tempfile.mkdtemp(prefix=f"sandbox_{req_id}_")
             auth_src = os.path.expanduser(sandbox.get("copy_auth", ""))
+            if sys.platform == "darwin":
+                from tokenbuffet.platforms.macos.paths import expand_path
+                auth_src = expand_path(sandbox.get("copy_auth", ""))
             if os.path.exists(auth_src):
                 shutil.copy2(auth_src, os.path.join(temp_sandbox_dir, "auth.json"))
             env_var = sandbox.get("env_var")

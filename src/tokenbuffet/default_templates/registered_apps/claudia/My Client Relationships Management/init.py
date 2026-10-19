@@ -4,6 +4,7 @@ import json
 import os
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 
@@ -17,6 +18,10 @@ def launch(app_path):
     target = Path(app_path).resolve()
     if not target.is_dir() or not (target / "CLAUDE.md").is_file():
         raise FileNotFoundError(f"Claudia workspace not found: {target}")
+    if sys.platform == "darwin":
+        from tokenbuffet.platforms.macos.terminal import launch as launch_terminal
+        launch_terminal(["claude"], target)
+        return
     if os.name != "nt":
         raise ValueError(f"Open a terminal in {target} and run claude on this system")
     executable = shutil.which("claude")
