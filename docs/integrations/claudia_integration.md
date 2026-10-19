@@ -38,7 +38,7 @@ Register an instance:
 tbuffet add-app claudia "My Claudia" --path "/path/to/claudia"
 ```
 
-The demo instance is registered at `registered_apps/claudia/My Client Relationships Management/`.
+The demo instance is registered at `registered_apps/claudia/My-Client-Relationships-Management/`.
 
 ## The bigger story
 

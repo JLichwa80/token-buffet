@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: [macos-15, macos-15-intel]
+        runner: [macos-15]
     env:
       TOKENBUFFET_NO_BROWSER: "1"
       PYTHONIOENCODING: utf-8
