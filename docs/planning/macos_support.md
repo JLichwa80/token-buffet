@@ -103,7 +103,7 @@ mkdir -p "$HOME/TokenBuffet-Mac"
 cd "$HOME/TokenBuffet-Mac"
 tbuffet init
 tbuffet doctor
-tbuffet start --foreground
+tbuffet start
 ```
 
 Open `http://127.0.0.1:8080` or the dashboard URL printed during startup. Verify a

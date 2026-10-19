@@ -83,9 +83,9 @@ branches. Launchers keep settings and required home overrides scoped to the chos
 tbuffet init          # scaffold, register provider CLIs found on PATH (no login/quota check), check() app types
 tbuffet demo init     # copy demos, link vaults, apply settings, trust and initialize Obsidian via its enabled CLI
 tbuffet open <type> <name>   # open a registered app via integrations/<type>/init.py launch()
-tbuffet start         # launch all proxies + router (8090) + dashboard (8080)
+tbuffet start         # launch all proxies + router (8090) + dashboard (8080); Ctrl+C stops this session's process trees
 tbuffet start --debug # also capture full proxy request/response traces
-tbuffet start --foreground # Ctrl+C stops this session's service process trees, including during startup
+tbuffet start --background # explicitly launch in background; use tbuffet stop to shut down
 # equivalently: python -m tokenbuffet.cli {init,start}
 
 # Run one layer directly (debugging):

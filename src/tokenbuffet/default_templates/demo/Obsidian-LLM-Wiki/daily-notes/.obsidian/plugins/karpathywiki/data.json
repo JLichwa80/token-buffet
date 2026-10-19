@@ -14,7 +14,7 @@
   "tagVocabularyMode": "custom",
   "customEntityTags": "person, project, place, organization, topic, other",
   "customConceptTags": "idea, decision, task, question, reference, terminology",
-  "extractionGranularity": "fine",
+  "extractionGranularity": "standard",
   "autoWatchSources": true,
   "autoWatchMode": "auto",
   "watchedFolders": [

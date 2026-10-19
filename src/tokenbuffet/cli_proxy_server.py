@@ -45,6 +45,9 @@ MODEL = None
 UI_STREAM = False
 REFRESH_INTERVAL = 1800
 _EXTRACT_LOCKS = {"usage": threading.Lock(), "models": threading.Lock()}
+_INFLIGHT = [0]
+_INFLIGHT_LOCK = threading.Lock()
+STALL_LOG_INTERVAL = 30
 TRACE_LEVEL = resolve_log_level()
 
 logger = logging.getLogger("ProxyServer")
@@ -368,6 +371,8 @@ class ProxyHandler(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_POST(self):
+        with _INFLIGHT_LOCK:
+            _INFLIGHT[0] += 1
         try:
             self._dispatch_post()
         except Exception as exc:
@@ -376,6 +381,9 @@ class ProxyHandler(BaseHTTPRequestHandler):
                 self.send_error(502, "Proxy request failed")
             except OSError:
                 pass
+        finally:
+            with _INFLIGHT_LOCK:
+                _INFLIGHT[0] -= 1
 
     def _dispatch_post(self):
         from .gemini_wire import parse_generate_path
@@ -585,7 +593,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
         req_id = "".join(c for c in req_id if c.isalnum())[:32] or uuid.uuid4().hex[:8]
         started = time.monotonic()
         effort_log = f" effort={requested_effort}" if requested_effort else ""
-        logger.info("REQUEST id=%s provider=%s model=%s%s path=%s stream=%s", req_id, PROVIDER, one_line(requested_model), effort_log, self.path, is_stream)
+        logger.info("REQUEST id=%s provider=%s model=%s%s path=%s stream=%s inflight=%d thread=%s", req_id, PROVIDER, one_line(requested_model), effort_log, self.path, is_stream, _INFLIGHT[0], threading.current_thread().name)
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         
         debug = TRACE_LEVEL == "DEBUG"
@@ -750,6 +758,41 @@ class ProxyHandler(BaseHTTPRequestHandler):
                     session_log("STDERR: " + chunk.replace("\n", "\\n"))
         stderr_thread = threading.Thread(target=drain_stderr, daemon=True)
         stderr_thread.start()
+        spawned = time.monotonic()
+        last_output = [spawned]
+        first_output = [True]
+        seen = {"lines": 0, "text_at": None}
+        logger.info("SPAWN id=%s provider=%s pid=%s after=%.2fs inflight=%d", req_id, PROVIDER, process.pid,
+                    spawned - started, _INFLIGHT[0])
+        def note_output():
+            now = time.monotonic()
+            if first_output[0]:
+                first_output[0] = False
+                logger.info("FIRST_OUTPUT id=%s provider=%s pid=%s after=%.2fs", req_id, PROVIDER, process.pid,
+                            now - spawned)
+            last_output[0] = now
+            seen["lines"] += 1
+        def note_text():
+            if seen["text_at"] is None:
+                seen["text_at"] = time.monotonic()
+                logger.info("TEXT id=%s provider=%s pid=%s first answer text after=%.2fs", req_id, PROVIDER,
+                            process.pid, seen["text_at"] - spawned)
+        def watch_silence():
+            next_warn = STALL_LOG_INTERVAL
+            while process.poll() is None:
+                time.sleep(1)
+                quiet = time.monotonic() - last_output[0]
+                if quiet < next_warn - STALL_LOG_INTERVAL:
+                    next_warn = STALL_LOG_INTERVAL
+                if quiet >= next_warn and process.poll() is None:
+                    logger.warning("WAIT id=%s provider=%s pid=%s no CLI output for %.0fs elapsed=%.0fs lines=%d answer_text=%s inflight=%d",
+                                   req_id, PROVIDER, process.pid, quiet, time.monotonic() - started, seen["lines"],
+                                   "received" if seen["text_at"] else "not_yet", _INFLIGHT[0])
+                    next_warn += STALL_LOG_INTERVAL
+            logger.info("EXIT id=%s provider=%s pid=%s code=%s after=%.2fs exit_lag=%.2fs (since last output) lines=%d",
+                        req_id, PROVIDER, process.pid, process.returncode, time.monotonic() - spawned,
+                        time.monotonic() - last_output[0], seen["lines"])
+        threading.Thread(target=watch_silence, daemon=True).start()
         provider_errors = []
         def capture_error(obj):
             found = False
@@ -760,9 +803,18 @@ class ProxyHandler(BaseHTTPRequestHandler):
                         provider_errors.append(str(value))
                         found = True
             return found
+        done_when = stream_conf.get("done_when")
+        finished = [False]
         def failure_reason():
+            if finished[0] and process.poll() is None:
+                # The CLI already sent its terminal event but has not exited; stop waiting on it.
+                logger.info("KILL id=%s provider=%s pid=%s terminal event received after=%.2fs, process still running",
+                            req_id, PROVIDER, process.pid, time.monotonic() - spawned)
+                process.kill()
             process.wait()
             stderr_thread.join()
+            if finished[0]:
+                return one_line("; ".join(provider_errors)) if provider_errors else None
             if process.returncode or provider_errors:
                 return one_line("; ".join(provider_errors) or "".join(stderr_chunks) or f"CLI exited {process.returncode}")
             return None
@@ -847,6 +899,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
                         yield output_line
 
                 for line in streaming_lines():
+                    note_output()
                     append_response(provider_stdout_path, line.encode("utf-8", errors="replace"))
                     if debug:
                         session_log("CHUNK: " + line.rstrip("\r\n"))
@@ -856,11 +909,14 @@ class ProxyHandler(BaseHTTPRequestHandler):
                         obj = json.loads(line)
                         if capture_error(obj):
                             continue
+                        if done_when and check_match(obj, done_when):
+                            finished[0] = True
                         char = ""
                         for ext in stream_conf.get("text_extractors", []):
                             if check_match(obj, ext.get("matches", {})):
                                 extracted = extract_path(obj, ext.get("path", ""))
                                 if extracted:
+                                    note_text()
                                     char += extracted
                         if char:
                             text_emitted = True
@@ -913,6 +969,8 @@ class ProxyHandler(BaseHTTPRequestHandler):
                             self.wfile.flush()
                     except Exception as e:
                         pass
+                    if finished[0]:
+                        break
                 
                 reason = failure_reason()
                 save_extracted("".join(extracted_parts))
@@ -1048,6 +1106,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
                         yield output_line
 
                 for line in buffered_lines():
+                    note_output()
                     append_response(provider_stdout_path, line.encode("utf-8", errors="replace"))
                     if debug:
                         session_log("CHUNK: " + line.rstrip("\r\n"))
@@ -1057,13 +1116,18 @@ class ProxyHandler(BaseHTTPRequestHandler):
                         obj = json.loads(line)
                         if capture_error(obj):
                             continue
+                        if done_when and check_match(obj, done_when):
+                            finished[0] = True
                         for ext in stream_conf.get("text_extractors", []):
                             if check_match(obj, ext.get("matches", {})):
                                 extracted = extract_path(obj, ext.get("path", ""))
                                 if extracted:
+                                    note_text()
                                     cli_output += extracted
                     except:
                         pass
+                    if finished[0]:
+                        break
                 
                 reason = failure_reason()
                 save_extracted(cli_output)
@@ -1242,7 +1306,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
                 
                 write_response(resp_bytes)
             session_log(f"Output received: {len(''.join(extracted_parts)) if is_stream else len(cli_output)} chars; elapsed={time.monotonic() - started:.2f}s")
-            logger.info("DONE id=%s provider=%s elapsed=%.2fs", req_id, PROVIDER, time.monotonic() - started)
+            logger.info("DONE id=%s provider=%s elapsed=%.2fs inflight=%d", req_id, PROVIDER, time.monotonic() - started, _INFLIGHT[0])
         except Exception as exc:
             reason = one_line(exc)
             logger.error("FAIL id=%s provider=%s reason=%s", req_id, PROVIDER, reason)

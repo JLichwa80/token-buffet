@@ -11,7 +11,7 @@
     "tagVocabularyMode": "default",
     "customEntityTags": "",
     "customConceptTags": "",
-    "extractionGranularity": "fine",
+    "extractionGranularity": "standard",
 
     "autoWatchSources": true,
     "autoWatchMode": "auto",

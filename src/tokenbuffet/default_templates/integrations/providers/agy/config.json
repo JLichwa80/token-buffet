@@ -58,6 +58,9 @@
     "unset": ["GOOGLE_GEMINI_BASE_URL", "GEMINI_API_KEY"]
   },
   "stream": {
+    "done_when": {
+      "event": "result"
+    },
     "text_extractors": [
       {
         "matches": {

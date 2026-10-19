@@ -26,8 +26,8 @@ mkdir TokenBuffet && cd TokenBuffet
 pip install token-buffet               # Python 3.12+; installs everything it needs
 tbuffet init                           # scaffold, register the provider CLIs found on PATH, check app integrations
 tbuffet demo init                      # optional: copy the demos, add them to their apps, list which can run
-tbuffet start                          # proxies + router (8090) + dashboard (8080), in the background
-tbuffet start --foreground             # Ctrl+C stops this session's services and their child processes
+tbuffet start                          # proxies + router (8090) + dashboard (8080); Ctrl+C stops this session's process trees
+tbuffet start --background             # explicitly leave services running in the background
 tbuffet status | stop | restart | doctor
 ```
 Log in to each vendor CLI (`claude`, `codex`, `grok`, `agy`) once. `init` doesn't check logins; a provider that isn't signed in reports its error at `tbuffet start`.

@@ -11,6 +11,8 @@ import logging
 import sys
 import os
 import re
+import select
+import socket
 import glob
 import time
 import threading
@@ -620,6 +622,27 @@ class RouterHandler(http.server.BaseHTTPRequestHandler):
                          next((b.get("effort") for b in sorted_backends if b.get("effort")), None))
         client_started = False
 
+        # Log-only: the router buffers non-stream replies, so without this a
+        # client that gave up only shows up at the final write.
+        responding = threading.Event()
+        send_response = self.send_response
+        def mark_responding(*args, **kwargs):
+            responding.set()
+            return send_response(*args, **kwargs)
+        self.send_response = mark_responding
+        client_sock = self.connection
+        def watch_client():
+            while not responding.wait(1):
+                try:
+                    readable, _, _ = select.select([client_sock], [], [], 0)
+                    if readable and client_sock.recv(1, socket.MSG_PEEK) == b"":
+                        logging.warning("CLIENT_GONE id=%s after=%.2fs (client closed before any reply)",
+                                        request_id, time.monotonic() - started)
+                        return
+                except (OSError, ValueError):
+                    return
+        threading.Thread(target=watch_client, daemon=True).start()
+
         def send_stream_error(reason):
             message = " ".join(str(reason).split())[:500]
             if gemini_route:
@@ -815,7 +838,8 @@ class RouterHandler(http.server.BaseHTTPRequestHandler):
                             self.wfile.write(chunk)
                         self.wfile.flush()
                     except OSError as e:
-                        logging.error("FAIL id=%s reason=client_disconnected detail=%s", request_id, " ".join(str(e).split()))
+                        logging.error("FAIL id=%s reason=client_disconnected elapsed=%.2fs detail=%s", request_id,
+                                      time.monotonic() - started, " ".join(str(e).split()))
                         return
                     logging.info("DONE id=%s provider=%s elapsed=%.2fs", request_id, prov, time.monotonic() - started)
                     return
@@ -877,9 +901,9 @@ if __name__ == "__main__":
     logging.info(f"Routing mode: {MODE}" + (f" (order: {', '.join(CUSTOM_ORDER)})" if MODE == "custom" and CUSTOM_ORDER else ""))
     logging.info(f"Reading usage and models from provider proxies every {args.refresh_interval}s.")
     start_refresher(args.refresh_interval)
-    running_port = loopback.already_running(os.path.join("data", "providers_status", "router_run_status.json"))
-    if running_port:
-        logging.error(f"Cannot start router: one is already running on port {running_port}.")
+    existing_router_port = loopback.already_running(os.path.join("data", "providers_status", "router_run_status.json"))
+    if existing_router_port:
+        logging.error(f"Cannot start router: one is already running on port {existing_router_port}.")
         sys.exit(1)
     try:
         server = loopback.serve_next(args.port, RouterHandler)

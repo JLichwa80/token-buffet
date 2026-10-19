@@ -70,7 +70,7 @@ def init_workspace():
     print("\nNext: tbuffet start   (demos: tbuffet demo init)")
 
 
-def start_fleet(debug=False, foreground=False):
+def start_fleet(debug=False, foreground=True):
     """Start the fleet; a foreground session owns its entire process trees."""
     processes = []
     try:
@@ -222,8 +222,10 @@ def _start_fleet(debug, foreground, processes):
 
     if foreground:
         print(f"\nRunning in foreground. Ctrl+C stops all services. Dashboard: {dashboard_url}")
-        for p in processes:
-            p.wait()
+        # An unbounded Windows Popen.wait() can defer Python's Ctrl+C handler.
+        # Return to Python regularly so KeyboardInterrupt reaches fleet cleanup.
+        while any(p.poll() is None for p in processes):
+            time.sleep(0.2)
         return
 
     print(f"\nAll services launched in background. Dashboard: {dashboard_url}")
@@ -601,9 +603,9 @@ def main():
 
     subparsers.add_parser("init", help="Scaffold this directory, register provider CLIs found on PATH, check app integrations.")
 
-    start_parser = subparsers.add_parser("start", help="Start proxies, router, and dashboard in background.")
+    start_parser = subparsers.add_parser("start", help="Start proxies, router, and dashboard; Ctrl+C stops them.")
     start_parser.add_argument("--debug", action="store_true", help="Capture full proxy request traces")
-    start_parser.add_argument("--foreground", action="store_true", help="Run in foreground (default: background)")
+    start_parser.add_argument("--background", action="store_true", help="Launch services in the background instead of waiting for Ctrl+C")
 
     subparsers.add_parser("stop", help="Stop all running services.")
     subparsers.add_parser("status", help="Show running services.")
@@ -611,6 +613,7 @@ def main():
 
     restart_parser = subparsers.add_parser("restart", help="Stop then start all services.")
     restart_parser.add_argument("--debug", action="store_true")
+    restart_parser.add_argument("--background", action="store_true", help="Launch services in the background instead of waiting for Ctrl+C")
 
     demo_parser = subparsers.add_parser("demo", help="Demo apps.")
     demo_parser.add_argument("action", choices=["init"], help="init: copy the demos, add them to their apps, report which can run")
@@ -657,11 +660,11 @@ def main():
     if args.command == "init":
         init_workspace()
     elif args.command == "start":
-        start_fleet(debug=args.debug, foreground=args.foreground)
+        start_fleet(debug=args.debug, foreground=not args.background)
     elif args.command == "restart":
         stop_fleet()
         time.sleep(2)
-        start_fleet(debug=args.debug)
+        start_fleet(debug=args.debug, foreground=not args.background)
     elif args.command == "stop":
         stop_fleet()
     elif args.command == "status":

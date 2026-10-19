@@ -123,7 +123,7 @@ def main():
         print("PASS: macOS launcher shell quoting and session environment", flush=True)
 
         try:
-            cli("start")
+            cli("start", "--background")
             def status(name):
                 value = json.loads((statuses / f"{name}_run_status.json").read_text())
                 return value if value.get("status") == "running" and loopback.listening(value["port"]) else None

@@ -226,7 +226,7 @@ and waits on children; there is no `stop`/`status` in the CLI.
 **Recommended:**
 - Fold fleet control into cross-platform **`start`/`stop`/`restart`/`status`** subcommands. `start`
   writes a PID+port registry (the existing `data/providers_status/<p>_run_status.json` already carries
-  live port/PID/status); `stop`/`status` read it. Offer **`start --detach`** (background) with a
+  live port/PID/status); `stop`/`status` read it. Offer **`start --background`** with a
   foreground default.
 - **Port conflicts:** `start` and `doctor` check 8001.. / 8090 / 8080 and error with the offender and a
   fix, instead of a bind traceback.
@@ -234,7 +234,9 @@ and waits on children; there is no `stop`/`status` in the CLI.
   correct `[capture]` dep for the running platform.
 - Keep the `.ps1`/`.sh` as thin shims that call the CLI (back-compat), or deprecate them in docs.
 
-**Locked:** `start` background by default (`--foreground` opt-in). Shell scripts removed; replaced by
+**Locked (updated 2026-10-18):** `start` and `restart` run in the foreground by default;
+Ctrl+C stops the session's process trees. Use `--background` to leave services running.
+Shell scripts removed; replaced by
 `tbuffet` subcommands. PID+port registry via existing `_run_status.json`.
 
 ---
@@ -269,5 +271,5 @@ checklist or an actionable red line.
 | D4 | **App onboarding:** `tbuffet add-app` wraps `register.register()`; dry-run preview + confirm before write |
 | D5 | **CLI surface:** `tokenbuffet` / alias `tbuffet`; subcommands `init` / `setup` / `add-provider` / `add-app` / `start` / `stop` / `status` / `doctor` / `dashboard`; `.ps1`/`.sh` scripts removed |
 | D6 | **Dashboard:** GUI is primary path for most users; CLI for power/headless; both share one module; GUI onboarding after CLI flows proven |
-| D7 | **Process model:** `start` background by default, `--foreground` opt-in; shell scripts replaced by CLI subcommands |
+| D7 | **Process model:** `start`/`restart` foreground by default, `--background` opt-in; Ctrl+C stops the session's process trees |
 | D8 | **Doctor:** checklist confirmed; runs automatically at end of `setup` |
