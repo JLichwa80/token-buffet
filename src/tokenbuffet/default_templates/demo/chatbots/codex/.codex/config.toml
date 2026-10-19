@@ -1,0 +1,10 @@
+model = "medium"
+model_provider = "local_bridge"
+
+[model_providers.local_bridge]
+name = "Local Bridge"
+base_url = "http://127.0.0.1:8090/client/codex/v1"
+env_key = "BRIDGE_API_KEY"
+wire_api = "responses"
+requires_openai_auth = false
+supports_websockets = false

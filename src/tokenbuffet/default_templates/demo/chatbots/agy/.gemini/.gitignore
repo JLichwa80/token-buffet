@@ -1,0 +1,5 @@
+*
+!.gitignore
+!antigravity-cli/
+antigravity-cli/*
+!antigravity-cli/settings.json

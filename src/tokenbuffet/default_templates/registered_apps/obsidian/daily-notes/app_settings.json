@@ -1,0 +1,48 @@
+{
+    "provider": "custom-responses",
+    "apiKey": "TokenBuffet",
+    "llmReady": true,
+    "providerApiKeySecretId": "tokenbuffet-provider-api-key",
+    "baseUrl": "http://127.0.0.1:8090/v1/",
+
+    "model": "fast",
+    "availableModels": ["fast", "medium", "reasoning"],
+    "maxConversationHistory": 50,
+
+    "tagVocabularyMode": "default",
+    "customEntityTags": "",
+    "customConceptTags": "",
+    "extractionGranularity": "fine",
+
+    "autoWatchSources": true,
+    "autoWatchMode": "auto",
+    "watchedFolders": ["_Inbox"],
+
+    "periodicLint": "weekly",
+    "autoSmartFix": true,
+    "showAdvancedSettings": true,
+    "pageGenerationConcurrency": 5,
+    "maxTokensPerCall": 65536,
+    "disableThinking": true,
+    "advancedSettingsMode": "custom",
+    "extractionTemperature": 0.2,
+    "chatTemperature": 0.3,
+    "usePerTaskModels": true,
+    "ingestModel": "fast",
+    "ingestModelUseCustom": false,
+    "lintModel": "reasoning",
+    "lintModelUseCustom": false,
+    "queryModel": "reasoning",
+    "queryModelUseCustom": false,
+
+    "writePdfMarkdownToVault": true,
+
+    "lintJaccardLinkThreshold": 0.3,
+    "lintJaccardBodyGate": 0.15,
+    "lintBigramThreshold": 0.3,
+    "lintDedupIncludeSources": true,
+    "skipMentionOnlyCandidates": true,
+    "gateDissentStubs": true,
+    "createStubsForUnresolvableLinks": false,
+    "customQueryInstructions": ""
+}

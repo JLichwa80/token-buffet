@@ -1,0 +1,11 @@
+{
+  "name": "Codex",
+  "type": "OpenAI",
+  "path": "../../../demo/chatbots/codex",
+  "client_settings": {
+    "active_endpoint": "http://127.0.0.1:8090/client/codex/v1",
+    "single_model_tier": "medium"
+  },
+  "bridge_configuration": ".codex/config.toml",
+  "preset": "codex"
+}

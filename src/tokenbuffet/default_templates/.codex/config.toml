@@ -1,0 +1,5 @@
+# Non-interactive capture settings for codex in this repo: no sandbox prompts,
+# no approval gates, so /status and /model drive cleanly. Mirrors the keys in
+# ~/.codex/config.toml.
+sandbox_mode = "danger-full-access"
+approval_policy = "never"

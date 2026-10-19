@@ -1,0 +1,27 @@
+
+[all]
+pyte
+openai
+ai
+
+[all:sys_platform != "win32"]
+pexpect
+
+[all:sys_platform == "win32"]
+pywinpty
+
+[capture]
+pyte
+openai
+
+[capture:sys_platform != "win32"]
+pexpect
+
+[capture:sys_platform == "win32"]
+pywinpty
+
+[responses]
+openai
+
+[uistream]
+ai

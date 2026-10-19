@@ -1,0 +1,9 @@
+[model.local-bridge]
+model = "medium"
+base_url = "http://127.0.0.1:8090/client/grok/v1"
+name = "Local Bridge"
+env_key = "BRIDGE_API_KEY"
+api_backend = "chat_completions"
+
+[models]
+default = "local-bridge"

@@ -1,0 +1,39 @@
+master 1.8K / 256K [Dashboard]
+Context usage Usage limit Session info
+Weekly limit (SuperGrok)
+100%
+Resets: October 15, 18:30
+Session usage: no model calls yet in this session.
+Tab switch | / scroll | c copy session ID | Esc close
+Weekly limit left: 0% · Grok 4.7 (high)
+master 1.8K / 256K [Dashboard]
+Context usage Usage limit Session info
+Session info click or drag to copy
+Shell version:
+1.0.52 [stable]
+Session ID:
+01a1373d-2366-7d62-98fe-3cfa2cd01870
+Working directory:
+Model: Grok 4.7
+API Backend: Responses
+Turn: 0
+Context: 1814 / 256000 tokens (1%)
+Tab switch | / scroll | c copy session ID | y copy all | Esc close
+Weekly limit left: 0% · Grok 4.7 (high)
+master 1.8K / 256K [Dashboard]
+Context usage Usage limit Session info
+Context
+1.8k / 256k tokens (0.71%)
+grok-4.7
+System prompt 1.8k tokens (0.7%)
+Messages 0 tokens (0.0%)
+Free 254k tokens (99%)
+Already counted above
+Tool definitions 9.7k tokens (3.8%) · 26 tools
+Skills 5.0k tokens (2.0%) · 48 skills
+Workflows 182 tokens (0.1%) · 2 workflows
+MCP servers 115 tokens (0.1%) · 3 servers
+AGENTS.md 11.2k tokens (4.4%) · 5 files
+Auto-compact at 80% · ~203k tokens remaining
+Tab switch | / scroll | c copy session ID | Esc close
+Weekly limit left: 0% · Grok 4.7 (high)

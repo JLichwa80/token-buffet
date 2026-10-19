@@ -1,0 +1,116 @@
+{
+  "usage": {
+    "type": "tui",
+    "cli_cmd": ["claude", "--ax-screen-reader", "--dangerously-skip-permissions"],
+    "command": "/usage",
+    "gates": [{"when": "Choose the text style", "send": "2\r", "wait": 3}, {"when": "Enter y/n", "send": "y\r", "wait": 4}, {"when": "trust", "send": "\r", "wait": 4}],
+    "views": 1,
+    "boot_wait": 9,
+    "view_wait": 3,
+    "strip_lines": [],
+    "expect": "Current session",
+    "calculation": "100 - float(value)",
+    "extractors": {
+      "plan": "(Claude (?:Pro|Max|Free|Team|Enterprise)[\\w ]*)"
+    },
+    "periods": {
+      "session": {
+        "pct": "Current session.*?(\\d+)% used",
+        "resets": "Current session.*?Resets\\s+([^\\n(]+)"
+      },
+      "weekly": {
+        "pct": "Current week.*?(\\d+)% used",
+        "exhausted": "You've hit your weekly limit",
+        "resets": "(?:Current week.*?Resets\\s+|You've hit your weekly limit\\s*·\\s*resets\\s+)([^\\n(]+)"
+      }
+    }
+  },
+  "models": {
+    "type": "tui",
+    "cli_cmd": ["claude", "--ax-screen-reader", "--dangerously-skip-permissions"],
+    "command": "/model",
+    "gates": [{"when": "Choose the text style", "send": "2\r", "wait": 3}, {"when": "Enter y/n", "send": "y\r", "wait": 4}, {"when": "trust", "send": "\r", "wait": 4}],
+    "views": 1,
+    "boot_wait": 9,
+    "view_wait": 3,
+    "strip_lines": [],
+    "list_regex": "\\d+\\.\\s+(?:\\((?:selected|disabled|recommended)\\)\\s+)?(?=(?P<name>[A-Z][A-Za-z]+(?:\\s+[\\d.]+)?))(?P<id>[A-Za-z][A-Za-z0-9]*)(?:\\s+\\(recommended\\))?(?:\\s+[\\d.]+)?\\s+(?:\\u2014|\\u00e2\\u20ac\\u201d|-)\\s",
+    "default_marker": "(selected)"
+  },
+  "execution": {
+    "env_unset": ["ANTHROPIC_BASE_URL", "ANTHROPIC_AUTH_TOKEN", "ANTHROPIC_API_KEY"],
+    "cmd_template": [
+      "claude",
+      "--output-format=stream-json",
+      "--verbose",
+      "--permission-mode",
+      "dontAsk"
+    ],
+    "model_arg": [
+      "--model",
+      "{model}"
+    ],
+    "effort_arg": [
+      "--effort",
+      "{effort}"
+    ],
+    "input_method": "stdin",
+    "tool_handoff_args": ["--tools", ""],
+    "sandbox": {
+      "enabled": false
+    }
+  },
+  "stream": {
+    "text_extractors": [
+      {
+        "matches": {
+          "type": "content_block_delta",
+          "delta.type": "text_delta"
+        },
+        "path": "delta.text"
+      },
+      {
+        "matches": {
+          "type": "assistant"
+        },
+        "path": "message.content.[].text"
+      }
+    ],
+    "error_extractors": [
+      {
+        "matches": {
+          "type": "assistant",
+          "error": "rate_limit"
+        },
+        "path": "message.content.[].text"
+      },
+      {
+        "matches": {
+          "type": "result",
+          "is_error": true
+        },
+        "path": "result"
+      }
+    ]
+  },
+  "server": {
+    "port": 8001,
+    "protocol": "responses"
+  },
+  "tiers": {
+    "fast": "^Haiku$",
+    "medium": "^Sonnet$",
+    "reasoning": "^Opus$"
+  },
+  "tools": {
+    "available": [
+      "Bash",
+      "Edit",
+      "Read",
+      "WebSearch"
+    ],
+    "enabled": [],
+    "arg_format": "comma_separated",
+    "arg_flag": "--tools"
+  }
+}

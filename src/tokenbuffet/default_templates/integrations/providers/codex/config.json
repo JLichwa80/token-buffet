@@ -1,0 +1,130 @@
+{
+  "usage": {
+    "type": "tui",
+    "cli_cmd": ["codex", "--no-alt-screen"],
+    "command": "/status",
+    "gates": [
+      {"when": "Updating Codex", "send": "", "wait": 30},
+      {"when": "trust", "send": "\r", "wait": 4}
+    ],
+    "views": 1,
+    "boot_wait": 40,
+    "view_wait": 4,
+    "submit_wait": 1.5,
+    "strip_lines": [],
+    "calculation": "float(str(value).strip('%'))",
+    "extractors": {
+      "plan": "Account:\\s*(\\w+)"
+    },
+    "periods": {
+      "5h": {
+        "pct": "5h limit:.*?(\\d+)% left",
+        "resets": "5h limit:.*?resets\\s+([^)]+)"
+      },
+      "weekly": {
+        "pct": "Weekly limit:.*?(\\d+)% left",
+        "resets": "Weekly limit:.*?resets\\s+([^)]+)"
+      }
+    }
+  },
+  "models": {
+    "type": "tui",
+    "cli_cmd": ["codex", "--no-alt-screen"],
+    "command": "/model",
+    "gates": [
+      {"when": "Updating Codex", "send": "", "wait": 30},
+      {"when": "trust", "send": "\r", "wait": 4}
+    ],
+    "views": 1,
+    "boot_wait": 40,
+    "view_wait": 4,
+    "submit_wait": 1.5,
+    "list_regex": "^\\W*\\d+\\.\\s+(GPT-[\\w.]+(?:-\\w+)?)",
+    "id_case": "lower",
+    "default_marker": "(current)",
+    "strip_lines": []
+  },
+  "execution": {
+    "env_unset": ["OPENAI_BASE_URL", "OPENAI_API_KEY"],
+    "cmd_template": [
+      "codex",
+      "exec",
+      "--json",
+      "--skip-git-repo-check"
+    ],
+    "model_arg": [
+      "--model",
+      "{model}"
+    ],
+    "effort_arg": [
+      "-c",
+      "model_reasoning_effort=\"{effort}\""
+    ],
+    "input_method": "stdin",
+    "sandbox": {
+      "enabled": false
+    }
+  },
+  "stream": {
+    "text_extractors": [
+      {
+        "matches": {
+          "type": "text.delta"
+        },
+        "path": "delta"
+      },
+      {
+        "matches": {
+          "type": "text_delta"
+        },
+        "path": "delta"
+      },
+      {
+        "matches": {
+          "type": "message.delta"
+        },
+        "path": "delta.text"
+      },
+      {
+        "matches": {
+          "type": "message.delta"
+        },
+        "path": "delta.content"
+      },
+      {
+        "matches": {
+          "type": "item.completed",
+          "item.type": "agent_message"
+        },
+        "path": "item.text"
+      }
+    ],
+    "error_extractors": [
+      {
+        "matches": {
+          "type": "error"
+        },
+        "path": "message"
+      }
+    ]
+  },
+  "server": {
+    "port": 8002,
+    "protocol": "responses"
+  },
+  "tiers": {
+    "fast": "Sol$",
+    "medium": "Sol$",
+    "reasoning": "Sol$"
+  },
+  "tools": {
+    "available": [
+      "WebSearch"
+    ],
+    "enabled": [],
+    "arg_format": "flags",
+    "flag_map": {
+      "WebSearch": "--search"
+    }
+  }
+}

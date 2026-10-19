@@ -1,0 +1,41 @@
+{
+  "format": "json",
+  "data": {
+    "modelProvider": "gemini"
+  },
+  "files": {
+    "launch.json": {
+      "format": "json",
+      "data": {
+        "command": [
+          "agy",
+          "--model",
+          "{single_model_tier}"
+        ],
+        "env": {
+          "HOME": "{workspace}",
+          "USERPROFILE": "{workspace}",
+          "GEMINI_API_KEY": "local-bridge",
+          "GOOGLE_GEMINI_BASE_URL": "{active_endpoint}"
+        },
+        "requires": ".gemini/antigravity-cli/settings.json"
+      }
+    },
+    ".gemini/.gitignore": {
+      "format": "text",
+      "content": "*\n!.gitignore\n!antigravity-cli/\nantigravity-cli/*\n!antigravity-cli/settings.json\n"
+    }
+  },
+  "copy_home": {
+    "default": "~/.gemini",
+    "to": ".gemini",
+    "skip": [
+      "logs",
+      "log",
+      "*.log",
+      "*.lock",
+      "tmp",
+      ".tmp"
+    ]
+  }
+}

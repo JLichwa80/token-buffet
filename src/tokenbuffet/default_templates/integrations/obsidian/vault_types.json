@@ -1,0 +1,21 @@
+{
+    "default": {},
+    "finance-conference": {
+        "tagVocabularyMode": "custom",
+        "customEntityTags": "person, organization, fund, asset_class, instrument, index, other",
+        "customConceptTags": "financial_strategy, portfolio_archetype, action_playbook, theory, terminology",
+        "customQueryInstructions": "This is a financial conference transcript. Focus on extracting specific financial strategies, portfolio archetypes, and actionable playbooks as Concepts. For 'action_playbook' concepts, use the summary field to explicitly detail the directive, justification, and implementation steps. For 'portfolio_archetype' concepts, use the summary field to detail the objective and tax behavior. For 'financial_strategy', include definition, mechanics, and teaching points."
+    },
+    "research-papers": {
+        "tagVocabularyMode": "custom",
+        "customEntityTags": "author, institution, dataset, method, metric, venue, other",
+        "customConceptTags": "research_contribution, technique, theory, benchmark, open_problem, terminology",
+        "customQueryInstructions": "This is a corpus of academic research papers. Extract specific contributions, techniques, and benchmarks as Concepts. For 'research_contribution' concepts, summarize the claim, the evidence, and its limitations. For 'technique' concepts, cover the mechanism and when it applies. Attribute methods and datasets to their authors and institutions as Entities."
+    },
+    "daily-notes": {
+        "tagVocabularyMode": "custom",
+        "customEntityTags": "person, project, place, organization, topic, other",
+        "customConceptTags": "idea, decision, task, question, reference, terminology",
+        "customQueryInstructions": "These are personal daily notes and journal entries. Extract recurring people, projects, and topics as Entities, and durable ideas, decisions, and open questions as Concepts. Keep summaries concise and link related entries so themes connect across days."
+    }
+}

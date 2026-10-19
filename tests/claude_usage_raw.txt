@@ -1,0 +1,36 @@
+[Accessible screen reader mode: on]
+Claude Code v2.1.183
+Opus 4.8 with high effort · Claude Pro
+Fable now runs on usage credits.
+Fable was included in your plan for a limited time, and now requires usage credits. Run /model and select Fable — you'll be guided through usage credits setup if needed.
+you: y
+claude: I don't have a pending question for you to confirm — this looks like it may have been sent in response to something that didn't carry over. What would you like me to work on?
+Worked for 5s
+Settings Status Config Usage Stats
+Session
+Total cost: $0.0000
+Total duration (API): 0s
+Total duration (wall): 12s
+Total code changes: 0 lines added, 0 lines removed
+Usage: 0 input, 0 output, 0 cache read, 0 cache write
+Current session
+93% 93% used
+Resets 6:40pm (America/Los_Angeles)
+Current week (all models)
+9% 9% used
+Resets Oct 20, 11am (America/Los_Angeles)
+What's contributing to your limits usage?
+Approximate, based on local sessions on this machine — does not include other devices or claude.ai
+Last 24h · these are independent characteristics of your usage, not a breakdown
+79% of your usage was while 4+ sessions ran in parallel
+All sessions share one limit. If you don't need them all at once, queueing uses it more evenly.
+Skills % of usage
+/init 7%
+d to day · w to week
+Usage credits
+Usage credits are off · /usage-credits to turn them on
+Esc to cancel
+Tokens: 5h: ~200k | Week: ~1.5M | Model: Claude | Dir:
+bypass permissions on (shift+tab to cycle)
+You've used 93% of your session limit · resets 6:40pm (America/Los_Angeles) · /upgrade to keep using Claude Code
+input:

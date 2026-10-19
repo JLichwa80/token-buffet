@@ -1,0 +1,5 @@
+# Pre-grants grok's folder trust for this repo so /usage and /model capture
+# runs without the "trust this folder?" gate. Matches ~/.grok/trusted_folders.toml.
+[folders.'M:\My Drive\LLMCLIExtractors']
+trusted = true
+decided_at = 1791417544

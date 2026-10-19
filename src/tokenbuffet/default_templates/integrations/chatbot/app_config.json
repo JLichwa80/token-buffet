@@ -1,0 +1,9 @@
+{
+  "name": "chatbot",
+  "type": "chatbot",
+  "title": "Chatbot",
+  "description": "Point a CLI coding agent (Claude Code, Codex, Grok, Antigravity) at the router as its gateway so it draws on the provider subscriptions you manage here.",
+  "path": "[app_path]",
+  "presets_directory": "presets",
+  "preset_label": "CLI"
+}

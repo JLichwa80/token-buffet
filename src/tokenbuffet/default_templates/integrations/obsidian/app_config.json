@@ -1,0 +1,19 @@
+{
+    "name": "obsidian",
+    "type": "obsidian",
+    "title": "Obsidian-LLM-Wiki",
+    "description": "An AI-assisted knowledge wiki in Obsidian. Turn daily notes, conference material, and other sources into organized, linked notes you can ask questions about.",
+    "path": "[app_path]",
+    "client_settings": {
+        "active_endpoint": "http://127.0.0.1:8090/v1/",
+        "single_model_tier": "fast",
+        "model_mode": "true",
+        "task_model_tiers": {
+            "ingest": "fast",
+            "lint": "reasoning",
+            "query": "reasoning"
+        }
+    },
+    "vault_type": "[vault_type]",
+    "bridge_configuration": ".obsidian/plugins/karpathywiki/data.json"
+}

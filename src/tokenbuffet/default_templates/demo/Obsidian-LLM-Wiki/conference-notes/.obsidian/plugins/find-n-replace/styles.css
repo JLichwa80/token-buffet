@@ -1,0 +1,979 @@
+/* --- Find-n-Replace Plugin Styles with Scoped Selectors --- */
+/* All view-specific styles are scoped to prevent conflicts with other plugins */
+
+/* --- Container --- */
+[data-type="find-replace-view"] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-4-2);
+    padding: var(--size-4-2);
+}
+
+/* --- Find-n-Replace Help Modal Styling --- */
+.find-replace-help-modal .help-subtitle {
+    margin-bottom: var(--size-4-2);
+}
+
+.find-replace-help-modal .help-subtitle-text {
+    color: var(--text-normal);
+    font-size: var(--font-ui-medium);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.find-replace-help-modal .help-intro {
+    margin-bottom: var(--size-4-4);
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.find-replace-help-modal .help-commands-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--size-4-3);
+    font-size: var(--font-ui-small);
+}
+
+.find-replace-help-modal .help-commands-table th {
+    background-color: var(--background-modifier-border-hover);
+    color: var(--text-normal);
+    font-weight: var(--font-weight-medium);
+    padding: var(--size-2-3);
+    text-align: left;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.find-replace-help-modal .help-commands-table td {
+    padding: var(--size-4-3) var(--size-2-3);
+    border-bottom: 1px solid var(--background-modifier-border-focus);
+    vertical-align: top;
+}
+
+.find-replace-help-modal .help-commands-table tbody tr:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+/* Category heading rows inside the commands table */
+.find-replace-help-modal .help-commands-table .help-category-row th {
+    background-color: transparent;
+    color: var(--text-faint);
+    font-size: var(--font-ui-medium);
+    font-weight: var(--font-semibold);
+    padding: var(--size-4-4) var(--size-2-3) var(--size-2-2);
+}
+
+.find-replace-help-modal .help-commands-table tbody tr.help-category-row:hover {
+    background-color: transparent;
+}
+
+.find-replace-help-modal .hotkey-set {
+    padding: var(--size-2-1) var(--size-2-2);
+    border-radius: var(--radius-s);
+    font-family: var(--font-monospace);
+    font-size: var(--font-ui-smaller);
+    font-weight: var(--font-weight-medium);
+    & kbd {
+        color: var(--text-success);
+    }
+}
+
+.find-replace-help-modal .hotkey-not-set {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: var(--font-ui-smaller);
+}
+
+.find-replace-help-modal .help-tips {
+    margin-top: var(--size-4-4);
+    padding-top: var(--size-4-3);
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+.find-replace-help-modal .help-tips h3 {
+    color: var(--text-normal);
+    font-size: var(--font-ui-medium);
+    margin-bottom: var(--size-4-2);
+}
+
+.find-replace-help-modal .help-tips ul {
+    margin-left: var(--size-4-3);
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.find-replace-help-modal .help-tips li {
+    margin-bottom: var(--size-2-2);
+}
+
+.find-replace-help-modal .help-tip-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 2px;
+}
+
+.find-replace-help-modal .help-note {
+    margin-top: var(--size-4-3);
+    padding: var(--size-4-2);
+    background-color: var(--background-secondary);
+    border-left: 3px solid var(--interactive-accent);
+    border-radius: var(--radius-s);
+}
+
+.find-replace-help-modal .help-note p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: var(--font-ui-small);
+    font-style: italic;
+}
+
+.find-replace-help-modal .help-note p + p {
+    margin-top: var(--size-2-2);
+}
+
+.find-replace-help-modal .help-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--size-4-4);
+    padding-top: var(--size-4-3);
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+.find-replace-help-modal .help-buttons button {
+    padding: var(--size-2-2) var(--size-4-3);
+}
+
+/* --- File Filtering Guide Section --- */
+.find-replace-help-modal .help-file-filtering {
+    margin-top: var(--size-4-4);
+    padding-top: var(--size-4-3);
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+.find-replace-help-modal .help-file-filtering h3 {
+    color: var(--text-normal);
+    font-size: var(--font-ui-medium);
+    margin-bottom: var(--size-4-2);
+}
+
+.find-replace-help-modal .help-file-filtering h4 {
+    color: var(--text-normal);
+    font-size: var(--font-ui-small);
+    font-weight: var(--font-weight-medium);
+    margin-top: var(--size-4-3);
+    margin-bottom: var(--size-2-3);
+}
+
+.find-replace-help-modal .help-file-filtering p {
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: var(--size-4-2);
+}
+
+.find-replace-help-modal .help-file-filtering ul {
+    margin-left: var(--size-4-3);
+    margin-bottom: var(--size-4-2);
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.find-replace-help-modal .help-file-filtering li {
+    margin-bottom: var(--size-2-2);
+}
+
+.find-replace-help-modal .help-file-filtering code {
+    background-color: var(--background-modifier-border);
+    color: var(--text-normal);
+    padding: var(--size-2-1) var(--size-2-2);
+    border-radius: var(--radius-s);
+    font-family: var(--font-monospace);
+    font-size: var(--font-ui-smaller);
+}
+
+.find-replace-help-modal .filter-performance-tip {
+    margin-top: var(--size-4-3);
+    padding: var(--size-4-2);
+    background-color: var(--background-secondary);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius-s);
+    font-size: var(--font-ui-small);
+    color: var(--text-muted);
+}
+
+.find-replace-help-modal kbd {
+    font-family: var(--font-monospace-default);
+    background-color: var(--background-secondary);
+    color: var(--text-normal);
+    border-radius: var(--size-2-2);
+    border: 1px solid var(--color-base-35);
+    box-shadow: 0 1px 0 1px var(--color-base-50);
+    margin-inline: .25em;
+    padding: var(--size-2-3);
+}
+
+/* --- View-Specific Styles (Scoped to prevent conflicts) --- */
+
+/* --- Input wrapper for clear button --- */
+[data-type="find-replace-view"] .find-replace-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+[data-type="find-replace-view"] .find-replace-container .find-replace-input,
+[data-type="find-replace-view"] input.find-replace-input[type="text"] {
+    padding: 6px 28px 6px 10px;
+    width: 100%;
+    color: var(--text-muted);
+}
+
+/* compact input row behavior (if you want inputs side-by-side) */
+[data-type="find-replace-view"] .find-replace-container>.find-replace-input:nth-child(1),
+[data-type="find-replace-view"] .find-replace-container>.find-replace-input:nth-child(2) {
+    display: block;
+}
+
+/* --- Options row --- */
+[data-type="find-replace-view"] .find-replace-container .find-replace-options {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 4px 6px;
+}
+
+/* toggle container */
+[data-type="find-replace-view"] .find-replace-container .toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* smaller label width so long labels wrap nicely */
+[data-type="find-replace-view"] .find-replace-container .toggle-container label {
+    color: var(--text-muted);
+    font-size: var(--font-smallest);
+}
+
+/* --- Results count and top toolbar --- */
+[data-type="find-replace-view"] .find-replace-results-count {
+    color: var(--text-muted);
+    font-size: var(--font-smallest);
+}
+
+/* --- Results list --- */
+[data-type="find-replace-view"] .find-replace-results,
+[data-type="find-replace-view"] div.find-replace-results {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: auto;
+    padding: 0 .25em 3em .25em;
+    border-radius: 6px;
+    margin: 0;
+    background: var(--background-secondary);
+    outline: none; /* Remove default outline */
+}
+
+/* Focus styles for results container when tabbed to */
+[data-type="find-replace-view"] .find-replace-results:focus {
+    outline: 2px solid var(--interactive-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-s);
+}
+
+[data-type="find-replace-view"] .file-groups-container {
+    padding-top: .25em;
+}
+
+/* file group (group per file) */
+[data-type="find-replace-view"] .file-group {
+    border-bottom: 1px solid var(--background-modifier-border);
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+}
+
+/* file group header */
+[data-type="find-replace-view"] .file-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 6px;
+    margin-block: .2em;
+    user-select: none;
+    background: var(--background-secondary);
+}
+
+[data-type="find-replace-view"] .collapsed {
+    & .file-group-header {
+        color: var(--text-normal);
+    }
+}
+
+[data-type="find-replace-view"] .file-group-heading:hover {
+    color: var(--interactive-accent);
+}
+
+/* file heading text */
+[data-type="find-replace-view"] .file-group-heading {
+    font-weight: 500;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--text-muted);
+}
+
+[data-type="find-replace-view"] .file-group-header:focus {
+    box-shadow: 0 0 0 3px var(--background-modifier-border-focus);
+    border-radius: var(--input-radius);
+}
+
+[data-type="find-replace-view"] .file-results-count {
+    color: var(--text-faint);
+    margin-inline: var(--size-4-1);
+}
+
+[data-type="find-replace-view"] .file-ext-badge {
+    font-size: var(--font-smallest);
+    color: var(--text-on-accent);
+    background-color: var(--interactive-accent);
+    padding: 1px 5px;
+    border-radius: var(--radius-s);
+    margin-left: var(--size-4-1);
+    opacity: 0.8;
+}
+
+/* --- Single matched line result --- */
+[data-type="find-replace-view"] .line-result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 6px 2px 10px;
+    color: var(--color-base-60);
+}
+
+[data-type="find-replace-view"] .line-result span.snippet:focus,
+[data-type="find-replace-view"] .line-result span.snippet:focus-visible {
+    box-shadow: 0 0 0 3px var(--background-modifier-border-focus);
+    border-radius: var(--input-radius);
+}
+
+[data-type="find-replace-view"] .line-result span.snippet {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    padding: 4px 2px;
+    border-radius: 6px;
+}
+
+/* Word-wrap enabled state for snippets */
+[data-type="find-replace-view"] .find-replace-results.word-wrap-enabled .line-result span.snippet {
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow: visible;
+    text-overflow: clip;
+}
+
+/* Replace icon per line */
+[data-type="find-replace-view"] .line-result .clickable-icon {
+    opacity: 0;
+    margin-left: 4px;
+}
+
+[data-type="find-replace-view"] .line-result:hover .clickable-icon {
+    opacity: 1;
+}
+
+[data-type="find-replace-view"] .line-result:focus-visible .clickable-icon {
+    opacity: 1;
+}
+
+[data-type="find-replace-view"] .line-result .clickable-icon:focus-visible {
+    opacity: 1;
+}
+
+[data-type="find-replace-view"] .line-result:hover {
+    background: rgba(var(--mono-rgb-100), 0.037);
+}
+
+/* keyboard focus */
+[data-type="find-replace-view"] .line-result:focus {
+    box-shadow: 0 0 0 3px rgba(100, 150, 250, 0.08);
+    outline: 1px solid rgba(100, 150, 250, 0.18);
+}
+
+/* selected / active states similar to VSCode */
+[data-type="find-replace-view"] .line-result.selected {
+    background: linear-gradient(180deg, rgba(87, 32, 115, 0.16), rgba(198, 68, 241, 0.16));
+}
+
+[data-type="find-replace-view"] .line-result mark {
+    color: var(--text-normal);
+    background-color: var(--text-highlight-bg);
+}
+
+/* Note: .has-replace-preview class is added via TypeScript when replacement preview is shown */
+[data-type="find-replace-view"] .line-result mark.has-replace-preview {
+    margin-right: 1px;
+    background-color: rgba(var(--background-modifier-error-rgb), 0.2);
+    text-decoration: line-through;
+}
+
+[data-type="find-replace-view"] .line-result .replace-preview {
+    color: var(--text-normal);
+    margin-left: 1px;
+    background-color: rgba(var(--background-modifier-success-rgb), 0.2);
+}
+
+/* Collapsed state */
+[data-type="find-replace-view"] .file-group.collapsed .line-result {
+    display: none;
+}
+
+/* Expand/collapse chevron */
+[data-type="find-replace-view"] .file-group-header::before {
+    content: '▾';
+    display: inline-block;
+    margin-right: .5em;
+    transition: transform 0.15s ease;
+    font-size: 22px;
+    color: var(--interactive-accent);
+}
+
+[data-type="find-replace-view"] .file-group.collapsed .file-group-header::before {
+    transform: rotate(-90deg);
+}
+
+/* --- Footer / actions row --- */
+[data-type="find-replace-view"] .find-replace-selected-all {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 4px 6px;
+}
+
+/* small status text */
+[data-type="find-replace-view"] .find-replace-selected-all span {
+    margin-right: auto;
+    font-size: var(--font-smallest);
+    color: var(--text-muted);
+}
+
+[data-type="find-replace-view"] .hidden,
+[data-type="find-replace-view"] [class].hidden {
+    display: none;
+}
+
+/* ==============================================
+   VSCode-Style Modernized Interface
+   ============================================== */
+
+/* --- Main Search Toolbar --- */
+[data-type="find-replace-view"] .find-replace-search-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-4-1);
+    padding: var(--size-4-2) var(--size-4-2) 0 var(--size-4-2);
+}
+
+/* --- Search Row (input + inline options + actions) --- */
+[data-type="find-replace-view"] .find-replace-search-row {
+    display: flex;
+    align-items: center;
+    gap: var(--size-4-1);
+}
+
+[data-type="find-replace-view"] .find-replace-replace-row {
+    display: flex;
+    align-items: center;
+    gap: var(--size-4-1);
+    margin-top: .3em;
+}
+
+/* --- Filter Panel (VSCode-style) --- */
+[data-type="find-replace-view"] .find-replace-filter-panel {
+    padding: var(--size-4-2);
+    margin-top: var(--size-4-1);
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+[data-type="find-replace-view"] .find-replace-filter-panel.hidden {
+    display: none;
+}
+
+[data-type="find-replace-view"] .filter-input-row {
+    display: flex;
+    align-items: center;
+    gap: var(--size-4-2);
+    margin-bottom: var(--size-4-2);
+}
+
+[data-type="find-replace-view"] .filter-input-row:last-child {
+    margin-bottom: 0;
+}
+
+[data-type="find-replace-view"] .filter-input-label,
+[data-type="find-replace-view"] .filter-input-row .filter-input-label {
+    min-width: 60px;
+    font-size: var(--font-smaller);
+    color: var(--text-muted);
+}
+
+[data-type="find-replace-view"] .filter-input {
+    flex: 1;
+    transition: border-color 0.2s ease;
+}
+
+[data-type="find-replace-view"] .filter-input::placeholder {
+    color: var(--text-faint);
+}
+
+/* Filter button row at bottom of panel */
+[data-type="find-replace-view"] .filter-button-row {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 6px;
+    border-top: 1px solid var(--background-modifier-border);
+    margin-top: 6px;
+}
+
+[data-type="find-replace-view"] .filter-toggle-btn {
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-s);
+    padding: 4px 8px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+[data-type="find-replace-view"] .filter-toggle-btn:hover {
+    background: var(--background-modifier-hover);
+    color: var(--text-normal);
+}
+
+/* Filter button states */
+[data-type="find-replace-view"] .inline-toggle-btn.is-active {
+    color: var(--interactive-accent);
+}
+
+[data-type="find-replace-view"] .inline-toggle-btn.has-filters {
+    position: relative;
+    border: 1px solid var(--interactive-accent);
+}
+
+[data-type="find-replace-view"] .filter-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--text-error);
+    color: var(--text-on-accent);
+    font-size: 10px;
+    font-weight: 600;
+    min-width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    z-index: 2;
+}
+
+/* --- Input Containers with Icons --- */
+[data-type="find-replace-view"] .find-replace-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0; /* Allow shrinking */
+}
+
+[data-type="find-replace-view"] .search-input-icon,
+[data-type="find-replace-view"] .replace-input-icon {
+    position: absolute;
+    left: 8px;
+    z-index: 2;
+    color: var(--text-muted);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+[data-type="find-replace-view"] .find-replace-input-container .find-replace-input,
+[data-type="find-replace-view"] .find-replace-input-container input.find-replace-input[type="text"] {
+    padding-left: 32px; /* Make room for left icon */
+    padding-right: 28px; /* Make room for clear icon */
+    width: 100%;
+}
+
+/* --- Input Clear Icons --- */
+[data-type="find-replace-view"] .input-clear-icon {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.2s ease, color 0.2s ease;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-xs);
+}
+
+[data-type="find-replace-view"] .input-clear-icon.visible {
+    opacity: 0.6;
+    pointer-events: auto;
+}
+
+[data-type="find-replace-view"] .input-clear-icon:hover {
+    opacity: 1;
+    color: var(--text-normal);
+    background: var(--background-modifier-hover);
+}
+
+[data-type="find-replace-view"] .input-clear-icon:active {
+    opacity: 0.8;
+    color: var(--text-normal);
+    background: var(--background-modifier-active);
+}
+
+/* Filter input clear icons - slightly smaller positioning */
+[data-type="find-replace-view"] .filter-clear-icon {
+    right: 4px;
+    width: 12px;
+    height: 12px;
+}
+
+/* Filter input container styling */
+[data-type="find-replace-view"] .filter-input-container {
+    position: relative;
+    flex: 1;
+    width: 100%;
+}
+
+[data-type="find-replace-view"] .filter-input-container .filter-input,
+[data-type="find-replace-view"] .filter-input-container input.filter-input[type="text"] {
+    width: 100%;
+    padding-right: 20px; /* Make room for clear icon */
+    box-sizing: border-box;
+}
+
+/* --- Search Spinner --- */
+[data-type="find-replace-view"] .search-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    color: var(--text-muted);
+    animation: fnr-spin 1s linear infinite;
+}
+
+[data-type="find-replace-view"] .search-spinner.hidden {
+    display: none;
+}
+
+@keyframes fnr-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- Inline Option Toggles (VSCode-style) --- */
+[data-type="find-replace-view"] .find-replace-inline-options {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+[data-type="find-replace-view"] .inline-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+}
+
+[data-type="find-replace-view"] .inline-toggle-btn.is-active,
+[data-type="find-replace-view"] .inline-toggle-btn[aria-pressed="true"],
+[data-type="find-replace-view"] button.inline-toggle-btn.is-active {
+    color: var(--interactive-accent);
+}
+
+/* --- Toolbar Actions --- */
+[data-type="find-replace-view"] .find-replace-toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+[data-type="find-replace-view"] .toolbar-action {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+[data-type="find-replace-view"] .toolbar-action:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+[data-type="find-replace-view"] .toolbar-action:disabled:hover {
+    background: transparent;
+    color: var(--text-muted);
+}
+
+/* --- Selected Count and Actions in Results Toolbar --- */
+[data-type="find-replace-view"] .selected-count {
+    color: var(--text-muted);
+    font-size: var(--font-ui-smaller);
+    margin-right: var(--size-4-2);
+}
+
+[data-type="find-replace-view"] .inline-action-btn {
+    padding: 4px 8px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-s);
+    background: var(--background-primary);
+    color: var(--text-normal);
+    cursor: pointer;
+    font-size: var(--font-ui-smaller);
+    transition: all 0.15s ease;
+}
+
+[data-type="find-replace-view"] .inline-action-btn:hover {
+    background: var(--background-modifier-hover);
+    border-color: var(--interactive-accent);
+}
+
+[data-type="find-replace-view"] .inline-action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--background-primary);
+    border-color: var(--background-modifier-border);
+}
+
+/* --- Ellipsis Menu Styles --- */
+[data-type="find-replace-view"] .ellipsis-menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+[data-type="find-replace-view"] .ellipsis-menu-btn {
+    position: relative;
+}
+
+/* --- Gap element for mobile spacing --- */
+[data-type="find-replace-view"] .adaptive-action-gap {
+    flex: 1;
+    min-width: 8px;
+}
+
+/* --- Desktop/Mobile Layout Control --- */
+[data-type="find-replace-view"] .desktop-only,
+[data-type="find-replace-view"] [class].desktop-only {
+    display: none; /* Always hidden - using ellipsis menu instead */
+}
+
+/* --- Mobile Touch Target Sizing --- */
+/* Use pointer: coarse to detect touch devices regardless of viewport size */
+@media (pointer: coarse) {
+    [data-type="find-replace-view"] .inline-toggle-btn,
+    [data-type="find-replace-view"] .adaptive-action-btn {
+        min-width: 44px;
+        min-height: 44px;
+        padding: 8px;
+    }
+}
+
+/* --- Enhanced File Group Headers --- */
+[data-type="find-replace-view"] .file-group-header {
+    position: relative;
+    padding: 6px 8px;
+    border-radius: var(--radius-s);
+    transition: background-color 0.15s ease;
+}
+
+[data-type="find-replace-view"] .file-group-header:hover {
+    background: var(--background-modifier-hover);
+}
+
+[data-type="find-replace-view"] .file-group-header .clickable-icon {
+    opacity: 0.7;
+    transition: opacity 0.15s ease;
+}
+
+[data-type="find-replace-view"] .file-group-header:hover .clickable-icon {
+    opacity: 1;
+}
+
+[data-type="find-replace-view"] .file-group-header .clickable-icon {
+    padding: var(--size-2-1) var(--size-2-2);
+}
+
+/* --- Adaptive Results Toolbar --- */
+[data-type="find-replace-view"] .find-replace-adaptive-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--size-4-1);
+    margin-top: var(--size-4-1);
+    margin-bottom: var(--size-4-2);
+    transition: all 0.2s ease;
+}
+
+[data-type="find-replace-view"] .find-replace-adaptive-toolbar.hidden {
+    display: none;
+}
+
+[data-type="find-replace-view"] .adaptive-results-summary {
+    display: flex;
+    align-items: center;
+    gap: var(--size-4-1);
+    flex: 1;
+    color: var(--text-muted);
+    font-size: var(--font-ui-smaller);
+}
+
+[data-type="find-replace-view"] .adaptive-results-count {
+    font-weight: 500;
+    color: var(--text-normal);
+}
+
+[data-type="find-replace-view"] .adaptive-selected-count {
+    color: var(--interactive-accent);
+    font-weight: 500;
+}
+
+[data-type="find-replace-view"] .adaptive-selected-count.hidden {
+    display: none;
+}
+
+[data-type="find-replace-view"] .adaptive-action-buttons {
+    display: flex;
+    gap: var(--size-4-2);
+    align-items: center;
+}
+
+[data-type="find-replace-view"] .adaptive-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: var(--radius-s);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+[data-type="find-replace-view"] .adaptive-action-btn.hidden {
+    display: none;
+}
+
+[data-type="find-replace-view"] .adaptive-action-btn:hover {
+    background: var(--background-modifier-hover);
+    color: var(--text-normal);
+    border-color: var(--background-modifier-border);
+}
+
+[data-type="find-replace-view"] .adaptive-action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: transparent;
+    color: var(--text-muted);
+    border-color: transparent;
+}
+
+[data-type="find-replace-view"] .adaptive-action-btn:disabled:hover {
+    background: transparent;
+    color: var(--text-muted);
+    border-color: transparent;
+}
+
+[data-type="find-replace-view"] .adaptive-action-btn-primary {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border-color: var(--interactive-accent);
+}
+
+[data-type="find-replace-view"] .adaptive-action-btn-primary:hover:not(:disabled) {
+    background: var(--interactive-accent-hover);
+    border-color: var(--interactive-accent-hover);
+}
+
+[data-type="find-replace-view"] .adaptive-action-btn-primary:disabled {
+    opacity: 0.5;
+    background: transparent;
+    color: var(--text-muted);
+    border-color: transparent;
+}
+
+/* Mobile responsive styles are now handled above in the enhanced responsive design section */
+
+/* Filter count badge */
+[data-type="find-replace-view"] .filter-count-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    font-size: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    z-index: 1;
+    min-width: 14px;
+    padding: 0;
+    border: 1px solid var(--background-primary);
+}
+
+/* Ensure filter button has relative positioning for badge */
+[data-type="find-replace-view"] .inline-toggle-btn {
+    position: relative;
+}
+
+/* --- Settings Tab Styles --- */
+.find-n-replace-settings .filter-info-box {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: var(--background-secondary);
+    border-radius: 6px;
+    border-left: 3px solid var(--interactive-accent);
+}

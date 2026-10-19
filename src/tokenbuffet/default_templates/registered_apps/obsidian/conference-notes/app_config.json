@@ -1,0 +1,18 @@
+{
+    "name": "conference-notes",
+    "type": "obsidian",
+    "path": "../../../demo/Obsidian-LLM-Wiki/conference-notes",
+    "client_settings": {
+        "active_endpoint": "http://127.0.0.1:8090/v1/",
+        "single_model_tier": "fast",
+        "model_mode": "true",
+        "task_model_tiers": {
+            "ingest": "fast",
+            "lint": "reasoning",
+            "query": "reasoning"
+        }
+    },
+    "vault_type": "finance-conference",
+    "bridge_configuration": ".obsidian/plugins/karpathywiki/data.json",
+    "label": "Conference Notes Demo"
+}

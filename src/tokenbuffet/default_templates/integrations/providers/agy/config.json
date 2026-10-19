@@ -1,0 +1,99 @@
+{
+  "usage": {
+    "type": "tui",
+    "cli_cmd": ["agy", "--dangerously-skip-permissions"],
+    "command": "/usage",
+    "gates": [{"when": "trust", "send": "\r", "wait": 4}],
+    "views": 1,
+    "boot_wait": 10,
+    "view_wait": 4,
+    "submit_wait": 1.5,
+    "strip_lines": [],
+    "expect": "Models & Quota",
+    "calculation": "float(str(value).strip('%'))",
+    "extractors": {
+      "plan": "[\\w.+-]+@[\\w.-]+\\s*\\(([^)]+)\\)"
+    },
+    "periods": {
+      "gemini_weekly": {
+        "pct": "GEMINI MODELS.*?Weekly Limit Remaining.*?([\\d.]+)%",
+        "resets": "GEMINI MODELS.*?Weekly Limit Remaining.*?(Refreshes in [^\\n]+|Quota available)"
+      },
+      "gemini_5h": {
+        "pct": "GEMINI MODELS.*?Five Hour Limit Remaining.*?([\\d.]+)%",
+        "resets": "GEMINI MODELS.*?Five Hour Limit Remaining.*?(Refreshes in [^\\n]+|Quota available)"
+      }
+    }
+  },
+  "models": {
+    "type": "subcmd",
+    "list_cmd": ["agy", "models"],
+    "expect": "Gemini",
+    "list_regex": "^(?P<id>[a-z][\\w.]*-[\\w.\\-]+)\\s+(?P<name>.+)$",
+    "default_marker": "(current)"
+  },
+  "execution": {
+    "env_unset": ["GOOGLE_GEMINI_BASE_URL", "GEMINI_API_KEY"],
+    "cmd_template": [
+      "agy",
+      "--input-format",
+      "stream-json",
+      "--output-format",
+      "stream-json"
+    ],
+    "input_method": "stream-json",
+    "model_arg": [
+      "--model",
+      "{model}"
+    ],
+    "effort_arg": [
+      "--effort",
+      "{effort}"
+    ],
+    "sandbox": {
+      "enabled": false
+    }
+  },
+  "process_env": {
+    "unset": ["GOOGLE_GEMINI_BASE_URL", "GEMINI_API_KEY"]
+  },
+  "stream": {
+    "text_extractors": [
+      {
+        "matches": {
+          "event": "result",
+          "result.status": "SUCCESS"
+        },
+        "path": "result.response"
+      }
+    ],
+    "error_extractors": [
+      {
+        "matches": {
+          "event": "error"
+        },
+        "path": "error"
+      }
+    ]
+  },
+  "server": {
+    "port": 8003,
+    "protocol": "responses"
+  },
+  "tiers": {
+    "fast": "flash-low$",
+    "medium": "flash-medium$",
+    "reasoning": "flash-high$"
+  },
+  "tools": {
+    "available": [
+      "Bash",
+      "Edit",
+      "Read",
+      "WebSearch"
+    ],
+    "enabled": [],
+    "arg_format": "comma_separated",
+    "arg_flag": "--tools"
+  }
+}

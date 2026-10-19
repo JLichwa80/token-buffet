@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=77.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "token-buffet"
+version = "0.1.0"
+authors = [
+  { name="Jack" },
+]
+description = "A pure-Python proxy and routing system to bridge CLI-based LLMs to a standard OpenAI-compatible API."
+readme = "README.md"
+requires-python = ">=3.12"
+keywords = ["llm", "proxy", "router", "openai-compatible", "cli", "claude", "codex", "grok", "ollama"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+license = "MIT"
+license-files = ["LICENSE"]
+# TODO(release): add [project.urls] once a public repo exists.
+dependencies = [
+    "pyte",
+    "pywinpty; sys_platform=='win32'",
+    "pexpect; sys_platform!='win32'",
+    "openai",
+    "ai",
+]
+
+[project.scripts]
+tokenbuffet = "tokenbuffet.cli:main"
+tbuffet = "tokenbuffet.cli:main"
+
+# include-package-data + MANIFEST.in grafts so dotfiles/dot-dirs in the
+# templates (.agents, .claude/.codex/.gemini/.grok, demo .obsidian) ship too;
+# a package-data "**/*" glob silently drops leading-dot names.
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["tokenbuffet*"]
+
+[project.optional-dependencies]
+capture = [
+    "pyte",
+    "pywinpty; sys_platform=='win32'",
+    "pexpect; sys_platform!='win32'",
+    "openai",
+]
+responses = ["openai"]
+uistream = ["ai"]
+all = [
+    "pyte",
+    "pywinpty; sys_platform=='win32'",
+    "pexpect; sys_platform!='win32'",
+    "openai",
+    "ai",
+]

@@ -1,0 +1,11 @@
+{
+  "name": "Antigravity",
+  "type": "Gemini",
+  "path": "../../../demo/chatbots/agy",
+  "client_settings": {
+    "active_endpoint": "http://127.0.0.1:8090/client/agy",
+    "single_model_tier": "medium"
+  },
+  "bridge_configuration": ".gemini/antigravity-cli/settings.json",
+  "preset": "agy"
+}

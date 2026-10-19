@@ -1,0 +1,15 @@
+{
+  "mode": "usage",
+  "custom_order": [
+    "claude",
+    "codex",
+    "agy",
+    "grok"
+  ],
+  "effort": {
+    "fast": "medium",
+    "medium": "medium",
+    "reasoning": "high"
+  },
+  "providers": {}
+}

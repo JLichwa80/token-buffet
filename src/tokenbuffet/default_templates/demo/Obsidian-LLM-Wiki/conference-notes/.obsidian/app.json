@@ -1,0 +1,9 @@
+{
+  "alwaysUpdateLinks": true,
+  "uriCallbacks": true,
+  "userIgnoreFilters": [
+    "wiki/index.md",
+    "wiki/log.md",
+    "wiki/schema/"
+  ]
+}

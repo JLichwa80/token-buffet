@@ -1,0 +1,104 @@
+{
+  "usage": {
+    "type": "tui",
+    "cli_cmd": ["CLI_BIN", "--flags-to-run-inline-not-fullscreen"],
+    "command": "SLASH_COMMAND_TO_TYPE (e.g., '/usage')",
+    "views": 1,
+    "tab_switch": "\t",
+    "gates": [{"when": "on-screen prompt text", "send": "y\r", "wait": 2}],
+    "boot_wait": 7,
+    "view_wait": 2.5,
+    "submit_wait": 0,
+    "cols": 200,
+    "rows": 50,
+    "strip_lines": ["whole-line substrings to drop while cleaning"],
+    "expect": "OPTIONAL substring that must appear in the captured panel; if absent, capture errors out telling the user to initialize/trust this folder (readiness gate)",
+    "extractors": {
+      "plan": "REGEX_WITH_ONE_GROUP (e.g., 'Account:\\\\s*(\\\\w+)')"
+    },
+    "limit": 100,
+    "calculation": "EXPR yielding remaining_pct from the captured 'value' (e.g. '100 - float(str(value).strip('%'))' when the CLI prints percent USED; 'float(str(value).strip('%'))' when it already prints percent LEFT)",
+    "periods": {
+      "PERIOD_NAME (e.g., weekly)": {
+        "pct": "REGEX capturing the percentage the CLI prints, used or left (one group)",
+        "resets": "REGEX capturing the reset time (one group)"
+      }
+    }
+  },
+  "models": {
+    "type": "tui | subcmd",
+    "cli_cmd": ["CLI_BIN", "--flags-to-run-inline-not-fullscreen"],
+    "command": "SLASH_COMMAND_TO_TYPE for TUI mode (e.g., '/model')",
+    "list_cmd": ["CLI_BIN", "models (OPTIONAL: non-interactive id source; if set, capture runs this subcommand instead of driving the TUI)"],
+    "list_timeout": 60,
+    "views": 1,
+    "boot_wait": 7,
+    "view_wait": 2.5,
+    "submit_wait": 0,
+    "strip_lines": [],
+    "expect": "OPTIONAL substring that must appear in the captured text; if absent, capture errors out (readiness gate, e.g. not initialized / not logged in / folder not trusted)",
+    "list_start": "OPTIONAL substring where the model list begins (omit to scan whole text)",
+    "list_end": "OPTIONAL substring where the model list ends",
+    "list_regex": "PER-LINE REGEX. Named groups (?P<id>...) / (?P<name>...): id = the --model parameter, name = friendly label. A single capture group is used for both (the label IS the id, e.g. codex).",
+    "id_case": "OPTIONAL: lower or upper-case normalization for executable model ids; display names are preserved",
+    "default_marker": "(default)"
+  },
+  "execution": {
+    "cmd_template": [
+      "cli_bin",
+      "--output-format=stream-json",
+      "--prompt-file",
+      "{prompt_file}"
+    ],
+    "model_arg": [
+      "--model",
+      "{model}"
+    ],
+    "effort_arg": [
+      "--effort",
+      "{effort}"
+    ],
+    "input_method": "file | stdin",
+    "sandbox": {
+      "enabled": false,
+      "env_var": "",
+      "copy_auth": ""
+    }
+  },
+  "stream": {
+    "text_extractors": [
+      {
+        "matches": {
+          "type": "stream_event"
+        },
+        "path": "event.delta.text"
+      }
+    ],
+    "error_extractors": [
+      {
+        "matches": {
+          "type": "error"
+        },
+        "path": "message"
+      }
+    ]
+  },
+  "server": {
+    "port": 8000,
+    "protocol": "responses"
+  },
+  "tiers": {
+    "fast": "fast-model-name",
+    "medium": "medium-model-name",
+    "reasoning": "reasoning-model-name"
+  },
+  "tools": {
+    "available": [
+      "Bash",
+      "Edit"
+    ],
+    "enabled": [],
+    "arg_format": "comma_separated",
+    "arg_flag": "--tools"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "usage": {
+    "type": "tui",
+    "cli_cmd": [
+      "grok",
+      "--no-alt-screen"
+    ],
+    "limit": 100,
+    "views": 3,
+    "tab_switch": "\t",
+    "strip_lines": [
+      "Help improve Grok",
+      "Opt-in to allow",
+      "Read Terms and Privacy"
+    ],
+    "calculation": "100 - float(str(value).strip('%'))",
+    "command": "/usage",
+    "gates": [
+      {
+        "when": "trust",
+        "send": "\r",
+        "wait": 4
+      }
+    ],
+    "extractors": {
+      "plan": "limit \\(([^)]+)\\)"
+    },
+    "periods": {
+      "daily": {
+        "pct": "Daily limit.*?([\\d.]+)%",
+        "resets": "Daily limit.*?Resets:\\s*([A-Za-z]+ \\d+, [\\d:]+)"
+      },
+      "weekly": {
+        "pct": "Weekly limit.*?([\\d.]+)%",
+        "resets": "Weekly limit.*?Resets:\\s*([A-Za-z]+ \\d+, [\\d:]+)"
+      }
+    }
+  },
+  "models": {
+    "type": "subcmd",
+    "list_cmd": [
+      "grok",
+      "models"
+    ],
+    "expect": "Available models",
+    "list_regex": "^[*-]\\s+(\\S+)",
+    "default_marker": "(default)"
+  },
+  "execution": {
+    "cmd_template": [
+      "grok",
+      "--no-alt-screen",
+      "--output-format",
+      "streaming-messages-json",
+      "--include-partial-messages",
+      "--prompt-file",
+      "{prompt_file}"
+    ],
+    "model_arg": [
+      "--model",
+      "{model}"
+    ],
+    "effort_arg": [
+      "--effort",
+      "{effort}"
+    ],
+    "input_method": "file",
+    "tool_handoff_args": ["--tools", ""],
+    "sandbox": {
+      "enabled": true,
+      "env_var": "GROK_HOME",
+      "copy_auth": "~\\.grok\\auth.json"
+    }
+  },
+  "stream": {
+    "text_extractors": [
+      {
+        "matches": {
+          "type": "stream_event",
+          "event.type": "content_block_delta",
+          "event.delta.type": "text_delta"
+        },
+        "path": "event.delta.text"
+      }
+    ],
+    "error_extractors": [
+      {
+        "matches": {
+          "type": "error"
+        },
+        "path": "message"
+      },
+      {
+        "matches": {
+          "type": "result",
+          "is_error": true
+        },
+        "path": "errors"
+      }
+    ]
+  },
+  "server": {
+    "port": 8000,
+    "protocol": "responses"
+  },
+  "tiers": {
+    "fast": "build-fast$",
+    "medium": "grok-4\\.6",
+    "reasoning": "grok-4\\.7$"
+  },
+  "tools": {
+    "available": [
+      "Bash",
+      "Edit",
+      "Read",
+      "WebSearch"
+    ],
+    "enabled": [
+      "Bash"
+    ],
+    "arg_format": "comma_separated",
+    "arg_flag": "--tools"
+  }
+}

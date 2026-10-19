@@ -1,0 +1,11 @@
+{
+  "name": "Grok Build",
+  "type": "Grok",
+  "path": "../../../demo/chatbots/grok",
+  "client_settings": {
+    "active_endpoint": "http://127.0.0.1:8090/client/grok/v1",
+    "single_model_tier": "medium"
+  },
+  "bridge_configuration": ".grok/config.toml",
+  "preset": "grok"
+}

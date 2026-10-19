@@ -1,0 +1,36 @@
+{
+  "format": "text",
+  "content": "model = \"{single_model_tier}\"\nmodel_provider = \"local_bridge\"\n\n[model_providers.local_bridge]\nname = \"Local Bridge\"\nbase_url = \"{active_endpoint}\"\nenv_key = \"BRIDGE_API_KEY\"\nwire_api = \"responses\"\nrequires_openai_auth = false\nsupports_websockets = false\n",
+  "files": {
+    "launch.json": {
+      "format": "json",
+      "data": {
+        "command": [
+          "codex"
+        ],
+        "env": {
+          "CODEX_HOME": "{workspace}/.codex",
+          "BRIDGE_API_KEY": "local-bridge"
+        },
+        "requires": ".codex/config.toml"
+      }
+    },
+    ".codex/.gitignore": {
+      "format": "text",
+      "content": "*\n!.gitignore\n!config.toml\n"
+    }
+  },
+  "copy_home": {
+    "env": "CODEX_HOME",
+    "default": "~/.codex",
+    "to": ".codex",
+    "skip": [
+      "logs",
+      "log",
+      "*.log",
+      "*.lock",
+      "tmp",
+      ".tmp"
+    ]
+  }
+}

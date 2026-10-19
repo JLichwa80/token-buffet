@@ -1,0 +1,22 @@
+[Accessible screen reader mode: on]
+Claude Code v2.1.183
+Opus 4.8 with high effort · Claude Pro
+Fable now runs on usage credits.
+Fable was included in your plan for a limited time, and now requires usage credits. Run /model and select Fable — you'll be guided through usage credits setup if needed.
+you: y
+claude: I see just a "y" with no preceding question or task in this conversation. There's nothing pending for me to confirm.
+What would you like me to work on?
+Worked for 3s
+you: /model
+Select model
+Switch between Claude models. Your pick becomes the default for new sessions. For other/previous model names, specify with --model.
+menu: 1. Default (recommended) — Sonnet 4.6 · Efficient for routine tasks
+2. Sonnet — Sonnet 4.6 · Efficient for routine tasks
+3. Fable — Fable 5 · Most capable for your hardest and longest-running tasks · Draws from usage credits
+4. (selected) Opus — Opus 4.8 · Best for everyday, complex tasks · ~2× usage vs Sonnet
+5. Haiku — Haiku 4.5 · Fastest for quick answers
+6. (disabled) Fable 5.1 (disabled) — Update to 2.1.255+ to use Fable 5.1
+7. (disabled) Opus 5.5 (disabled) — Update to 2.1.280+ to use Opus 5.5
+Enter selection [1-7], or Escape to cancel:
+High effort (default) / to adjust
+Enter to set as default · s to use this session only · Esc to cancel

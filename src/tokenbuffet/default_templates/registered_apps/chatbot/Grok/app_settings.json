@@ -1,0 +1,36 @@
+{
+  "format": "text",
+  "content": "[model.local-bridge]\nmodel = \"{single_model_tier}\"\nbase_url = \"{active_endpoint}\"\nname = \"Local Bridge\"\nenv_key = \"BRIDGE_API_KEY\"\napi_backend = \"chat_completions\"\n\n[models]\ndefault = \"local-bridge\"\n",
+  "files": {
+    "launch.json": {
+      "format": "json",
+      "data": {
+        "command": [
+          "grok"
+        ],
+        "env": {
+          "GROK_HOME": "{workspace}/.grok",
+          "BRIDGE_API_KEY": "local-bridge"
+        },
+        "requires": ".grok/config.toml"
+      }
+    },
+    ".grok/.gitignore": {
+      "format": "text",
+      "content": "*\n!.gitignore\n!config.toml\n"
+    }
+  },
+  "copy_home": {
+    "env": "GROK_HOME",
+    "default": "~/.grok",
+    "to": ".grok",
+    "skip": [
+      "logs",
+      "log",
+      "*.log",
+      "*.lock",
+      "tmp",
+      ".tmp"
+    ]
+  }
+}

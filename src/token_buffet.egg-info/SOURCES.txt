@@ -1,0 +1,1007 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/token_buffet.egg-info/PKG-INFO
+src/token_buffet.egg-info/SOURCES.txt
+src/token_buffet.egg-info/dependency_links.txt
+src/token_buffet.egg-info/entry_points.txt
+src/token_buffet.egg-info/requires.txt
+src/token_buffet.egg-info/top_level.txt
+src/tokenbuffet/__init__.py
+src/tokenbuffet/anthropic_sse.py
+src/tokenbuffet/cli.py
+src/tokenbuffet/cli_proxy_server.py
+src/tokenbuffet/dashboard.py
+src/tokenbuffet/gemini_wire.py
+src/tokenbuffet/local_router.py
+src/tokenbuffet/log_config.py
+src/tokenbuffet/log_paths.py
+src/tokenbuffet/logged_run.py
+src/tokenbuffet/loopback.py
+src/tokenbuffet/onboarding.py
+src/tokenbuffet/tool_wire.py
+src/tokenbuffet/dashboard/__init__.py
+src/tokenbuffet/dashboard/__main__.py
+src/tokenbuffet/dashboard/server.py
+src/tokenbuffet/dashboard/static/app.css
+src/tokenbuffet/dashboard/static/app.js
+src/tokenbuffet/dashboard/static/index.html
+src/tokenbuffet/default_templates/.agents/rules/AGENTS.md
+src/tokenbuffet/default_templates/.agents/skills/add-new-model/SKILL.md
+src/tokenbuffet/default_templates/.agents/skills/register-provider/SKILL.md
+src/tokenbuffet/default_templates/.agents/skills/register-provider/references/workflow.md
+src/tokenbuffet/default_templates/.agents/skills/register-provider/scripts/probe_tui.py
+src/tokenbuffet/default_templates/.agents/skills/start-local-proxy/SKILL.md
+src/tokenbuffet/default_templates/.agents/skills/test-proxy-connection/SKILL.md
+src/tokenbuffet/default_templates/.claude/settings.json
+src/tokenbuffet/default_templates/.claude/skills/register-provider/SKILL.md
+src/tokenbuffet/default_templates/.claude/skills/register-provider/references/workflow.md
+src/tokenbuffet/default_templates/.claude/skills/register-provider/scripts/probe_tui.py
+src/tokenbuffet/default_templates/.codex/config.toml
+src/tokenbuffet/default_templates/.codex/skills/register-provider/SKILL.md
+src/tokenbuffet/default_templates/.codex/skills/register-provider/references/workflow.md
+src/tokenbuffet/default_templates/.codex/skills/register-provider/scripts/probe_tui.py
+src/tokenbuffet/default_templates/.gemini/config/projects/llmcliextractors.json
+src/tokenbuffet/default_templates/.gemini/skills/register-provider/SKILL.md
+src/tokenbuffet/default_templates/.gemini/skills/register-provider/references/workflow.md
+src/tokenbuffet/default_templates/.gemini/skills/register-provider/scripts/probe_tui.py
+src/tokenbuffet/default_templates/.grok/trusted_folders.toml
+src/tokenbuffet/default_templates/.grok/skills/register-provider/SKILL.md
+src/tokenbuffet/default_templates/.grok/skills/register-provider/references/workflow.md
+src/tokenbuffet/default_templates/.grok/skills/register-provider/scripts/probe_tui.py
+src/tokenbuffet/default_templates/config/logging.json
+src/tokenbuffet/default_templates/config/router_config.json
+src/tokenbuffet/default_templates/demo/README.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/README.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/README.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/app.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/appearance.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/backlink.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/bookmarks.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/community-plugins.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/core-plugins.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/graph.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/workspace.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/plugins/find-n-replace/data.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/plugins/find-n-replace/main.js
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/plugins/find-n-replace/manifest.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/plugins/find-n-replace/styles.css
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/plugins/karpathywiki/data.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/plugins/karpathywiki/main.js
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/plugins/karpathywiki/manifest.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/.obsidian/plugins/karpathywiki/styles.css
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/_Inbox/10-09 Keynote The Tax Trap in Bond Investing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/_Inbox/10-09 Keynote_ After-Tax Investing, Tax-Neutral Transitions, and Private Real Estate Strategies-Summary.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/_Inbox/10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1).md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2).md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/_Inbox/10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/_Inbox/10-09 Keynote_ Tax-Aware Portfolio Transitions and Derivative ETF Risks-Summary.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/_Inbox/10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/_Inbox/10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/index.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/log.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/1033-exchange.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/13030-strategy.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/15050-long-short.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/1940-act.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/200100-long-short.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/247-liquidity.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/250150-long-short.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/275-long-275-short.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/351-eligibility.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/40-act-fund.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/6040-portfolio.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/active-side-of-indexing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/adjusted-basis.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/after-tax-architect.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/after-tax-benchmarking.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/after-tax-excess-return.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/after-tax-investing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/after-tax-outcomes.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/after-tax-taxable-crossover.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/after-tax-wealth-accounting.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/alpha-model.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/alpha-slope.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/alpha-tech’s-351-workflow.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/alpha-thesis.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/amt.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/arbitrage.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/arithmetic-of-active-management.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/asset-location.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/at-risk-limitations.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/autocall-etf.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/automation-plus-advisor-judgment.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/basis-points.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/bond-etf.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/bond-market-electronification.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/bond-tax-loss-harvesting.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/break-the-penny.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/budgets-not-gaps.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/buffer-funds.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/built-in-gains.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/bulldozer-analogy.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/calendar-based-rebalancing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/cap-weighted-indexing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/capabilities-map.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/capital-formation-and-labor-supply.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/capital-formation.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/capital-gains-tax.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/capital-market-assumption.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/carried-interest.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/cash-flow-rebalancing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/cash-lock-ins.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/certainty-of-outcome.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/cits.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/client-conviction-buckets.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/client-psychology.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/client-specific-restrictions.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/closed-351.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/cobra-effect-in-tax-policy.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/common-denominator-problem.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/concentrated-executive.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/concentrated-stock-position.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/concentrated-wealth.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/constructive-sale.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/continuous-tax-loss-harvesting.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/corporate-tax-rate-cut.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/cost-stack.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/cpmgcphy.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/cross-sectional-dispersion.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/crypto-etf-bridge.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/cumulative-net-capital-losses.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/cusip.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/daily-tax-loss-harvesting.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/de-minimis-rule.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/delaware-statutory-trust-dst.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/deleveraging-path.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/derivative-etf.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/designed-not-defaulted.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/diagnosis.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/direct-indexing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/direct-single-name-funding.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/disallowed-losses.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/dividend-avoidance.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/dont-get-me-fired-allocation.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/drip.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/dual-share-class.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/dynamic-fixed-income-review.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/economic-footprint.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/embedded-gains.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/equal-weight.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/equitability.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/equity-tax-loss-harvesting.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/estate-planning.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/etf-shares-as-receipts.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/etf-trading-efficiency.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/etf-versus-mutual-fund-tax-efficiency.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/etfs.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/ets-playbook.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/fama–french-alpha.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/family-level-outcomes.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/fiscal-doom-loop.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/five-principles-for-passive-tax-loss-strategies.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/fixed-income-market-capacity.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/full-cost-basis.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/fully-covered-call-strategy.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/fundamental-growth.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/fundamental-indexing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/gain-deferral.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/governance-and-reporting.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/grandmother-effect.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/groundwork-principle.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/high-commission-bond-trading.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/high-tax-state.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/high-turnover-fund.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/home-state-municipal-bond-default.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/honda-civic-problem.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/household-balance-sheet.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/household-level-diversification.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/hunt-and-find.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/idiosyncratic-risk.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/implementation-layer.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/in-kind-creationredemption.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/in-kind-options.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/inelastic-municipal-supply.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/information-ratio.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/insensitive-demand.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/integrated-portfolio-management.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/intelligent-wrappers.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/internal-revenue-code.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/internal-washing-of-gains-and-losses.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/investment-wrappers.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/is-the-client-comfortable-restructuring-the-balance-sheet.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/is-the-client-comfortable-with-complexity.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/is-there-a-use-for-the-losses.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/labor-supply.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/laddered-diversification.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/long-only-direct-indexing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/long-term-capital-gains.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/long-term-tax-aware-investing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/look-through-basis.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/look-through-process.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/losses-are-inventory.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/lot-level-implementation.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/macroeconomic-model.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/market-beta.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/market-neutral-portfolio.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/mean-reversion.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/measuring-four-times-and-cutting-once.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/monetizing-volatility.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/muni-optimization-challenge.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/mutual-fund-tax-asymmetry.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/national-municipal-allocation.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/nav-accrual.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/nav.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/negative-correlation-of-shorts.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/no-cash-flow-assumption.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/no-tax-on-movement.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/not-my-company.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/octane.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/one-click-optimization.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/operational-costs.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/ordinary-income.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/oscillation-risk.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/ossified-portfolio.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/otc-collar.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/over-the-counter-bond-market.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/own-everything.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/own-securities-where-control-matters.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/partisanship.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/pending-liquidity-event.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/percentage-leverage.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/permanency.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/permanent-tax-avoidance.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/persistence-of-tax-alpha.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/pledged-asset-line.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/policy-formation-map.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/policy-space.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/pooled-vehicle.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/populism.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/portfolio-lock-up.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/portfolio-risk.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/position-creation.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/pre-tax-product-selection.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/pretax-alpha.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/private-placement-life-insurance.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/private-real-estate-recovery.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/pro-growth-reform.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/property-tax-repeal.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/protectionism.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/proxy-fund.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/qualified-business-income-deduction.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/qualified-dividend-income.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/r&d-expensing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/race-to-die.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/realized-gains-and-losses.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/rebalancing-alpha.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/rebalancing-destination.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/rebalancing-tax-drag.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/regulatory-complexity.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/research-gap.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/return-of-capital.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/roll-cost.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/rolling-15-year-simulation.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/sawtooth-pattern.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/section-1031-exchange.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/section-351-exchange.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/sector-and-country-distortion-under-cap-weights.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/segment-clients-by-vehicle.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/separately-managed-account.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/set-it-and-forget-it.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/shavings-make-a-pile.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/short-extension.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/short-term-mean-reversion.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/shorting-against-the-box.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/shrinking-tax-base.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/siloed-sleeve-management.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/simple-etf-portfolios.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/single-counterparty-trap.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/sma-minimum-account-size.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/sma-professional-capacity.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/smart-beta.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/soft-rebalancing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/spreads.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/stage-sales.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/state-level-tax-experiments.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/state-tax-regime-sensitivity.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/step-up-basis.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/straddle-rules.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/structural-alpha.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/sunset-clause.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/syndicated-351.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/synthetic-borrowing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/synthetic-rebalancing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/systematized-customization.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/taking-good-debt.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/target-leverage.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-advantaged-private-real-estate.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-alpha.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-arbitrage.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-aware-deposits-and-withdrawals.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-aware-long-short-equity.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-aware-long-short-implementation.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-aware-public-market-solutions.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-aware-transition-analysis.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-breakeven-equation.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-code.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-design.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-drag-at-the-cma-level.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-drag.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-efficiency.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-engine.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-free-policy-loan.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-loss-harvesting.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-lot-mapping.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-neutral-transitions.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-optionality.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-overlay.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-persona.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-policy-is-written-in-fragments.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-policy-sunsets.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-policy.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-stack.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tax-trap.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/taxable-equivalent-yield.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/taxable-income-portfolio.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/taxable-wealth-is-different.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/taxes-first-philosophy.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tech-stack.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/three-competing-effects-of-higher-pretax-alpha.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/three-ps-lens.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tighten-spreads.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tokenization.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tokenized-shares.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tokenized-t-bills.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/top-10-after-tax-comparison.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/total-return.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/tracking-error.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/trading-against-etf-flows.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/transitions-are-roadmaps.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/treasurys.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/trigger-point-rebalancing.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/triple-tax-advantage.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/truncated-schedule.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/two-bad-options.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/two-big-tax-frictions.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/under-levered.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/unified-government.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/uninformed-tracking-error.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/upreit.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/value-tilt.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/variable-prepaid-forward.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/voter-math-&-agenda-setting.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/voter-math.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/wall-street-vs-washington.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/washington-designed-your-portfolio.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/washington-state-tax-constraints.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/wealth-tax.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/concepts/weekly-tax-loss-harvesting.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/contradictions/municipal-bonds-do-not-consistently-outperform-tax-2026-10-12.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/contradictions/originating-from-vanguards-patented-design-and-no-2026-10-13.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/aaron.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/aaub.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/alex.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/alliancebernstein.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/alpha-architect.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/apple.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/basis-northwest.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/benjamin-franklin.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/bernie-sanders.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/bill-sharpe.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/bitcoin.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/box-spread.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/brevan-howard.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/brevan-howardnuveen-platform.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/california.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/canopy-capital.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/casey.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/cathie-wood.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/cboe.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/citadel.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/clara.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/clarity-act.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/congress.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/corporate-bond.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/delaware-statutory-trust.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/deterministic-optimization-engine.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/eric.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/etf-architect.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/faang.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/fidelity.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/financial-analysts-journal.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/first-trust.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/fm-investments.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/gld.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/herr-schmaltz.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/ibit.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/invesco.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/is-your-alpha-big-enough-to-cover-its-taxes.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/jane-street.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/jeff.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/jill.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/katrina.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/kevin-brady.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/microsoft.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/millionaire-tax.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/morningstar.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/municipal-bond.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/mutual-funds.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/nuveen.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/nvidia.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/one-big-beautiful-bill.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/paul-ryan.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/perpetual-non-traded-reit.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/peter-lynch.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/pmr.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/preferred-securities.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/prf.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/private-credit.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/research-affiliates.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/riley.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/rob-arnott.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/russell-1000.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/sam.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/schwab.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/sec.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/single-member-series-llc.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/spacex.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/steve-daines.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/sweet-riley.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/t-bill-and-tbmax.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/t-bill.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/tad-jeffrey.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/tax-cuts-and-jobs-act.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/tax-foundation.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/taylor.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/tbmax.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/treasury.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/trifecta.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/u-s-bank.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/u-s-government.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/urko.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/vanguard.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/vest.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/wachovia.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/wall-street.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/washington-state.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/entities/white-house.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/schema/config.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/schema/suggestions.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/sources/10-09-keynote-the-tax-trap-in-bond-investing_ae0375.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/sources/10-09-keynote_-after-tax-investing-tax-neutral-transitions-and-private-re_80024f.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/sources/10-09-keynote_-after-tax-investing-tax-neutral-transitions-and-private-re_daa283.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/sources/10-09-keynote_-after-tax-wealth-management-and-tax-stack-design-summary-1_b17566.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_58815e.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_a509e2.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/sources/10-09-keynote_-tax-aware-long-short-investing-pretax-alpha-and-after-tax-_108d27.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/sources/10-09-keynote_-tax-aware-portfolio-transitions-and-derivative-etf-risks-s_682211.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/sources/10-09-keynote_-us-tax-policy-partisanship-populism-and-protectionism-summ_cd29d7.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/sources/10-09-panel-discussion_-variable-prepaid-forwards-tax-aware-long-short-an_58d676.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/archive-wiki/sources/10-09-presentation_-tax-alpha-dual-share-class-and-tokenized-t‑bills-summ_8e3714.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/index.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/log.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/concepts/after-tax-return.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/concepts/bid-ask-spread.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/concepts/common-denominator-vs-individual-optimization.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/concepts/electronification.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/concepts/fixed-income.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/concepts/insensitive-demand.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/concepts/systematized-customization.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/concepts/tax-loss-harvesting.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/concepts/tax-persona.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/concepts/the-hunt-and-find-market.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/concepts/the-tax-trap.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/canby-capital.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/citadel.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/corporate-bonds.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/cusip.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/fidelity.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/jamie.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/jane-street.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/massachusetts-municipal-bonds.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/massachusetts.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/microsoft.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/national-municipal-bonds.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/new-york.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/private-credit.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/separately-managed-accounts-smas.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/entities/texas.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/schema/config.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/conference-notes/wiki/sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/README.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/.obsidian/app.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/.obsidian/appearance.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/.obsidian/community-plugins.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/.obsidian/core-plugins.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/.obsidian/workspace.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/.obsidian/plugins/karpathywiki/data.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/.obsidian/plugins/karpathywiki/main.js
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/.obsidian/plugins/karpathywiki/manifest.json
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/.obsidian/plugins/karpathywiki/styles.css
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2023-11-22-10.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2023-11-22-11.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2023-11-22-12.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2023-11-22-13.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2023-11-22-2.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2023-11-22-3.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2023-11-22-4.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2023-11-22-5.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2023-11-22-6.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2023-11-22-7.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2023-11-22-8.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2023-11-22-9.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2023-11-22.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-02-19-10.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-02-19-11.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-02-19-12.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-02-19-15.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-02-19-2.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-02-19-3.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-02-19-4.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-02-19-5.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-02-19-6.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-02-19-7.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-02-19-8.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-02-19-9.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-02-19.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-21-10.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-21-11.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-21-12.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-21-2.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-21-3.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-21-4.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-21-5.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-21-6.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-21-7.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-21-8.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-21-9.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-21.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-10.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-11.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-12.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-13.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-14.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-15.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-16.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-17.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-18.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-19.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-2.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-20.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-21.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-22.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-23.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-24.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-27.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-3.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-34.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-4.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-40.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-5.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-6.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-7.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-8.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27-9.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-27.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28-10.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28-11.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28-14.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28-16.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28-19.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28-2.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28-3.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28-4.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28-5.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28-6.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28-7.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28-8.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28-9.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-09-28.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-10.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-11.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-12.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-13.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-14.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-15.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-16.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-17.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-18.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-19.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-2.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-20.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-21.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-22.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-3.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-38.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-4.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-5.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-6.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-7.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-8.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10-9.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-10.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-10.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-11.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-12.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-13.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-14.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-15.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-16.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-17.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-18.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-19.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-2.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-20.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-21.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-22.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-3.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-32.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-4.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-5.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-6.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-7.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-8.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11-9.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-11.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-10.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-103.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-104.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-11.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-112.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-117.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-12.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-13.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-14.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-15.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-16.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-17.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-18.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-19.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-2.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-20.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-21.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-22.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-23.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-24.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-25.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-26.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-27.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-28.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-29.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-3.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-30.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-31.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-32.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-33.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-34.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-35.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-36.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-37.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-38.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-39.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-4.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-40.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-41.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-42.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-43.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-44.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-45.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-46.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-47.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-48.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-49.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-5.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-50.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-51.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-52.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-53.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-54.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-55.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-56.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-57.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-58.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-59.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-6.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-60.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-61.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-62.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-63.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-64.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-65.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-66.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-7.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-75.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-78.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-8.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-82.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-84.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-9.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12-95.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-12.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-10.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-11.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-12.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-13.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-14.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-15.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-16.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-17.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-18.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-19.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-2.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-20.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-21.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-22.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-23.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-28.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-29.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-3.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-4.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-5.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-6.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-7.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-8.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13-9.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-13.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-14-10.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-14-11.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-14-12.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-14-2.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-14-3.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-14-4.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-14-5.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-14-6.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-14-7.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-14-8.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-14-9.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-14.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-10.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-11.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-12.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-13.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-14.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-15.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-16.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-17.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-18.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-19.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-2.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-20.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-21.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-22.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-23.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-24.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-3.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-4.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-5.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-6.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-7.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-8.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15-9.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-15.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16-10.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16-11.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16-12.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16-15.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16-19.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16-2.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16-3.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16-4.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16-5.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16-6.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16-7.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16-8.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16-9.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/_Inbox/2026-10-16.md
+src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/daily-notes/wiki/Welcome to Karpathy LLM Wiki.md
+src/tokenbuffet/default_templates/demo/chatbots/README.md
+src/tokenbuffet/default_templates/demo/chatbots/agy/README.md
+src/tokenbuffet/default_templates/demo/chatbots/agy/launch.ps1
+src/tokenbuffet/default_templates/demo/chatbots/claude/README.md
+src/tokenbuffet/default_templates/demo/chatbots/claude/.claude/settings.local.json
+src/tokenbuffet/default_templates/demo/chatbots/codex/README.md
+src/tokenbuffet/default_templates/demo/chatbots/codex/launch.ps1
+src/tokenbuffet/default_templates/demo/chatbots/grok/README.md
+src/tokenbuffet/default_templates/demo/chatbots/grok/config.toml
+src/tokenbuffet/default_templates/demo/chatbots/grok/launch.ps1
+src/tokenbuffet/default_templates/demo/claudia/README.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.mcp.json.example
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/AGENTS.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/CLAUDE.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/LICENSE
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/NOTICE
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/README.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/manifest.json
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/settings.local.json
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/agents/README.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/agents/canvas-generator.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/agents/document-archivist.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/agents/document-processor.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/agents/loop-checker.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/agents/research-scout.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/agents/schedule-analyst.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/hooks/hooks.json
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/hooks/judgment-sync.py
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/hooks/post-tool-capture.py
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/hooks/pre-compact.py
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/hooks/pre-compact.sh
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/hooks/session-enqueue.py
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/hooks/session-health-check.py
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/hooks/session-health-check.sh
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/hooks/session-summary.py
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/hooks/user-prompt-capture.py
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/rules/claudia-principles.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/rules/data-freshness.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/rules/judgment-active.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/rules/memory-availability.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/rules/memory-commitment.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/rules/shell-compatibility.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/rules/trust-north-star.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/README.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/agent-dispatcher.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/capability-suggester.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/commitment-detector.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/connector-discovery.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/hire-agent.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/judgment-awareness.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/memory-manager.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/onboarding.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/pattern-recognizer.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/relationship-tracker.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/risk-surfacer.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/skill-index.json
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/structure-generator.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/vault-awareness.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/_loop/README.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/_loop/checker.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/_loop/maker.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/_loop/repair.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/archetypes/_base-structure.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/archetypes/consultant.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/archetypes/creator.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/archetypes/executive.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/archetypes/founder.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/archetypes/solo.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/auto-research/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/auto-research/references/program-template.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/auto-research/references/safety-rules.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/brain/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/brain-monitor/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/build-team/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/capture-meeting/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/capture-meeting/evals/basic.yaml
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/client-health/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/databases/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/deep-context/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/diagnose/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/diagnose/evals/basic.yaml
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/diagnose/references/common-issues.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/draft-reply/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/feedback/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/file-document/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/financial-snapshot/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/fix-duplicates/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/follow-up-draft/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/growth-check/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/inbox-check/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/ingest-sources/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/ingest-sources/references/extraction-patterns.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/map-connections/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/meditate/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/meditate/evals/basic.yaml
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/meeting-prep/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/memory-audit/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/memory-health/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/morning-brief/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/morning-brief/evals/basic.yaml
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/new-person/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/new-person/evals/basic.yaml
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/new-workspace/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/new-workspace/references/workspace-templates.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/pipeline-review/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/research/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/research/references/source-evaluation.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/skill-router/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/skill-router/references/overlap-clusters.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/summarize-doc/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/weekly-review/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/what-am-i-missing/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/wiki/SKILL.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/wiki/references/citations-and-contradictions.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.claude/skills/wiki/references/page-template.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/.codex/README.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/context/whats-new.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/workspaces/_templates/Agreement.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/workspaces/_templates/Dashboard.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/workspaces/_templates/Deliverable.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/workspaces/_templates/Interview.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/workspaces/_templates/Invoice.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/workspaces/_templates/Meeting.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/workspaces/_templates/Pipeline.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/workspaces/_templates/Theme.md
+src/tokenbuffet/default_templates/demo/claudia/My Client Relationships Management/workspaces/_templates/Timeline.md
+src/tokenbuffet/default_templates/integrations/register.py
+src/tokenbuffet/default_templates/integrations/_base/app_config.json
+src/tokenbuffet/default_templates/integrations/_base/app_settings.json
+src/tokenbuffet/default_templates/integrations/_base/configure.py
+src/tokenbuffet/default_templates/integrations/_base/init.py
+src/tokenbuffet/default_templates/integrations/chatbot/app_config.json
+src/tokenbuffet/default_templates/integrations/chatbot/app_settings.json
+src/tokenbuffet/default_templates/integrations/chatbot/init.py
+src/tokenbuffet/default_templates/integrations/claudia/app_config.json
+src/tokenbuffet/default_templates/integrations/claudia/app_settings.json
+src/tokenbuffet/default_templates/integrations/claudia/configure.py
+src/tokenbuffet/default_templates/integrations/claudia/init.py
+src/tokenbuffet/default_templates/integrations/obsidian/README.md
+src/tokenbuffet/default_templates/integrations/obsidian/app_config.json
+src/tokenbuffet/default_templates/integrations/obsidian/app_settings.json
+src/tokenbuffet/default_templates/integrations/obsidian/configure.py
+src/tokenbuffet/default_templates/integrations/obsidian/init.py
+src/tokenbuffet/default_templates/integrations/obsidian/vault_types.json
+src/tokenbuffet/default_templates/registered_apps/template_app.json
+src/tokenbuffet/default_templates/registered_apps/chatbot/Claude/app_config.json
+src/tokenbuffet/default_templates/registered_apps/chatbot/Claude/app_settings.json
+src/tokenbuffet/default_templates/registered_apps/chatbot/Claude/init.py
+src/tokenbuffet/default_templates/registered_apps/chatbot/Gemini/app_config.json
+src/tokenbuffet/default_templates/registered_apps/chatbot/Gemini/app_settings.json
+src/tokenbuffet/default_templates/registered_apps/chatbot/Gemini/init.py
+src/tokenbuffet/default_templates/registered_apps/chatbot/Grok/app_config.json
+src/tokenbuffet/default_templates/registered_apps/chatbot/Grok/app_settings.json
+src/tokenbuffet/default_templates/registered_apps/chatbot/Grok/init.py
+src/tokenbuffet/default_templates/registered_apps/chatbot/OpenAI/app_config.json
+src/tokenbuffet/default_templates/registered_apps/chatbot/OpenAI/app_settings.json
+src/tokenbuffet/default_templates/registered_apps/chatbot/OpenAI/init.py
+src/tokenbuffet/default_templates/registered_apps/claudia/My Client Relationships Management/app_config.json
+src/tokenbuffet/default_templates/registered_apps/claudia/My Client Relationships Management/app_settings.json
+src/tokenbuffet/default_templates/registered_apps/claudia/My Client Relationships Management/configure.py
+src/tokenbuffet/default_templates/registered_apps/claudia/My Client Relationships Management/init.py
+src/tokenbuffet/default_templates/registered_apps/obsidian/conference-notes/app_config.json
+src/tokenbuffet/default_templates/registered_apps/obsidian/conference-notes/app_settings.json
+src/tokenbuffet/default_templates/registered_apps/obsidian/conference-notes/configure.py
+src/tokenbuffet/default_templates/registered_apps/obsidian/conference-notes/init.py
+src/tokenbuffet/default_templates/registered_apps/obsidian/conference-notes/vault_types.json
+src/tokenbuffet/default_templates/registered_apps/obsidian/daily-notes/app_config.json
+src/tokenbuffet/default_templates/registered_apps/obsidian/daily-notes/app_settings.json
+src/tokenbuffet/default_templates/registered_apps/obsidian/daily-notes/configure.py
+src/tokenbuffet/default_templates/registered_apps/obsidian/daily-notes/init.py
+src/tokenbuffet/default_templates/registered_apps/obsidian/daily-notes/vault_types.json
+src/tokenbuffet/default_templates/registered_providers/template_config.json
+src/tokenbuffet/default_templates/registered_providers/agy/config.json
+src/tokenbuffet/default_templates/registered_providers/claude/config.json
+src/tokenbuffet/default_templates/registered_providers/codex/config.json
+src/tokenbuffet/default_templates/registered_providers/grok/config.json
+src/tokenbuffet/default_templates/scripts/start_all_proxies.ps1
+src/tokenbuffet/default_templates/scripts/start_all_proxies.sh
+src/tokenbuffet/default_templates/scripts/start_bridge.ps1
+src/tokenbuffet/default_templates/scripts/start_bridge.sh
+src/tokenbuffet/default_templates/scripts/start_dashboard.ps1
+src/tokenbuffet/default_templates/scripts/start_dashboard.sh
+src/tokenbuffet/default_templates/scripts/start_router.ps1
+src/tokenbuffet/default_templates/scripts/start_router.sh
+src/tokenbuffet/default_templates/scripts/stop_all.ps1
+src/tokenbuffet/default_templates/scripts/stop_all.sh
+src/tokenbuffet/default_templates/scripts/stop_router.ps1
+src/tokenbuffet/default_templates/scripts/stop_router.sh
+src/tokenbuffet/default_templates/scripts/fleet/start_proxy.ps1
+src/tokenbuffet/default_templates/scripts/fleet/start_proxy.sh
+src/tokenbuffet/default_templates/scripts/fleet/stop_all_proxies.ps1
+src/tokenbuffet/default_templates/scripts/fleet/stop_all_proxies.sh
+src/tokenbuffet/default_templates/scripts/providers/read-provider.ps1
+src/tokenbuffet/default_templates/scripts/providers/read-provider.sh
+src/tokenbuffet/default_templates/scripts/providers/read-providers.ps1
+src/tokenbuffet/default_templates/scripts/providers/read-providers.sh
+src/tokenbuffet/extractors/__init__.py
+src/tokenbuffet/extractors/__main__.py
+src/tokenbuffet/extractors/_pty_posix.py
+src/tokenbuffet/extractors/_pty_windows.py
+src/tokenbuffet/extractors/config.py
+src/tokenbuffet/extractors/models.py
+src/tokenbuffet/extractors/process_env.py
+src/tokenbuffet/extractors/subcmd.py
+src/tokenbuffet/extractors/tui.py
+src/tokenbuffet/extractors/usage.py
+src/tokenbuffet/extractors/util.py
+tests/test_request_failover.py

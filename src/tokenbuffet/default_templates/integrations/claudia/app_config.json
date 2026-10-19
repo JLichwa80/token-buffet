@@ -1,0 +1,18 @@
+{
+    "name": "claudia",
+    "type": "claudia",
+    "title": "Claudia",
+    "description": "Claudia is a terminal-based AI chief of staff built on Claude Code. It remembers your relationships, tracks your commitments, surfaces patterns in your work, and helps you think and prioritize strategically.",
+    "path": "[app_path]",
+    "client_settings": {
+        "active_endpoint": "http://127.0.0.1:8090/client/claude",
+        "single_model_tier": "medium",
+        "model_mode": "false",
+        "task_model_tiers": {
+            "taskType1": "fast",
+            "taskType2": "medium",
+            "taskType3": "reasoning"
+        }
+    },
+    "bridge_configuration": ".claude/settings.local.json"
+}

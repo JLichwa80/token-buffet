@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git status *)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git show *)",
+      "Bash(git branch *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(ls *)",
+      "Bash(mkdir *)",
+      "Bash(mkdir -p *)",
+      "Bash(cp *)",
+      "Bash(cp -r *)",
+      "Bash(mv *)",
+      "Bash(rm *)",
+      "Bash(rm -rf *)",
+      "Bash(python -m tokenbuffet *)",
+      "Bash(python -m llm_cli_extractors *)",
+      "Bash(python *)",
+      "PowerShell(*)",
+      "Read(**)",
+      "mcp__claude-in-chrome__navigate",
+      "mcp__plugin_Notion_notion__notion-fetch",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "mcp__claude-in-chrome__read_console_messages"
+    ]
+  }
+}

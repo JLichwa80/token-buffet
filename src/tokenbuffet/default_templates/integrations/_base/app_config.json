@@ -1,0 +1,16 @@
+{
+    "name": "_base",
+    "type": "generic",
+    "path": ".",
+    "client_settings": {
+        "active_endpoint": "http://127.0.0.1:8090/v1",
+        "single_model_tier": "medium",
+        "model_mode": "false",
+        "task_model_tiers": {
+            "taskType1": "fast",
+            "taskType2": "medium",
+            "taskType3": "reasoning"
+        }
+    },
+    "bridge_configuration": "app_settings.json"
+}

@@ -1,0 +1,20 @@
+>_ OpenAI Codex (v0.162.1)
+permissions: YOLO mode
+Tip: Use the desktop app. Install it from https://chatgpt.com/codex?app-landing-page=true and run codex app.
+/status
+>_ OpenAI Codex (v0.162.1)
+Visit https://chatgpt.com/settings/usage for up-to-date
+information on rate limits and credits
+Server: Local background server
+Model: GPT-6-Sol (reasoning medium)
+Model provider: openai
+Directory:
+Permissions: Full Access
+Agents.md: ~\.codex\AGENTS.md, AGENTS.md
+Account: jacklichwa@gmail.com (Plus)
+Collaboration mode: Default
+Session: 01a1373d-2339-7680-9f2b-50f6eee0be2b
+5h limit: [ ] 0% left (resets 5:41 PM)
+Weekly limit: [ ] 69% left (resets 12:37 AM on 20 Oct)
+› Ask Codex to do anything
+GPT-6-Sol medium · · for agents

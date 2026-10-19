@@ -1,0 +1,23 @@
+{
+  "id": "llmcliextractors",
+  "name": "LLMCLIExtractors",
+  "projectResources": {
+    "resources": [
+      {
+        "folderUri": "file:///m%3A/My%20Drive/LLMCLIExtractors"
+      }
+    ]
+  },
+  "permissionGrants": {
+    "permissionGrants": {
+      "allow": [
+        "read_file(*)",
+        "write_file(*)",
+        "read_url(*)",
+        "command(*)"
+      ]
+    }
+  },
+  "settings": {},
+  "isWorkspaceOnly": false
+}

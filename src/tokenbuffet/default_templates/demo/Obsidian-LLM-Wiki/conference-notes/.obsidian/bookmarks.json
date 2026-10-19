@@ -1,0 +1,207 @@
+{
+  "items": [
+    {
+      "type": "graph",
+      "ctime": 1792056231778,
+      "title": "By Type",
+      "options": {
+        "collapse-filter": false,
+        "search": "",
+        "showTags": true,
+        "showAttachments": true,
+        "hideUnresolved": true,
+        "showOrphans": true,
+        "collapse-color-groups": false,
+        "colorGroups": [
+          {
+            "query": "path:wiki/contradictions  ",
+            "color": {
+              "a": 1,
+              "rgb": 14701138
+            }
+          },
+          {
+            "query": "path:wiki/concepts  ",
+            "color": {
+              "a": 1,
+              "rgb": 957021
+            }
+          },
+          {
+            "query": "path:wiki/entities  ",
+            "color": {
+              "a": 1,
+              "rgb": 5526240
+            }
+          },
+          {
+            "query": "path:wiki/sources  ",
+            "color": {
+              "a": 1,
+              "rgb": 14871010
+            }
+          }
+        ],
+        "collapse-display": false,
+        "showArrow": false,
+        "textFadeMultiplier": 0,
+        "nodeSizeMultiplier": 1,
+        "lineSizeMultiplier": 1,
+        "collapse-forces": false,
+        "centerStrength": 0.518713248970312,
+        "repelStrength": 10,
+        "linkStrength": 1,
+        "linkDistance": 250,
+        "scale": 0.41625591608307616,
+        "close": false
+      }
+    },
+    {
+      "type": "graph",
+      "ctime": 1792056461179,
+      "title": "Concepts",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:wiki/concepts  ",
+        "showTags": true,
+        "showAttachments": true,
+        "hideUnresolved": true,
+        "showOrphans": true,
+        "collapse-color-groups": false,
+        "colorGroups": [
+          {
+            "query": "tag:#organization  ",
+            "color": {
+              "a": 1,
+              "rgb": 14701138
+            }
+          },
+          {
+            "query": "tag:#fund  ",
+            "color": {
+              "a": 1,
+              "rgb": 14725458
+            }
+          },
+          {
+            "query": "tag:#index  ",
+            "color": {
+              "a": 1,
+              "rgb": 11657298
+            }
+          },
+          {
+            "query": "tag:#portfolio_archetype  ",
+            "color": {
+              "a": 1,
+              "rgb": 5431378
+            }
+          },
+          {
+            "query": "tag:#theory  ",
+            "color": {
+              "a": 1,
+              "rgb": 5431473
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": false,
+        "textFadeMultiplier": 0,
+        "nodeSizeMultiplier": 1,
+        "lineSizeMultiplier": 1,
+        "collapse-forces": false,
+        "centerStrength": 0.518713248970312,
+        "repelStrength": 10,
+        "linkStrength": 1,
+        "linkDistance": 250,
+        "scale": 0.40182275429528047,
+        "close": false
+      }
+    },
+    {
+      "type": "graph",
+      "ctime": 1792057241838,
+      "title": "By Entity",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:wiki/entities  ",
+        "showTags": true,
+        "showAttachments": true,
+        "hideUnresolved": true,
+        "showOrphans": true,
+        "collapse-color-groups": false,
+        "colorGroups": [
+          {
+            "query": "tag:#person",
+            "color": {
+              "a": 1,
+              "rgb": 6052573
+            }
+          },
+          {
+            "query": "tag:#organization",
+            "color": {
+              "a": 1,
+              "rgb": 5131683
+            }
+          },
+          {
+            "query": "tag:#fund",
+            "color": {
+              "a": 1,
+              "rgb": 4071091
+            }
+          },
+          {
+            "query": "tag:#index",
+            "color": {
+              "a": 1,
+              "rgb": 2900374
+            }
+          },
+          {
+            "query": "tag:#theory  ",
+            "color": {
+              "a": 1,
+              "rgb": 397464
+            }
+          },
+          {
+            "query": "tag:#other ",
+            "color": {
+              "a": 1,
+              "rgb": 5419488
+            }
+          },
+          {
+            "query": "tag:#instrument  ",
+            "color": {
+              "a": 1,
+              "rgb": 921191
+            }
+          },
+          {
+            "query": "tag:#asset_class  ",
+            "color": {
+              "a": 1,
+              "rgb": 3031766
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": false,
+        "textFadeMultiplier": 0,
+        "nodeSizeMultiplier": 1,
+        "lineSizeMultiplier": 1,
+        "collapse-forces": false,
+        "centerStrength": 0.518713248970312,
+        "repelStrength": 10,
+        "linkStrength": 1,
+        "linkDistance": 250,
+        "scale": 0.9117318917461511,
+        "close": false
+      }
+    }
+  ]
+}

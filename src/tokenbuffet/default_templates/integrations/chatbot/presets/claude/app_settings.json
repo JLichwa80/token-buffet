@@ -1,0 +1,26 @@
+{
+  "format": "json",
+  "data": {
+    "env": {
+      "ANTHROPIC_BASE_URL": "{active_endpoint}",
+      "ANTHROPIC_AUTH_TOKEN": "local-bridge",
+      "ANTHROPIC_MODEL": "{single_model_tier}",
+      "CLAUDE_CODE_DISABLE_THINKING": "1",
+      "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY": "1"
+    }
+  },
+  "files": {
+    "launch.json": {
+      "format": "json",
+      "data": {
+        "command": [
+          "claude",
+          "--settings",
+          "{workspace}/.claude/settings.local.json"
+        ],
+        "env": {},
+        "requires": ".claude/settings.local.json"
+      }
+    }
+  }
+}
