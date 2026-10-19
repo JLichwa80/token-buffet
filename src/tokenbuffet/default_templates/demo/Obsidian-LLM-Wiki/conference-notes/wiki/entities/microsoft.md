@@ -1,15 +1,15 @@
 ---
 type: entity
 created: 2026-10-17
-updated: 2026-10-17
-tags: [organization]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
+tags:
+  - "organization"
 aliases:
   - "Microsoft Corporation"
   - "MSFT"
-sources:
-  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
-
-generation_complete: true
 ---
 
 # Microsoft

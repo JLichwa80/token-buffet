@@ -1,12 +1,21 @@
 ---
 type: entity
 created: 2026-10-17
-sources:
-  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
-tags: [organization]
+updated: 2026-10-19
 stub: true
 generation_complete: true
+sources:
+  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
+tags:
+  - "organization"
+aliases:
+  - "Citadel LLC"
+  - "Citadel Securities"
+  - "Citadel Advisors"
+  - "Citadel Advisors LLC"
+  - "Citadel Investment Group"
 ---
+
 # Citadel
 
 > Stub created by the ingest candidate gate (prose+named) — [[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]] names this without treating it. Will be filled by the next ingest of a source that does.

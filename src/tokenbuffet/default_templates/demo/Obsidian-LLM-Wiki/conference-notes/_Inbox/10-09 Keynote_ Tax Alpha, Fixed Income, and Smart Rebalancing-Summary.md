@@ -1,4 +1,4 @@
-# at this tax conference Keynote: Tax Alpha, Fixed Income, and Smart Rebalancing
+# Conference Keynote: Tax Alpha, Fixed Income, and Smart Rebalancing
 # Summary of Keynote: "The Art of Tax Alpha: Beyond Equities to Fixed Income & Smart Rebalancing"
 ### 1. 🎯 MAIN THEME & CORE MESSAGE
 The overarching theme of the keynote is that advisors and investors are leaving significant "tax alpha" on the table by focusing narrowly on equity tax loss harvesting. The speaker argues for a more sophisticated, integrated approach that unlocks the unique tax advantages of fixed income and employs intelligent, tax-aware rebalancing strategies across the entire portfolio. The central message is that true tax optimization is not about isolated tactics but about a holistic, systematic process that considers every component—equities, bonds, and cash flows—working in concert.

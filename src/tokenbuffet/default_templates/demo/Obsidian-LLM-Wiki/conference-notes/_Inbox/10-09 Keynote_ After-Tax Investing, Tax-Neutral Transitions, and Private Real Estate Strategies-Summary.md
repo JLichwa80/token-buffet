@@ -1,4 +1,4 @@
-# at this tax conference Keynote: After-Tax Investing, Tax-Neutral Transitions, and Private Real Estate Strategies
+# Conference Keynote: After-Tax Investing, Tax-Neutral Transitions, and Private Real Estate Strategies
 Here is a detailed summary of the keynote presentation, crafted according to your instructions.
 ***
 ### 🎯 1. MAIN THEME & CORE MESSAGE

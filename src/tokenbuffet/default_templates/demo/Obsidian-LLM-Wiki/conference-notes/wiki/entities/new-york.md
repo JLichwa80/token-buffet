@@ -1,12 +1,20 @@
 ---
 type: entity
 created: 2026-10-17
-sources:
-  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
-tags: [other]
 stub: true
 generation_complete: true
+sources:
+  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
+tags:
+  - "other"
+aliases:
+  - "New York State"
+  - "NY"
+  - "NYS"
+  - "State of New York"
+  - "Empire State"
 ---
+
 # New York
 
 > Stub created by the ingest candidate gate (prose+named) — [[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]] names this without treating it. Will be filled by the next ingest of a source that does.

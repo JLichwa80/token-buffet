@@ -1,4 +1,4 @@
-# at this tax conference Keynote: Tax-Aware Portfolio Transitions and Derivative ETF Risks
+# Conference Keynote: Tax-Aware Portfolio Transitions and Derivative ETF Risks
 Here is a unified summary of the keynote session, structured according to your instructions.
 ***
 ## 1. 🎯 MAIN THEME & CORE MESSAGE

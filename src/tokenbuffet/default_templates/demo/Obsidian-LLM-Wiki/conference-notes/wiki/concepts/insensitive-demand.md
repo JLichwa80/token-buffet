@@ -1,15 +1,15 @@
 ---
 type: concept
 created: 2026-10-17
-updated: 2026-10-17
-tags: [theory]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
+tags:
+  - "theory"
 aliases:
   - "Home-state muni demand"
   - "Home-state municipal bond demand"
-sources:
-  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
-
-generation_complete: true
 ---
 
 # Insensitive Demand
@@ -44,3 +44,4 @@ Investors can use this concept to assess whether the tax benefits of home-state 
 
 - "Municipalities can only issue bonds to fund specific projects, a process that takes 6-9 months, leading to a very limited and inelastic supply." — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]
 - "In contrast, demand from increasingly tax-sensitive investors in high-tax states is enormous and often insensitive." — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]
+- "Insensitive Demand: The phenomenon in high-tax states where investors buy home-state municipal bonds regardless of price, creating a supply/demand imbalance that inflates prices and makes out-of-state or even taxable bonds a better after-tax choice." — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]

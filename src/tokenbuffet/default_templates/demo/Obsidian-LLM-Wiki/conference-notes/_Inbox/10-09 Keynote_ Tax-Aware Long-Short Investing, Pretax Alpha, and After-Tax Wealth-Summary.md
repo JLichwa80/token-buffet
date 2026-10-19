@@ -1,4 +1,4 @@
-# at this tax conference Keynote: Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth
+# Conference Keynote: Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth
 ## 1. Main Theme & Core Message
 - Title: Tax-Aware Long-Short Investing: Why Higher Pretax Alpha Improves Tax Outcomes
 - Core terminology and catchphrases: “tax-aware long-short,” “pretax alpha,” “position creation,” “cumulative net capital losses (CNCLs),” “information ratio,” “under-levered,” “built-in gains,” “after-tax wealth”

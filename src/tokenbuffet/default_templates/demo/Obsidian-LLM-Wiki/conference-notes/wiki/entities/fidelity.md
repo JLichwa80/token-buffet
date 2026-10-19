@@ -1,14 +1,14 @@
 ---
 type: entity
 created: 2026-10-17
-updated: 2026-10-17
-tags: [organization]
-aliases:
-  - "Fidelity Investments"
+updated: 2026-10-19
+generation_complete: true
 sources:
   - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
-
-generation_complete: true
+tags:
+  - "organization"
+aliases:
+  - "Fidelity Investments"
 ---
 
 # Fidelity
@@ -20,6 +20,8 @@ Fidelity is mentioned as the organization where [[Jamie]] previously worked as a
 ## Related Entities
 
 - [[entities/jamie|Jamie]]
+- [[entities/canby-capital|Canby Capital]]
+- [[entities/separately-managed-accounts-smas|Separately Managed Account]]
 
 ## Related Concepts
 
@@ -29,3 +31,4 @@ Fidelity is mentioned as the organization where [[Jamie]] previously worked as a
 ## Mentions in Source
 
 - "Speaker 2 explained that when managing $18 billion at Fidelity, he was asked about capacity constraints but noted the overall market was around $40 trillion in total debt to play with." — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]
+- "By leveraging technology, Fidelity was able to increase its capacity to 5,000 portfolios per dedicated person, with Speaker 2 believing this number can be pushed even higher." — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]

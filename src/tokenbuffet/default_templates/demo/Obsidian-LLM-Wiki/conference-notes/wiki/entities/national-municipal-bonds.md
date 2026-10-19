@@ -1,6 +1,14 @@
 ---
 generation_complete: true
+aliases:
+  - "National Municipal Bond"
+  - "National Munis"
+  - "National Muni Bonds"
+  - "National Muni"
+  - "National Tax-Exempt Bonds"
+  - "National Municipal Debt"
 ---
+
 
 I’ll check the referenced source page for exact wording, then create the entity page using the supplied tag and link names.Created [[national-municipal-bonds]] with the `asset_class` tag, alias, related links, and a verbatim source mention.
 

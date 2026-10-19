@@ -2,12 +2,18 @@
 type: entity
 created: 2026-10-17
 updated: 2026-10-17
-tags: [other]
+generation_complete: true
 sources:
   - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
-
-generation_complete: true
+tags:
+  - "other"
+aliases:
+  - "TX"
+  - "State of Texas"
+  - "Lone Star State"
+  - "The Lone Star State"
 ---
+
 
 # Texas
 

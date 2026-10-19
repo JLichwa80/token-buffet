@@ -1,21 +1,5 @@
-# at this tax conference Keynote: The Tax Trap in Bond Investing
-- Date: 2026-at this tax conference 11:02
-- Duration: 00:27:52
-- Folder: Tax Management Conference
-- 
-## Recording highlights
-- **[00:06:58]**
-  Highlighted. Available after transcription.
-- **[00:11:08]**
-  Highlighted. Available after transcription.
-- **[00:11:54]**
-  Highlighted. Available after transcription.
-- **[00:14:24]**
-  Highlighted. Available after transcription.
-- **[00:17:20]**
-  Highlighted. Available after transcription.
-- **[00:20:25]**
-  Highlighted. Available after transcription.
+# Conference Keynote: The Tax Trap in Bond Investing
+- Name: Tax Management Conference
 ## Summary
 Here is a detailed summary of the keynote presentation, "The Tax Trap: What Everybody Gets Wrong About Bonds."
 ### 1. 🎯 MAIN THEME & CORE MESSAGE

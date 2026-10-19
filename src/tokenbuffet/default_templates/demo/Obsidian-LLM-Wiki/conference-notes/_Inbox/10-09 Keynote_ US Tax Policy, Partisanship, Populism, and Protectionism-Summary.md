@@ -1,4 +1,4 @@
-# at this tax conference Keynote: US Tax Policy, Partisanship, Populism, and Protectionism
+# Conference Keynote: US Tax Policy, Partisanship, Populism, and Protectionism
 Here is a summary of the keynote, structured according to your instructions.
 ***
 ## 1. 🎯 MAIN THEME & CORE MESSAGE

@@ -4,31 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "d06d863b2ee3669e",
+        "id": "881e040bf36dfc0e",
         "type": "tabs",
         "children": [
           {
-            "id": "baa35d86eabcf581",
+            "id": "dd300b027c7bf33c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "wiki/concepts/after-tax-return.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "after-tax-return"
+              "title": "New tab"
             }
           }
         ]
@@ -93,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 566.1666870117188
   },
   "right": {
     "id": "d78c64784e623e77",
@@ -182,9 +168,7 @@
             "type": "leaf",
             "state": {
               "type": "file-properties",
-              "state": {
-                "file": "wiki/concepts/after-tax-return.md"
-              },
+              "state": {},
               "icon": "lucide-info",
               "title": "File properties"
             }
@@ -194,7 +178,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 380.1666259765625
+    "width": 380.1666259765625,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -209,34 +194,35 @@
       "karpathywiki:Query wiki": false
     }
   },
-  "active": "fc3e480c0f2aba05",
+  "active": "dd300b027c7bf33c",
   "lastOpenFiles": [
-    "archive-wiki/log.md",
-    "archive-wiki/concepts/40-act-fund.md",
+    "wiki/concepts/diagnosis.md",
+    "wiki/concepts/after-tax-architect.md",
+    "wiki/concepts/13030-strategy.md",
+    "wiki/concepts/after-tax-borrowing-rate.md",
+    "wiki/concepts/liquidity-event-planning.md",
+    "wiki/concepts/buffer-funds.md",
+    "wiki/concepts/single-counterparty-trap.md",
+    "wiki/concepts/equitability.md",
+    "wiki/concepts/synthetic-rebalancing.md",
+    "wiki/concepts/capacity-constraints.md",
+    "wiki/concepts/tax-lot-mapping.md",
+    "wiki/concepts/in-kind-options.md",
+    "wiki/concepts/oscillation-risk.md",
+    "wiki/concepts/the-grandmother-effect.md",
+    "wiki/concepts/over-the-counter-trading.md",
+    "wiki/concepts/syndicated-351-exchange.md",
+    "wiki/entities/autocall-etf.md",
+    "wiki/concepts/whole-portfolio-unification.md",
+    "wiki/concepts/daily-tax-loss-harvesting.md",
+    "wiki/contradictions/due-to-slow-issuance-cycles-inelastic-supply-and-2026-10-19.md",
+    "wiki/concepts/tax-alpha.md",
+    "wiki/sources/10-09-presentation_-tax-alpha-dual-share-class-and-tokenized-t‑bills-summ_6a40b3.md",
+    "wiki/concepts/pledged-asset-line.md",
+    "wiki/entities/mutual-fund.md",
+    "wiki/sources/10-09-panel-discussion_-variable-prepaid-forwards-tax-aware-long-short-an_0f1ad3.md",
     "wiki/sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248.md",
-    "README.md",
-    "wiki/log.md",
-    "wiki/index.md",
-    "wiki/concepts/bid-ask-spread.md",
-    "wiki/concepts/electronification.md",
-    "wiki/concepts/systematized-customization.md",
-    "wiki/concepts/fixed-income.md",
-    "wiki/concepts/after-tax-return.md",
-    "wiki/concepts/common-denominator-vs-individual-optimization.md",
-    "wiki/concepts/tax-loss-harvesting.md",
-    "wiki/concepts/the-hunt-and-find-market.md",
-    "wiki/concepts/the-tax-trap.md",
-    "wiki/concepts/tax-persona.md",
-    "wiki/concepts/insensitive-demand.md",
-    "wiki/entities/private-credit.md",
-    "wiki/entities/national-municipal-bonds.md",
-    "wiki/entities/microsoft.md",
-    "wiki/entities/cusip.md",
-    "wiki/entities/texas.md",
-    "wiki/entities/corporate-bonds.md",
-    "wiki/entities/fidelity.md",
-    "wiki/entities/separately-managed-accounts-smas.md",
-    "wiki/entities/massachusetts.md",
+    "wiki/contradictions",
     "wiki/schema",
     "wiki/sources",
     "wiki/concepts",
@@ -247,7 +233,6 @@
     "concepts",
     "Untitled.canvas",
     "entities",
-    "archive-wiki/contradictions",
     "image.png"
   ]
 }

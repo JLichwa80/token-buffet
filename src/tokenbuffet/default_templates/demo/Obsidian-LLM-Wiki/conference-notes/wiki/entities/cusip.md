@@ -1,14 +1,14 @@
 ---
 type: entity
 created: 2026-10-17
-updated: 2026-10-17
-tags: [instrument]
-aliases:
-  - "CUSIPs"
+updated: 2026-10-19
+generation_complete: true
 sources:
   - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
-
-generation_complete: true
+tags:
+  - "instrument"
+aliases:
+  - "CUSIPs"
 ---
 
 # CUSIP
@@ -19,11 +19,19 @@ A CUSIP identifies a security, including an individual bond. The keynote estimat
 
 ## Related Entities
 
+- [[entities/municipal-bonds|Municipal Bond]]
+- [[entities/corporate-bonds|Corporate Bond]]
+- [[entities/treasury-bond|Treasury Bond]]
+
 ## Related Concepts
 
 - [[concepts/the-hunt-and-find-market|The "Hunt and Find" Market]]
+- [[concepts/systematized-customization|Systematized Customization]]
+- [[concepts/over-the-counter-trading|Over-The-Counter Trading]]
 
 ## Mentions in Source
 
 - "If I look at the US bond market, I have one point five million CUSIPs." — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]
 - "The bond market is vastly larger and more fragmented than the equity market, with 1.5 million securities (CUSIPs) versus a few thousand stock tickers, making it a "greatest game of hunt and find value."" — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]
+- "This neglect stems from the bond market's immense complexity—with 1.5 million CUSIPs compared to a few thousand equity tickers." — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]
+- ""If I look at the US bond market, I have one point five million CUSIPs."" — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]

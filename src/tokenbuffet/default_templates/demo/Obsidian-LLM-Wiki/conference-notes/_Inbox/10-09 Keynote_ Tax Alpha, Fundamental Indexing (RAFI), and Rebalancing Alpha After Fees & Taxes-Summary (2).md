@@ -1,4 +1,4 @@
-# at this tax conference Keynote: Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes
+# Conference Keynote: Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes
 ## 1) 🎯 Main Theme & Core Message
 **Overarching theme:** *Most investing “alpha” disappears after fees, taxes, and liquidation—so the real edge is smart implementation, tax-aware discipline, and index construction that systematically rebalances against mispricing.*
 **Presentation focus/title references in talk:** The speaker explicitly points to their CFA Research Foundation paper **“The Active Side of Indexing”** and another paper **“Trifecta.”** Core catchphrases and recurring terms include **“tax alpha,” “rebalancing alpha,” “the active trading side of indexing,”** and the idea that cap-weighted indexing is **“not entirely passive.”**

@@ -1,8 +1,6 @@
 # Conference Notes Vault
 
-Sample Obsidian vault with 427 masked conference notes from a May 2026 tax and wealth management conference. Includes keynote summaries, session transcripts, presentation highlights, and attendee notes across tax strategy, portfolio management, and investment topics. All dates and attendee names have been anonymized for demonstration purposes.
-
-**Content Source:** Generated and date-masked from May 2026 conference. Masking applied: dates updated, entity names generalized, attendee names anonymized.
+Sample Obsidian vault with notes from a conference. Includes keynote summaries, session transcripts, presentation highlights, and attendee notes across tax strategy, portfolio management, and investment topics. All dates and attendee names have been anonymized for demonstration purposes.
 
 ## Configuration
 
