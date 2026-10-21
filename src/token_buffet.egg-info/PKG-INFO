@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: token-buffet
-Version: 0.1.0
+Version: 0.1.1
 Summary: A pure-Python proxy and routing system to bridge CLI-based LLMs to a standard OpenAI-compatible API.
 Author: Jack
 License-Expression: MIT
