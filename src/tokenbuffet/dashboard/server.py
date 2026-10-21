@@ -603,6 +603,14 @@ def log_tail(name, lines=200):
 
 
 class DashboardHandler(http.server.BaseHTTPRequestHandler):
+    def handle(self):
+        # The browser closes its socket on reload, tab close or a newer poll; the reply has nowhere to go, so there is nothing to retry here (the page retries).
+        try:
+            super().handle()
+        except ConnectionError as exc:
+            print(f"Client disconnected before the reply finished: {self.client_address[0]}:{self.client_address[1]} "
+                  f"{getattr(self, 'requestline', '?')!r} ({type(exc).__name__}: {exc})", file=sys.stderr)
+
     def json_response(self, status, body):
         payload = json.dumps(body, ensure_ascii=False).encode("utf-8")
         self.send_response(status)

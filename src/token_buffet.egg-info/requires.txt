@@ -1,3 +1,15 @@
+pyte
+openai
+ai
+
+[:sys_platform != "win32"]
+pexpect
+
+[:sys_platform == "darwin"]
+psutil
+
+[:sys_platform == "win32"]
+pywinpty
 
 [all]
 pyte

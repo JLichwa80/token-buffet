@@ -1490,13 +1490,20 @@ async function updateProviderPort(name, port) {
 // ----------------- STATE FETCH -----------------
 
 async function refreshState() {
-  try {
-    const response = await fetch('/api/state', { cache: 'no-store' });
-    if (!response.ok) throw new Error('State fetch failed');
-    state = await response.json();
-  } catch (err) {
-    tell('Could not connect to dashboard server.', true);
-    return;
+  const attempts = 4;
+  for (let attempt = 1; ; attempt++) {
+    try {
+      const response = await fetch('/api/state', { cache: 'no-store' });
+      if (!response.ok) throw new Error('State fetch failed');
+      state = await response.json();
+      break;
+    } catch (err) {
+      if (attempt === attempts) {
+        tell('Could not connect to dashboard server.', true);
+        return;
+      }
+      await new Promise(resolve => setTimeout(resolve, 500 * attempt));
+    }
   }
   try {
     render();

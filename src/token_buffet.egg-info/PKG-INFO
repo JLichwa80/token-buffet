@@ -3,7 +3,7 @@ Name: token-buffet
 Version: 0.1.0
 Summary: A pure-Python proxy and routing system to bridge CLI-based LLMs to a standard OpenAI-compatible API.
 Author: Jack
-License: MIT
+License-Expression: MIT
 Keywords: llm,proxy,router,openai-compatible,cli,claude,codex,grok,ollama
 Classifier: Development Status :: 3 - Alpha
 Classifier: Environment :: Console
@@ -11,9 +11,15 @@ Classifier: Intended Audience :: Developers
 Classifier: Programming Language :: Python :: 3
 Classifier: Operating System :: OS Independent
 Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
-Requires-Python: >=3.8
+Requires-Python: >=3.12
 Description-Content-Type: text/markdown
 License-File: LICENSE
+Requires-Dist: psutil; sys_platform == "darwin"
+Requires-Dist: pyte
+Requires-Dist: pywinpty; sys_platform == "win32"
+Requires-Dist: pexpect; sys_platform != "win32"
+Requires-Dist: openai
+Requires-Dist: ai
 Provides-Extra: capture
 Requires-Dist: pyte; extra == "capture"
 Requires-Dist: pywinpty; sys_platform == "win32" and extra == "capture"
@@ -56,22 +62,23 @@ Token Buffet always works in the folder you run it from. Make one folder for it:
 
 ```bash
 mkdir TokenBuffet && cd TokenBuffet
-pipx install "token-buffet[capture]"   # capture = usage/model scraping + OpenAI Responses endpoint
-tbuffet setup                          # scaffold this folder, add + validate providers, run doctor
-tbuffet start                          # proxies + router (8090) + dashboard (8080), in the background
+pip install token-buffet               # Python 3.12+; installs everything it needs
+tbuffet init                           # scaffold, register the provider CLIs found on PATH, check app integrations
+tbuffet demo init                      # optional: copy the demos, add them to their apps, list which can run
+tbuffet start                          # proxies + router (8090) + dashboard (8080); Ctrl+C stops this session's process trees
+tbuffet start --background             # explicitly leave services running in the background
 tbuffet status | stop | restart | doctor
 ```
-Log in to each vendor CLI (`claude`, `codex`, `grok`, `agy`) once before validating it.
-Optional extras: `[uistream]` (Vercel AI SDK stream, Python 3.12+), `[all]`.
+Log in to each vendor CLI (`claude`, `codex`, `grok`, `agy`) once. `init` doesn't check logins; a provider that isn't signed in reports its error at `tbuffet start`.
 
 ### Demos (pre-configured)
-`tbuffet init` / `setup` copies ready-to-use demos into `demo/`. Each one already points at the router, so after `tbuffet start`:
-- **Obsidian LLM Wiki:** open `demo/Obsidian-LLM-Wiki/conference-notes` (or `daily-notes`) in Obsidian with *Open folder as vault*, then enable community plugins. See [the demo README](src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/README.md).
+`tbuffet demo init` copies ready-to-use demos into `demo/`. Each one already points at the router, so after `tbuffet start`:
+- **Obsidian LLM Wiki** (needs Obsidian installed): run `tbuffet open obsidian conference-notes` (or `daily-notes`), then choose *Trust author and enable plugins*. See [the demo README](src/tokenbuffet/default_templates/demo/Obsidian-LLM-Wiki/README.md).
 - **Chatbots and Claudia:** see `demo/README.md`.
 
 ### Providers and your own apps
 ```bash
-tbuffet add-provider claude --validate        # bundled provider config + login/quota check
+tbuffet add-provider claude --validate        # register a built-in provider + login/quota check
 tbuffet add-provider mine --from config.json  # import a config authored with the register-provider skill
 tbuffet list-providers | remove-provider NAME
 tbuffet add-app obsidian my-vault --path "/path/to/vault" --vault-type daily-notes
@@ -83,18 +90,18 @@ tbuffet list-apps | reconfigure-app TYPE NAME
 - `src/tokenbuffet/extractors/`: provider usage and model capture/parse engine
 - `src/tokenbuffet/default_templates/`: what `tbuffet init` copies into your folder:
   - `config/`
-  - `integrations/`
-  - `registered_apps/` (the demo registrations)
-  - `demo/`
+  - `integrations/` (built-in app types, and `providers/` with the built-in provider configs)
   - `scripts/`
+  - `demo/` and the demo registrations in `registered_apps/` are copied by `tbuffet demo init`
 
 In your Token Buffet folder:
-- `registered_providers/`: provider configs
+- `integrations/providers/`: built-in provider configs (what Token Buffet supports)
+- `registered_providers/`: the providers registered on this machine
 - `data/`: runtime state (`providers_status/`, `provider_homes/`, `temp/`)
 - `logs/`: proxy, router and extractor logs
 
 ## From a repository checkout
-Install editable with `pip install -e ".[capture]"`, then run `tbuffet init`, `tbuffet setup` and `tbuffet start` from the repository root.
+Install editable with `pip install -e .`, then run `tbuffet init` and `tbuffet start` from the repository root.
 
 `tbuffet init` also copies legacy launchers into `scripts/` (both `.ps1` and `.sh`):
 ```powershell
