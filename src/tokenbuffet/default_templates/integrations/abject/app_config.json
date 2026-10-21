@@ -1,0 +1,19 @@
+{
+    "name": "abject",
+    "type": "abject",
+    "title": "Abject",
+    "description": "The tech genius friend who supercharges your productivity. Just describe what you need in plain English, and it instantly builds custom apps, fully functional websites, and even playable games tailored to your exact workflow.",
+    "path": "[app_path]",
+    "client_settings": {
+        "active_endpoint": "http://127.0.0.1:8090",
+        "single_model_tier": "medium",
+        "model_mode": "true",
+        "task_model_tiers": {
+            "smart": "reasoning",
+            "balanced": "medium",
+            "fast": "fast",
+            "code": "reasoning"
+        }
+    },
+    "bridge_configuration": "storage.db"
+}

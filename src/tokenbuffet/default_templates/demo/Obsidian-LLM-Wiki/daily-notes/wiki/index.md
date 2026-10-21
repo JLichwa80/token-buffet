@@ -1,0 +1,381 @@
+# Wiki Index
+
+> Auto-generated knowledge base directory
+
+> Note: Text in backticks after page names shows aliases — alternative names, abbreviations, or translations.
+
+
+## Entities
+
+- [[entities/datasette-faiss|datasette-faiss]] `aliases: datasette-faiss plugin` - datasette-faiss is a Datasette plugin that builds and maintains a FAISS index for specified tables. 
+- [[entities/datasette-cookies-for-magic-parameters|datasette-cookies-for-magic-parameters]] `aliases: magic parameters cookies plugin` - datasette-cookies-for-magic-parameters is a supporting [[Datasette]] plugin that stores secrets, suc
+- [[entities/spatialite|spatialite]] `aliases: SpatiaLite module` - SpatiaLite is a geospatial extension for [[SQLite]]. In the week of 15 January 2023, its SQL functio
+- [[entities/faiss|faiss]] - type: entity
+- [[entities/datasette-openai|datasette-openai]] `aliases: datasette-openai plugin` - datasette-openai is a Datasette plugin that provides custom SQL functions for querying OpenAI APIs, 
+- [[entities/db-to-sqlite|db-to-sqlite]] `aliases: db-to-sqlite CLI` - db-to-sqlite is a command-line tool maintained by Simon Willison for exporting tables or queries fro
+- [[entities/datasette-lite|datasette-lite]] - type: entity
+- [[entities/tim-bart|tim-bart]] `aliases: Tim Bart` - Tim Bart is a person who helped the author run Python inside a WebAssembly sandbox. After the author
+- [[entities/toot|toot]] `aliases: toot Python CLI` - toot is a Python library and command-line tool for [[Mastodon]]. The author found it while checking 
+- [[entities/wasmtime|wasmtime]] `aliases: wasmtime-py` - wasmtime is a WebAssembly runtime library. In the 2023-02-09 weeknotes, Simon Willison uses it throu
+- [[entities/nanogpt|nanogpt]] `aliases: nanoGPT by Andrej Karpathy` - nanoGPT is an open-source GPT-style language model training project by Andrej Karpathy. In the 9 Feb
+- [[entities/gtr-t5-large|gtr-t5-large]] `aliases: gtr-t5-large embeddings model` - gtr-t5-large is a sentence embeddings model distributed through Hugging Face. The author ran it loca
+- [[entities/datasette-explain|datasette-explain]] `aliases: datasette-explain 0.1a0` - datasette-explain is a [[Datasette]] plugin released as version 0.1a0 on 2023-02-09, and it is the m
+- [[entities/pypi|pypi]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-02-09-weeknotes_05bd6f]] 
+- [[entities/openai-embeddings-api|openai-embeddings-api]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-02-09-weeknotes_05bd6f]] 
+- [[entities/apache-bench|apache-bench]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-02-09-weeknotes_05bd6f]] 
+- [[entities/datasette-atom|datasette-atom]] `aliases: datasette-atom plugin` - datasette-atom is a [[Datasette]] plugin that adds an Atom output format to Datasette tables, so tab
+- [[entities/blog-to-newsletter|blog-to-newsletter]] - type: entity
+- [[entities/observable|observable]] `aliases: Observable notebooks, Observable notebook platform` - Observable is the hosted notebook platform on which [[Simon Willison]] built his blog-to-newsletter 
+- [[entities/twitter|twitter]] `aliases: Twitter platform` - Twitter is the social media platform that Simon Willison cites as the reason he started his [[Substa
+- [[entities/stanford-alpaca|stanford-alpaca]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-03-22-weeknotes_1bbf6a]] 
+- [[entities/duckdb|duckdb]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-03-22-weeknotes_1bbf6a]] 
+- [[entities/google-bard|google-bard]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-03-22-weeknotes_1bbf6a]] 
+- [[entities/llama|llama]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-03-22-weeknotes_1bbf6a]] 
+- [[entities/pycon|pycon]] `aliases: PyCon 2023` - PyCon is the Python programming language conference, and the 2023 edition was held in Salt Lake City
+- [[entities/citus-con|citus-con]] `aliases: Citus Con 2023` - Citus Con is a conference focused on Citus, the database built on [[PostgreSQL]]. In April 2023 [[Si
+- [[entities/photoswipe|photoswipe]] - PhotoSwipe is a JavaScript image gallery library. The author adopted it to upgrade the photo galleri
+- [[entities/niche-museums|niche-museums]] `aliases: niche-museums.com` - Niche Museums is a website that catalogues small, unusual museums. Simon Willison maintains it as a 
+- [[entities/vicuna-7b|vicuna-7b]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-04-23-weeknotes_572e37]] 
+- [[entities/redpajama-data-1t|redpajama-data-1t]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-04-23-weeknotes_572e37]] 
+- [[entities/web-llm|web-llm]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-04-23-weeknotes_572e37]] 
+- [[entities/langchain-prompt-injection-webinar|langchain-prompt-injection-webinar]] `aliases: LangChain webinar, LangChain Prompt Injection Webinar` - The LangChain Prompt Injection Webinar is a scheduled online event in which Simon Willison was a spe
+- [[entities/today-i-learned|today-i-learned]] `aliases: TIL, TILs` - Today I Learned (TIL) is [[Simon Willison]]'s website of short technical notes, which he publishes a
+- [[entities/s3-credentials|s3-credentials]] `aliases: s3-credentials CLI` - s3-credentials is a command-line tool written by [[Simon Willison]] for creating credentials that gr
+- [[entities/vercel|vercel]] `aliases: Vercel hosting` - Vercel is a hosting and deployment platform. It hosts Simon Willison's [[Today I Learned]] (TIL) sit
+- [[entities/python-build-standalone|python-build-standalone]] - python-build-standalone is a project by indygreg that produces standalone Python builds. Rye downloa
+- [[entities/armin-ronacher|armin-ronacher]] - type: entity
+- [[entities/rye|rye]] - Rye is an experimental Python packaging tool created by [[Armin Ronacher]]. It is delivered as a sin
+- [[entities/deno|deno]] `aliases: Deno JavaScript runtime` - Deno is a JavaScript and TypeScript runtime. In the 2023-05-10 weeknotes, the author uses it as the 
+- [[entities/download-esm|download-esm]] `aliases: download-esm tool, download-esm CLI` - download-esm is a Python command-line tool written by the author to download the ECMAScript module (
+- [[entities/pyodide|pyodide]] - Pyodide is a port of Python that runs in WebAssembly. According to the source, it was previously ava
+- [[entities/latent-space|latent-space]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-05-10-weeknotes_35d224]] 
+- [[entities/langchain|langchain]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-05-10-weeknotes_35d224]] 
+- [[entities/palm-2|palm-2]] `aliases: Google PaLM 2, PaLM2` - PaLM 2 is Google's large language model, accessed through Google's API in the setup described in Sim
+- [[entities/self-hosted-language-models|self-hosted-language-models]] - type: entity
+- [[entities/ttok|ttok]] `aliases: ttok 0.2` - ttok is a command-line tool written by [[Simon Willison]] for counting tokens, the units that large 
+- [[entities/llm-mpt30b|llm-mpt30b]] - I couldn't create the page. The Write tool was denied because this session is in "don't ask" permiss
+- [[entities/chatgpt-code-interpreter|chatgpt-code-interpreter]] `aliases: Code Interpreter, ChatGPT Code Interpreter` - ChatGPT Code Interpreter is a [[ChatGPT]] feature that writes Python code from a natural-language de
+- [[entities/llm-palm|llm-palm]] - type: entity
+- [[entities/data-analysis-with-sqlite-and-python|data-analysis-with-sqlite-and-python]] `aliases: SQLite and Python tutorial, Data analysis with SQLite and Python` - Data analysis with SQLite and Python is a tutorial by Simon Willison that he originally presented as
+- [[entities/datasette-render-markdown|datasette-render-markdown]] `aliases: datasette-render-markdown 2.2` - datasette-render-markdown is a Datasette plugin for rendering Markdown. Simon Willison released it a
+- [[entities/mpt-30b|mpt-30b]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-07-16-weeknotes_8e11f0]] 
+- [[entities/catching-up-on-the-weird-world-of-llms|catching-up-on-the-weird-world-of-llms]] `aliases: weird world of LLMs talk` - "Catching up on the weird world of LLMs" is a talk given as the closing keynote at [[North Bay Pytho
+- [[entities/sqlite-utils-litecli|sqlite-utils-litecli]] `aliases: sqlite-utils litecli command` - sqlite-utils-litecli is a plugin for [[sqlite-utils]] that exposes the [[litecli]] interactive shell
+- [[entities/north-bay-python|north-bay-python]] `aliases: North Bay Python 2023, NBPy` - North Bay Python is a Python conference. The author gave its closing talk on Sunday, titled "Catchin
+- [[entities/replicate|replicate]] `aliases: replicate.com` - Replicate is a hosting platform for machine learning models. It hosted [[Llama 2]] when that model l
+- [[entities/litecli|litecli]] `aliases: litecli shell` - litecli is a terminal shell for SQLite, written by Amjith Ramanujam, that offers auto-completion aga
+- [[entities/meta|meta]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-08-05-weeknotes-plugins_f
+- [[entities/jq|jq]] `aliases: jq language, jq programs` - jq is a command-line JSON processor, and the programs it runs are written in the jq language. In the
+- [[entities/cosmopolitan|cosmopolitan]] `aliases: Cosmopolitan ecosystem, APE` - Cosmopolitan is a software ecosystem associated with Actually Portable Executable (APE), a binary fo
+- [[entities/datasette-upload-dbs|datasette-upload-dbs]] `aliases: Datasette upload-dbs plugin` - datasette-upload-dbs is a plugin for [[Datasette]] that lets users upload SQLite database files dire
+- [[entities/sqlite-utils-jq|sqlite-utils-jq]] `aliases: jq plugin` - sqlite-utils-jq is a small plugin for [[sqlite-utils]] that adds a `jq()` SQL function, so jq progra
+- [[entities/llm-mlc|llm-mlc]] `aliases: llm-mlc plugin` - llm-mlc is an LLM plugin built by [[Simon Willison]] that runs models through the [[MLC]] Python lib
+- [[entities/mlc|mlc]] `aliases: MLC LLM, MLC Python library` - MLC is a Python library documented in the MLC LLM project docs, which the author used to get [[Llama
+- [[entities/openai-to-sqlite|openai-to-sqlite]] - openai-to-sqlite is a command-line tool written by Simon Willison for loading data from various [[op
+- [[entities/datasette-json-api|datasette-json-api]] `aliases: Datasette JSON API pagination, Datasette JSON API` - The Datasette JSON API is the machine-readable interface that [[Datasette]] exposes for querying its
+- [[entities/python|python]] `aliases: Python installations, system Python` - Python is the programming language in which [[Datasette]], [[sqlite-utils]], and [[LLM]] are written
+- [[entities/api-explorer|api-explorer]] `aliases: Datasette API explorer` - The API explorer is a [[Datasette]] feature added during the 1.0 alpha series that lets users browse
+- [[entities/jquery|jquery]] `aliases: jQuery library` - jQuery is a JavaScript library. In the source, Simon Willison cites it as a model for how software c
+- [[entities/sqlite-utils-fast-fks|sqlite-utils-fast-fks]] `aliases: fast-fks` - sqlite-utils-fast-fks is a plugin for [[sqlite-utils]] that restores the faster method of adding for
+- [[entities/macwhisper|macwhisper]] `aliases: MacWhisper app` - MacWhisper is a macOS transcription application. Simon Willison used it to produce a transcript of h
+- [[entities/json-flatten|json-flatten]] `aliases: json_flatten library` - json-flatten is a Python library created by Simon Willison for converting key/value pairs into neste
+- [[entities/github|github]] `aliases: GitHub.com` - GitHub hosts the source code repositories for [[Datasette]], [[LLM]], and [[sqlite-utils]], the proj
+- [[entities/wordcamp-us|wordcamp-us]] `aliases: WordCamp, WordCamp US` - WordCamp US is a WordPress community conference. The author gave a keynote on large language models 
+- [[entities/openrouter|openrouter]] `aliases: openrouter.ai` - OpenRouter is a hosted API service that provides access to many models, including [[Claude]]. In the
+- [[entities/llm-openrouter|llm-openrouter]] `aliases: llm-openrouter 0.1` - llm-openrouter is an [[LLM]] plugin, released as version 0.1 on 2023-08-21, that provides access to 
+- [[entities/llm-anyscale-endpoints|llm-anyscale-endpoints]] `aliases: llm-anyscale-endpoints 0.2` - llm-anyscale-endpoints is a plugin for [[LLM]] that provides access to models hosted by [[Anyscale E
+- [[entities/paginate-json|paginate-json]] `aliases: paginate-json 1.0` - paginate-json is a command-line tool that fetches JSON from paginated APIs by following HTTP link he
+- [[entities/datasette-ripgrep|datasette-ripgrep]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-08-30-datasette-plus-week
+- [[entities/llama-2|llama-2]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-08-30-datasette-plus-week
+- [[entities/cr-sqlite|cr-sqlite]] `aliases: cr-sqlite extension` - cr-sqlite is an extension that adds full [[CRDT|CRDT]] support to [[SQLite]]. It is intended to let 
+- [[entities/datasette-short-links|datasette-short-links]] `aliases: Datasette short links` - datasette-short-links is an experimental link shortener for [[Datasette]] being built by [[Alex Garc
+- [[entities/datasette-write-ui|datasette-write-ui]] `aliases: Datasette write UI` - [[entities/alex-garcia|Alex Garcia]] created [[entities/datasette-write-ui|datasette-write-ui]], a p
+- [[entities/blip-caption|blip-caption]] `aliases: blip-caption CLI` - blip-caption is a small command-line tool, released as version 0.1 on 2023-09-10, for generating ima
+- [[entities/datasette-llm-embed|datasette-llm-embed]] `aliases: datasette-llm-embed plugin` - datasette-llm-embed is a small [[Datasette]] plugin, released as version 0.1a0 on 2023-09-08, that a
+- [[entities/llm-cluster|llm-cluster]] `aliases: llm-cluster plugin` - llm-cluster is an [[LLM]] plugin, released as version 0.2 on 2023-09-04, that clusters [[Embeddings]
+- [[entities/llm-clip|llm-clip]] `aliases: llm-clip plugin` - llm-clip is an [[LLM]] plugin released in version 0.1 that generates embeddings for images and text 
+- [[entities/symbex|symbex]] - Symbex is a command-line tool by Simon Willison for extracting symbols, meaning functions, methods, 
+- [[entities/fly-io|fly-io]] `aliases: Fly` - Fly.io is a hosting company that sponsors [[Alex Garcia]]'s work on [[Datasette Cloud]] features. Ac
+- [[entities/salesforce-blip|salesforce-blip]] `aliases: BLIP, BLIP image captioning model` - Salesforce BLIP is an image captioning AI model. Simon Willison tried it after noticing that the Hug
+- [[entities/clip|clip]] `aliases: Contrastive Language-Image Pretraining` - CLIP is an image and text embedding model. [[LLM]] gained binary embedding support for CLIP in versi
+- [[entities/claude|claude]] `aliases: Claude AI` - Claude is a large language model from [[Anthropic]], accessed by [[Simon Willison]] through an API d
+- [[entities/hugging-face|hugging-face]] `aliases: HF, Hugging Face Hub` - Hugging Face is a company that hosts machine learning models. In Willison's [[Embeddings]] experimen
+- [[entities/ai-engineer-summit|ai-engineer-summit]] `aliases: AI Engineer Summit 2023` - The AI Engineer Summit is a conference where [[Simon Willison]] gave the closing keynote, held a cou
+- [[entities/cameron-yick|cameron-yick]] `aliases: hydrosquall` - Cameron Yick is the author of the JavaScript Plugin API pull request for [[Datasette]], a project th
+- [[entities/pybay-2023|pybay-2023]] `aliases: PyBay` - PyBay 2023 is a Python conference. Simon Willison gave a talk there titled "Embeddings: What they ar
+- [[entities/pipx|pipx]] - type: entity
+- [[entities/dall-e-3|dall-e-3]] `aliases: DALL·E 3, DALLE 3` - DALL-E 3 is an image generation model developed by [[OpenAI]]. In the source, the author covers it i
+- [[entities/llm-embed-jina|llm-embed-jina]] `aliases: llm-embed-jina plugin` - llm-embed-jina is a plugin for the [[LLM]] command-line tool that runs the [[Jina AI]] 8K text embed
+- [[entities/homebrew|homebrew]] `aliases: Homebrew package manager, brew` - Homebrew is a package manager through which the [[LLM]] command-line tool was distributed. In the we
+- [[entities/half-moon-bay|half-moon-bay]] `aliases: HMB` - Half Moon Bay is the coastal town that the author, Simon Willison, calls his hometown. It served as 
+- [[entities/maplibre-gl|maplibre-gl]] `aliases: MapLibre` - MapLibre GL is a JavaScript library for serving vector maps in the browser. The author used it to re
+- [[entities/sqlite-migrate|sqlite-migrate]] `aliases: sqlite-migrate plugin` - sqlite-migrate is a plugin for [[sqlite-utils]] that adds a simple migration system for applying cha
+- [[entities/llm-python|llm-python]] `aliases: llm python command` - llm-python is a plugin for the [[LLM]] command-line tool that adds an `llm python` command. The comm
+- [[entities/gpt4all|gpt4all]] - type: entity
+- [[entities/nomic-ai|nomic-ai]] `aliases: Nomic, Nomic AI` - Nomic AI is the company behind [[entities/gpt4all|GPT4All]], a free, locally running chatbot project
+- [[entities/pmtiles|pmtiles]] - type: entity
+- [[entities/protomaps|protomaps]] `aliases: Protomaps project` - Protomaps is an open project for producing and distributing openly licensed vector map data. The aut
+- [[entities/overture-maps|overture-maps]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-10-30-weeknotes_d4a215]] 
+- [[entities/jina-ai|jina-ai]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-10-30-weeknotes_d4a215]] 
+- [[entities/pytorch|pytorch]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-10-30-weeknotes_d4a215]] 
+- [[entities/sam-altman|sam-altman]] `aliases: Altman` - Sam Altman is the leader of [[OpenAI]], and the board of directors of the non-profit that controls O
+- [[entities/github-universe|github-universe]] - type: entity
+- [[entities/openai-devday|openai-devday]] `aliases: DevDay, OpenAI Dev Day` - OpenAI DevDay is the developer conference where OpenAI made a large set of announcements on the Mond
+- [[entities/elevenlabs|elevenlabs]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-11-22-weeknotes_49168f]] 
+- [[entities/datasette-chronicle|datasette-chronicle]] `aliases: Datasette Chronicle` - datasette-chronicle is a Datasette plugin that exposes [[sqlite-chronicle]] change tracking inside D
+- [[entities/newsroom-robots|newsroom-robots]] `aliases: Newsroom Robots, Newsroom Robots podcast` - Newsroom Robots is an AI-in-journalism podcast hosted by Nikita Roy. [[Simon Willison]] recorded an 
+- [[entities/sqlite-chronicle|sqlite-chronicle]] `aliases: sqlite_chronicle` - sqlite-chronicle is an experimental Python library by [[Simon Willison]] that implements a SQL patte
+- [[entities/steampipe-extensions|steampipe-extensions]] `aliases: Steampipe plugins, Steampipe extension` - Steampipe extensions are plugins for the [[entities/steampipe|Steampipe]] tool that the author wante
+- [[entities/ospeak|ospeak]] `aliases: ospeak CLI` - ospeak is a command-line tool for running text-to-speech through OpenAI Text to speech, and it is ma
+- [[entities/llm-llama-cpp|llm-llama-cpp]] `aliases: LLM llama.cpp plugin` - llm-llama-cpp is an [[entities/llm|LLM]] plugin for running models through llama.cpp, extending the 
+- [[entities/dropbox|dropbox]] `aliases: Inc.` - Dropbox is a cloud storage company. In the AI trust crisis blog post, it serves as a cautionary exam
+- [[entities/sqlite-utils-shell|sqlite-utils-shell]] `aliases: sqlite-utils shell` - sqlite-utils-shell is an interactive shell plugin for sqlite-utils, a SQLite tool written by the sam
+- [[entities/django-sql-dashboard|django-sql-dashboard]] - Django SQL Dashboard is a Django app for building dashboards from raw SQL queries. In December 2023 
+- [[entities/datasette-plot|datasette-plot]] - datasette-plot is a new [[Datasette]] plugin for building data visualizations. [[Alex Garcia]] relea
+- [[entities/anyscale-endpoints|anyscale-endpoints]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-12-31-weeknotes_456c53]] 
+- [[entities/llama-cpp|llama-cpp]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-12-31-weeknotes_456c53]] 
+- [[entities/steampipe|steampipe]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-12-31-weeknotes_456c53]] 
+- [[entities/llm-sentence-transformers|llm-sentence-transformers]] `aliases: llm-sentence-transformers 0.2` - llm-sentence-transformers is an LLM plugin that provides embeddings through the sentence-transformer
+- [[entities/pge-outages|pge-outages]] `aliases: PG&E outage scraper` - pge-outages is a scraper project built by Simon Willison to capture power outage data from [[PG&E]],
+- [[entities/onnx-runtime|onnx-runtime]] `aliases: ONNX, ORT` - ONNX Runtime is an inference engine that the onnx_embedding_models library wraps, according to the 2
+- [[entities/datasette-upload-csvs|datasette-upload-csvs]] `aliases: datasette-upload-csvs 0.9` - datasette-upload-csvs is a Datasette plugin for uploading CSV files and converting them into databas
+- [[entities/nomic-embed-text-v1|nomic-embed-text-v1]] `aliases: nomic-embed-text, Nomic Embed Text v1` - nomic-embed-text-v1 is an embedding model that was newly released around the time of the February 20
+- [[entities/datasette-homepage-table|datasette-homepage-table]] `aliases: datasette-homepage-table 0.2, Datasette homepage table plugin` - datasette-homepage-table is a [[Datasette]] plugin that displays a chosen table as the homepage of a
+- [[entities/datasette-proxy-url|datasette-proxy-url]] `aliases: datasette-proxy-url 0.1.1, datasette-proxy-url plugin` - datasette-proxy-url is a [[Datasette]] plugin released in January 2024 (version 0.1.1, dated 2024-01
+- [[entities/llm-gpt4all|llm-gpt4all]] - llm-gpt4all is a plugin for the [[LLM]] tool that adds support for the GPT4All collection of models.
+- [[entities/llm-embed-onnx|llm-embed-onnx]] `aliases: llm-embed-onnx 0.1` - llm-embed-onnx is an [[LLM]] plugin released as version 0.1 on 28 January 2024. It is a thin wrapper
+- [[entities/substack|substack]] - Substack is the newsletter platform the author uses to publish their newsletter. The author ran into
+- [[entities/datasette-events-db|datasette-events-db]] `aliases: datasette-events-db 0.1a0` - datasette-events-db is a [[Datasette]] plugin released as version 0.1a0 on 8 February 2024. It hooks
+- [[entities/datasette-enrichments-quickjs|datasette-enrichments-quickjs]] - datasette-enrichments-quickjs is a [[Datasette]] plugin for Datasette Enrichments, released as versi
+- [[entities/shot-scraper|shot-scraper]] `aliases: shot-scraper CLI` - shot-scraper is the author's command-line tool for taking screenshots of web pages and running JavaS
+- [[entities/mistral-large|mistral-large]] - Mistral Large is a large language model released by [[Mistral]]. The source is Simon Willison's week
+- [[entities/datasette-edit-schema|datasette-edit-schema]] `aliases: Datasette Edit Schema plugin` - datasette-edit-schema is a [[Datasette]] plugin for modifying table schemas. Version 0.8a0 was relea
+- [[entities/datasette-enrichments-opencage|datasette-enrichments-opencage]] `aliases: OpenCage enrichment plugin` - datasette-enrichments-opencage is a [[Datasette]] plugin that provides geocoding and reverse geocodi
+- [[entities/datasette-comments|datasette-comments]] - Datasette Comments is a Datasette project, published as `datasette-comments` on GitHub, that adds co
+- [[entities/datasette-events-forward|datasette-events-forward]] `aliases: events-forward plugin` - datasette-events-forward is a [[Datasette]] plugin that forwards analytical events from one Datasett
+- [[entities/datasette-studio|datasette-studio]] - Datasette Studio is an experimental alpha release (0.1a0, dated 2024-02-18) of [[Datasette]] pre-con
+- [[entities/dclient|dclient]] `aliases: dclient CLI` - dclient is a client CLI utility for interacting with remote [[Datasette]] instances. It can run quer
+- [[entities/llm-mistral|llm-mistral]] `aliases: llm-mistral plugin` - llm-mistral is an [[LLM]] plugin that provides access to [[Mistral]] models through the Mistral API.
+- [[entities/investigative-reporters-and-editors|investigative-reporters-and-editors]] `aliases: IRE` - Investigative Reporters and Editors (IRE) is the organization that hosts [[NICAR 2024|NICAR]], the a
+- [[entities/datasette-auth-tokens|datasette-auth-tokens]] - > Stub created by the ingest candidate gate (prose+named) — 2024-02-27-weeknotes-getting-ready-for-n
+- [[entities/alex-garcia|alex-garcia]] `aliases: Alex Garcia` - Alex Garcia is a developer who built the [[datasette-plot]] plugin for [[Datasette]]. The source cre
+- [[entities/sqlite|sqlite]] `aliases: SQLite database, sqlite3` - SQLite is an embedded SQL database engine that [[Datasette]], [[sqlite-utils]], and [[LLM]] all rely
+- [[entities/mastodon|mastodon]] `aliases: fedi.simonwillison.net, Mastodon instance` - Mastodon is a decentralised social network. Simon Willison self-hosts his own Mastodon instance at f
+- [[entities/claude-3|claude-3]] - type: entity
+- [[entities/datasette-create-view|datasette-create-view]] `aliases: create-view plugin` - datasette-create-view is a [[Datasette]] plugin, released as version 0.1 on 2024-03-07, that lets us
+- [[entities/123-reg|123-reg]] `aliases: 123-reg domain registrar` - 123-reg is a UK domain registrar, now a subsidiary of GoDaddy. Simon Willison had his simonwillison.
+- [[entities/nicar|nicar]] `aliases: NICAR 2024, National Institute for Computer-Assisted Reporting` - NICAR is a conference where data journalists gather. Simon Willison attended the 2024 edition, which
+- [[entities/datasette-export-database|datasette-export-database]] `aliases: datasette-export-database plugin` - datasette-export-database is a [[Datasette]] plugin, released as version 0.2.1, that exports a snaps
+- [[entities/gpt-4|gpt-4]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-03-16-weeknotes-the-after
+- [[entities/cloudflare|cloudflare]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-03-16-weeknotes-the-after
+- [[entities/lmsys-chatbot-arena-leaderboard|lmsys-chatbot-arena-leaderboard]] `aliases: Chatbot Arena, LMSYS leaderboard` - The LMSYS Chatbot Arena Leaderboard is a public ranking of language models, used as a benchmark of m
+- [[entities/gpt-4-vision|gpt-4-vision]] `aliases: GPT-4V, Vision mode` - GPT-4 Vision is OpenAI's image-input capability for GPT-4 models. Before April 2024 it was a separat
+- [[entities/mistral|mistral]] `aliases: Mistral AI` - Mistral is a French AI company. On April 9, 2024, it released [[Mixtral 8x22B]] by tweeting a BitTor
+- [[entities/mixtral-8x22b|mixtral-8x22b]] `aliases: Mixtral 8x22B model, Mixtral 8x22B` - Mixtral 8x22B is Mistral's latest openly licensed model, released on April 9, 2024 as a 281GB magnet
+- [[entities/command-r+|command-r+]] `aliases: Cohere Command R+` - Command R+ is a large language model from Cohere, released under an open license. The source author 
+- [[entities/google-gemini-pro-1-5|google-gemini-pro-1-5]] `aliases: Gemini Pro 1.5, Gemini Pro` - Google Gemini Pro 1.5 is a GPT-4 class large language model from Google, with a 1 million token cont
+- [[entities/llm-command-r|llm-command-r]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-04-10-weeknotes-llm-relea
+- [[entities/datasette-embeddings|datasette-embeddings]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-04-10-weeknotes-llm-relea
+- [[entities/datasette-enrichments|datasette-enrichments]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-04-10-weeknotes-llm-relea
+- [[entities/files-to-prompt|files-to-prompt]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-04-10-weeknotes-llm-relea
+- [[entities/llm-cmd|llm-cmd]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-04-10-weeknotes-llm-relea
+- [[entities/cohere|cohere]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-04-10-weeknotes-llm-relea
+- [[entities/ai-for-data-journalism|ai-for-data-journalism]] `aliases: Stanford talk, AI for Data Journalism talk` - AI for Data Journalism is a talk Simon Willison gave at Stanford, titled "demonstrating what we can 
+- [[entities/datasette-desktop|datasette-desktop]] `aliases: Datasette desktop app` - Datasette Desktop is a version of [[Datasette]] that the author names alongside [[Datasette Cloud]] 
+- [[entities/datasette-secrets|datasette-secrets]] `aliases: Datasette Secrets` - datasette-secrets is a draft [[Datasette]] plugin for managing secrets such as API keys so that othe
+- [[entities/llama-3|llama-3]] `aliases: Meta Llama 3, Llama3` - Llama 3 is a large language model that landed on a Thursday shortly before Simon Willison's 23 April
+- [[entities/llm-evals-plugin|llm-evals-plugin]] `aliases: llm-evals` - llm-evals-plugin is a very early prototype of a plugin for the [[LLM]] command-line tool, built to r
+- [[entities/datasette-query-assistant|datasette-query-assistant]] `aliases: Query Assistant` - datasette-query-assistant is a [[Datasette]] plugin built on top of Claude 3 that converts a questio
+- [[entities/gemini-1-5-flash|gemini-1-5-flash]] `aliases: Gemini Flash` - Gemini 1.5 Flash is a large language model from Google, released in May 2024. The source describes i
+- [[entities/pittsburgh|pittsburgh]] `aliases: Pennsylvania, Steel City` - Pittsburgh is a city in Pennsylvania and the host location of [[PyCon US 2024]], the conference the 
+- [[entities/python-community|python-community]] `aliases: Python community, Python developer community` - The Python community is the group of developers and users of the Python language. In his [[PyCon US 
+- [[entities/gpt-4o|gpt-4o]] - type: entity
+- [[entities/pycon-us-2024|pycon-us-2024]] - type: entity
+- [[entities/datasette-extract|datasette-extract]] - datasette-extract is a plugin for [[Datasette]] released at version 0.1a7 on 15 May 2024. It imports
+- [[entities/llm-gemini|llm-gemini]] - llm-gemini is a plugin for [[llm]], the command-line tool, that gives it access to Google's Gemini f
+- [[entities/llama-3-70b|llama-3-70b]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-05-28-weeknotes_18b318]] 
+- [[entities/gpt-4-turbo|gpt-4-turbo]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-05-28-weeknotes_18b318]] 
+- [[entities/chatgpt|chatgpt]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-05-28-weeknotes_18b318]] 
+- [[entities/datasette-permissions-metadata|datasette-permissions-metadata]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-05-28-weeknotes_18b318]] 
+- [[entities/datasette-enrichments-gpt|datasette-enrichments-gpt]] - > Stub created by the ingest candidate gate (prose+named). 2024-05-28-weeknotes_18b318 names this wi
+- [[entities/google|google]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-05-28-weeknotes_18b318]] 
+- [[entities/llm-claude-3|llm-claude-3]] `aliases: llm-claude-3 plugin` - llm-claude-3 is an LLM plugin released by [[entities/simon-willison|Simon Willison]] that lets the `
+- [[entities/stripe|stripe]] `aliases: Stripe billing` - Stripe is the payments company that [[Datasette Cloud]] uses for billing. In the 2024-07-02 weeknote
+- [[entities/ai-engineer-worlds-fair|ai-engineer-worlds-fair]] `aliases: AI Engineer World’s Fair` - The AI Engineer World's Fair is a conference for AI engineering. [[Simon Willison]] gave its opening
+- [[entities/datasette-1-0|datasette-1-0]] `aliases: Datasette 1.0 release` - Datasette 1.0 is the planned major release of [[Datasette]], and a stable [[JSON API]] is one of its
+- [[entities/alex|alex]] `aliases: Alex (Datasette contributor)` - Alex is a collaborator of [[Simon Willison]] who works on Datasette and is responsible for implement
+- [[entities/steve-krouse|steve-krouse]] `aliases: Val Town founder Steve Krouse, Steve Krouse` - Steve Krouse is the founder of [[Val Town]] and co-host of a livestream that [[Simon Willison]] desc
+- [[entities/simon-willison|simon-willison]] `aliases: Simon` - Simon Willison is a software developer and the author of the weeknotes in [[sources/2024-07-02-weekn
+- [[entities/val-town|val-town]] `aliases: ValDotTown` - Val Town is a company or platform whose founder, [[Steve Krouse]], hosted a livestream that [[Simon 
+- [[entities/github-actions|github-actions]] `aliases: GitHub Workflows, scheduled GitHub Actions` - GitHub Actions is GitHub's built-in automation service for running workflows on a schedule or in res
+- [[entities/gpt-4o-mini|gpt-4o-mini]] `aliases: GPT-4o mini` - GPT-4o mini is a hosted large language model from OpenAI, released on 19 July 2024, the day Simon Wi
+- [[entities/datasette-cloud|datasette-cloud]] `aliases: demos.datasette.cloud` - Datasette Cloud is the hosted Datasette service that the weeknotes refer to as the context for sever
+- [[entities/sqlite-utils|sqlite-utils]] - sqlite-utils is a Python CLI utility and library for manipulating SQLite databases. It is part of th
+- [[entities/fly-machines|fly-machines]] `aliases: Fly.io Machines` - Fly Machines is the hosting service on which [[Datasette Cloud]] deploys new [[datasette]] instances
+- [[entities/localstorage|localstorage]] `aliases: Web Storage API, browser localStorage` - `localStorage` is a standard Web Storage API mechanism provided by web browsers that allows web appl
+- [[entities/google-research|google-research]] `aliases: Google Research team` - Google Research is the research division of Google. In the source, it is the originating party for a
+- [[entities/nous-research|nous-research]] `aliases: NousResearch` - Nous Research is an organization that released a preliminary report PDF about [[DisTro]], its techno
+- [[entities/distro|distro]] - DisTro is a technology developed by [[Nous Research]] for distributed training of LLMs over low-band
+- [[entities/streaming-chat-interface|streaming-chat-interface]] `aliases: streaming chat UI, Streaming chat interface` - A streaming chat interface displays an LLM's response incrementally as tokens arrive, rather than wa
+- [[entities/simonwtools|simonwtools]] `aliases: tools.simonwillison.net, simonw/tools` - simonw/tools is Simon Willison's GitHub repository of pure HTML and JavaScript tools, published on G
+- [[entities/github-pages|github-pages]] `aliases: GitHub Pages hosting, GitHub Pages` - GitHub Pages is the static hosting service that publishes the [[simonw/tools]] repository at tools.s
+- [[entities/gemini-chat-app|gemini-chat-app]] `aliases: gemini-chat, Gemini Chat` - The Gemini Chat App is a browser-based LLM chat interface hosted at tools.simonwillison.net that tal
+- [[entities/claude-3-5-sonnet|claude-3-5-sonnet]] `aliases: Claude 3.5 Sonnet model, Claude Sonnet 3.5` - Claude 3.5 Sonnet is an [[Anthropic]] model that the author used as the main code-writing assistant 
+- [[entities/datasette-write|datasette-write]] `aliases: datasette-write plugin` - datasette-write is a [[Datasette]] plugin that provides a UI for executing SQL writes against a data
+- [[entities/choices-js|choices-js]] `aliases: Choices` - Choices.js is a JavaScript library that turns form inputs into enhanced select and tag widgets. In t
+- [[entities/gemini|gemini]] `aliases: Google Gemini, Gemini Pro` - Gemini is Google's family of large language models. In the 2024-09-06 weeknotes, the author uses the
+- [[entities/datasette-acl|datasette-acl]] `aliases: Datasette ACL plugin` - datasette-acl is a [[Datasette]] plugin for advanced permission management, letting administrators g
+- [[entities/anthropic|anthropic]] - type: entity
+- [[entities/claude-3-opus|claude-3-opus]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-09-06-weeknotes_32f8a8]] 
+- [[entities/claude-3-haiku|claude-3-haiku]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-09-06-weeknotes_32f8a8]] 
+- [[entities/openai|openai]] - OpenAI is an AI company whose LLM APIs, like those of Anthropic and Google Gemini, can be called dir
+- [[entities/the-software-misadventures-podcast|the-software-misadventures-podcast]] `aliases: Software Misadventures Podcast, Software Misadventures` - The Software Misadventures Podcast is a podcast on which Simon Willison appeared in September 2024. 
+- [[entities/pragmatic-engineer-podcast|pragmatic-engineer-podcast]] - type: entity
+- [[entities/twiml|twiml]] `aliases: This Week in Machine Learning & AI, TWIML AI Podcast` - TWIML is a podcast on which Simon Willison appeared in September 2024. His episode focused on how he
+- [[entities/llm|llm]] `aliases: LLM CLI, llm command-line tool` - llm is a command-line tool for accessing large language models, released as version 0.16 on 2024-09-
+- [[entities/datasette|datasette]] `aliases: Datasette project` - Datasette is an open source multi-tool for exploring and publishing data, and it is the central proj
+- [[entities/django|django]] `aliases: Django Web Framework` - Django is a Python web framework and the subject of the plugin system that [[Simon Willison]] built 
+- [[entities/python-software-foundation|python-software-foundation]] - No summary
+- [[entities/djp|djp]] `aliases: Django Plugin System` - DJP is a plugin system for [[Django]] released by Simon Willison in September 2024. The release is l
+- [[entities/djangocon-us-2024|djangocon-us-2024]] `aliases: DjangoCon, DjangoCon US` - DjangoCon US 2024 was a conference for the Django web framework community, held in Durham, North Car
+- [[entities/gergely-orosz|gergely-orosz]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-09-30-weeknotes_8d48b1]] 
+
+## Concepts
+
+- [[concepts/magic-parameters|magic-parameters]] `aliases: Magic parameter` - Magic parameters are [[Datasette]] query parameters whose values are filled in automatically from th
+- [[concepts/geospatial-api|geospatial-api]] `aliases: Location to Time Zone API, Geospatial Web API` - A geospatial API is a web API that answers location-based queries, such as mapping a latitude and lo
+- [[concepts/gpt-style-generative-language-model|gpt-style-generative-language-model]] `aliases: GPT-style language model, generative language model` - A GPT-style generative language model is a language model that generates text one token at a time. I
+- [[concepts/python-in-webassembly|python-in-webassembly]] `aliases: Python WASM build, Python WebAssembly build` - Python in WebAssembly refers to builds of the Python interpreter compiled to run inside a WebAssembl
+- [[concepts/live-error-checking|live-error-checking]] `aliases: live SQL error checking` - Live error checking is the idea of validating a SQL query as the user types it and showing any error
+- [[concepts/explain-query-plan|explain-query-plan]] `aliases: query plan` - EXPLAIN QUERY PLAN is an SQLite command that reports how the database engine intends to execute a gi
+- [[concepts/recursive-ctes|recursive-ctes]] `aliases: Recursive CTEs, hierarchical CTEs` - A recursive CTE (common table expression) is a SQL common table expression that references itself. I
+- [[concepts/subqueries-in-select-expressions|subqueries-in-select-expressions]] `aliases: Correlated subqueries in SELECT, Scalar subquery in SELECT list` - A subquery placed inside the SELECT list of an outer query, so it is evaluated for each output row. 
+- [[concepts/atom-feed|atom-feed]] `aliases: Atom, Atom Syndication Format` - An Atom feed is a web syndication format that lets readers subscribe to a website's updates and rece
+- [[concepts/my-blog-as-a-newsletter|my-blog-as-a-newsletter]] `aliases: Blog-to-email newsletter, Blog as newsletter` - My blog as a newsletter is the practice of delivering a blog's posts to readers by email. The author
+- [[concepts/react-pattern|react-pattern]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-03-22-weeknotes_1bbf6a]] 
+- [[concepts/stable-diffusion-moment|stable-diffusion-moment]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-03-22-weeknotes_1bbf6a]] 
+- [[concepts/exif-data|exif-data]] `aliases: EXIF, Exchangeable image file format` - EXIF data is metadata embedded in image files, such as photos, that records information about the ca
+- [[concepts/python-packaging|python-packaging]] `aliases: Python package management` - Python packaging refers to the tools and processes used to distribute, install, and manage Python li
+- [[concepts/dual-llm-pattern|dual-llm-pattern]] `aliases: Dual LLM` - The Dual LLM pattern is a proposed design for AI assistants that aims to resist [[Prompt injection]]
+- [[concepts/social-media-cards|social-media-cards]] `aliases: Social media cards, Social cards` - Images that appear in link previews when a URL is shared on social media.
+- [[concepts/sentiment-analysis|sentiment-analysis]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-05-01-weeknotes_72fe7e]] 
+- [[concepts/running-python-in-a-denopyodide-sandbox|running-python-in-a-denopyodide-sandbox]] `aliases: Pyodide sandbox, Deno/Pyodide sandbox` - Running Python in a Deno/Pyodide sandbox is an experimental approach to executing untrusted Python c
+- [[concepts/ecmascript-modules|ecmascript-modules]] `aliases: ES modules, ESM` - ECMAScript modules (ES modules, ESM) are the standard module format for JavaScript. They are the ECM
+- [[concepts/webassembly|webassembly]] - WebAssembly is a binary instruction format that lets code run in a sandboxed environment. In the sou
+- [[concepts/javascript-build-tools|javascript-build-tools]] `aliases: JavaScript bundlers, JS build tools` - JavaScript build tools are the bundlers and toolchains that developers commonly use to prepare moder
+- [[concepts/function-plugins|function-plugins]] `aliases: LLM function plugins` - Function plugins are a planned category of [[LLM plugins]] that would make new functions available f
+- [[concepts/template-plugins|template-plugins]] - type: concept
+- [[concepts/token-count|token-count]] `aliases: token efficiency, Token count` - Token count is the number of tokens a language model reads in its input. In the source, it is the ma
+- [[concepts/model-plugins|model-plugins]] `aliases: LLM model plugins, Model plugins` - Model plugins are a planned category of [[LLM plugins]] for the `llm` tool. Their goal is to let `ll
+- [[concepts/command-plugins|command-plugins]] `aliases: command plugin, Command plugins` - Command plugins are the first of four planned categories of plugins for the [[LLM]] command-line too
+- [[concepts/prompt-templates|prompt-templates]] - type: concept
+- [[concepts/llm-plugins|llm-plugins]] `aliases: Plugins for LLM, LLM plugin system` - LLM plugins are a planned extension system for the [[LLM]] command-line tool. They would let third p
+- [[concepts/writing-a-plugin-to-support-a-new-model|writing-a-plugin-to-support-a-new-model]] - type: concept
+- [[concepts/api-tokens|api-tokens]] - type: concept
+- [[concepts/write-api|write-api]] `aliases: Datasette 1.0 write API, JSON write API` - The write API is a Datasette 1.0 alpha feature that lets clients write data into a Datasette instanc
+- [[concepts/ggml|ggml]] `aliases: GGML quantized model, GGML format` - GGML is a file format and library for storing quantized model weights. Quantization reduces the nume
+- [[concepts/plugins|plugins]] `aliases: Plugin system, Plugin support` - A plugin is an extension that adds functionality to a host tool without changing the tool's core cod
+- [[concepts/custom-sql-functions|custom-sql-functions]] `aliases: User-defined SQL functions, UDFs, Custom SQL function` - Custom SQL functions are user-defined functions that can be executed against SQLite databases. In sq
+- [[concepts/open-source-sponsorship|open-source-sponsorship]] `aliases: Open source sponsorship model, OSS sponsorship` - Open source sponsorship is a funding model in which a company pays for developers to work on open so
+- [[concepts/multi-tenant-saas-platform|multi-tenant-saas-platform]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-08-16-datasette-cloud-wee
+- [[concepts/foreign-keys|foreign-keys]] `aliases: SQLite foreign keys, FK` - A foreign key is a constraint that links a column in one table to a column in another table, so that
+- [[concepts/github-security-advisory|github-security-advisory]] `aliases: GHSA, security advisory` - A GitHub security advisory is a published notice that a repository maintainer uses to disclose a sec
+- [[concepts/newline-delimited-json|newline-delimited-json]] `aliases: NDJSON, --nl option` - Newline-delimited JSON is a format in which each JSON record occupies its own line, rather than all 
+- [[concepts/llm-logs|llm-logs]] `aliases: llm logs command` - `llm logs` is the [[LLM]] command that displays the recorded history of prompts and responses stored
+- [[concepts/actor|actor]] `aliases: Datasette actor, --actor option` - In [[Datasette]], an actor is the identity on whose behalf a request is made. The actor drives authe
+- [[concepts/configuration-directory-mode|configuration-directory-mode]] - Configuration directory mode is a Datasette feature that loaded settings from a legacy `settings.jso
+- [[concepts/finely-grained-permissions|finely-grained-permissions]] `aliases: fine-grained permissions, finely-grained permissions` - Finely-grained permissions are a [[Datasette]] mechanism for creating API tokens that can perform on
+- [[concepts/link-pagination|link-pagination]] `aliases: HTTP link header pagination, Link header pagination` - Link pagination is a pattern in JSON APIs where the HTTP `Link` header indicates the URLs of the nex
+- [[concepts/sqlite-utils-transform-method|sqlite-utils-transform-method]] `aliases: transform(), sqlite-utils table transform` - The `transform()` method in [[sqlite-utils]] applies schema changes to an existing table by creating
+- [[concepts/cve-2023-40570|cve-2023-40570]] `aliases: GHSA-7ch3-7pp7-7cpq` - CVE-2023-40570 is the Common Vulnerabilities and Exposures identifier assigned to a information-disc
+- [[concepts/datasette-get|datasette-get]] `aliases: --get option, Datasette --get` - `datasette --get` is a command-line option of [[Datasette]] that simulates an HTTP request against a
+- [[concepts/til|til]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-08-30-datasette-plus-week
+- [[concepts/database-backed-access-tokens|database-backed-access-tokens]] `aliases: database-backed access tokens` - Database-backed access tokens are API tokens that are stored in a database and checked against it, r
+- [[concepts/llama-cpp-python-grammars|llama-cpp-python-grammars]] `aliases: llama-cpp grammars, grammar-constrained decoding` - llama-cpp-python grammars are a feature of llama-cpp that constrains an LLM's output to a specified 
+- [[concepts/openai-functions|openai-functions]] `aliases: Function calling, OpenAI function calling, OpenAI functions mechanism` - OpenAI Functions is an OpenAI API feature that makes a model return structured, function-call style 
+- [[concepts/rowid|rowid]] `aliases: SQLite row identifier` - In [[SQLite]], `rowid` is an internal integer identifier that every table row has. Its value is mana
+- [[concepts/semantic-search|semantic-search]] `aliases: Vector search, Embedding-based search` - Semantic search finds content by its meaning rather than by exact keyword matches. It is typically b
+- [[concepts/crdt|crdt]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-09-17-weeknotes-embedding
+- [[concepts/datasette-plugins|datasette-plugins]] `aliases: Datasette plugin ecosystem` - Datasette plugins are extensions that add features to [[Datasette]]. In the 2023-10-22 weeknotes, th
+- [[concepts/word-embeddings|word-embeddings]] `aliases: Embeddings, Word vectors` - Word embeddings are dense, real-valued vector representations of words, learned so that words with s
+- [[concepts/datasette-metadata|datasette-metadata]] `aliases: metadata.yaml, metadata.json` - Datasette metadata is the `metadata.yaml` file used by [[Datasette]] instances. It was first designe
+- [[concepts/javascript-plugin-api|javascript-plugin-api]] `aliases: Javascript Plugin API, JS plugin API` - The JavaScript plugin API is a [[Datasette]] feature, authored by [[Cameron Yick]], that lets plugin
+- [[concepts/alter-table|alter-table]] `aliases: SQLite ALTER TABLE, ALTER TABLE statement` - ALTER TABLE is the SQL statement used to change the structure of an existing table, such as its colu
+- [[concepts/prompt-engineering|prompt-engineering]] `aliases: prompt engineering technique` - Prompt engineering is the practice of designing the instructions given to a model to shape its outpu
+- [[concepts/enrichments|enrichments]] - type: concept
+- [[concepts/gpts|gpts]] `aliases: GPT configurations, Custom GPTs` - GPTs are customizable configurations of ChatGPT that OpenAI announced at its DevDay event. They let 
+- [[concepts/chronicle-table|chronicle-table]] `aliases: _chronicle_tablename, chronicle tracking table` - A chronicle table is the companion table that [[sqlite-chronicle]] creates for a tracked SQLite tabl
+- [[concepts/geocoding|geocoding]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-12-08-weeknotes_cbd558]] 
+- [[concepts/text-to-speech|text-to-speech]] - Text-to-speech (TTS) is the conversion of written text into spoken audio. In the December 2023 weekn
+- [[concepts/gguf|gguf]] `aliases: GGUF file format` - GGUF is a file format for distributing machine learning models. It is used with tools based on llama
+- [[concepts/ai-trust-crisis|ai-trust-crisis]] `aliases: AI trust crisis` - The AI trust crisis is the loss of user confidence that occurs when people are uncertain whether the
+- [[concepts/haversine-distance|haversine-distance]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-12-31-weeknotes_456c53]] 
+- [[concepts/data-visualization|data-visualization]] - > Stub created by the ingest candidate gate (prose+named) — [[sources/2023-12-31-weeknotes_456c53]] 
+- [[concepts/http-basic-authentication|http-basic-authentication]] `aliases: HTTP Basic auth, Basic auth` - HTTP Basic authentication is a standard HTTP access-control scheme in which a client sends a usernam
+- [[concepts/datasette-as-a-cheap-deployment-platform|datasette-as-a-cheap-deployment-platform]] - type: concept
+- [[concepts/datasette-events|datasette-events]] `aliases: analytical events` - Datasette Events is a mechanism introduced in [[Datasette]] 1.0a8 for emitting analytical events. It
+- [[concepts/dogfooding|dogfooding]] `aliases: Eating your own dog food` - Dogfooding is the practice of using your own product. Teams that dogfood use the software they build
+- [[concepts/dns|dns]] `aliases: Domain Name System, DNS issue` - DNS, the Domain Name System, translates domain names into the addresses that browsers and apps use t
+- [[concepts/conference-follow-up|conference-follow-up]] `aliases: conference follow-up problem, Conference follow-up` - Conference follow-up is a personal technique for turning contacts made at a conference into concrete
+- [[concepts/vacuum-into|vacuum-into]] `aliases: SQLite VACUUM INTO` - VACUUM INTO is a SQLite command that writes a transactionally consistent copy of a database to a new
+- [[concepts/plugin-hook|plugin-hook]] - type: concept
+- [[concepts/action-buttons|action-buttons]] `aliases: Action menu, Datasette action buttons` - Action buttons are the clickable menus in [[Datasette]] that expose actions registered by plugins on
+- [[concepts/open-weights-model|open-weights-model]] `aliases: open weights, openly licensed model` - An open weights model is a large language model (LLM) whose trained weights are publicly available. 
+- [[concepts/weeknotes|weeknotes]] `aliases: Weeknote` - Weeknotes are short, regular blog posts in which a person summarizes their recent work, releases, an
+- [[concepts/free-tier|free-tier]] `aliases: API free tier` - A free tier is a no-cost usage allowance offered by an API provider, subject to limits. Usage beyond
+- [[concepts/system-prompt|system-prompt]] `aliases: system prompts` - A system prompt is an extra prompt passed to a large language model (LLM) alongside the main input, 
+- [[concepts/prompt-injection|prompt-injection]] `aliases: prompt injection attack` - Prompt injection is the risk that malicious input within a prompt overrides the instructions an LLM 
+- [[concepts/embedding-vector|embedding-vector]] `aliases: Embeddings` - > Stub created by the ingest candidate gate (prose+named) — [[sources/2024-04-10-weeknotes-llm-relea
+- [[concepts/parameterization|parameterization]] `aliases: Parametrization, Parameterized Evaluation` - Parameterization is a planned feature that lets an evaluation run be repeated across many combinatio
+- [[concepts/large-language-models|large-language-models]] `aliases: Large Language Model` - Large language models (LLMs) are neural networks trained on large text corpora, a trait illustrated 
+- [[concepts/slop|slop]] - type: concept
+- [[concepts/structured-data-extraction|structured-data-extraction]] `aliases: structured extraction` - Structured data extraction is the process of turning unstructured input, such as text or images, int
+- [[concepts/annotated-presentation-format|annotated-presentation-format]] `aliases: annotated presentation format, annotated talks, Annotated presentations` - The annotated presentation format is the author's recurring practice of publishing detailed written 
+- [[concepts/imitation-intelligence|imitation-intelligence]] `aliases: Imitation intelligence keynote` - Imitation intelligence is the title of [[Simon Willison]]'s invited keynote at [[PyCon US 2024]]. Th
+- [[concepts/customer-portal|customer-portal]] `aliases: Stripe customer portal` - The customer portal is a [[Stripe]] product that hosts a self-service interface where customers mana
+- [[concepts/json-api|json-api]] - No summary
+- [[concepts/full-text-search|full-text-search]] `aliases: FTS, BM25 full-text search` - Full-text search is a retrieval method that indexes the words in documents so that they can be queri
+- [[concepts/rag|rag]] `aliases: Retrieval-Augmented Generation, RAG pattern, Retrieval Augmented Generation` - RAG (Retrieval-Augmented Generation) is a technique in which a user's question is turned into search
+- [[concepts/vector-search|vector-search]] `aliases: embedding search, embeddings-based RAG, Vector similarity search` - Vector search is a retrieval approach that represents text as embeddings and finds relevant document
+- [[concepts/staging-environment|staging-environment]] `aliases: Staging, Staging environment` - A staging environment is a separate deployment environment in which code can be exercised before it 
+- [[concepts/continuous-deployment|continuous-deployment]] `aliases: CD, CI/CD` - Continuous deployment is the practice of automatically deploying code changes to production once the
+- [[concepts/16000-token-output-limit|16000-token-output-limit]] - > Stub created by the ingest candidate gate (aside+covered) — [[sources/2024-07-19-weeknotes_39632e]
+- [[concepts/claude-artifacts|claude-artifacts]] `aliases: Artifacts, artifacts feature` - Claude Artifacts is an [[Anthropic]] feature that presents generated code or documents as an interac
+- [[concepts/pipe-syntax-in-sql|pipe-syntax-in-sql]] - type: concept
+- [[concepts/bounding-boxes|bounding-boxes]] `aliases: Bounding box, bbox` - A bounding box is a rectangle that marks where an object appears in an image. Vision models can retu
+- [[concepts/cors|cors]] `aliases: Cross-Origin Resource Sharing` - CORS (Cross-Origin Resource Sharing) is a browser mechanism that controls whether a web page may mak
+- [[concepts/using-llms-for-code|using-llms-for-code]] `aliases: LLMs for code, LLM-assisted programming` - Using LLMs for code is the practice of using large language models, such as Claude and ChatGPT, to h
+- [[concepts/open-source|open-source]] - type: concept
+- [[concepts/conference-driven-development|conference-driven-development]] `aliases: Conference-Driven Development, CDD` - Conference-driven development is the practice of building or releasing software in order to prepare 
+- [[concepts/plugin-system|plugin-system]] `aliases: Plugin architecture` - A plugin system is a software design in which a host application can be extended by separately devel
+
+## Sources
+
+- [[sources/2023-01-15-weeknotes_aefc7f|2023-01-15-weeknotes_aefc7f]] `aliases: Weeknotes: AI hacking and a SpatiaLite tutorial, 2023-01-15-weeknotes`
+- [[sources/2023-02-09-weeknotes_05bd6f|2023-02-09-weeknotes_05bd6f]] `aliases: Weeknotes: A bunch of things I learned this week, plus datasette-explain, 2023-02-09-weeknotes`
+- [[sources/2023-03-22-weeknotes_1bbf6a|2023-03-22-weeknotes_1bbf6a]] `aliases: 2023-03-22-weeknotes, Simon Willison Weeknotes, 22 March 2023`
+- [[sources/2023-04-23-weeknotes_572e37|2023-04-23-weeknotes_572e37]] `aliases: Weeknotes: Citus Con, PyCon and three new niche museums, 2023-04-23 weeknotes`
+- [[sources/2023-05-01-weeknotes_72fe7e|2023-05-01-weeknotes_72fe7e]] `aliases: Weeknotes: Miscellaneous research into Rye, ChatGPT Code Interpreter and openai-to-sqlite, 2023-05-01 weeknotes`
+- [[sources/2023-05-10-weeknotes_35d224|2023-05-10-weeknotes_35d224]] `aliases: Weeknotes: sqlite-utils 3.31, download-esm, Python in a sandbox, 2023-05-10-weeknotes`
+- [[sources/2023-06-27-weeknotes_f6a59b|2023-06-27-weeknotes_f6a59b]] `aliases: Simon Willison weeknotes, 27 June 2023, 2023-06-27-weeknotes`
+- [[sources/2023-07-16-weeknotes_8e11f0|2023-07-16-weeknotes_8e11f0]] `aliases: 2023-07-16-weeknotes, Simon Willison weeknotes, July 2023`
+- [[sources/2023-08-05-weeknotes-plugins_fc2660|2023-08-05-weeknotes-plugins_fc2660]] `aliases: Weeknotes: Plugins for LLM, sqlite-utils and Datasette, 2023-08-05-weeknotes-plugins`
+- [[sources/2023-08-16-datasette-cloud-weeknotes_9ee111|2023-08-16-datasette-cloud-weeknotes_9ee111]] `aliases: Datasette Cloud, Datasette 1.0a3, llm-mlc and more, 2023-08-16 Datasette weeknotes`
+- [[sources/2023-08-30-datasette-plus-weeknotes_748a0c|2023-08-30-datasette-plus-weeknotes_748a0c]] `aliases: Simon Willison weeknotes 2023-08-30, Datasette 1.0a4 and 1.0a5, plus weeknotes`
+- [[sources/2023-09-17-weeknotes-embeddings_c2332f|2023-09-17-weeknotes-embeddings_c2332f]] `aliases: 2023-09-17-weeknotes-embeddings, Weeknotes: Embeddings, more embeddings and Datasette Cloud`
+- [[sources/2023-10-22-weeknotes_1435b6|2023-10-22-weeknotes_1435b6]] `aliases: Simon Willison weeknotes, 22 October 2023, 2023-10-22-weeknotes`
+- [[sources/2023-10-30-weeknotes_d4a215|2023-10-30-weeknotes_d4a215]] `aliases: Simon Willison weeknotes, 30 October 2023, 2023-10-30-weeknotes`
+- [[sources/2023-11-22-weeknotes_49168f|2023-11-22-weeknotes_49168f]] `aliases: 2023-11-22 weeknotes, Weeknotes: DevDay, GitHub Universe, OpenAI chaos`
+- [[sources/2023-12-08-weeknotes_cbd558|2023-12-08-weeknotes_cbd558]] `aliases: Weeknotes 8 December 2023, 2023-12-08-weeknotes`
+- [[sources/2023-12-31-weeknotes_456c53|2023-12-31-weeknotes_456c53]] `aliases: 2023-12-31-weeknotes, Last weeknotes of 2023`
+- [[sources/2024-01-21-weeknotes_89d714|2024-01-21-weeknotes_89d714]] `aliases: 2024-01-21-weeknotes, Weeknotes: datasette-test, datasette-build, PSF board retreat`
+- [[sources/2024-02-09-weeknotes_1bab97|2024-02-09-weeknotes_1bab97]] `aliases: Weeknotes: a Datasette release, an LLM release and a bunch of new plugins, 2024-02-09-weeknotes`
+- [[sources/2024-02-27-weeknotes-getting-ready-for-nicar_823782|2024-02-27-weeknotes-getting-ready-for-nicar_823782]] `aliases: Weeknotes: Getting ready for NICAR, Simon Willison weeknotes 2024-02-27`
+- [[sources/2024-03-16-weeknotes-the-aftermath-of-nicar_29f231|2024-03-16-weeknotes-the-aftermath-of-nicar_29f231]] `aliases: Weeknotes: the aftermath of NICAR, 2024-03-16 weeknotes`
+- [[sources/2024-04-10-weeknotes-llm-releases_18e6bc|2024-04-10-weeknotes-llm-releases_18e6bc]] `aliases: Three major LLM releases in 24 hours (plus weeknotes), 2024-04-10-weeknotes-llm-releases`
+- [[sources/2024-04-23-weeknotes_a3933c|2024-04-23-weeknotes_a3933c]] `aliases: Weeknotes: Llama 3, AI for Data Journalism, llm-evals and datasette-secrets, 2024-04-23-weeknotes`
+- [[sources/2024-05-28-weeknotes_18b318|2024-05-28-weeknotes_18b318]] `aliases: Weeknotes: PyCon US 2024, 2024-05-28-weeknotes`
+- [[sources/2024-07-02-weeknotes_55c009|2024-07-02-weeknotes_55c009]] `aliases: Simon Willison weeknotes, 2 July 2024, 2024-07-02-weeknotes`
+- [[sources/2024-07-19-weeknotes_39632e|2024-07-19-weeknotes_39632e]] `aliases: 2024-07-19-weeknotes, Simon Willison weeknotes, 19 July 2024`
+- [[sources/2024-09-06-weeknotes_32f8a8|2024-09-06-weeknotes_32f8a8]] `aliases: 2024-09-06-weeknotes, Simon Willison weeknotes, 6 September 2024`
+- [[sources/2024-09-30-weeknotes_8d48b1|2024-09-30-weeknotes_8d48b1]] `aliases: Weeknotes: Three podcasts, two trips and a new plugin system, Simon Willison weeknotes, September 2024`

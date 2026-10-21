@@ -672,7 +672,7 @@ def main():
     remove_provider_parser.add_argument("name", help="Provider name to remove")
 
     add_app_parser = subparsers.add_parser("add-app", help="Register a downstream app (Obsidian, chatbot, etc.).")
-    add_app_parser.add_argument("type", nargs="?", help="App type (obsidian, chatbot, claudia)")
+    add_app_parser.add_argument("type", nargs="?", help="App type (obsidian, chatbot, claudia, abject)")
     add_app_parser.add_argument("name", nargs="?", help="App instance name (defaults to the folder name)")
     add_app_parser.add_argument("--path", help="App folder (a folder chooser opens if omitted and the app type needs one)")
     add_app_parser.add_argument("--vault-type", dest="vault_type", help="Preset (e.g. obsidian vault type)")

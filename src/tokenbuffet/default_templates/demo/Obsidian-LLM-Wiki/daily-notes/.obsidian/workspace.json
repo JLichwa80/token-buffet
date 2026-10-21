@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "1f5878b91842e298",
+        "id": "020dafc385696f2e",
         "type": "tabs",
         "children": [
           {
-            "id": "0eb0c10de49b4b66",
+            "id": "8091759191a70bd9",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -183,9 +183,38 @@
       "karpathywiki:Query wiki": false
     }
   },
-  "active": "0eb0c10de49b4b66",
+  "active": "ffb8f702267025d2",
   "lastOpenFiles": [
-    "wiki/Welcome to Karpathy LLM Wiki.md",
+    "wiki/concepts/magic-parameters.md",
+    "wiki/concepts/geospatial-api.md",
+    "wiki/entities/datasette-faiss.md",
+    "wiki/entities/datasette-cookies-for-magic-parameters.md",
+    "wiki/entities/spatialite.md",
+    "wiki/entities/faiss.md",
+    "wiki/entities/datasette-openai.md",
+    "wiki/sources/2023-01-15-weeknotes_aefc7f.md",
+    "wiki/concepts/gpt-style-generative-language-model.md",
+    "wiki/concepts/python-in-webassembly.md",
+    "wiki/concepts/live-error-checking.md",
+    "wiki/concepts/explain-query-plan.md",
+    "wiki/concepts/recursive-ctes.md",
+    "wiki/concepts/subqueries-in-select-expressions.md",
+    "wiki/entities/db-to-sqlite.md",
+    "wiki/entities/datasette-lite.md",
+    "wiki/entities/tim-bart.md",
+    "wiki/entities/toot.md",
+    "wiki/entities/wasmtime.md",
+    "wiki/entities/nanogpt.md",
+    "wiki/entities/gtr-t5-large.md",
+    "wiki/entities/datasette-explain.md",
+    "wiki/sources/2023-02-09-weeknotes_05bd6f.md",
+    "wiki/entities/pypi.md",
+    "wiki/entities/openai-embeddings-api.md",
+    "wiki/entities/apache-bench.md",
+    "wiki/schema",
+    "wiki/sources",
+    "wiki/concepts",
+    "wiki/entities",
     "wiki"
   ]
 }

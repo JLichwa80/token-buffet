@@ -1,8 +1,8 @@
 # Daily Notes Vault
 
-Sample Obsidian vault with several weekly notes sourced from Simon Willison's blog. Demonstrates daily note templates, weekly reviews, and AI-augmented note synthesis. Content spans topics including AI, technology, tools, and personal observations.
+Sample Obsidian vault with 275 daily notes sourced from Simon Willison's blog. Demonstrates daily note templates, weekly reviews, and AI-augmented note synthesis. Content spans multiple years and topics including AI, technology, tools, and personal observations.
 
-**Content Source:** [Simon Willison's Blog](https://simonwillison.net/) — few entries extracted with proper attribution.
+**Content Source:** [Simon Willison's Blog](https://simonwillison.net/) — 275 entries extracted with proper attribution.
 
 ## Configuration
 

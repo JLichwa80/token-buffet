@@ -1,6 +1,6 @@
 # Claudia
 
-Claudia is a terminal-based AI chief of staff built on Claude Code. It remembers your relationships, tracks your commitments, surfaces patterns in your work, and helps you think and prioritize strategically. Rather than a simple chat interface, Claudia acts as a persistent personal knowledge system — learning your context over time and proactively surfacing what matters.
+The brilliant chief of staff who never misses a detail. Living right in your terminal, it tracks your commitments, maps your relationships, and surfaces hidden patterns to help you think and prioritize like a master strategist.
 
 See the [Claudia project](https://github.com/kbanc85/claudia) for full details.
 

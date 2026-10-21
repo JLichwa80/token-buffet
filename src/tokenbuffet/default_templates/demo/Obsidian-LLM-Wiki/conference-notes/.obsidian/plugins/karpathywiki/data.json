@@ -30,7 +30,7 @@
   "autoWatchMode": "auto",
   "autoWatchDebounceMs": 60000,
   "watchedFolders": [
-    "_Inbox/"
+    "_Inbox"
   ],
   "periodicLint": "weekly",
   "startupCheck": true,
