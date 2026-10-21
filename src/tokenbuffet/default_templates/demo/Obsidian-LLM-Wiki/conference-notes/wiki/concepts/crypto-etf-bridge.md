@@ -1,6 +1,7 @@
 ---
 type: concept
 created: 2026-10-18
+updated: 2026-10-19
 stub: true
 generation_complete: true
 sources:

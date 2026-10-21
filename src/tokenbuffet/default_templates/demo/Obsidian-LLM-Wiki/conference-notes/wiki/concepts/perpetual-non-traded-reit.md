@@ -7,7 +7,6 @@ sources:
   - "[[sources/10-09-keynote_-after-tax-investing-tax-neutral-transitions-and-private-re_80024f]]"
 tags:
   - "financial_strategy"
-  - "fund"
 aliases:
   - "non-traded REIT"
   - "Perpetual NAV REIT"
@@ -38,7 +37,7 @@ A perpetual non-traded REIT is a private real estate investment trust structure 
 
 - [[concepts/return-of-capital|Return of Capital]]
 - [[concepts/upreit|upREIT]]
-- [[concepts/1031-exchange|1031 Exchange]]
+- [[concepts/1031|1031 Exchange]]
 
 ## Related Entities
 

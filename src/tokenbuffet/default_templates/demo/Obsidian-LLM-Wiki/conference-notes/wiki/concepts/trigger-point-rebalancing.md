@@ -2,14 +2,15 @@
 type: concept
 created: 2026-10-19
 updated: 2026-10-19
-tags: [financial_strategy]
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
+tags:
+  - "financial_strategy"
+  - "action_playbook"
 aliases:
   - "math-based hard rebalancing"
   - "trigger point framework"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
-
-generation_complete: true
 ---
 
 # trigger point rebalancing
@@ -45,3 +46,4 @@ Trigger point rebalancing is a quantitative portfolio management strategy where 
 ## Mentions in Source
 
 - "Concept 2: Math-Based 'Hard' Rebalancing: Eventually, a portfolio will drift enough to need a true rebalancing trade. Instead of using arbitrary calendar dates or simple thresholds, the speaker's firm uses a calculated 'trigger point.'" — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]
+- "The Trigger Point: This is 'exactly where the costs and the benefits equal one another.' For a 60/40 portfolio, this trigger is around 6.5% drift." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]

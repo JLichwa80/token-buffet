@@ -34,7 +34,7 @@ aliases:
 
 ## Related Concepts
 
-- [[concepts/wrappers|Wrappers]]
+- [[concepts/wrapper|Wrappers]]
 - [[concepts/tax-alpha|Tax Alpha]]
 - [[concepts/policy-formation-map|Policy Formation Map]]
 - [[concepts/sunset-clause|Sunsets]]

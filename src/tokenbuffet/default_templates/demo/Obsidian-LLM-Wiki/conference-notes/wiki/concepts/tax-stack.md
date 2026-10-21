@@ -49,3 +49,7 @@ The tax stack is an after-tax implementation platform and operational framework 
 
 - "It is about building an after-tax implementation platform — what he called a “tax stack” — that allows advisors to diagnose tax drag, design around the family balance sheet, and implement client-specific portfolios at the tax-lot level." — [[_Inbox/10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)|10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)]]
 - "He introduced the idea of the tax stack as parallel to the familiar tech stack." — [[_Inbox/10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)|10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)]]
+
+## Related Pages
+
+- The tax stack is the after-tax implementation ecosystem in which the [[concepts/capabilities-map]] says the firm should build the tailored solution before automating portfolio mechanics. [[concepts/capabilities-map]]

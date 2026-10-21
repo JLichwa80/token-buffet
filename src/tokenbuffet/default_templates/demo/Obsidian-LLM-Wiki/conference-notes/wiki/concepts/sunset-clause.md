@@ -5,7 +5,9 @@ updated: 2026-10-19
 generation_complete: true
 sources:
   - "[[sources/10-09-keynote_-us-tax-policy-partisanship-populism-and-protectionism-summ_395ccd]]"
-tags: [terminology]
+  - "[[sources/10-09-presentation_-tax-alpha-dual-share-class-and-tokenized-t‑bills-summ_6a40b3]]"
+tags:
+  - "terminology"
 aliases:
   - "Sunset Clause"
   - "Sunset Provision"
@@ -39,7 +41,7 @@ A **Sunset Clause** (or sunset provision) is a statutory mechanism embedded in l
 - **Tax Policy Design**: Applied extensively in major tax legislation, such as the [[entities/tax-cuts-and-jobs-act|Tax Cuts and Jobs Act]], to fit statutory limits on projected deficit increases.
 - **Capital Investment & R&D Incentives**: Frequently applied to capital allowances, equipment expensing, and [[concepts/r&d-expensing|R&D Expensing]], compelling ongoing legislative advocacy for [[concepts/permanency|Permanency]] to foster long-term economic stability.
 - **Policy Pilot Programs**: Used by lawmakers to enact temporary experimental programs to evaluate effectiveness before committing to permanent authorization.
-- **Portfolio Exposure Auditing & Defensive Structuring**: Auditing client segments for exposure to expiring tax provisions, setting review triggers around the one-year notice mark, and prioritizing [[concepts/wrappers|Wrappers]] that can survive statutory shifts.
+- **Portfolio Exposure Auditing & Defensive Structuring**: Auditing client segments for exposure to expiring tax provisions, setting review triggers around the one-year notice mark, and prioritizing [[concepts/wrapper|Wrappers]] that can survive statutory shifts.
 - **Dynamic Tax Planning**: Treating regulatory churn across provisions like [[concepts/351|351]], [[concepts/1031|1031]], and [[concepts/amt|AMT]] as an active, ongoing planning parameter rather than an isolated, static event.
 - **Product Design & Tax Alpha**: Leveraging asset management product structures, such as those engineered by [[entities/fm-investments|FM Investments]], to convert ephemeral statutory tax benefits into enduring portfolio advantages.
 
@@ -53,7 +55,7 @@ A **Sunset Clause** (or sunset provision) is a statutory mechanism embedded in l
 - [[concepts/pro-growth-reform|Pro-Growth Reform]]
 - [[concepts/r&d-expensing|R&D Expensing]]
 - [[concepts/washington-designed-your-portfolio|Washington Designed Your Portfolio]]
-- [[concepts/wrappers|Wrappers]]
+- [[concepts/wrapper|Wrappers]]
 
 ## Related Entities
 

@@ -1,5 +1,11 @@
 ---
 generation_complete: true
+aliases:
+  - "Tax Architect"
+  - "After-Tax Advisor"
+  - "Tax-Aware Advisor"
+  - "After-Tax Wealth Manager"
+  - "Tax-Aware Wealth Advisor"
 ---
 
 ---
@@ -37,3 +43,7 @@ The after-tax architect is an advisory operating role in which the wealth manage
 ## Mentions in Source
 
 - "The advisor’s job is no longer simply to recommend investments. The advisor becomes the after-tax architect, coordinating CPA, estate counsel, legal counsel, client behavior, and portfolio implementation into one integrated design." — [[_Inbox/10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)|10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)]]
+
+## Related Pages
+
+- The after-tax architect is the advisor role the [[concepts/capabilities-map]] installs, coordinating CPAs, estate attorneys, legal counsel, investment teams, clients, custodians, and technology once mechanical reconciliation is automated. [[concepts/capabilities-map]]

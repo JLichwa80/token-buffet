@@ -1,15 +1,15 @@
 ---
 type: entity
 created: 2026-10-18
-updated: 2026-10-18
-tags: [person]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-us-tax-policy-partisanship-populism-and-protectionism-summ_395ccd]]"
+tags:
+  - "person"
 aliases:
   - "Chairman Brady"
   - "former Chairman Kevin Brady"
-sources:
-  - "[[sources/10-09-keynote_-us-tax-policy-partisanship-populism-and-protectionism-summ_395ccd]]"
-
-generation_complete: true
 ---
 
 # Kevin Brady
@@ -31,3 +31,4 @@ Kevin Brady is a former U.S. Representative who served as the Chairman of the Ho
 ## Mentions in Source
 
 - "As former Chairman Kevin Brady said, their work was "the pivotal piece for policymakers to think differently about tax policy."" — [[_Inbox/10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary|10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary]]
+- "As former Chairman Kevin Brady said, their work was 'the pivotal piece for policymakers to think differently about tax policy.'" — [[_Inbox/10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary|10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary]]

@@ -6,6 +6,7 @@ sources:
   - "[[sources/10-09-keynote_-after-tax-wealth-management-and-tax-stack-design-summary-1_d01a81]]"
   - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
   - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
+  - "[[sources/10-09-presentation_-tax-alpha-dual-share-class-and-tokenized-t‑bills-summ_6a40b3]]"
 tags:
   - "terminology"
   - "financial_strategy"
@@ -16,7 +17,6 @@ aliases:
   - "Tax-Aware Alpha"
   - "Tax Efficiency Alpha"
 ---
-
 
 ---
 
@@ -54,7 +54,7 @@ More broadly, it represents the measurable after-tax excess return generated thr
 - Systematic municipal bond management captures an estimated 36 basis points of annualized alpha, while eliminating rebalancing tax drag via soft cash-flow and trigger-point rebalancing recovers up to 16 basis points.
 ## Related Concepts
 
-- [[concepts/wrappers|Wrappers]]
+- [[concepts/wrapper|Wrappers]]
 - [[concepts/dual-share-class|Dual Share Class]]
 - [[concepts/cpmgcphy|CPMG/CPHY]]
 - [[concepts/tokenized-t-bills|Tokenized T-Bills]]
@@ -77,13 +77,16 @@ More broadly, it represents the measurable after-tax excess return generated thr
 - [[entities/aaron|Aaron]]
 - [[entities/municipal-bonds|Municipal Bonds]]
 - [[entities/schwab|Schwab]]
-- [[entities/rafi|RAFI]]
+- [[concepts/fundamental-indexing|RAFI]]
 - [[entities/alliancebernstein|AllianceBernstein]]
 - [[entities/equities|Equities]]
 
 ## Mentions in Source
 
 - "The payoff for all this design, planning, and implementation is tangible: the potential to generate **hundreds of basis points of after-tax excess return**." — [[_Inbox/10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)|10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)]]
-- "The takeaway is very simple: tax alpha matters. It matters hugely." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
-- "FM Investments builds products that exploit that policy space to create tax alpha—turning complicated, often temporary tax rules into enduring portfolio advantages." — [[_Inbox/10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary|10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary]]
 - "The overarching theme of the keynote is that advisors and investors are leaving significant 'tax alpha' on the table by focusing narrowly on equity tax loss harvesting." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]
+- "The takeaway is very simple: tax alpha matters. It matters hugely." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
+- "Schwab + speaker’s firm simulated “tax alpha” for RAFI vs cap-weighted US large across three non-overlapping spans from 2008 to 2023:" — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
+- "FM Investments builds products that exploit that policy space to create tax alpha—turning complicated, often temporary tax rules into enduring portfolio advantages." — [[_Inbox/10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary|10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary]]
+- "Importance: Recognizing how policy is made helps us design wrappers and strategies that harvest tax alpha." — [[_Inbox/10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary|10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary]]
+- "The central message is that true tax optimization is not about isolated tactics but about a holistic, systematic process that considers every component—equities, bonds, and cash flows—working in concert." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]

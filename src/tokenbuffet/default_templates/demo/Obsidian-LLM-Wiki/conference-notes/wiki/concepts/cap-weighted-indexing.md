@@ -1,16 +1,17 @@
 ---
 type: concept
 created: 2026-10-18
-updated: 2026-10-18
-tags: [portfolio_archetype]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
+tags:
+  - "portfolio_archetype"
+  - "theory"
 aliases:
   - "cap-weighting"
   - "market-cap weighting"
   - "capitalization-weighted indexing"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
-
-generation_complete: true
 ---
 
 # Cap-weighted indexing
@@ -37,12 +38,14 @@ Cap-weighted indexing is a conventional passive portfolio construction methodolo
 
 - [[concepts/active-side-of-indexing|Active side of indexing]]
 - [[concepts/rebalancing-alpha|Rebalancing alpha]]
+- [[concepts/fundamental-indexing|Fundamental Indexing]]
 
 ## Related Entities
 
-- [[entities/rafi|RAFI]]
+- [[concepts/fundamental-indexing|RAFI]]
 - [[entities/cfa-research-foundation|CFA Research Foundation]]
 
 ## Mentions in Source
 
 - "Why the heck are we choosing companies based on their market value and weighting them based on their market value?" — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
+- "If turnover is 5%, then 95% is buy-and-hold “passive,” but the 5% is active—and it’s not “neutral active.”" — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]

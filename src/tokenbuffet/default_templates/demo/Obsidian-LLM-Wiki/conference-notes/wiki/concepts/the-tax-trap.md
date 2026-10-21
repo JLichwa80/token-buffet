@@ -44,7 +44,7 @@ The Tax Trap is the missed after-tax value that can result from treating fixed i
 - [[entities/jamie|Jamie]]
 - [[entities/massachusetts-municipal-bonds|Massachusetts municipal bonds]]
 - [[entities/corporate-bonds|Corporate bonds]]
-- [[entities/treasury-bonds|Treasury bonds]]
+- [[entities/treasury-bond|Treasury bonds]]
 
 ## Mentions in Source
 

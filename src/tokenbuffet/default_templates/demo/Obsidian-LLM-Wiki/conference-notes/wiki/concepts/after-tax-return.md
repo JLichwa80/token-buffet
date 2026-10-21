@@ -7,7 +7,6 @@ aliases:
   - "After-tax yield"
 sources:
   - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
-
 generation_complete: true
 ---
 
@@ -42,3 +41,7 @@ Use after-tax comparisons to evaluate fixed-income investments based on an inves
 ## Mentions in Source
 
 - "The speaker reveals a surprising statistic: over the last 25 years, national municipal bonds have outperformed Massachusetts munis on an after-tax basis for a Massachusetts resident about 53% of the time." — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]
+
+## Related Pages
+
+- The keynote’s after-tax comparison uses a [[entities/texas]] bond as the out-of-state taxable example that can out-yield a concentrated Massachusetts municipal portfolio once tax is paid. [[entities/texas]]

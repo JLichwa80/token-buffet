@@ -8,7 +8,6 @@ aliases:
   - "political partisanship"
 sources:
   - "[[sources/10-09-keynote_-us-tax-policy-partisanship-populism-and-protectionism-summ_395ccd]]"
-
 generation_complete: true
 ---
 
@@ -44,3 +43,7 @@ Partisanship in the context of fiscal and tax policy refers to the tendency for 
 ## Mentions in Source
 
 - "The speaker notes the trend of major tax legislation passing on party-line votes ("Democrat only or Republican only")." — [[_Inbox/10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary|10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary]]
+
+## Related Pages
+
+- Partisanship in modern fiscal governance manifests through [[concepts/party-line-vote|party-line votes]], where major tax legislation is enacted without bipartisan compromise. [[concepts/party-line-vote]]

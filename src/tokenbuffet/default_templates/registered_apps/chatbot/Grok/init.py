@@ -91,7 +91,7 @@ def _copy_home(root, spec):
     target = (root / spec["to"]).resolve()
     if not target.is_relative_to(root):
         raise ValueError(f"Chatbot home must stay inside the workspace: {spec['to']}")
-    print(f"Copying {source} into {target} (settings, login, conversations; skipping {', '.join(spec['skip'])})...")
+    print("Initializing chatbot workspaces...")
     for folder, dirs, files in os.walk(source):
         dirs[:] = [d for d in dirs if not any(fnmatch.fnmatch(d, pattern) for pattern in spec["skip"])]
         destination = target / Path(folder).relative_to(source)

@@ -30,3 +30,7 @@ Microsoft is used as an example of a taxable corporate bond issuer for a Massach
 ## Mentions in Source
 
 - "Due to supply-demand imbalances in specific states, Speaker 2 found that buying a Texas bond or a Microsoft bond and paying the tax could often yield a higher net return for a Massachusetts-based client than sticking to 100% Massachusetts municipal bonds." — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]
+
+## Related Pages
+
+- A taxable Microsoft bond is cited alongside a [[entities/texas]] bond as an alternative that can leave a Massachusetts client with a higher net return than a portfolio of only Massachusetts municipal bonds. [[entities/texas]]

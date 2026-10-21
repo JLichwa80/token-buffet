@@ -1,5 +1,11 @@
 ---
+created: 2026-10-19
+updated: 2026-10-19
 generation_complete: true
+sources:
+  - "[[sources/10-09-panel-discussion_-variable-prepaid-forwards-tax-aware-long-short-an_0f1ad3]]"
+tags:
+  - "financial_strategy"
 aliases:
   - "Equity Collar"
   - "Option Collar"
@@ -8,14 +14,15 @@ aliases:
   - "Zero-Cost Collar"
   - "Costless Collar"
   - "OTC Collar"
+  - "Single OTC Fused Collar"
 ---
-
 
 ---
 
 # Collar
 
 ## Description
+
 A collar is the paired put and call used to bound the outcome of a concentrated stock position. The panel focuses on why the tax result depends on how the collar is built. Under [[Straddle Rules]] for post-1984 stock, an exchange-traded collar can make the call premium currently taxable as a short-term item while put losses are non-deductible and are added to basis until the shares are sold. Speaker 2 says the more tax-efficient structure is a single OTC collar that fuses the put and the call into one instrument that cannot be separated. Borrowing against the present value of the put makes that fused collar mechanically similar to a [[Variable Prepaid Forward]]. The panel therefore treats vanilla listed collars as tax-inefficient relative to either a fused OTC collar or a [[Variable Prepaid Forward]] when [[Constructive Sale]] management and deferral both matter.
 
 ## Related Entities
@@ -32,3 +39,4 @@ A collar is the paired put and call used to bound the outcome of a concentrated 
 ## Mentions in Source
 
 - "The more tax-efficient way is a single OTC collar that fuses the put and the call into one instrument that can’t be separated." — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]
+- "More tax-efficient: Single OTC collar fused into one instrument; borrow against PV of the put (mechanically akin to a VPF)." — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]

@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-19
 generation_complete: true
 sources:
   - "[[sources/10-09-keynote_-after-tax-wealth-management-and-tax-stack-design-summary-1_d01a81]]"
@@ -30,12 +30,14 @@ Specifically, [[concepts/after-tax-outcomes|After-Tax Wealth]] accounting formal
 - **Structural Tax Mitigation**: Directly counteracts tax drag, such as the shortfall documented in fund studies where taxes significantly erode nominal gains over multi-year holding periods.
 - **Holistic Alignment**: Requires evaluating the tax code, market benchmarks (e.g., S&P and MSCI), and asset location in concert to optimize net terminal wealth.
 - **Alpha-Driven Tax Loss Engine**: Leverages pretax alpha within tax-aware long-short frameworks to mechanically accelerate net capital loss harvesting and position turnover, substantially compounding terminal wealth over multi-decade horizons relative to traditional long-only indexing.
+- **Dynamic Loss Capitalization**: Conceptualizes harvested tax losses as active, reinvestable capital that compounds future returns rather than treating them as static, one-time tax offsets.
 ## Applications
 
 - **Performance Evaluation**: Benchmarking wealth managers and financial advisors on net after-tax wealth delivered rather than gross pre-tax returns.
 - **Direct & Custom Indexing**: Implementing systematic tax-loss harvesting to produce 15 to 200 basis points of after-tax excess return.
 - **Tax-Aware Portfolio Construction**: Employing tax-efficient vehicles such as municipal bonds for tax-exempt income and 130/30 long-short overlays to enhance after-tax alpha.
 - **Extended Long-Short & Leverage Evaluation**: Assessing manager skill (Information Ratio) and higher leverage extensions (such as 150/50, 200/100, and 250/150 overlays) by measuring compounded after-tax wealth creation over multi-decade investment horizons.
+- **Compounded Holding Horizon Simulation**: Evaluating multi-decade (15-year) compounding effects, where combining elevated portfolio leverage with superior manager skill generates up to a 6–7x difference in accumulated after-tax wealth across execution scenarios.
 ## Related Concepts
 
 - [[concepts/tax-drag|Tax Drag]]
@@ -55,3 +57,4 @@ Specifically, [[concepts/after-tax-outcomes|After-Tax Wealth]] accounting formal
 
 - "Clients do not live in pre-tax returns; they live in after-tax outcomes." — [[_Inbox/10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)|10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)]]
 - "After-Tax Wealth Accounting - Definition: Pretax wealth plus the time-valued sum of tax benefits, compounded at the portfolio’s pretax rate." — [[_Inbox/10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary|10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary]]
+- "After-tax wealth: pretax wealth plus time-valued tax benefits compounding at portfolio’s pretax return." — [[_Inbox/10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary|10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary]]

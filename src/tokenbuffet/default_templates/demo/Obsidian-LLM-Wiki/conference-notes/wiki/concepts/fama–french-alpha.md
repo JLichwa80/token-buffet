@@ -1,16 +1,17 @@
 ---
 type: concept
 created: 2026-10-18
-updated: 2026-10-18
-tags: [terminology]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
+tags:
+  - "terminology"
+  - "theory"
 aliases:
   - "Fama-French-relative alpha"
   - "true alpha"
   - "factor-adjusted alpha"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
-
-generation_complete: true
 ---
 
 # Fama–French alpha
@@ -25,7 +26,7 @@ Fama–French alpha represents the factor-adjusted, or "true," excess return of 
 - **Independent Layer in Total Return**: Functions as an additive layer of return alongside operational and implementation effects such as tax alpha and transaction drag.
 - **Evaluation Differentiator**: Serves as the critical net edge when comparing strategies whose post-fee tax alphas converge or appear comparable.
 - **Robustness Check**: Separates raw factor outperformance from the layered impacts of management fees, turnover costs, and tax liabilities that can otherwise erode or reverse paper gains in smart beta strategies.
-
+- **Dynamic Rebalancing Validation**: Confirms that outperformance in fundamental indexing is driven by systematic dynamic rebalancing against mispricings rather than static, passive value or size factor tilts.
 ## Applications
 
 - **Strategy Performance Attribution**: Evaluating whether smart-beta or fundamental indexing strategies generate true factor-adjusted outperformance beyond simple capitalization-weighted benchmarks.
@@ -37,12 +38,15 @@ Fama–French alpha represents the factor-adjusted, or "true," excess return of 
 - [[concepts/tax-alpha|Tax alpha]]
 - [[concepts/value-tilt|Value tilt]]
 - [[concepts/smart-beta|Smart beta]]
+- [[concepts/fundamental-indexing|Fundamental indexing]]
+- [[concepts/rebalancing-alpha|Rebalancing alpha]]
 
 ## Related Entities
 
-- [[entities/rafi|RAFI]]
+- [[concepts/fundamental-indexing|RAFI]]
 - [[entities/schwab|Schwab]]
 
 ## Mentions in Source
 
 - "- Framing: this tax alpha is **on top of** ~**2% Fama–French alpha** (as described)." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
+- "Framing: this tax alpha is on top of ~2% Fama–French alpha (as described)." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]

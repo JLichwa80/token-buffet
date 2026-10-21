@@ -1,5 +1,18 @@
 ---
+created: 2026-10-19
+updated: 2026-10-19
 generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-aware-long-short-investing-pretax-alpha-and-after-tax-_8ca74c]]"
+tags:
+aliases:
+  - "130/30 Strategy"
+  - "130/30"
+  - "130-30"
+  - "130-30 Strategy"
+  - "130/30 Portfolio"
+  - "Active Extension Strategy"
+  - "Short Extension Strategy"
 ---
 
 ---
@@ -14,7 +27,7 @@ A 130/30 strategy is an equity portfolio archetype that holds long positions equ
 
 - Long exposure of 130% and short exposure of 30% produce 100% net market exposure and 160% gross exposure.
 - The long and short sleeves support active factor tilting while the net position remains fully invested in the market.
-- Short positions and leverage expand the set of positions that can realize losses, treating [[Losses as Inventory]] that can be used against gains.
+- Short positions and leverage expand the set of positions that can realize losses, treating [[concepts/losses-are-inventory|Losses Are Inventory]] that can be used against gains.
 - The cited tax-aware case is 300+ basis points of tax alpha on a 130/30 strategy, with more potential as leverage increases.
 - Deployment depends on the client's comfort with the alpha thesis, short exposure, leverage, complexity, and a restructuring of the household equity balance sheet.
 

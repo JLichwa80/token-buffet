@@ -1,7 +1,26 @@
 ---
+created: 2026-10-19
+updated: 2026-10-20
 generation_complete: true
----
-
+aliases:
+  - "Portfolio Diagnosis"
+  - "Portfolio Diagnostic"
+  - "Tax Diagnostic"
+  - "After-Tax Portfolio Diagnosis"
+  - "Tax-Aware Portfolio Diagnostic"
+  - "Household Diagnostic"
+  - "diagnosis (1)"
+  - "Tax-Aware Portfolio Diagnosis"
+  - "After-Tax Diagnosis"
+  - "Tax Diagnosis"
+  - "Household Balance Sheet Diagnosis"
+  - "Diagnostic Stage"
+  - "medical diagnosis"
+  - "clinical diagnosis"
+  - "diagnostics"
+  - "diagnostic assessment"
+  - "diagnostic evaluation"
+  - "Household Structure Diagnosis"
 ---
 
 # Diagnosis
@@ -22,7 +41,7 @@ Diagnosis is the opening stage of after-tax portfolio design. Before an advisor 
 ## Applications
 
 - Open a taxable relationship by building a household balance sheet view and marking where tax drag is embedded before any product is selected.
-- Run a [[Tax-Aware Transition Analysis]] for legacy mutual funds or other commingled positions so the client can compare staying put with moving toward a destination portfolio.
+- Run a [[concepts/tax-neutral-transition|Tax-Neutral Transition]] for legacy mutual funds or other commingled positions so the client can compare staying put with moving toward a destination portfolio.
 - Size transition, diversification, or tax-aware long-short work against current-year gains, available losses, liquidity events, and the risk change that selling, holding, or hedging would create.
 - Coordinate the advisor, CPA, and estate counsel around one family-level picture when concentrated stock, a business sale, or several account types sit on the same balance sheet.
 

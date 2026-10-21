@@ -2,14 +2,14 @@
 type: concept
 created: 2026-10-19
 updated: 2026-10-19
-tags: [action_playbook]
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
+tags:
+  - "action_playbook"
 aliases:
   - "weekly tax loss harvesting"
   - "weekly harvesting frequency"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
-
-generation_complete: true
 ---
 
 # weekly harvesting cadence
@@ -43,3 +43,4 @@ A weekly harvesting cadence is an execution schedule for systematic equity direc
 ## Mentions in Source
 
 - "Optimizing Equity Harvesting: Before moving to bonds, the speaker shared a key tactical tip for direct indexing: harvest weekly, not monthly or daily." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]
+- "He presented data showing that weekly harvesting generated double the tax alpha (200 bps) of monthly harvesting (100 bps) for slightly less tracking error." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]

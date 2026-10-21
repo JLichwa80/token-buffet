@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import json
 import os
-import shutil
+import struct
 import subprocess
 import sys
 import time
@@ -22,7 +22,7 @@ def _settings_dir():
 
 def check():
     if not _settings_dir().is_dir():
-        raise FileNotFoundError("Obsidian must be installed and opened once: get it from https://obsidian.md/download, then run this again")
+        raise FileNotFoundError("Obsidian is not installed")
 
 
 def _vault_list():
@@ -45,41 +45,99 @@ def link(app_path):
     return vault_id
 
 
-def _vault_help():
-    return ("Close Obsidian completely and retry the command. If the problem persists, "
-            "ensure the vault is added in Obsidian before opening it with Token Buffet.")
+# Obsidian keeps "Trust author and enable plugins" as localStorage `enable-plugin-<vault id>` = "true" (app.plugins.setEnable,
+# inspected in Obsidian 1.14.4). localStorage is a LevelDB database under the settings folder, so the entry is appended to its
+# write-ahead log; LevelDB log format: https://github.com/google/leveldb/blob/main/doc/log_format.md
+_BLOCK = 32768
+_CRC_TABLE = []
+for _i in range(256):
+    _c = _i
+    for _ in range(8):
+        _c = (_c >> 1) ^ (0x82F63B78 if _c & 1 else 0)
+    _CRC_TABLE.append(_c)
 
 
-def _run_cli(*args):
-    executable = shutil.which("Obsidian.com" if sys.platform == "win32" else "obsidian")
-    if not executable:
-        raise FileNotFoundError("Enable Obsidian Settings > General > Command line interface, then retry the command")
-    deadline = time.monotonic() + 15
-    while True:
-        try:
-            result = subprocess.run([executable, *args], capture_output=True, text=True,
-                                    encoding="utf-8", timeout=60)
-        except subprocess.TimeoutExpired as exc:
-            raise RuntimeError(f"Obsidian command timed out. {_vault_help()}") from exc
-        output = (result.stdout + result.stderr).strip()
-        if (output.startswith('Error: Command "') and '" not found.' in output
-                and time.monotonic() < deadline):
-            time.sleep(0.5)
+def _masked_crc32c(data):
+    crc = 0xFFFFFFFF
+    for byte in data:
+        crc = _CRC_TABLE[(crc ^ byte) & 0xFF] ^ (crc >> 8)
+    crc ^= 0xFFFFFFFF
+    return ((((crc >> 15) | (crc << 17)) & 0xFFFFFFFF) + 0xA282EAD8) & 0xFFFFFFFF
+
+
+def _varint(number):
+    out = b""
+    while number >= 0x80:
+        out += bytes([number & 0x7F | 0x80])
+        number >>= 7
+    return out + bytes([number])
+
+
+def _last_sequence(log):
+    data = log.read_bytes()
+    pos, last, record = 0, 0, b""
+    while pos + 7 <= len(data):
+        if _BLOCK - pos % _BLOCK < 7:
+            pos += _BLOCK - pos % _BLOCK
             continue
-        break
-    if result.returncode or "Error:" in output or "Vault not found." in output:
-        raise RuntimeError(f"{output or 'Obsidian command failed.'}\n{_vault_help()}")
-    return output
+        crc, length, kind = struct.unpack_from("<IHB", data, pos)
+        pos += 7
+        chunk = data[pos:pos + length]
+        pos += length
+        if kind == 0 and length == 0:
+            pos = (pos // _BLOCK + 1) * _BLOCK
+            continue
+        if _masked_crc32c(bytes([kind]) + chunk) != crc:
+            raise ValueError(f"{log} has a bad checksum at byte {pos}")
+        record = chunk if kind in (1, 2) else record + chunk
+        if kind in (1, 4):
+            sequence, count = struct.unpack_from("<QI", record, 0)
+            last = sequence + count - 1
+    return last, len(data)
+
+
+def _append_put(log, key, value):
+    last, pos = _last_sequence(log)
+    rest = struct.pack("<QI", last + 1, 1) + b"\x01" + _varint(len(key)) + key + _varint(len(value)) + value
+    out, first = bytearray(), True
+    while True:
+        room = _BLOCK - pos % _BLOCK
+        if room < 7:
+            out += b"\x00" * room
+            pos += room
+            room = _BLOCK
+        size = min(len(rest), room - 7)
+        final = size == len(rest)
+        kind = (1 if final else 2) if first else (4 if final else 3)
+        chunk, rest = rest[:size], rest[size:]
+        out += struct.pack("<IHB", _masked_crc32c(bytes([kind]) + chunk), size, kind) + chunk
+        pos += 7 + size
+        first = False
+        if final:
+            break
+    with open(log, "ab") as f:
+        f.write(out)
+
+
+def trust(vault_id):
+    """Mark the vault trusted so Obsidian does not show its trust dialog; Obsidian must be closed."""
+    storage = _settings_dir() / "Local Storage" / "leveldb"
+    try:
+        with open(storage / "LOCK", "a+b") as handle:
+            if os.name != "nt":
+                import fcntl
+                fcntl.lockf(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError as exc:
+        raise RuntimeError("Close Obsidian completely, then retry: its storage is locked") from exc
+    logs = sorted(storage.glob("*.log"))
+    if len(logs) != 1:
+        raise RuntimeError(f"Expected one LevelDB log in {storage}, found {len(logs)}")
+    _append_put(logs[0], b"_app://obsidian.md\x00\x01enable-plugin-" + vault_id.encode("ascii"), b"\x01true")
 
 
 def launch(app_path):
-    vault = os.path.normcase(os.path.abspath(app_path))
     if not Path(app_path).is_dir():
         raise FileNotFoundError(f"Vault folder does not exist: {app_path}")
-    vaults = _run_cli("vaults", "verbose")
-    if not any(os.path.normcase(os.path.abspath(line.split("\t", 1)[1])) == vault
-               for line in vaults.splitlines() if "\t" in line):
-        raise ValueError(f"Vault is not available in Obsidian: {app_path}\n{_vault_help()}")
     uri = "obsidian://open?vault=" + link(app_path)
     if sys.platform == "win32":
         os.startfile(uri)
@@ -88,29 +146,7 @@ def launch(app_path):
 
 
 def prepare_demo(app_path):
-    """Trust and initialize this demo using Obsidian's CLI and the bundled plugin."""
-    vault_id = link(app_path)
-
-    def run(*args):
-        return _run_cli(f"vault={vault_id}", *args)
-
-    code = """(async () => {
-        await new Promise(resolve => app.workspace.onLayoutReady(resolve));
-        await app.plugins.setEnable(true);
-        await app.plugins.enablePluginAndSave('karpathywiki');
-        if (!app.plugins.isEnabled()) throw new Error('Vault trust was not saved');
-        const plugin = app.plugins.plugins.karpathywiki;
-        if (!plugin) throw new Error('LLM Wiki plugin did not load');
-        await plugin.loadSettings();
-        plugin.settings.apiKey = 'TokenBuffet';
-        plugin.settings.llmReady = true;
-        app.secretStorage.setSecret(plugin.settings.providerApiKeySecretId, 'TokenBuffet');
-        await plugin.saveSettings();
-        await plugin.wikiEngine.ensureWikiStructure();
-        if (!plugin.llmClient) throw new Error('LLM Wiki connection settings are incomplete');
-    })()"""
-    run("eval", "code=" + code)
-    run("reload")
+    trust(link(app_path))
 
 
 def init(app_path=None):

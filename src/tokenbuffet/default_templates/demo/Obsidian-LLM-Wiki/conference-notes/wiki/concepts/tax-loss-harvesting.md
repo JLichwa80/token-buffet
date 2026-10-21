@@ -16,6 +16,7 @@ tags:
   - "action_playbook"
 aliases:
   - "Loss harvesting"
+  - "Equity Tax Loss Harvesting"
 ---
 
 # Tax-Loss Harvesting
@@ -34,6 +35,7 @@ Tax-loss harvesting is the realization of investment losses to help manage an in
 - Serves as the operational engine for generating [[concepts/tax-alpha|tax alpha]] in low-turnover strategies like fundamental indexing (RAFI), offsetting realized capital gains to leave net gains effectively untaxed and yielding an estimated 170 to 190 basis points of tax alpha.
 - In long-short strategies, short positions introduce negative correlation to the broader market, creating loss-harvesting opportunities in both rising and falling regimes, unlike long-only portfolios where harvesting capacity decays over time as appreciated positions lock up.
 - Unlike equity tax-loss harvesting which functions primarily as tax deferral, bond tax-loss harvesting can achieve permanent tax avoidance when replacement bonds purchased at a premium amortize down to par, eliminating capital gains upon maturity.
+- Operates fundamentally as a tax deferral mechanism rather than permanent tax avoidance because purchasing replacement equities at a lower cost basis preserves future unrealized capital gains liability.
 ## Applications
 
 Managers may use tax-loss harvesting in taxable fixed income portfolios to manage each client’s tax outcome, particularly when bonds are held directly in a separately managed account.
@@ -47,6 +49,8 @@ In practice, loss harvesting workflows are frequently paired with cash-flow reba
 In tax-aware long-short strategies, it is utilized in conjunction with pretax alpha generation; as alpha causes the portfolio to become under-levered, rebalancing drives "position creation"—establishing fresh positions with full cost basis that continually replenishes the inventory of harvestable losses.
 
 When applied to municipal and taxable bond portfolios, it also involves closely monitoring replacement asset selection and adjusted cost basis to stay clear of the de minimis rule threshold, preventing market discount accretion from converting potential capital gains into ordinary income.
+
+In direct indexing equity strategies, it is applied via a weekly harvesting cadence rather than daily or monthly execution, capturing approximately 200 basis points of tax alpha while keeping tracking error within acceptable parameters.
 ## Related Concepts
 
 - [[concepts/tax-persona|Tax Persona]]
@@ -58,17 +62,17 @@ When applied to municipal and taxable bond portfolios, it also involves closely 
 - [[concepts/monetizing-volatility|Monetizing Volatility]]
 - [[concepts/cross-sectional-dispersion|Cross-Sectional Dispersion]]
 - [[concepts/lot-level-implementation|Lot-Level Implementation]]
-- [[concepts/direct-indexing|Direct Indexing]]
+- [[concepts/long-only-direct-indexing|Direct Indexing]]
 - [[concepts/tax-alpha|Tax Alpha]]
 - [[concepts/negative-tax-alpha|Negative Tax Alpha]]
 - [[concepts/cash-flow-rebalancing|Cash-Flow Rebalancing]]
 - [[concepts/tax-efficiency-of-wrappers|Tax Efficiency of Wrappers]]
-- [[concepts/tax-aware-long-short-investing|Tax-Aware Long-Short Investing]]
 - [[concepts/position-creation|Position Creation]]
 - [[concepts/cumulative-net-capital-losses-cncls|Cumulative Net Capital Losses (CNCLs)]]
 - [[concepts/long-only-direct-indexing|Long-Only Direct Indexing]]
 - [[concepts/adjusted-basis|Adjusted Basis]]
 - [[concepts/de-minimis-rule|De Minimis Rule]]
+- [[concepts/bond-tax-loss-harvesting|Bond Tax Loss Harvesting]]
 
 ## Related Entities
 
@@ -84,9 +88,11 @@ When applied to municipal and taxable bond portfolios, it also involves closely 
 ## Mentions in Source
 
 - "These are structurally inefficient for taxable investors because they are forced to distribute capital gains but cannot pass through losses, which are a critical tool for tax-loss harvesting." — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]
+- "Mutual Funds: These are structurally inefficient for taxable investors because they are forced to distribute capital gains but cannot pass through losses, which are a critical tool for tax-loss harvesting." — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]
 - "This isn't just about tax loss harvesting; it's about integrated, dynamic, and personalized after-tax portfolio management." — [[_Inbox/10-09 Keynote_ After-Tax Investing, Tax-Neutral Transitions, and Private Real Estate Strategies-Summary|10-09 Keynote_ After-Tax Investing, Tax-Neutral Transitions, and Private Real Estate Strategies-Summary]]
 - "Tax-loss harvesting is often discussed mechanically, but Aaron reframed it more powerfully." — [[_Inbox/10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)|10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)]]
 - "The speaker began by level-setting the audience's understanding of tax loss harvesting, drawing a sharp contrast between how it works in equities versus fixed income." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]
+- "Equity Harvesting (The Deferral Game): The speaker used a simple example: a stock bought at $100 drops to $80. You sell, harvest a $20 loss, and buy a replacement. If that replacement recovers to $100, you now have a $20 capital gain." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]
 - "Key message: **low turnover** strategies can still generate substantial tax alpha if managed well—selling some gains + harvesting losses can net out so gains become effectively “tax-free” because losses offset them." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
 - "Long-only direct indexing: 100 long / 0 short; beta ~1 to Russell 1000; 1% uninformed tracking error focused on tax-loss harvesting." — [[_Inbox/10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary|10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary]]
-- "Mutual Funds: These are structurally inefficient for taxable investors because they are forced to distribute capital gains but cannot pass through losses, which are a critical tool for tax-loss harvesting." — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]
+- "Objectives: Long-only: defer gains, realize losses within tracking error." — [[_Inbox/10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary|10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary]]

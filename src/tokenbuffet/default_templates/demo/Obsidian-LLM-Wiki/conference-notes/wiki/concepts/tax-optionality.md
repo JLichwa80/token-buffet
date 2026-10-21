@@ -8,7 +8,6 @@ aliases:
   - "Tax Optionality of Shorts"
 sources:
   - "[[sources/10-09-keynote_-tax-aware-long-short-investing-pretax-alpha-and-after-tax-_8ca74c]]"
-
 generation_complete: true
 ---
 
@@ -33,7 +32,7 @@ Tax optionality is the structural advantage inherent to short positions that ena
 
 ## Related Concepts
 
-- [[concepts/tax-aware-long-short-investing|Tax-Aware Long-Short Investing]]
+- [[concepts/tax-aware-long-short|Tax-Aware Long-Short Investing]]
 - [[concepts/tax-loss-harvesting|Tax-Loss Harvesting]]
 - [[concepts/position-creation|Position Creation]]
 

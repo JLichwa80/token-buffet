@@ -1,5 +1,10 @@
 ---
+created: 2026-10-19
+updated: 2026-10-19
 generation_complete: true
+sources:
+  - "[[sources/10-09-presentation_-tax-alpha-dual-share-class-and-tokenized-t‑bills-summ_6a40b3]]"
+tags:
 aliases:
   - "Collective Investment Trust"
   - "Collective Investment Trusts"
@@ -8,7 +13,6 @@ aliases:
   - "Collective Trust Funds"
   - "Common Trust Fund"
 ---
-
 
 ---
 
@@ -27,11 +31,11 @@ CITs (collective investment trusts) are one of the legal containers in the prese
 
 ## Applications
 
-Advisors use CITs as a retirement-channel wrapper inside the current wrapper landscape, alongside mutual funds and ETFs, while they prepare for structures such as [[Tokenized T-Bills]]. The talk places CIT growth in that present landscape. It does not assign CITs a distinct tax-alpha mechanic. Tax conversion of investment alpha is discussed at the level of [[Wrappers]], including the [[Dual Share Class]] case, rather than as a CIT-specific design.
+Advisors use CITs as a retirement-channel wrapper inside the current wrapper landscape, alongside mutual funds and ETFs, while they prepare for structures such as [[Tokenized T-Bills]]. The talk places CIT growth in that present landscape. It does not assign CITs a distinct tax-alpha mechanic. Tax conversion of investment alpha is discussed at the level of [[wrapper]], including the [[Dual Share Class]] case, rather than as a CIT-specific design.
 
 ## Related Concepts
 
-- [[concepts/wrappers|Wrappers]]
+- [[concepts/wrapper|Wrappers]]
 - [[concepts/tokenized-t-bills|Tokenized T-Bills]]
 - [[concepts/dual-share-class|Dual Share Class]]
 

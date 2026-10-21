@@ -40,5 +40,6 @@ Industry-wide, direct indexing serves as the technological and tax management be
 
 ## Mentions in Source
 
-- "Optimizing Equity Harvesting: Before moving to bonds, the speaker shared a key tactical tip for direct indexing: harvest weekly, not monthly or daily." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]
 - "The bond market, long considered a stagnant and overly complex corner of wealth management, is ripe for a technological and strategic revolution similar to what direct indexing brought to equities." — [[_Inbox/10-09 Keynote The Tax Trap in Bond Investing|10-09 Keynote The Tax Trap in Bond Investing]]
+- "Optimizing Equity Harvesting: Before moving to bonds, the speaker shared a key tactical tip for direct indexing: harvest weekly, not monthly or daily." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]
+- "He presented data showing that weekly harvesting generated double the tax alpha (200 bps) of monthly harvesting (100 bps) for slightly less tracking error." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]

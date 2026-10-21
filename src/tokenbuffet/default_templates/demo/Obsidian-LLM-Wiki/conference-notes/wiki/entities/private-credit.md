@@ -22,7 +22,7 @@ Private credit is presented as an alternative investment a client might compare 
 Private credit is treated as an income-heavy asset class that fits poorly in a taxable account and strongly inside Private Placement Life Insurance, because it tends to throw off income that would otherwise be taxed currently. Locating it in PPLI defers that tax during accumulation and supports the policy’s long-run after-tax compounding. It is the leading example of what belongs in the PPLI sleeve of the ETS playbook, grouped with high-turnover funds that realize short-term gains and with public strategies that can distribute taxable income in turbulent markets. Advisors are told to reallocate these income-heavy strategies into PPLI for the structural-alpha pickup illustrated by the 30-year case.
 ## Related Entities
 
-- [[entities/canby-capital-aliases-canby|Canby Capital (aliases: Canby)]]
+- [[entities/canby-capital|Canby Capital (aliases: Canby)]]
 - [[entities/jamie|Jamie]]
 - [[entities/private-placement-life-insurance|Private Placement Life Insurance]]
 

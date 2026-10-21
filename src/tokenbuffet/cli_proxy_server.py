@@ -967,7 +967,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
                                 sse_str = format_sse(evt)
                                 write_response(sse_str.encode("utf-8"))
                             self.wfile.flush()
-                    except Exception as e:
+                    except json.JSONDecodeError:
                         pass
                     if finished[0]:
                         break
@@ -1124,7 +1124,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
                                 if extracted:
                                     note_text()
                                     cli_output += extracted
-                    except:
+                    except json.JSONDecodeError:
                         pass
                     if finished[0]:
                         break
@@ -1380,7 +1380,14 @@ if __name__ == "__main__":
         temp_path = f"{status_path}.{os.getpid()}.tmp"
         with open(temp_path, "w", encoding="utf-8") as f:
             json.dump(value, f)
-        os.replace(temp_path, status_path)
+        for attempt in range(5):
+            try:
+                os.replace(temp_path, status_path)
+                break
+            except PermissionError as exc:  # a reader has the status file open
+                if attempt == 4:
+                    raise RuntimeError(f"Could not update {status_path}: another process kept it open for 5 attempts over 2 seconds (a dashboard, router or another proxy reading it?)") from exc
+                time.sleep(0.5)
 
     running_port = loopback.already_running(status_path)
     if running_port:

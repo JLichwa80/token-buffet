@@ -1,12 +1,21 @@
 ---
 type: concept
 created: 2026-10-19
-sources:
-  - "[[sources/10-09-keynote_-tax-aware-portfolio-transitions-and-derivative-etf-risks-s_3a1193]]"
-tags: [financial_strategy]
 stub: true
 generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-aware-portfolio-transitions-and-derivative-etf-risks-s_3a1193]]"
+tags:
+  - "financial_strategy"
+aliases:
+  - "PAL"
+  - "Securities-Backed Line of Credit"
+  - "SBLOC"
+  - "Pledged Asset Lines"
+  - "Securities Backed Line of Credit"
+  - "Portfolio Line of Credit"
 ---
+
 # Pledged Asset Line
 
 > Stub created by the ingest candidate gate (prose+named) — [[sources/10-09-keynote_-tax-aware-portfolio-transitions-and-derivative-etf-risks-s_3a1193]] names this without treating it. Will be filled by the next ingest of a source that does.

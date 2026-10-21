@@ -3,8 +3,8 @@
 After starting the bridge, run `tbuffet open chatbot Gemini` or use **Open** in the Hub.
 The workspace contains `.gemini/antigravity-cli/settings.json` with
 `modelProvider: "gemini"`. The launcher uses this workspace as HOME and USERPROFILE for the
-current session, sets a local placeholder `GEMINI_API_KEY`, points
-`GOOGLE_GEMINI_BASE_URL` at `http://127.0.0.1:8090/client/agy`, and starts
+current session, points
+`GOOGLE_GEMINI_BASE_URL` at `http://127.0.0.1:8090`, and starts
 `agy --model medium`. It restores the shell's environment when agy exits.
 The registered `Gemini-Antigravity` app writes the isolated settings file.
 Your normal agy settings are not changed.

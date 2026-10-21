@@ -1,5 +1,11 @@
 ---
+created: 2026-10-19
+updated: 2026-10-19
 generation_complete: true
+sources:
+  - "[[sources/10-09-presentation_-tax-alpha-dual-share-class-and-tokenized-t‑bills-summ_6a40b3]]"
+tags:
+  - "financial_strategy"
 aliases:
   - "Tokenized Treasury Bills"
   - "Tokenized Treasuries"
@@ -8,7 +14,6 @@ aliases:
   - "On-Chain Treasuries"
   - "Tokenized US Treasury Bills"
 ---
-
 
 ---
 
@@ -37,7 +42,7 @@ Tokenized T-bills are Treasury bills issued or held in token form, presented as 
 
 ## Related Concepts
 
-- [[concepts/wrappers|Wrappers]]
+- [[concepts/wrapper|Wrappers]]
 - [[concepts/dual-share-class|Dual Share Class]]
 - [[concepts/tax-alpha|Tax Alpha]]
 
@@ -50,3 +55,4 @@ Tokenized T-bills are Treasury bills issued or held in token form, presented as 
 ## Mentions in Source
 
 - "Core idea: Tokenizing T-bills and other assets removes counterparties and operational layers, improves NAV efficiency, and enables fractional spreads and 24/7 trading." — [[_Inbox/10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary|10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary]]
+- "Tokenization of T-Bills and Beyond - Model: Reduce counterparties and operational layers; tighten spreads; enable 24/7 liquidity; reflect savings in NAV." — [[_Inbox/10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary|10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary]]

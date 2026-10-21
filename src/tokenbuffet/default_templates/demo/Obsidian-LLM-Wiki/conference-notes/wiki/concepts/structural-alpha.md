@@ -1,5 +1,14 @@
 ---
+created: 2026-10-19
+updated: 2026-10-19
 generation_complete: true
+sources:
+  - "[[sources/10-09-panel-discussion_-variable-prepaid-forwards-tax-aware-long-short-an_0f1ad3]]"
+  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
+  - "[[sources/10-09-presentation_-tax-alpha-dual-share-class-and-tokenized-t‑bills-summ_6a40b3]]"
+  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
+tags:
+  - "theory"
 aliases:
   - "Tax Alpha"
   - "Asset Location Alpha"
@@ -7,7 +16,6 @@ aliases:
   - "Tax-Advantaged Alpha"
   - "Asset Location Edge"
 ---
-
 
 ---
 
@@ -24,7 +32,8 @@ Structural alpha is the panel’s term for after-tax outperformance that comes f
 - The edge compounds for decades through tax-free accumulation and through persistent losses from [[Tax-Aware Long-Short]].
 - Private credit, high-turnover funds, and public strategies that distribute taxable income are the holdings the panel identifies as the best fit.
 - The action is a reallocation of those income-heavy and high-turnover strategies into [[Private Placement Life Insurance]] to capture the uplift.
-
+- PPLI addresses the "back half" of the tax friction by providing tax-free accumulation during the growth phase followed by income-tax-free distribution at death.
+- The benchmark illustration models the $10 million allocation funded over a 4-year schedule and evaluated across a 30-year investment horizon.
 ## Applications
 
 - Place income-heavy private credit and high-turnover strategies inside [[Private Placement Life Insurance]] so distributions and short-term gains are not taxed along the way.
@@ -36,6 +45,7 @@ Structural alpha is the panel’s term for after-tax outperformance that comes f
 
 - [[concepts/ets-playbook|ETS Playbook]]
 - [[concepts/tax-aware-long-short|Tax-Aware Long-Short]]
+- [[concepts/asset-location|Asset Location Strategy]]
 
 ## Related Entities
 
@@ -45,3 +55,4 @@ Structural alpha is the panel’s term for after-tax outperformance that comes f
 ## Mentions in Source
 
 - "At the end of the day, the benefit is what we call structural alpha." — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]
+- "PPLI solves the “back half” of the tax problem—deferring taxes during accumulation, enabling tax-free distribution at death." — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]

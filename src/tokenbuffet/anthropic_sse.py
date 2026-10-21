@@ -31,7 +31,7 @@ def validate_request(payload):
     if isinstance(limit, bool) or not isinstance(limit, int) or limit <= 0:
         raise ValueError("max_tokens must be a positive integer")
     allowed = {"model", "messages", "system", "stream", "max_tokens", "metadata",
-               "tools", "tool_choice", "thinking"}
+               "tools", "tool_choice", "thinking", "context_management", "output_config", "effort"}
     extra = set(payload) - allowed
     if extra:
         raise ValueError("Unsupported parameters: " + ", ".join(sorted(extra)))
@@ -39,8 +39,8 @@ def validate_request(payload):
     if not isinstance(messages, list) or not messages:
         raise ValueError("messages must be a nonempty list")
     for message in messages:
-        if not isinstance(message, dict) or message.get("role") not in ("user", "assistant"):
-            raise ValueError("Only user and assistant messages are supported")
+        if not isinstance(message, dict) or message.get("role") not in ("user", "assistant", "system"):
+            raise ValueError("Only user, assistant and system messages are supported")
         content = message.get("content")
         if isinstance(content, str):
             continue
@@ -65,9 +65,6 @@ def validate_request(payload):
                 raise ValueError("Unsupported content block: " + str(kind))
     if "system" in payload:
         text_content(payload["system"])
-    if "thinking" in payload:
-        if payload["thinking"] != {"type": "disabled"}:
-            raise ValueError("thinking.type is not supported by this bridge; use disabled")
     if "tools" in payload:
         from .tool_wire import anthropic_tools
         anthropic_tools(payload)

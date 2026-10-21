@@ -1,5 +1,11 @@
 ---
+created: 2026-10-19
+updated: 2026-10-19
 generation_complete: true
+sources:
+  - "[[sources/10-09-panel-discussion_-variable-prepaid-forwards-tax-aware-long-short-an_0f1ad3]]"
+tags:
+  - "terminology"
 aliases:
   - "leverage and active risk"
   - "leverage/active risk"
@@ -8,7 +14,6 @@ aliases:
   - "leverage dial"
   - "active risk dial"
 ---
-
 
 ---
 
@@ -43,3 +48,4 @@ Advisors set octane when they build a ladder that combines immediate sales, vari
 ## Mentions in Source
 
 - "Match the long-short “octane” (leverage/active risk) to free cash while generating losses aligned to forward maturities." — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]
+- "Choose your octane: Select leverage and active risk levels in the long-short to either free up cash or maximize loss generation—“Other clients might be less comfortable with higher octane; tailor it to them.”" — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]

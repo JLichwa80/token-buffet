@@ -35,7 +35,7 @@ Cash-flow rebalancing is a tax-aware portfolio management technique where routin
 - Rebalancing taxable private wealth or institutional portfolios where realized capital gains face substantial tax drag.
 - Deploying recurring client deposits into underweight portfolio sleeves while funding withdrawal requests from overweight or loss-generating positions.
 - Maintaining disciplined target weights alongside systematic indexing strategies without incurring ongoing liquidation penalties.
-
+- Directing incoming cash flows (such as dividends hitting an equity sleeve) into underweight asset classes (like bonds in a drifting 60/40 allocation) to nudge weights back toward target without liquidating stocks.
 ## Related Concepts
 
 - [[concepts/tax-alpha|Tax alpha]]
@@ -43,6 +43,7 @@ Cash-flow rebalancing is a tax-aware portfolio management technique where routin
 - [[concepts/after-tax-benchmarking|After-tax benchmarking]]
 - [[concepts/trigger-point-rebalancing|Trigger point rebalancing]]
 - [[concepts/rebalancing-destination|Rebalancing destination]]
+- [[concepts/tax-drag|Tax drag]]
 
 ## Related Entities
 
@@ -52,5 +53,7 @@ Cash-flow rebalancing is a tax-aware portfolio management technique where routin
 
 ## Mentions in Source
 
-- "Best vehicle is cash flows: use contributions/withdrawals to adjust exposures and harvest losses." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
 - "Concept 1: Soft Rebalancing: This is the practice of rebalancing using the portfolio's natural cash flows (dividends, bond coupons, maturities) instead of triggering taxable sales." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]
+- "Best vehicle is cash flows: use contributions/withdrawals to adjust exposures and harvest losses." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
+- "Make cash flows your first rebalancing tool because the speaker’s rule of thumb is to rebalance through inflows/outflows to reduce taxable realization and improve tax outcomes." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
+- "If a 60/40 portfolio drifts to 61/39 and a dividend hits the equity sleeve, instead of reinvesting in more stocks, 'you are going to move that cash flow to the bond sleeve and you are going to buy bonds with it.'" — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]

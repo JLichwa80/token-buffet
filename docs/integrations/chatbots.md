@@ -1,7 +1,7 @@
 # Chatbots using the router
 
 Claude Code, Codex CLI, Grok Build, and Gemini Antigravity are configured as client apps of the router.
-Each demo workspace owns its settings and points at `http://127.0.0.1:8090/client/<provider>/`.
+Each demo workspace owns its settings and points at the router, `http://127.0.0.1:8090`.
 Launchers apply these defaults for their own sessions. They do not edit the user's normal CLI configuration.
 
 Add any number of workspaces using the same preset:
@@ -11,17 +11,28 @@ tbuffet add-chatbot grok --path C:\mygrok   # omit --path to pick the folder in 
 tbuffet open chatbot mygrok
 ```
 
-The Hub's Connect an App form offers the same CLI preset and workspace folder choices. Registration
-creates native settings and a local `launch.json`, then makes the workspace available through Open.
+In the Hub, **My Chatbots** has one button per CLI preset ("Connect Claude-Code instance", "Connect
+Codex instance", and so on; the names come from each preset's `app_config.json`). The button picks the
+CLI, so the form has only two visible fields:
+
+1. **Workspace folder** — a path box with **Browse…** (the folder dialog opens only when you click Browse).
+2. **Name** — free text that pre-fills from the chosen folder's name; leave it or edit it to anything.
+
+Then submit. The workspace path identifies the chatbot: registering the same folder twice for one CLI is refused.
+The name is only the display label (any text, duplicates allowed). The instance folder under
+`registered_apps/chatbot/` is the workspace folder's own name (`-2`, `-3`... if two workspaces share one) and is
+never shown to the user.
+
+Registration creates native settings and a local `launch.json`, then makes the workspace available through Open.
 Built-in presets are `claude`, `codex`, `grok`, and `agy`. New presets are data files under
 `integrations/chatbot/presets/`; see that integration's README for the format.
 
 | Client | Config mechanism | Bridge endpoint |
 | --- | --- | --- |
-| Claude Code | `.claude/settings.local.json`, explicitly passed with `--settings` | `/client/claude/v1/messages` |
-| Codex CLI | `.codex/config.toml`, with session `CODEX_HOME` set to this workspace's `.codex` | `/client/codex/v1/responses` |
-| Grok Build | `.grok/config.toml`, with session `GROK_HOME` set to this workspace's `.grok` | `/client/grok/v1/chat/completions` |
-| Gemini Antigravity | `.gemini/antigravity-cli/settings.json`, session home set to the workspace, and session `GOOGLE_GEMINI_BASE_URL` | `/client/agy/v1beta/models/{model}:generateContent` |
+| Claude Code | `.claude/settings.local.json`, explicitly passed with `--settings` | `/v1/messages` |
+| Codex CLI | `.codex/config.toml`, with session `CODEX_HOME` set to this workspace's `.codex` | `/v1/responses` |
+| Grok Build | `.grok/config.toml`, with session `GROK_HOME` set to this workspace's `.grok` | `/v1/chat/completions` |
+| Gemini Antigravity | `.gemini/antigravity-cli/settings.json`, session home set to the workspace, and session `GOOGLE_GEMINI_BASE_URL` | `/v1beta/models/{model}:generateContent` |
 
 Codex and Grok restrict provider definitions in ordinary project config. Their launchers select
 the workspace folder as the session's configuration home so the local router provider is loaded.

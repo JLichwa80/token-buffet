@@ -1,15 +1,16 @@
 ---
 type: concept
 created: 2026-10-18
-updated: 2026-10-18
-tags: [theory]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
+  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
+tags:
+  - "theory"
 aliases:
   - "diversification and mean reversion"
   - "reversion to the mean"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
-
-generation_complete: true
 ---
 
 # Mean reversion
@@ -31,12 +32,14 @@ Mean reversion is a financial and statistical theory suggesting that asset price
 - **Fundamental Indexing**: Anchoring portfolio weights to company fundamentals via strategies like [[RAFI]] to systematically capture return when market pricing diverges and mean-reverts.
 - **Equal Weight Portfolio Construction**: Exploiting periodic asset dislocations through scheduled rebalancing back to equal target weights.
 - **Tax-Aware Value Strategies**: Executing disciplined, contrarian portfolio shifts while managing capital gains realization to preserve the underlying rebalancing premium.
-
+- **Tax-Loss Harvesting Cadence Optimization**: Pacing harvest intervals to avoid short-term price whipsaws, where daily harvesting exposes portfolios to immediate mean reversion rebounds that degrade net tax alpha compared to weekly schedules.
 ## Related Concepts
 
 - [[concepts/rebalancing-alpha|Rebalancing alpha]]
 - [[concepts/equal-weight|Equal weight]]
 - [[concepts/value-tilt|Value tilt]]
+- [[concepts/weekly-harvesting-cadence|Weekly Harvesting Cadence]]
+- [[concepts/tax-loss-harvesting|Equity Tax Loss Harvesting]]
 
 ## Related Entities
 
@@ -45,3 +48,5 @@ Mean reversion is a financial and statistical theory suggesting that asset price
 ## Mentions in Source
 
 - "- Markowitz quote evolution: first “diversification is the only free lunch,” later “diversification and mean reversion.”" — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
+- "When the market is wrong, this systematic contrarian rebalancing earns rebalancing alpha." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
+- "Daily harvesting is too frequent, as it "degrades the amount of tax alpha" by getting caught in short-term mean reversions." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]

@@ -8,7 +8,6 @@ aliases:
   - "Leverage Drift"
 sources:
   - "[[sources/10-09-keynote_-tax-aware-long-short-investing-pretax-alpha-and-after-tax-_8ca74c]]"
-
 generation_complete: true
 ---
 
@@ -35,7 +34,7 @@ Under-leverage refers to a structural condition in long-short investment portfol
 
 - [[concepts/position-creation|Position Creation]]
 - [[concepts/pretax-alpha|Pretax Alpha]]
-- [[concepts/tax-aware-long-short-investing|Tax-Aware Long-Short Investing]]
+- [[concepts/tax-aware-long-short|Tax-Aware Long-Short Investing]]
 
 ## Related Entities
 

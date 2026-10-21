@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-19
 generation_complete: true
 sources:
   - "[[sources/10-09-keynote_-after-tax-wealth-management-and-tax-stack-design-summary-1_d01a81]]"
@@ -30,6 +30,7 @@ Embedded gains refer to the unrealized taxable appreciation existing within an i
 - **Diagnostic Requirement**: Forms an essential input in comprehensive household portfolio diagnosis alongside account types, concentrated stock, business holdings, and liquidity constraints.
 - **Quantitative Metric**: Measured as a percentage of gross notional exposure, calculated as total unrealized capital gains divided by total gross notional exposure.
 - **Structural Divergence Under Alpha**: In long-only strategies, higher pretax alpha accelerates built-in gain accumulation and portfolio lock-up; conversely, tax-aware long-short portfolios mitigate lock-up through "position creation," rebalancing into full-basis positions that dilute built-in gains as a percentage of gross notional.
+- **Harvesting Capacity Depletion**: As built-in gains accumulate, fewer tax lots remain at an unrealized loss, progressively diminishing ongoing tax-loss harvesting potential.
 ## Applications
 
 - **Household Portfolio Diagnosis**: Evaluated by wealth advisors to assess the feasibility, friction, and tax consequences of restructuring a client's legacy holdings.
@@ -43,7 +44,7 @@ Embedded gains refer to the unrealized taxable appreciation existing within an i
 - [[concepts/pooled-products|Pooled Products]]
 - [[concepts/tax-neutral-transition|Tax-Aware Transition Analysis]]
 - [[concepts/position-creation|Position Creation]]
-- [[concepts/tax-aware-long-short-investing|Tax-Aware Long-Short Investing]]
+- [[concepts/tax-aware-long-short|Tax-Aware Long-Short Investing]]
 - [[concepts/long-only-direct-indexing|Long-Only Direct Indexing]]
 
 ## Related Entities
@@ -54,3 +55,4 @@ Embedded gains refer to the unrealized taxable appreciation existing within an i
 
 - "This often appears in legacy commingled funds or mutual funds with embedded gains." — [[_Inbox/10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)|10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)]]
 - "Unrealized Gains as % of Gross Exposure - Definition: Built-in gains divided by total gross notional." — [[_Inbox/10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary|10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary]]
+- "Unrealized gains: built-in gains as % of gross notional exposure." — [[_Inbox/10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary|10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary]]

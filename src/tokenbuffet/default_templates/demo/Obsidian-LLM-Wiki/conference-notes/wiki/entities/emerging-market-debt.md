@@ -1,12 +1,21 @@
 ---
 type: entity
 created: 2026-10-19
-sources:
-  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
-tags: [asset_class]
 stub: true
 generation_complete: true
+sources:
+  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
+tags:
+  - "asset_class"
+aliases:
+  - "EMD"
+  - "EM Debt"
+  - "Emerging Market Bonds"
+  - "Emerging Markets Debt"
+  - "EM Bonds"
+  - "Emerging Markets Fixed Income"
 ---
+
 # Emerging Market Debt
 
 > Stub created by the ingest candidate gate (prose+named) — [[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]] names this without treating it. Will be filled by the next ingest of a source that does.

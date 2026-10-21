@@ -1,12 +1,22 @@
 ---
 type: entity
 created: 2026-10-19
-sources:
-  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
-tags: [instrument]
 stub: true
 generation_complete: true
+sources:
+  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
+tags:
+  - "instrument"
+aliases:
+  - "T-Bond"
+  - "T-Bonds"
+  - "Treasuries"
+  - "Treasurys"
+  - "Treasury Bonds"
+  - "U.S. Treasury Bond"
+  - "US Treasury Bond"
 ---
+
 # Treasury Bond
 
 > Stub created by the ingest candidate gate (aside+covered) — [[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]] names this without treating it. Will be filled by the next ingest of a source that does.

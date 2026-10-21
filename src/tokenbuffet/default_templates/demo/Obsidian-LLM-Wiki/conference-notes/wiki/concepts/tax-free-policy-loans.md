@@ -1,5 +1,11 @@
 ---
+created: 2026-10-19
+updated: 2026-10-19
 generation_complete: true
+sources:
+  - "[[sources/10-09-panel-discussion_-variable-prepaid-forwards-tax-aware-long-short-an_0f1ad3]]"
+tags:
+  - "financial_strategy"
 aliases:
   - "Policy loans"
   - "Life insurance policy loans"
@@ -7,8 +13,8 @@ aliases:
   - "Life insurance loans"
   - "PPLI policy loans"
   - "Borrowing against cash value"
+  - "Tax-Free Policy Loan"
 ---
-
 
 ---
 
@@ -24,7 +30,7 @@ Tax-free policy loans are lifetime borrowings against a life insurance policy th
 - Loan proceeds are characterized as tax-free, so the holder can use value without a taxable distribution from the policy.
 - They leave income-heavy or high-turnover strategies invested inside the policy instead of forcing a distribution of taxable gains.
 - They are part of the wrapper’s claimed structural benefit: continued compounding inside the policy, with access to value before death.
-
+- At death, any outstanding loan balance is typically settled against the tax-free death benefit, avoiding taxable recognition upon payoff.
 ## Applications
 
 - A holder of [[Private Placement Life Insurance]] borrows against the policy to spend or redeploy value while the underlying portfolio stays inside the contract.
@@ -45,3 +51,5 @@ Tax-free policy loans are lifetime borrowings against a life insurance policy th
 ## Mentions in Source
 
 - "Practicalities: Institutionally priced, skinny policies; no surrender charges; liquidity mirrors underlying assets; tax-free policy loans during life." — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]
+- "Structural Alpha via PPLI
+  - Definition: Tax deferral during accumulation with tax-free distribution at death; loans against policy are tax-free." — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]

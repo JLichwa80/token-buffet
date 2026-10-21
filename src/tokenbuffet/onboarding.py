@@ -226,20 +226,20 @@ def list_apps() -> list:
     return sorted(f"{c.parent.parent.name}/{c.parent.name}" for c in base.glob("*/*/app_config.json"))
 
 
-def _app_type_module(app_type: str):
-    """The app type's integrations/<type>/init.py, or None."""
+def _app_type_module(app_type: str, name: str = ""):
+    """integrations/<type>/init.py, or the instance's own registered_apps/<type>/<name>/init.py, or None."""
     import importlib.util
-    path = Path("integrations") / app_type / "init.py"
+    path = Path("registered_apps") / app_type / name / "init.py" if name else Path("integrations") / app_type / "init.py"
     if not path.is_file():
         return None
-    spec = importlib.util.spec_from_file_location(f"tb_init_{app_type}", path)
+    spec = importlib.util.spec_from_file_location(f"tb_init_{app_type}_{name}".rstrip("_"), path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
 
 
-def can_open(app_type: str) -> bool:
-    module = _app_type_module(app_type)
+def can_open(app_type: str, name: str) -> bool:
+    module = _app_type_module(app_type, name)
     return module is not None and hasattr(module, "launch")
 
 
@@ -253,9 +253,9 @@ def _run_app_action(app_type: str, name: str, action: str) -> str:
     app_path = Path(config.get("path") or instance)
     if not app_path.is_absolute():
         app_path = (instance / app_path).resolve()
-    module = _app_type_module(app_type)
+    module = _app_type_module(app_type, name)
     if module is None or not hasattr(module, action):
-        raise ValueError(f"'{app_type}' apps have no {action} action")
+        raise ValueError(f"'{app_type}/{name}' has no {action} action")
     if hasattr(module, "check"):
         module.check()
     getattr(module, action)(str(app_path))
@@ -278,10 +278,10 @@ def link_app(app_type: str, name: str) -> str:
 
 
 def prepare_demo(app_type: str, name: str):
-    """Apply and prepare demo instances whose app type declares a demo setup hook."""
-    module = _app_type_module(app_type)
+    """Apply a demo instance's settings, then run its demo setup hook if it declares one."""
+    reapply_app(app_type, name)
+    module = _app_type_module(app_type, name)
     if module is not None and hasattr(module, "prepare_demo"):
-        reapply_app(app_type, name)
         return _run_app_action(app_type, name, "prepare_demo")
 
 

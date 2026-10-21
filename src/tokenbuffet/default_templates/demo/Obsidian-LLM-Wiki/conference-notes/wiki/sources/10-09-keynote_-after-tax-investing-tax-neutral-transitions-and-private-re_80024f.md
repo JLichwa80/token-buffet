@@ -22,7 +22,7 @@ generation_complete: true
 
 This conference keynote presentation, titled "After-Tax Investing: From Theory to Implementation," outlines an integrated framework for embedding tax optimization directly into the initial phase of portfolio construction for high-net-worth investors. Delivered across three sequential segments by speakers [[entities/sam|Sam]], [[entities/casey|Casey]], and [[entities/taylor|Taylor]], the session emphasizes that taxes should never be treated as an afterthought.
 
-The presentation details foundational public market instruments including [[entities/municipal-bonds|municipal bonds]] and [[entities/preferred-securities|preferred securities]] delivering [[concepts/qualified-dividend-income|qualified dividend income]], before examining tax-advantaged private real estate solutions like [[concepts/perpetual-non-traded-reit|perpetual non-traded REITs]] and [[concepts/section-1031-exchange|Section 1031 exchanges]] using a [[entities/delaware-statutory-trust|Delaware Statutory Trust]] and [[concepts/upreit|upREIT]] structures. Finally, it explores tech-enabled transition management developed at [[entities/brevan-howard|Brevan Howard]] and deployed via [[entities/nuveen|Nuveen]], utilizing [[concepts/daily-tax-loss-harvesting|daily tax-loss harvesting]] and a [[concepts/tax-aware-long-short|tax-advantaged long-short strategy]] to facilitate a [[concepts/tax-neutral-transition|tax-neutral transition]] away from a [[concepts/concentrated-stock-position|concentrated stock position]].
+The presentation details foundational public market instruments including [[entities/municipal-bonds|municipal bonds]] and [[entities/preferred-securities|preferred securities]] delivering [[concepts/qualified-dividend-income|qualified dividend income]], before examining tax-advantaged private real estate solutions like [[concepts/perpetual-non-traded-reit|perpetual non-traded REITs]] and [[concepts/1031|Section 1031 exchanges]] using a [[entities/delaware-statutory-trust|Delaware Statutory Trust]] and [[concepts/upreit|upREIT]] structures. Finally, it explores tech-enabled transition management developed at [[entities/brevan-howard|Brevan Howard]] and deployed via [[entities/nuveen|Nuveen]], utilizing [[concepts/daily-tax-loss-harvesting|daily tax-loss harvesting]] and a [[concepts/tax-aware-long-short|tax-advantaged long-short strategy]] to facilitate a [[concepts/tax-neutral-transition|tax-neutral transition]] away from a [[concepts/concentrated-stock-position|concentrated stock position]].
 
 ## Key Entities
 
@@ -40,7 +40,7 @@ The presentation details foundational public market instruments including [[enti
 
 ## Key Concepts
 
-- [[concepts/after-tax-investing|after-tax-investing]]
+- [[concepts/drip-program|after-tax-investing]]
 - [[concepts/tax-drag|tax-drag-at-the-cma-level]]
 - [[concepts/tax-drag|tax-drag]]
 - [[concepts/capital-market-assumptions|capital-market-assumptions]]
@@ -48,7 +48,7 @@ The presentation details foundational public market instruments including [[enti
 - [[concepts/qualified-dividend-income|qualified-dividend-income]]
 - [[concepts/perpetual-non-traded-reit|perpetual-non-traded-reits]]
 - [[concepts/return-of-capital|return-of-capital]]
-- [[concepts/section-1031-exchange|section-1031-exchange]]
+- [[concepts/1031|section-1031-exchange]]
 - [[concepts/upreit|upreit-721-exchange]]
 - [[concepts/tax-aware-long-short|tax-advantaged-long-short-strategy]]
 - [[concepts/tax-neutral-transition|tax-neutral-transition]]
@@ -62,7 +62,7 @@ The presentation details foundational public market instruments including [[enti
 - After-tax investing must begin at the portfolio construction stage by calculating [[concepts/tax-drag|tax drag at the CMA level]] within [[concepts/capital-market-assumptions|Capital Market Assumptions]] rather than treating taxes as an afterthought.
 - [[entities/municipal-bonds|Municipal bonds]] and [[entities/preferred-securities|preferred securities]] delivering [[concepts/qualified-dividend-income|Qualified Dividend Income (QDI)]] form a foundational, tax-sheltered public market base that boosts [[concepts/taxable-equivalent-yield|taxable equivalent yield]].
 - [[concepts/perpetual-non-traded-reit|Perpetual non-traded REITs]] provide distinct real estate tax advantages via the Section 199A 20% QBI deduction and tax deferral through depreciation-driven [[concepts/return-of-capital|return of capital]].
-- [[concepts/section-1031-exchange|Section 1031 exchanges]] combined with [[entities/delaware-statutory-trust|Delaware Statutory Trusts]] and Section 721 [[concepts/upreit|upREIT]] transactions enable active real estate owners to roll into passive, liquid institutional portfolios while deferring capital gains.
+- [[concepts/1031|Section 1031 exchanges]] combined with [[entities/delaware-statutory-trust|Delaware Statutory Trusts]] and Section 721 [[concepts/upreit|upREIT]] transactions enable active real estate owners to roll into passive, liquid institutional portfolios while deferring capital gains.
 - An algorithmic [[concepts/tax-aware-long-short|tax-advantaged long-short strategy]] leverages short sale losses to offset massive realized capital gains, enabling a [[concepts/tax-neutral-transition|tax-neutral transition]] out of a [[concepts/concentrated-stock-position|concentrated stock position]].
 - Employing leveraged long-short structures requires planning a structured, multi-year [[concepts/deleveraging-path|deleveraging path]] back to normalized allocations before execution.
 - Disparate public, private, and overlay strategies must be integrated under [[concepts/whole-portfolio-unification|whole portfolio unification]] with [[concepts/daily-tax-loss-harvesting|daily tax-loss harvesting]] to maximize compound wealth.

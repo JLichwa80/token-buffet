@@ -51,3 +51,7 @@ Tax design is a deliberate, proactive, and engineered wealth management methodol
 
 - "Tax design is the deliberate, proactive, engineered approach to minimizing tax drag and improving family-level outcomes." — [[_Inbox/10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)|10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)]]
 - "This is where Aaron believes the entire industry is moving: from tax being an afterthought to tax being part of the architecture." — [[_Inbox/10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)|10-09 Keynote_ After-Tax Wealth Management and Tax Stack Design-Summary (1)]]
+
+## Related Pages
+
+- Tax design is institutionalized in a practice by the five-stage [[concepts/capabilities-map]], which moves the firm from identifying the client need to automated after-tax implementation while the advisor keeps the strategic levers. [[concepts/capabilities-map]]

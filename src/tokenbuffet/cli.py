@@ -132,6 +132,10 @@ def _start_fleet(debug, foreground, processes):
         print("No providers registered. Run: tbuffet init")
         sys.exit(1)
 
+    if os.name == "nt":
+        from tokenbuffet import job
+        job.join()
+
     process_options = {}
     if foreground:
         process_options = ({"creationflags": subprocess.CREATE_NEW_PROCESS_GROUP}
@@ -148,12 +152,9 @@ def _start_fleet(debug, foreground, processes):
         port = 8000
         if config_path.exists():
             with open(config_path, "r") as f:
-                try:
-                    c = json.load(f)
-                    if "server" in c and "port" in c["server"]:
-                        port = c["server"]["port"]
-                except:
-                    pass
+                c = json.load(f)
+            if "server" in c and "port" in c["server"]:
+                port = c["server"]["port"]
 
         print(f"Starting Proxy for {prov} on port {port}...")
         proxy_args = [sys.executable, "-m", "tokenbuffet.logged_run", "--log", "proxy/console.log", "--module", "tokenbuffet.cli_proxy_server", "--provider", prov, "--port", str(port)]
@@ -287,12 +288,48 @@ def stop_fleet():
             pass
 
     if killed:
-        print(f"Sent SIGTERM to {len(killed)} process(es):")
-        for name, pid in killed:
-            print(f"  {name} (pid {pid})")
         time.sleep(1)
     else:
         print("No running processes found.")
+
+def force_stop():
+    """Kill the Token Buffet job (Windows), then every process whose command line mentions tokenbuffet or tbuffet,
+    except this command and its ancestors."""
+    if os.name == "nt":
+        from tokenbuffet import job
+        if job.terminate():
+            print("Killed every process in the TokenBuffet job.")
+        listing = subprocess.run(
+            ["powershell.exe", "-NoProfile", "-Command",
+             "Get-CimInstance Win32_Process | ForEach-Object { \"$($_.ProcessId) $($_.ParentProcessId) $($_.CommandLine)\" }"],
+            capture_output=True, text=True, check=True).stdout
+    else:
+        listing = subprocess.run(["ps", "-axo", "pid=,ppid=,command="], capture_output=True, text=True, check=True).stdout
+    processes = {}
+    for line in listing.splitlines():
+        parts = line.strip().split(None, 2)
+        if len(parts) >= 2 and parts[0].isdigit() and parts[1].isdigit():
+            processes[int(parts[0])] = (int(parts[1]), parts[2] if len(parts) > 2 else "")
+    # The shell that ran this command also mentions tbuffet in its command line, so spare every ancestor.
+    skip = set()
+    pid = os.getpid()
+    while pid in processes and pid not in skip:
+        skip.add(pid)
+        pid = processes[pid][0]
+    targets = [(pid, command) for pid, (_, command) in processes.items()
+               if pid not in skip and ("tokenbuffet" in command.lower() or "tbuffet" in command.lower())]
+    for pid, command in targets:
+        if os.name == "nt":
+            subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], capture_output=True)
+        else:
+            try:
+                os.kill(pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass  # already gone with its parent
+        print(f"Killed {pid}: {command[:100]}")
+    if not targets:
+        print("No tbuffet processes found.")
+
 
 def doctor():
     """Check directory health and dependencies."""
@@ -549,7 +586,7 @@ def _cmd_demo_init():
             print(f"  {app}: configuration failed: {exc}")
             setup_failed = True
             continue
-        if can_open(app_type):
+        if can_open(app_type, name):
             print(f'  {app}: configured, open with: tbuffet open {app_type} "{name}"')
         else:
             print(f"  {app}: configured")
@@ -563,7 +600,7 @@ def _pick_app(app_type, name):
     from tokenbuffet.onboarding import can_open, list_apps
     if app_type and name:
         return app_type, name
-    choices = [a for a in list_apps() if (not app_type or a.split("/")[0] == app_type) and can_open(a.split("/")[0])]
+    choices = [a for a in list_apps() if (not app_type or a.split("/")[0] == app_type) and can_open(*a.split("/", 1))]
     if not choices:
         print("Error: no registered apps to open (see: tbuffet list-apps)")
         sys.exit(1)
@@ -607,7 +644,8 @@ def main():
     start_parser.add_argument("--debug", action="store_true", help="Capture full proxy request traces")
     start_parser.add_argument("--background", action="store_true", help="Launch services in the background instead of waiting for Ctrl+C")
 
-    subparsers.add_parser("stop", help="Stop all running services.")
+    stop_parser = subparsers.add_parser("stop", help="Stop all running services.")
+    stop_parser.add_argument("--force", action="store_true", help="Kill every process whose command line mentions tokenbuffet or tbuffet")
     subparsers.add_parser("status", help="Show running services.")
     subparsers.add_parser("doctor", help="Check directory health and dependencies.")
 
@@ -666,7 +704,7 @@ def main():
         time.sleep(2)
         start_fleet(debug=args.debug, foreground=not args.background)
     elif args.command == "stop":
-        stop_fleet()
+        force_stop() if args.force else stop_fleet()
     elif args.command == "status":
         status_fleet()
     elif args.command == "doctor":

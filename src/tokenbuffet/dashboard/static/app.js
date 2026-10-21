@@ -6,9 +6,11 @@
 let state = null;
 let routerDraft = null;
 let currentTab = 'home';
+const TAB_PATHS = { home: '/', apps: '/my-apps', chatbots: '/my-chatbots', providers: '/llm-providers', router: '/router', activity: '/activity' };
+const tabFromPath = path => Object.keys(TAB_PATHS).find(tab => TAB_PATHS[tab] === path) || 'home';
 let selectedProvider = null;
 let selectedApp = null;
-let addAppWizard = false;
+let addAppWizard = null; // {type, preset} being connected, or null
 
 const $ = id => document.getElementById(id);
 
@@ -52,7 +54,7 @@ async function post(path, data = {}) {
 function loadPreferences() {
   const advanced = localStorage.getItem('hub-advanced') === 'true';
   const theme = localStorage.getItem('hub-theme') || 'auto';
-  const savedTab = localStorage.getItem('hub-tab') || 'home';
+  const savedTab = tabFromPath(location.pathname);
   
   const advToggle = $('bridge-advanced');
   if (advToggle) advToggle.checked = advanced;
@@ -94,12 +96,14 @@ function toggleTheme() {
   tell(`Theme switched to ${next} mode.`);
 }
 
-function switchTab(tab) {
+const isChatbot = a => a.category === 'chatbot' || a.type === 'chatbot' || (a.type && a.type.toLowerCase().includes('agent'));
+
+function switchTab(tab, push = true) {
   currentTab = tab;
-  localStorage.setItem('hub-tab', tab);
+  if (location.pathname !== TAB_PATHS[tab]) history[push ? 'pushState' : 'replaceState'](null, '', TAB_PATHS[tab]);
   selectedProvider = null;
   selectedApp = null;
-  addAppWizard = false;
+  addAppWizard = null;
   
   document.querySelectorAll('#bridge-nav button').forEach(btn => {
     btn.setAttribute('aria-current', btn.dataset.tab === tab ? 'page' : 'false');
@@ -245,6 +249,7 @@ function render() {
       renderHome();
       break;
     case 'apps':
+    case 'chatbots':
       renderApps();
       break;
     case 'providers':
@@ -382,10 +387,14 @@ async function refreshUsageTop(btn) {
   }
 }
 
+function openAppButton(item) {
+  return item.can_open
+    ? `<button type="button" class="b-button" data-app-type="${esc(item.category)}" data-app-name="${esc(item.dir)}" onclick="openApp(this.dataset.appType, this.dataset.appName)">Open</button>`
+    : `<button type="button" class="b-button" disabled title="Opening ${esc(item.category)} apps from the dashboard is not supported">Open</button>`;
+}
+
 function instanceCard(item) {
-  const open = item.can_open
-    ? `<button type="button" class="b-button" onclick="openApp('${esc(item.category)}', '${esc(item.dir)}')">Open</button>` : '';
-  return `<div class="b-int-instance"><span>${esc(item.label || item.name)}</span>${open}</div>`;
+  return `<div class="b-int-instance"><span>${esc(item.label || item.name)}</span>${openAppButton(item)}</div>`;
 }
 
 async function openApp(type, name) {
@@ -468,7 +477,7 @@ function renderHome() {
   if (homeChatbots) {
     const allApps = state.apps || [];
     const appTypes = state.app_types || [];
-    const chatbots = allApps.filter(a => a.category === 'chatbot' || a.type === 'chatbot' || (a.type && a.type.toLowerCase().includes('agent')));
+    const chatbots = allApps.filter(isChatbot);
     if (!chatbots.length) {
       homeChatbots.innerHTML = '<div class="b-empty">No chatbot clients registered yet.</div>';
     } else {
@@ -510,7 +519,7 @@ function renderHome() {
   if (homeApps) {
     const allApps = state.apps || [];
     const appTypes = state.app_types || [];
-    const workspaceApps = allApps.filter(a => !(a.category === 'chatbot' || a.type === 'chatbot' || (a.type && a.type.toLowerCase().includes('agent'))));
+    const workspaceApps = allApps.filter(a => !isChatbot(a));
     if (!workspaceApps.length) {
       homeApps.innerHTML = '<div class="b-empty">No workspace apps registered yet.</div>';
     } else {
@@ -539,8 +548,21 @@ function renderHome() {
   }
 }
 
+const APP_KINDS = {
+  apps: { container: 'apps-container', plural: 'Apps', eyebrow: 'Your workspace', match: a => !isChatbot(a),
+    types: t => t.name !== 'chatbot', intro: 'Each registered app maps an integration into your local workspace.' },
+  chatbots: { container: 'chatbots-container', plural: 'Chatbots', eyebrow: 'Your AI agents', match: isChatbot,
+    types: t => t.name === 'chatbot', intro: 'Each registered chatbot routes a CLI agent through the bridge.' },
+};
+
+// One "Connect <name> instance" entry per app type, or per CLI preset when the type registers by preset.
+const connectLabel = ({ type, preset, name }) => `Connect ${name} instance`;
+const connectTargets = types => types.flatMap(t => t.preset_field === 'preset'
+  ? t.presets.map(preset => ({ type: t.name, preset, name: t.preset_names[preset] }))
+  : [{ type: t.name, preset: '', name: t.name.charAt(0).toUpperCase() + t.name.slice(1) }]);
 function renderApps() {
-  const container = $('apps-container');
+  const kind = APP_KINDS[currentTab];
+  const container = $(kind.container);
   if (!container) return;
 
   if (addAppWizard) {
@@ -554,26 +576,30 @@ function renderApps() {
   }
 
   const appTypes = state.app_types || [];
-  const apps = state.apps || [];
+  const apps = (state.apps || []).map((a, idx) => ({ ...a, idx })).filter(kind.match);
 
+  const connectTypes = appTypes.filter(kind.types);
   let html = `
     <div class="b-top">
-      <div class="b-eyebrow">Your workspace</div>
+      <div class="b-eyebrow">${kind.eyebrow}</div>
       <div class="b-between">
-        <h1>My Apps</h1>
-        <button type="button" class="b-button b-primary" onclick="openAddAppWizard()">＋ Connect an App</button>
+        <h1>My ${kind.plural}</h1>
+        <div class="b-row">
+          ${connectTargets(connectTypes).map(target => `<button type="button" class="b-button b-primary" onclick="openAddAppWizard('${esc(target.type)}', '${esc(target.preset)}', '${esc(target.name)}')">＋ ${esc(connectLabel(target))}</button>`).join('')}
+          ${currentTab === 'apps' ? `<button type="button" class="b-button" onclick="tell('Integrating a brand-new app: to be implemented.')">＋ Integrate new app</button>` : ''}
+        </div>
       </div>
-      <p class="b-sub">Each registered app maps an integration into your local workspace.</p>
+      <p class="b-sub">${kind.intro}</p>
     </div>`;
 
   if (!apps.length) {
-    html += '<div class="b-empty">No workspace apps connected yet. Click "Connect an App" to get started.</div>';
+    html += `<div class="b-empty">No ${kind.plural.toLowerCase()} connected yet. Use the buttons above to connect one.</div>`;
   } else {
     // Group by type
     const byType = {};
-    apps.forEach((a, idx) => {
+    apps.forEach(a => {
       byType[a.type] = byType[a.type] || [];
-      byType[a.type].push({ ...a, idx });
+      byType[a.type].push(a);
     });
 
     for (const [type, list] of Object.entries(byType)) {
@@ -600,6 +626,7 @@ function renderApps() {
                   <span class="b-tag ${item.target_exists ? '' : 'b-warn'}">
                     <span class="b-dot"></span> ${item.target_exists ? 'Configured' : 'Missing Target'}
                   </span>
+                  ${openAppButton(item)}
                   <button type="button" class="b-button" onclick="selectApp(${item.idx})">Settings</button>
                 </div>
               </div>
@@ -620,12 +647,15 @@ function renderAppDetail(container) {
     return;
   }
 
+  const kind = APP_KINDS[currentTab];
   container.innerHTML = `
     <div class="b-top">
-      <div class="b-eyebrow">My Apps</div>
+      <div class="b-eyebrow">My ${kind.plural}</div>
       <div class="b-between">
         <h1>${esc(app.label || app.name)}</h1>
-        <button type="button" class="b-button" onclick="selectApp(null)">← Back to Apps</button>
+        <div class="b-row">
+          <button type="button" class="b-button" onclick="selectApp(null)">← Back to ${kind.plural}</button>
+        </div>
       </div>
       <p class="b-sub">${esc(app.type)} integration settings</p>
     </div>
@@ -649,47 +679,51 @@ function renderAppDetail(container) {
         </label>` : ''}
       <div class="b-between" style="margin-top:22px">
         <span></span>
-        <button type="button" class="b-button b-primary" onclick="reapplyApp('${esc(app.category || app.type)}', '${esc(app.name)}')">Re-apply Configuration</button>
+        <button type="button" class="b-button b-primary" onclick="reapplyApp('${esc(app.category)}', '${esc(app.dir)}')">Re-apply Configuration</button>
       </div>
     </div>`;
 }
 
 function renderAddAppWizard(container) {
-  const types = state.app_types || [];
-  container.innerHTML = `
-    <div class="b-top">
-      <div class="b-eyebrow">My Apps</div>
-      <div class="b-between">
-        <h1>Connect an App</h1>
-        <button type="button" class="b-button" onclick="closeAddAppWizard()">Cancel</button>
-      </div>
-      <p class="b-sub">Add a local workspace folder to route LLM requests through the bridge.</p>
-    </div>
-    <div class="b-panel" style="max-width:680px; margin:auto">
-      <form id="wizard-form" onsubmit="submitAddApp(event)">
-        <label class="b-field">
-          App Type
-          <select id="wiz-type" required onchange="updateWizardPresets()">
-            ${types.map(t => `<option value="${esc(t.name)}">${esc(t.title || t.name)}</option>`).join('')}
-          </select>
-        </label>
-        <label class="b-field">
-          Instance ID (defaults to the folder name)
-          <input id="wiz-name" placeholder="my-wiki" oninput="this.dataset.edited = this.value ? '1' : ''">
-        </label>
-        <label class="b-field">
-          Display Label
-          <input id="wiz-label" placeholder="My Research Wiki">
-        </label>
-        <label class="b-field">
+  const kind = APP_KINDS[currentTab];
+  const singleName = currentTab === 'chatbots'; // chatbot: folder (Browse), then one free-text name (id is derived from it)
+  const types = (state.app_types || []).filter(t => t.name === addAppWizard.type);
+  const pathField = `<label class="b-field">
           Workspace Folder Path
           <span style="display:flex; gap:8px">
             <input id="wiz-path" placeholder="C:/path/to/workspace" oninput="fillWizardName()" style="flex:1">
             <button type="button" class="b-button" onclick="browseWizardFolder()">Browse…</button>
           </span>
           <small id="wiz-path-help"></small>
+        </label>`;
+  container.innerHTML = `
+    <div class="b-top">
+      <div class="b-eyebrow">My ${kind.plural}</div>
+      <div class="b-between">
+        <h1>${esc(connectLabel(addAppWizard))}</h1>
+        <button type="button" class="b-button" onclick="closeAddAppWizard()">Cancel</button>
+      </div>
+      <p class="b-sub">Add a local workspace folder to route LLM requests through the bridge.</p>
+    </div>
+    <div class="b-panel" style="max-width:680px; margin:auto">
+      <form id="wizard-form" onsubmit="submitAddApp(event)">
+        ${singleName ? pathField : ''}
+        <label class="b-field" ${singleName ? 'hidden' : ''}>
+          App Type
+          <select id="wiz-type" required onchange="updateWizardPresets()">
+            ${types.map(t => `<option value="${esc(t.name)}">${esc(t.title || t.name)}</option>`).join('')}
+          </select>
         </label>
-        <div id="wiz-preset-container"></div>
+        <label class="b-field">
+          ${singleName ? 'Name' : 'Instance ID'} (defaults to the folder name)
+          <input id="wiz-name" placeholder="${singleName ? 'My Claude project' : 'my-wiki'}" oninput="this.dataset.edited = this.value ? '1' : ''">
+        </label>
+        ${singleName ? '' : `<label class="b-field">
+          Display Label
+          <input id="wiz-label" placeholder="My Research Wiki">
+        </label>`}
+        ${singleName ? '' : pathField}
+        <div id="wiz-preset-container" ${singleName ? 'hidden' : ''}></div>
         <div class="b-between" style="margin-top:24px">
           <button type="button" class="b-button" onclick="closeAddAppWizard()">Cancel</button>
           <button type="submit" class="b-button b-primary">Register Workspace</button>
@@ -706,11 +740,12 @@ function updateWizardPresets() {
   if (!container) return;
 
   if (typeObj && typeObj.presets && typeObj.presets.length) {
+    const choices = addAppWizard.preset ? [addAppWizard.preset] : typeObj.presets;
     container.innerHTML = `
       <label class="b-field">
         ${esc(typeObj.preset_label)}
         <select id="wiz-preset">
-          ${typeObj.presets.map(p => `<option value="${esc(p)}">${esc(p)}</option>`).join('')}
+          ${choices.map(p => `<option value="${esc(p)}">${esc(p)}</option>`).join('')}
         </select>
       </label>`;
   } else {
@@ -751,23 +786,42 @@ function selectApp(idx) {
   renderApps();
 }
 
-function openAddAppWizard() {
-  addAppWizard = true;
+function openAddAppWizard(type, preset, name) {
+  addAppWizard = { type, preset, name };
   renderApps();
 }
 
 function closeAddAppWizard() {
-  addAppWizard = false;
+  addAppWizard = null;
   renderApps();
+}
+
+// A chatbot is identified by its workspace path; its instance folder under registered_apps is that
+// path's own folder name (already a legal name), with -2, -3... if two workspaces share one.
+const normalizePath = path => path.replace(/[\\/]+$/, '').replace(/\\/g, '/').toLowerCase();
+const samePath = (a, b) => normalizePath(a) === normalizePath(b);
+
+function instanceIdForPath(type) {
+  const base = folderName();
+  let id = base;
+  for (let n = 2; (state.apps || []).some(a => a.category === type && a.dir === id); n++) id = `${base}-${n}`;
+  return id;
 }
 
 async function submitAddApp(e) {
   e.preventDefault();
   const type = $('wiz-type').value;
-  const name = wizardName();
-  const label = $('wiz-label').value;
-  const path = $('wiz-path').value;
   const preset = $('wiz-preset')?.value || '';
+  const chatbotForm = currentTab === 'chatbots';
+  const label = chatbotForm ? wizardName() : $('wiz-label').value;
+  const path = $('wiz-path').value;
+  if (chatbotForm) {
+    if (!folderName()) return tell('Pick a workspace folder.', true);
+    if ((state.apps || []).some(a => a.category === type && samePath(a.path, path))) {
+      return tell('A chatbot is already registered for this folder.', true);
+    }
+  }
+  const name = chatbotForm ? instanceIdForPath(type) : wizardName();
 
   try {
     const typeObj = (state.app_types || []).find(t => t.name === type);
@@ -775,7 +829,7 @@ async function submitAddApp(e) {
     if (preset) payload[typeObj.preset_field] = preset;
     await post('/api/apps/register', payload);
     tell(`App ${label || name} registered successfully!`);
-    addAppWizard = false;
+    addAppWizard = null;
     await refreshState();
   } catch (err) {
     tell(err.message, true);
@@ -1440,9 +1494,15 @@ async function refreshState() {
     const response = await fetch('/api/state', { cache: 'no-store' });
     if (!response.ok) throw new Error('State fetch failed');
     state = await response.json();
-    render();
   } catch (err) {
     tell('Could not connect to dashboard server.', true);
+    return;
+  }
+  try {
+    render();
+  } catch (err) {
+    console.error(err);
+    tell(`Dashboard failed to render: ${err.message}`, true);
   }
 }
 
@@ -1492,6 +1552,8 @@ window.addEventListener('DOMContentLoaded', () => {
   $('ctl-router-stop')?.addEventListener('click', e => stopRouter(e.target));
   $('ctl-refresh-usage')?.addEventListener('click', e => refreshProviders(e.target));
 
+  switchTab(currentTab, false);
+  window.addEventListener('popstate', () => switchTab(tabFromPath(location.pathname), false));
   refreshState();
   // Auto refresh every 15s when not modifying router draft
   setInterval(() => {

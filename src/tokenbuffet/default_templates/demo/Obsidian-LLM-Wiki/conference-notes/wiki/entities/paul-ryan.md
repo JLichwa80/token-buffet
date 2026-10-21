@@ -1,15 +1,15 @@
 ---
 type: entity
 created: 2026-10-18
-updated: 2026-10-18
-tags: [person]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-us-tax-policy-partisanship-populism-and-protectionism-summ_395ccd]]"
+tags:
+  - "person"
 aliases:
   - "Speaker of the House Paul Ryan"
   - "Speaker Paul Ryan"
-sources:
-  - "[[sources/10-09-keynote_-us-tax-policy-partisanship-populism-and-protectionism-summ_395ccd]]"
-
-generation_complete: true
 ---
 
 # Paul Ryan
@@ -32,3 +32,4 @@ generation_complete: true
 ## Mentions in Source
 
 - "The speaker recounts a pivotal moment during the TCJA debate when then-Speaker of the House Paul Ryan called the Tax Foundation to ask about the growth impact of a temporary corporate tax rate cut." — [[_Inbox/10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary|10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary]]
+- "The Foundation's clear answer—that temporary changes do nothing for long-term growth—directly led to the push for a permanent rate cut in the final bill." — [[_Inbox/10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary|10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary]]

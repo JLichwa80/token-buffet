@@ -2,14 +2,15 @@
 type: concept
 created: 2026-10-19
 updated: 2026-10-19
-tags: [terminology]
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
+tags:
+  - "terminology"
+  - "theory"
 aliases:
   - "de minimis tax rule"
   - "de minimis threshold"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
-
-generation_complete: true
 ---
 
 # de minimis rule
@@ -45,3 +46,4 @@ The **de minimis rule** is an Internal Revenue Service (IRS) regulation defining
 ## Mentions in Source
 
 - "The De Minimis Rule (A 'Tax Nerd Concept'): This was a technical but critical point. If you buy a bond below a certain price threshold (the 'de minimis' level), the discount accretion at maturity is taxed as ordinary income, not capital gains." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]
+- "The speaker described the 'de minimis cliff,' where bonds trading just below the threshold are toxic from a tax perspective unless the price reflects the future tax bill." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]

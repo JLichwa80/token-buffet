@@ -3,7 +3,7 @@
   "type": "Claude",
   "path": "[app_path]",
   "client_settings": {
-    "active_endpoint": "http://127.0.0.1:8090/client/claude",
+    "active_endpoint": "http://127.0.0.1:8090",
     "single_model_tier": "medium"
   },
   "bridge_configuration": ".claude/settings.local.json",

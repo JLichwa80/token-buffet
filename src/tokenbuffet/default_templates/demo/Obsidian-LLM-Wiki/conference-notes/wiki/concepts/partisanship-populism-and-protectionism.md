@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-19
 generation_complete: true
 sources:
   - "[[sources/10-09-keynote_-us-tax-policy-partisanship-populism-and-protectionism-summ_395ccd]]"
@@ -37,8 +37,8 @@ Partisanship, Populism, and Protectionism (often referred to as the "Three P's" 
 
 ## Related Concepts
 
-- [[concepts/partisanship|Partisanship]]
-- [[concepts/populism|Populism]]
+- [[concepts/partisanship-populism-and-protectionism|Partisanship]]
+- [[concepts/partisanship-populism-and-protectionism|Populism]]
 - [[concepts/protectionism|Protectionism]]
 - [[concepts/pro-growth-reform|Pro-Growth Reform]]
 - [[concepts/shrinking-tax-base|Shrinking Tax Base]]
@@ -51,3 +51,4 @@ Partisanship, Populism, and Protectionism (often referred to as the "Three P's" 
 
 - "The overarching theme of the presentation is the precarious and rapidly shifting landscape of US tax policy, which is being dangerously shaped by the intersecting forces of **Partisanship, Populism, and Protectionism**." — [[_Inbox/10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary|10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary]]
 - "The central framework for understanding the current and future landscape." — [[_Inbox/10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary|10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary]]
+- "The Three Forces Shaping Our Future: Partisanship, Populism, and Protectionism * **Core Idea:** This is the central thesis of the keynote." — [[_Inbox/10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary|10-09 Keynote_ US Tax Policy, Partisanship, Populism, and Protectionism-Summary]]

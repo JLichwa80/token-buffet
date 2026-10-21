@@ -30,7 +30,7 @@ An **Ossified Portfolio** is a taxable investment portfolio characterized by yea
 
 - **Tax-Deferred Transition Strategies**: Serving as the target asset base for transition mechanisms such as [[Section 351 Exchange|Section 351 exchanges]], which allow moving appreciated, fragmented securities into a diversified, broad-market ETF without immediate gain realization.
 - **Tax Lot Optimization & Transition Planning**: Identifying high-basis versus low-basis lots via [[Tax Lot Mapping]] to structure phased gifting, charitable contributions, or step-up in basis planning alongside asset-level restructuring.
-- **Household-Level Coordination**: Implementing [[Household-Level Diversification Rules]] to offset uncompensated idiosyncratic risk embedded in the ossified account using complementary, non-taxable account allocations.
+- **Household-Level Coordination**: Implementing [[concepts/household-level-diversification|Household-Level Diversification]] to offset uncompensated idiosyncratic risk embedded in the ossified account using complementary, non-taxable account allocations.
 
 ## Related Concepts
 

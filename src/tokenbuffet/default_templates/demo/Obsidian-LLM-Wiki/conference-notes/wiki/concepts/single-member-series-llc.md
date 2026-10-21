@@ -1,5 +1,11 @@
 ---
+created: 2026-10-19
+updated: 2026-10-19
 generation_complete: true
+sources:
+  - "[[sources/10-09-panel-discussion_-variable-prepaid-forwards-tax-aware-long-short-an_0f1ad3]]"
+tags:
+  - "portfolio_archetype"
 aliases:
   - "Single Member Series LLC"
   - "SMSLLC"
@@ -7,7 +13,6 @@ aliases:
   - "Single-Member Series Limited Liability Company"
   - "SM-SLLC"
 ---
-
 
 ---
 
@@ -24,7 +29,8 @@ A single-member series LLC is an individual investment vehicle, alongside the se
 - In the updated variable prepaid forward workflow, it sits between a concentrated source asset and a tax-aware destination.
 - It can be funded with cash or with appreciated single-name equities.
 - The panel summary treats the vehicle as the reason loss utilization is available. It does not describe series segregation, the legal mechanics of a series LLC, or how the interest is taxed.
-
+- It establishes segregated series or cells under an overarching LLC umbrella, treated as a disregarded entity for federal tax purposes.
+- It provides dedicated liability protection while avoiding partnership at-risk rules and passive loss limitations.
 ## Applications
 
 - Advisors place tax-aware long-short inside a single-member series LLC so an individual client can harvest persistent capital losses and apply them against gains elsewhere in the portfolio.
@@ -44,3 +50,4 @@ A single-member series LLC is an individual investment vehicle, alongside the se
 ## Mentions in Source
 
 - "Core idea: AQR-style quantitative long-short equity, now accessible in SMAs/single-member series LLCs, generates persistent capital losses to offset gains." — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]
+- "AQR-style quantitative long-short equity, now accessible in SMAs/single-member series LLCs, generates persistent capital losses to offset gains." — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]

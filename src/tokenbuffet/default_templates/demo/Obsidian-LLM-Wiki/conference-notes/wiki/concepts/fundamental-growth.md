@@ -1,15 +1,15 @@
 ---
 type: concept
 created: 2026-10-18
-updated: 2026-10-18
-tags: [financial_strategy]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
+tags:
+  - "financial_strategy"
 aliases:
   - "Trifecta growth"
   - "Fundamental Growth Strategy"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
-
-generation_complete: true
 ---
 
 # Fundamental Growth
@@ -39,8 +39,9 @@ Fundamental Growth is an investment portfolio construction methodology that sele
 ## Related Entities
 
 - [[entities/cfa-research-foundation|CFA Research Foundation]]
-- [[entities/rafi|RAFI]]
+- [[concepts/fundamental-indexing|RAFI]]
 
 ## Mentions in Source
 
 - "Fundamental Growth (from “Trifecta”): Instead of defining growth as “expensive,” select companies by actual growth rates, then weight by dollar magnitude of growth—framed as a superior way to build growth exposure." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
+- "Fundamental Growth (from 'Trifecta'): Instead of defining growth as 'expensive,' select companies by actual growth rates, then weight by dollar magnitude of growth—framed as a superior way to build growth exposure." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]

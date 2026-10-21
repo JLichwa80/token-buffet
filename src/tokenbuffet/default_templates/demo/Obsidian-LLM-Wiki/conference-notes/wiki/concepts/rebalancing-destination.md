@@ -2,14 +2,14 @@
 type: concept
 created: 2026-10-19
 updated: 2026-10-19
-tags: [financial_strategy]
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
+tags:
+  - "financial_strategy"
 aliases:
   - "optimal rebalancing target"
   - "halfway rebalancing"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
-
-generation_complete: true
 ---
 
 # rebalancing destination
@@ -36,6 +36,7 @@ Rebalancing destination is the calibrated target allocation reached after an inv
 - [[concepts/trigger-point-rebalancing|trigger point rebalancing]]
 - [[concepts/cash-flow-rebalancing|soft rebalancing]]
 - [[concepts/tax-alpha|tax alpha]]
+- [[concepts/tax-drag|tax drag]]
 
 ## Related Entities
 
@@ -45,3 +46,4 @@ Rebalancing destination is the calibrated target allocation reached after an inv
 ## Mentions in Source
 
 - "The Rebalancing Destination: Once the trigger is hit (e.g., at 66.5% equity), you don't rebalance all the way back to 60%. Instead, you rebalance to the point where the marginal benefits and costs are equal—roughly halfway back." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]
+- "The Rebalancing Destination: Once the trigger is hit (e.g., at 66.5% equity), you don't rebalance all the way back to 60%." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]

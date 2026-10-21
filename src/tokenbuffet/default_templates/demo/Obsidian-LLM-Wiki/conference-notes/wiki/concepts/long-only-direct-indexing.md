@@ -26,7 +26,7 @@ Long-Only Direct Indexing is an investment portfolio archetype that directly hol
 - **Index Beta and Tracking Error Targets**: Targets a portfolio beta of ~1 to an underlying benchmark (such as the [[Russell 1000]]) while operating within tight tracking error parameters (e.g., ~1%).
 - **Tax-Loss Harvesting & Gain Deferral**: Systematically sells declining securities to realize losses for tax offsets while deferring the realization of winning positions.
 - **Gain Lock-Up / Ossification**: Over multi-year horizons, portfolios tend to experience portfolio ossification and gain lock-up as positions accumulate substantial unrealized gains, leading to higher percentage unrealized gains and diminished capacity to harvest further losses.
-
+- **Paradoxical Pretax Alpha Drag**: Higher pretax alpha paradoxically accelerates portfolio lock-up and ossification by expanding built-in capital gains and depleting remaining tax-loss harvesting opportunities, unlike long-short structures where manager skill can unlock additional tax benefits.
 ## Applications
 
 - **Tax-Managed Wealth Management**: Utilized by taxable high-net-worth investors seeking broad market exposure with enhanced after-tax returns via ongoing loss harvesting.
@@ -34,9 +34,10 @@ Long-Only Direct Indexing is an investment portfolio archetype that directly hol
 
 ## Related Concepts
 
-- [[concepts/tax-aware-long-short-investing|Tax-Aware Long-Short Investing]]
+- [[concepts/tax-aware-long-short|Tax-Aware Long-Short Investing]]
 - [[concepts/embedded-gains|Built-in Gains]]
 - [[concepts/cumulative-net-capital-losses-cncls|Cumulative Net Capital Losses (CNCLs)]]
+- [[concepts/tax-aware-long-short-overlay|Tax-Aware Long-Short Overlay]]
 
 ## Related Entities
 
@@ -45,3 +46,4 @@ Long-Only Direct Indexing is an investment portfolio archetype that directly hol
 ## Mentions in Source
 
 - "Long-only direct indexing: 100 long / 0 short; beta ~1 to Russell 1000; 1% uninformed tracking error focused on tax-loss harvesting." — [[_Inbox/10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary|10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary]]
+- "In contrast, higher alpha in long-only direct indexing tends to lock portfolios up—raising built-in gains and reducing tax-loss harvesting opportunities." — [[_Inbox/10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary|10-09 Keynote_ Tax-Aware Long-Short Investing, Pretax Alpha, and After-Tax Wealth-Summary]]

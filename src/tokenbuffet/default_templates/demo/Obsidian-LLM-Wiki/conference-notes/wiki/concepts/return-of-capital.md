@@ -37,7 +37,7 @@ Return of Capital (ROC) is a distribution mechanism employed by certain investme
 
 - [[concepts/equitability|Equitability]]
 - [[concepts/the-grandmother-effect|The Grandmother Effect]]
-- [[concepts/after-tax-investing|After-Tax Investing]]
+- [[concepts/drip-program|After-Tax Investing]]
 - [[concepts/perpetual-non-traded-reit|Perpetual Non-Traded REITs]]
 
 ## Related Entities

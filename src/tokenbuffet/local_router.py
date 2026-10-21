@@ -120,20 +120,14 @@ def tiers_from_providers(providers, global_effort=None):
 
 
 def load_router_config():
-    """Load provider-first exact model mappings; migrate the legacy tier map."""
+    """Load provider-first exact model mappings."""
     config = {}
     if os.path.exists(ROUTER_CONFIG_PATH):
         with open(ROUTER_CONFIG_PATH, encoding="utf-8") as f:
             config = json.load(f)
     config.setdefault("mode", "usage")
     config.setdefault("custom_order", [])
-    changed = False
-    if "providers" not in config and config.get("tiers"):
-        config["providers"] = providers_from_tiers(config.pop("tiers"))
-        changed = True
     config.setdefault("providers", {})
-    if changed:
-        save_router_config(config)
     return config
 
 
@@ -353,17 +347,6 @@ class RouterHandler(http.server.BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         pass
 
-    def _client_origin(self):
-        """Remove a client-scoped prefix and return its provider name."""
-        if not self.path.startswith("/client/"):
-            return None
-        parts = self.path.split("/", 3)
-        if (len(parts) != 4 or not parts[3] or
-                not os.path.isfile(os.path.join("registered_providers", parts[2], "config.json"))):
-            raise ValueError("Unknown client route")
-        self.path = "/" + parts[3]
-        return parts[2]
-
     def _send_cors_headers(self):
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
@@ -375,41 +358,16 @@ class RouterHandler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
-        try:
-            origin = self._client_origin()
-        except ValueError:
-            self.send_error(404, "Unknown client route")
-            return
-        advertised = ([m for m in ADVERTISED
-                       if (any(b["provider"] != origin for b in TIERS[m]) if m in TIERS
-                           else ALL_MODELS.get(m) != origin)]
-                      if origin else ADVERTISED)
+        advertised = ADVERTISED
         clean_path = urlsplit(self.path).path
-        gemini_models = clean_path == "/v1beta/models" or (
-            origin == "agy" and clean_path == "/v1/models")
-        gemini_detail = (clean_path.startswith("/v1beta/models/") or
-                         (origin == "agy" and clean_path.startswith("/v1/models/")))
+        gemini_models = clean_path == "/v1beta/models"
+        gemini_detail = clean_path.startswith("/v1beta/models/")
         if gemini_models:
             response_obj = {"models": [{"name": "models/" + m,
                                         "baseModelId": m,
                                         "displayName": m,
                                         "supportedGenerationMethods": ["generateContent", "streamGenerateContent"]}
                                        for m in advertised]}
-            resp_bytes = json.dumps(response_obj).encode("utf-8")
-            self.send_response(200)
-            self._send_cors_headers()
-            self.send_header("Content-Type", "application/json")
-            self.send_header("Content-Length", str(len(resp_bytes)))
-            self.end_headers()
-            self.wfile.write(resp_bytes)
-        elif origin == "claude" and clean_path == "/v1/models":
-            response_obj = {
-                "data": [{"type": "model", "id": m, "display_name": m,
-                          "created_at": "1970-01-01T00:00:00Z"} for m in advertised],
-                "first_id": advertised[0] if advertised else None,
-                "last_id": advertised[-1] if advertised else None,
-                "has_more": False,
-            }
             resp_bytes = json.dumps(response_obj).encode("utf-8")
             self.send_response(200)
             self._send_cors_headers()
@@ -477,11 +435,6 @@ class RouterHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(b'{"error": "Not found"}')
 
     def do_POST(self):
-        try:
-            origin = self._client_origin()
-        except ValueError:
-            self.send_error(404, "Unknown client route")
-            return
         request_path = urlsplit(self.path).path
         request_id = uuid.uuid4().hex[:8]
         started = time.monotonic()
@@ -668,9 +621,6 @@ class RouterHandler(http.server.BaseHTTPRequestHandler):
             if i == len(primary) and len(sorted_backends) > len(primary):
                 logging.info("RETRY id=%s tier=%s", request_id, tier)
             prov = backend["provider"]
-            if prov == origin:
-                logging.info("Skipping %s: request originated from that CLI client.", prov)
-                continue
             remaining = USAGE.get(prov)
             if remaining is not None and remaining <= 0:
                 logging.info(f"Skipping {prov}: out of tokens (0 remaining).")

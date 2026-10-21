@@ -2,14 +2,14 @@
 type: concept
 created: 2026-10-19
 updated: 2026-10-19
-tags: [financial_strategy]
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
+tags:
+  - "financial_strategy"
 aliases:
   - "tax avoidance"
   - "permanent tax elimination"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
-
-generation_complete: true
 ---
 
 # permanent tax avoidance
@@ -41,3 +41,4 @@ Permanent tax avoidance in fixed income refers to the complete elimination of fu
 ## Mentions in Source
 
 - "The speaker reveals that unlike equities, where tax loss harvesting is primarily a *deferral* strategy, bond tax loss harvesting can achieve permanent *tax avoidance*." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]
+- "The speaker reveals that unlike equities, where tax loss harvesting is primarily a deferral strategy, bond tax loss harvesting can achieve permanent tax avoidance." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]

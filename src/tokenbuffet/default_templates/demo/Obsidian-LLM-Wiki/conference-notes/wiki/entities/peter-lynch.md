@@ -1,12 +1,20 @@
 ---
 type: entity
 created: 2026-10-19
-sources:
-  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
-tags: [person]
 stub: true
 generation_complete: true
+sources:
+  - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
+tags:
+  - "person"
+aliases:
+  - "Peter S. Lynch"
+  - "Peter S Lynch"
+  - "Peter Lynch (investor)"
+  - "Peter Lynch (Fidelity)"
+  - "Fidelity Magellan Fund manager"
 ---
+
 # Peter Lynch
 
 > Stub created by the ingest candidate gate (prose+named) — [[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]] names this without treating it. Will be filled by the next ingest of a source that does.

@@ -1,16 +1,16 @@
 ---
 type: concept
 created: 2026-10-18
-updated: 2026-10-18
-tags: [portfolio_archetype]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
+tags:
+  - "portfolio_archetype"
 aliases:
   - "equal-weight indexing"
   - "Equal Weighting"
   - "EWI"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
-
-generation_complete: true
 ---
 
 # Equal weight
@@ -41,7 +41,7 @@ Equal weight is a portfolio construction archetype that assigns an identical wei
 
 ## Related Entities
 
-- [[entities/rafi|RAFI]]
+- [[concepts/fundamental-indexing|RAFI]]
 
 ## Mentions in Source
 

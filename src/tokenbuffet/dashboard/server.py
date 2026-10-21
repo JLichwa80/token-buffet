@@ -31,6 +31,11 @@ JS_FILE = STATIC_DIR / "app.js"
 STATIC_FILES = {
     "/": (INDEX_FILE, "text/html; charset=utf-8"),
     "/index.html": (INDEX_FILE, "text/html; charset=utf-8"),
+    "/my-apps": (INDEX_FILE, "text/html; charset=utf-8"),
+    "/my-chatbots": (INDEX_FILE, "text/html; charset=utf-8"),
+    "/llm-providers": (INDEX_FILE, "text/html; charset=utf-8"),
+    "/router": (INDEX_FILE, "text/html; charset=utf-8"),
+    "/activity": (INDEX_FILE, "text/html; charset=utf-8"),
     "/app.css": (CSS_FILE, "text/css; charset=utf-8"),
     "/dashboard.css": (CSS_FILE, "text/css; charset=utf-8"),
     "/app.js": (JS_FILE, "application/javascript; charset=utf-8"),
@@ -106,7 +111,6 @@ def app_rows():
     from tokenbuffet.onboarding import can_open
     rows = []
     installed = installed_app_types()
-    openable = {t: can_open(t) for t in installed}
     for config_path in sorted(APP_DIR.glob("*/*/app_config.json")):
         config = read_json(config_path)
         if not isinstance(config, dict) or config_path.parent.parent.name not in installed:
@@ -125,7 +129,7 @@ def app_rows():
             "type": declared_type,
             "category": category,
             "dir": config_path.parent.name,
-            "can_open": openable[category],
+            "can_open": can_open(category, config_path.parent.name),
             "instance": str(config_path.parent),
             "path": str(app_path),
             "bridge_configuration": config.get("bridge_configuration"),
@@ -145,13 +149,15 @@ def app_types():
         config = read_json(path, {})
         presets = read_json(path.parent / "vault_types.json", {})
         directory = config.get("presets_directory")
-        choices = (sorted(p.parent.name for p in (path.parent / directory).glob("*/app_config.json"))
-                   if directory else sorted(presets) if isinstance(presets, dict) else [])
+        preset_configs = ({p.parent.name: read_json(p, {}) for p in (path.parent / directory).glob("*/app_config.json")}
+                          if directory else {})
+        choices = (sorted(preset_configs) if directory else sorted(presets) if isinstance(presets, dict) else [])
         result.append({"name": path.parent.name,
                        "title": config.get("title") or path.parent.name,
                        "description": config.get("description", ""),
                        "bridge_configuration": config.get("bridge_configuration", "app_settings.json"),
                        "presets": choices,
+                       "preset_names": {name: config["name"] for name, config in preset_configs.items()},
                        "preset_field": "preset" if directory else "vault_type",
                        "preset_label": config.get("preset_label", "Vault Preset"),
                        "path_required": config.get("path") == "[app_path]"})
@@ -418,11 +424,8 @@ def restart_provider(data):
     name = data.get("provider")
     status = read_json(STATUS_DIR / f"{name}_run_status.json", {})
     if status.get("status") == "running" and listening(status.get("port")):
-        try:
-            stop_provider(data)
-            time.sleep(0.8)
-        except Exception:
-            pass
+        stop_provider(data)
+        time.sleep(0.8)
     return launch_provider(data)
 
 

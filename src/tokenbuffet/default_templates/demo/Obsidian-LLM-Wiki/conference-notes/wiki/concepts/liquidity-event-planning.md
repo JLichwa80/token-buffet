@@ -1,12 +1,21 @@
 ---
 type: concept
 created: 2026-10-19
-sources:
-  - "[[sources/10-09-keynote_-after-tax-wealth-management-and-tax-stack-design-summary-1_d01a81]]"
-tags: [action_playbook]
 stub: true
 generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-after-tax-wealth-management-and-tax-stack-design-summary-1_d01a81]]"
+tags:
+  - "action_playbook"
+aliases:
+  - "Pre-Liquidity Planning"
+  - "Pre-Liquidity Event Planning"
+  - "Exit Planning"
+  - "Pre-Exit Planning"
+  - "Business Exit Planning"
+  - "Pre-Sale Tax Planning"
 ---
+
 # Liquidity Event Planning
 
 > Stub created by the ingest candidate gate (aside+covered) — [[sources/10-09-keynote_-after-tax-wealth-management-and-tax-stack-design-summary-1_d01a81]] names this without treating it. Will be filled by the next ingest of a source that does.

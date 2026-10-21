@@ -1,7 +1,10 @@
 {
   "env": {
-    "ANTHROPIC_BASE_URL": "http://127.0.0.1:8090/client/claude",
-    "ANTHROPIC_API_KEY": "",
-    "ANTHROPIC_AUTH_TOKEN": "local-bridge"
+    "ANTHROPIC_BASE_URL": "http://127.0.0.1:8090"
+  },
+  "enabledMcpjsonServers": ["claudia-memory"],
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": ["mcp__claudia-memory__*"]
   }
 }

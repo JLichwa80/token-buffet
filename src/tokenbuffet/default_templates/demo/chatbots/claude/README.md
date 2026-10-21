@@ -1,7 +1,7 @@
 # Claude Code client demo
 
 The `.claude/settings.local.json` in this folder sends Claude Code requests to
-`http://127.0.0.1:8090/client/claude/v1/messages` through its
+`http://127.0.0.1:8090/v1/messages` through its
 `ANTHROPIC_BASE_URL` setting. It asks for the router's `medium` tier and
 disables Claude Code thinking because the bridge has no signed thinking blocks.
 It enables gateway model discovery so `/model` can list available bridge tiers.

@@ -1,5 +1,11 @@
 ---
+created: 2026-10-19
+updated: 2026-10-19
 generation_complete: true
+sources:
+  - "[[sources/10-09-presentation_-tax-alpha-dual-share-class-and-tokenized-t‑bills-summ_6a40b3]]"
+tags:
+  - "organization"
 aliases:
   - "Securities and Exchange Commission"
   - "U.S. Securities and Exchange Commission"
@@ -8,7 +14,6 @@ aliases:
   - "U.S. SEC"
   - "US SEC"
 ---
-
 
 ---
 
@@ -29,7 +34,9 @@ The SEC (Securities and Exchange Commission) is the U.S. securities regulator ci
 - [[concepts/dual-share-class|Dual Share Class]]
 - [[concepts/tokenized-t-bills|Tokenized T-Bills]]
 - [[concepts/in-kind-creationredemption|In-Kind Creation/Redemption]]
+- [[concepts/wrapper|Wrapper]]
 
 ## Mentions in Source
 
 - "Policy tailwind: Executive order recently pushed SEC/CFTC to immediately create tokenization schemes; FM filing a second application “tomorrow.”" — [[_Inbox/10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary|10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary]]
+- "“It’s one of those rare moments where the SEC set up the rules where the investor always wins.”" — [[_Inbox/10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary|10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary]]

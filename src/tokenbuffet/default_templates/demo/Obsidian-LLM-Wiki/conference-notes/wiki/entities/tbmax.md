@@ -1,5 +1,11 @@
 ---
+created: 2026-10-19
+updated: 2026-10-19
 generation_complete: true
+sources:
+  - "[[sources/10-09-presentation_-tax-alpha-dual-share-class-and-tokenized-t‑bills-summ_6a40b3]]"
+tags:
+  - "instrument"
 aliases:
   - "TB Max"
   - "TBMAX"
@@ -7,7 +13,6 @@ aliases:
   - "TB-MAX"
   - "T-Bill/TBMax"
 ---
-
 
 ---
 
@@ -25,9 +30,10 @@ TBMax is the companion share class paired with [[T-Bill]] in the dual share clas
 ## Related Concepts
 
 - [[concepts/dual-share-class|Dual Share Class]]
-- [[concepts/wrappers|Wrappers]]
+- [[concepts/wrapper|Wrappers]]
 - [[concepts/tax-alpha|Tax Alpha]]
 
 ## Mentions in Source
 
 - "Example: T-Bill and TBMax two-line chart overlapping on total return—proving equivalent investor experience." — [[_Inbox/10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary|10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary]]
+- "First step: Map top client holdings to available dual share products (e.g., T-Bill/TBMax) and migrate where suitable." — [[_Inbox/10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary|10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary]]

@@ -1,16 +1,17 @@
 ---
 type: concept
 created: 2026-10-18
-updated: 2026-10-18
-tags: [portfolio_archetype]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
+tags:
+  - "portfolio_archetype"
+  - "financial_strategy"
 aliases:
   - "smart-beta strategies"
   - "smart beta"
   - "rules-based non-cap-weighted strategies"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
-
-generation_complete: true
 ---
 
 # Smart beta
@@ -41,8 +42,9 @@ Smart beta is a family of rules-based portfolio construction strategies that sys
 
 ## Related Entities
 
-- [[entities/rafi|RAFI]]
+- [[concepts/fundamental-indexing|RAFI]]
 
 ## Mentions in Source
 
 - "The speaker runs through categories (large/small, growth/value, quality, momentum) and says bluntly: “They all fail after tax.”" — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
+- "“Smart beta” (multifactor, equal weight, low vol/min var, fundamental index) in aggregate: Adds ~120 bps/year gross over ~25 years. In live funded accounts: ~50 bps ahead net of fees. But ~30 bps behind after tax (i.e., taxes can flip the sign)." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]

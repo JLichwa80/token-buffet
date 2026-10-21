@@ -1,5 +1,11 @@
 ---
+created: 2026-10-19
+updated: 2026-10-19
 generation_complete: true
+sources:
+  - "[[sources/10-09-panel-discussion_-variable-prepaid-forwards-tax-aware-long-short-an_0f1ad3]]"
+tags:
+  - "theory"
 aliases:
   - "Tax Straddle Rules"
   - "IRC Section 1092"
@@ -8,7 +14,6 @@ aliases:
   - "Straddle Tax Rules"
   - "Loss Deferral Rules"
 ---
-
 
 ---
 
@@ -45,3 +50,4 @@ Advisors use the rules when choosing how to hedge a concentrated stock position.
 ## Mentions in Source
 
 - "Straddle rules (post‑1984 stock): Call premium taxable short-term currently; put losses non-deductible, added to basis until shares are sold." — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]
+- "More tax-efficient: Single OTC collar fused into one instrument; borrow against PV of the put (mechanically akin to a VPF)." — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]

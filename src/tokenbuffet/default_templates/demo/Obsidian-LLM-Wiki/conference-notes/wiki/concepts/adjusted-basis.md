@@ -2,14 +2,14 @@
 type: concept
 created: 2026-10-19
 updated: 2026-10-19
-tags: [terminology]
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
+tags:
+  - "terminology"
 aliases:
   - "amortized cost basis"
   - "adjusted cost basis"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
-
-generation_complete: true
 ---
 
 # adjusted basis
@@ -30,7 +30,7 @@ Adjusted basis is the ongoing, dynamic cost basis of a fixed income instrument t
 - **Tax-Aware Fixed Income Management**: Accurately tracking basis to avoid unintended tax liabilities when replacement securities mature.
 - **Tax-Advantaged Rebalancing**: Coordinating with tax loss harvesting to maximize after-tax returns without triggering unexpected capital gains.
 - **Municipal Bond Portfolio Accounting**: Accurately reporting amortized premium values across state and federal tax-exempt instruments.
-
+- **Bond Tax Loss Harvesting Execution**: Realizing losses accurately and establishing true tax liabilities, serving as a core requirement for legitimate tax management across fixed income portfolios.
 ## Related Concepts
 
 - [[concepts/tax-loss-harvesting|tax loss harvesting]]
@@ -44,3 +44,5 @@ Adjusted basis is the ongoing, dynamic cost basis of a fixed income instrument t
 ## Mentions in Source
 
 - "Unlike a stock's static cost basis, a premium bond's basis amortizes down to par over its life." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]
+- "The speaker stressed, 'If you do not know the answer to [what the adjusted basis is], then you're not tax managing the portfolio properly.'" — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]
+- "This amortization is what prevents a capital gain at maturity." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary|10-09 Keynote_ Tax Alpha, Fixed Income, and Smart Rebalancing-Summary]]

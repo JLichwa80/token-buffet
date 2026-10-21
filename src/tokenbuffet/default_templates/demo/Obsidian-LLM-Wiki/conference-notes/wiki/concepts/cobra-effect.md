@@ -1,5 +1,11 @@
 ---
+created: 2026-10-19
+updated: 2026-10-19
 generation_complete: true
+sources:
+  - "[[sources/10-09-presentation_-tax-alpha-dual-share-class-and-tokenized-t‑bills-summ_6a40b3]]"
+tags:
+  - "theory"
 aliases:
   - "Perverse Incentive"
   - "Perverse Incentives"
@@ -8,7 +14,6 @@ aliases:
   - "Bounty Effect"
   - "Perverse Consequence"
 ---
-
 
 ---
 
@@ -33,14 +38,16 @@ The Cobra Effect is a metaphor for a policy incentive that increases the problem
 - Testing a tax change for who will adapt, breed the rewarded behavior, or fall inside a wider net.
 - Designing wrappers that still work when incentives twist and when provisions sunset, rather than assuming a targeted fix stays fixed.
 - Treating the tax code’s accumulated acronyms as a place where good intentions and later behavior diverge.
-
+- Arbitraging the structural anomalies and perverse incentives created by backfiring tax rules through targeted investment products.
 ## Related Concepts
 
 - [[concepts/amt|AMT]]
 - [[concepts/tax-alpha|Tax Alpha]]
+- [[concepts/policy-formation-map|Policy Formation Map]]
 
 ## Related Entities
 
 ## Mentions in Source
 
 - "Catchphrases/metaphors: “Wall Street vs. Washington is 230 miles and an infinite number of misunderstandings,” “Washington designed your portfolio,” “Harry Potter-length tax code,” “the spider’s web of acronyms,” “race to die,” “Cobra effect,” “ETF not done yet”" — [[_Inbox/10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary|10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary]]
+- "Core idea: Policy can backfire—like paying for rat tails producing more rats; AMT targeted 155 wealthy families, now hits more everyday taxpayers." — [[_Inbox/10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary|10-09 Presentation_ Tax Alpha, Dual Share Class, and Tokenized T‑Bills-Summary]]

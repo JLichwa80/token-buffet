@@ -7,9 +7,9 @@ type_confirmed: true
 sources:
   - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
   - "[[sources/10-09-panel-discussion_-variable-prepaid-forwards-tax-aware-long-short-an_0f1ad3]]"
+  - "[[sources/10-09-presentation_-tax-alpha-dual-share-class-and-tokenized-t‑bills-summ_6a40b3]]"
 tags:
   - "instrument"
-  - "portfolio_archetype"
 aliases:
   - "SMAs"
   - "Separately Managed Account"

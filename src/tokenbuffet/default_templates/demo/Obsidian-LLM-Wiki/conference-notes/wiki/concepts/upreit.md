@@ -35,7 +35,7 @@ An upREIT (Umbrella Partnership Real Estate Investment Trust), also referred to 
 
 ## Related Concepts
 
-- [[concepts/1031-exchange|1031 Exchange]]
+- [[concepts/1031|1031 Exchange]]
 - [[concepts/perpetual-non-traded-reit|Perpetual Non-Traded REIT]]
 - [[concepts/return-of-capital|Return of Capital]]
 

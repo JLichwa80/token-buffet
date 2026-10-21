@@ -1,9 +1,12 @@
 ---
 created: 2026-10-18
-updated: 2026-10-18
+updated: 2026-10-19
 generation_complete: true
 sources:
   - "[[sources/10-09-keynote_-us-tax-policy-partisanship-populism-and-protectionism-summ_395ccd]]"
+  - "[[sources/10-09-panel-discussion_-variable-prepaid-forwards-tax-aware-long-short-an_0f1ad3]]"
+tags:
+  - "other"
 aliases:
   - "CA"
   - "State of California"
@@ -12,7 +15,6 @@ aliases:
   - "CA tax"
   - "California capital gains"
 ---
-
 
 ---
 
@@ -36,3 +38,4 @@ California is the panel’s headline high-tax jurisdiction for the cost of selli
 ## Mentions in Source
 
 - "Key points: A $10M zero-basis sale in California leaves roughly $6M after taxes; reinvestment choices can compound tax events." — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]
+- "A $10M zero-basis sale in California leaves roughly $6M after taxes; reinvestment choices can compound tax events." — [[_Inbox/10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary|10-09 Panel Discussion_ Variable Prepaid Forwards, Tax-Aware Long-Short, and PPLI for Concentrated Assets-Summary]]

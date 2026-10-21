@@ -8,7 +8,6 @@ aliases:
   - "Effective After-Tax Interest Rate"
 sources:
   - "[[sources/10-09-keynote_-tax-aware-portfolio-transitions-and-derivative-etf-risks-s_3a1193]]"
-
 generation_complete: true
 ---
 
@@ -27,7 +26,7 @@ The After-Tax Borrowing Rate represents the true net cost of financing after fac
 ## Applications
 
 - **Wealth Management Optimization**: Evaluating non-purpose borrowing alternatives for private wealth clients seeking liquidity without triggering tax realization events.
-- **Financing Structure Comparison**: Comparing traditional credit vehicles like a [[Pledged Asset Line]] against [[Synthetic Borrowing]] structures to minimize overall capital drag.
+- **Financing Structure Comparison**: Comparing traditional credit vehicles like a [[Pledged Asset Line]] against [[concepts/shorting-against-the-box|Shorting Against the Box]] structures to minimize overall capital drag.
 - **Tax-Aware Portfolio Management**: Aligning borrowing mechanics with existing portfolio capital gain profiles to maximize tax efficiency.
 
 ## Related Concepts

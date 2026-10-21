@@ -27,7 +27,7 @@ Tier map: `opus → reasoning`, `sonnet → medium`, `haiku → fast`.
 
 `integrations/claudia/` app type:
 - `app_config.json` — `path` is the Claudia workspace root; `client_settings` supplies the endpoint and model tier.
-- `app_settings.json` — sets `ANTHROPIC_BASE_URL: http://127.0.0.1:8090/client/claude` and `ANTHROPIC_AUTH_TOKEN: local-bridge` in `.claude/settings.local.json`.
+- `app_settings.json` — sets `ANTHROPIC_BASE_URL: http://127.0.0.1:8090` in `.claude/settings.local.json`.
 - `init.py` — writes/merges the redirect into the Claude folder's `settings.local.json`.
 - Its `launch(app_path)` hook enables the Hub's existing **Open** button. On Windows it opens
   a visible PowerShell terminal running `claude` in the registered workspace. It requires Claude Code
@@ -38,7 +38,7 @@ Register an instance:
 tbuffet add-app claudia "My Claudia" --path "/path/to/claudia"
 ```
 
-The demo instance is registered at `registered_apps/claudia/My-Client-Relationships-Management/`.
+The demo instance is registered at `registered_apps/claudia/My-Client-Relationships-Management-Demo/`.
 
 ## The bigger story
 

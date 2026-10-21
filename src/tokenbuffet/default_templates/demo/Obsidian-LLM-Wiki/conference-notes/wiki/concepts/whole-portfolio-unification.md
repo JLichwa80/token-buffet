@@ -38,7 +38,7 @@ Whole portfolio unification is an overarching wealth management philosophy and f
 - [[concepts/tax-drag|Tax Drag at the CMA Level]]
 - [[concepts/tax-neutral-transition|Tax-Neutral Transition]]
 - [[concepts/tax-aware-long-short|Tax-Advantaged Long-Short Strategy]]
-- [[concepts/after-tax-investing|After-Tax Investing]]
+- [[concepts/drip-program|After-Tax Investing]]
 
 ## Related Entities
 

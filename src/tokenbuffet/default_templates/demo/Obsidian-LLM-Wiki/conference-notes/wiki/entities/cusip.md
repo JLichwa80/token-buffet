@@ -5,6 +5,7 @@ updated: 2026-10-19
 generation_complete: true
 sources:
   - "[[sources/10-09-keynote-the-tax-trap-in-bond-investing_42c248]]"
+  - "[[sources/10-09-keynote_-tax-alpha-fixed-income-and-smart-rebalancing-summary_bf9109]]"
 tags:
   - "instrument"
 aliases:

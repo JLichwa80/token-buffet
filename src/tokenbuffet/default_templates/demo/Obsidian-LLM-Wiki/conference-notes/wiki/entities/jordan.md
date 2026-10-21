@@ -15,7 +15,7 @@ aliases:
 
 ## Description
 
-Jordan is a Wall Street veteran, derivative product architect, and former certified public accountant who served as the final keynote speaker on tax-aware transitions and derivative risk. He structures and actively utilizes exchange-traded products, having filed for the industry's first autocall ETF. In his presentation, he demonstrates how investors can execute [[concepts/shorting-against-the-box|synthetic borrowing]] via short option box spreads to finance diversified portfolios while deferring embedded capital gains taxes on concentrated equity positions. Jordan also articulates fiduciary safeguards including the [[concepts/grandmother-effect|Grandmother Effect]] and warns against structural hazards such as [[concepts/oscillation-risk|oscillation risk]] in covered-call strategies and opaque single-counterparty OTC pricing.
+Jordan is a Wall Street veteran, derivative product architect, and former certified public accountant who served as the final keynote speaker on tax-aware transitions and derivative risk. He structures and actively utilizes exchange-traded products, having filed for the industry's first autocall ETF. In his presentation, he demonstrates how investors can execute [[concepts/shorting-against-the-box|synthetic borrowing]] via short option box spreads to finance diversified portfolios while deferring embedded capital gains taxes on concentrated equity positions. Jordan also articulates fiduciary safeguards including the [[concepts/the-grandmother-effect|Grandmother Effect]] and warns against structural hazards such as [[concepts/oscillation-risk|oscillation risk]] in covered-call strategies and opaque single-counterparty OTC pricing.
 
 ## Related Entities
 
@@ -25,7 +25,7 @@ Jordan is a Wall Street veteran, derivative product architect, and former certif
 
 - [[concepts/shorting-against-the-box|Synthetic Borrowing]]
 - [[concepts/oscillation-risk|Oscillation Risk]]
-- [[concepts/grandmother-effect|Grandmother Effect]]
+- [[concepts/the-grandmother-effect|Grandmother Effect]]
 - [[concepts/bulldozer-analogy|Bulldozer Analogy]]
 - [[concepts/return-of-capital|Return of Capital]]
 

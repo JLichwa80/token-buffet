@@ -1,5 +1,10 @@
 ---
+created: 2026-10-19
+updated: 2026-10-19
 generation_complete: true
+sources:
+  - "[[sources/10-09-presentation_-tax-alpha-dual-share-class-and-tokenized-t‑bills-summ_6a40b3]]"
+tags:
 aliases:
   - "Alternative Minimum Tax"
   - "Alternative Minimum Tax (AMT)"
@@ -8,15 +13,16 @@ aliases:
   - "U.S. Alternative Minimum Tax"
 ---
 
-
 ---
 
 # AMT
 
 ## Definition
+
 AMT (alternative minimum tax) is a parallel U.S. federal income-tax computation meant to keep taxpayers who use deductions and preferences from paying little or no regular tax. In this talk it is the main example of a rule whose reach escaped its target: a minimum tax aimed at 155 wealthy families that, the speaker says, now injures more ordinary taxpayers than those original targets.
 
 ## Key Characteristics
+
 - It was designed as a narrow backstop for a small group of wealthy families, not as a broad tax on ordinary taxpayers.
 - The speaker treats its later, wider reach as a [[Cobra Effect]]: a bounty on rat tails produced more rats, and a minimum tax aimed at a small group spread widely.
 - The speaker says the government reacts personally when cash flow is off, which helps explain why a narrow rule persists and expands.
@@ -24,6 +30,7 @@ AMT (alternative minimum tax) is a parallel U.S. federal income-tax computation 
 - It sits in the same acronym set as Sections 351 and 1031: rules teams are told to study as sources of perverse incentives, not as a permanent, precise fix.
 
 ## Applications
+
 - Teaching how a well-intended tax rule can hit people outside its original target and create second-order planning behavior.
 - Training portfolio and product teams to read AMT, with Sections 351 and 1031, for incentives they can address inside the rules rather than treating the acronym as a settled constraint.
 - Framing [[Tax Alpha]] work: temporary or overbroad tax rules are inputs to wrapper and portfolio design, alongside features such as [[Step-Up Basis]].

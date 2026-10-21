@@ -1,26 +1,26 @@
 ---
 type: entity
 created: 2026-10-18
-updated: 2026-10-18
-tags: [organization]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
+tags:
+  - "organization"
 aliases:
   - "CFA Institute Research Foundation"
   - "Research Foundation of CFA Institute"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
-
-generation_complete: true
 ---
 
 # CFA Research Foundation
 
 ## Description
 
-The CFA Research Foundation is a research and publishing organization associated with the CFA Institute. In the context of the keynote, it serves as the publisher for foundational research challenging traditional portfolio construction, specifically hosting the paper "The Active Side of Indexing." This research serves as a primary reference demonstrating that [[concepts/cap-weighted-indexing|cap-weighted indexing]] is not purely passive, arguing that the active turnover component of an index portfolio imparts non-neutral, active risk. Furthermore, the Foundation provides a formal academic outlet for complementary research such as "Trifecta," which underpins strategies surrounding [[concepts/fundamental-growth|Fundamental Growth]] and [[entities/rafi|RAFI]].
+The CFA Research Foundation is a research and publishing organization associated with the CFA Institute. In the context of the keynote, it serves as the publisher for foundational research challenging traditional portfolio construction, specifically hosting the paper "The Active Side of Indexing." This research serves as a primary reference demonstrating that [[concepts/cap-weighted-indexing|cap-weighted indexing]] is not purely passive, arguing that the active turnover component of an index portfolio imparts non-neutral, active risk. Furthermore, the Foundation provides a formal academic outlet for complementary research such as "Trifecta," which underpins strategies surrounding [[concepts/fundamental-growth|Fundamental Growth]] and [[concepts/fundamental-indexing|RAFI]].
 
 ## Related Entities
 
-- [[entities/rafi|RAFI]]
+- [[concepts/fundamental-indexing|RAFI]]
 
 ## Related Concepts
 

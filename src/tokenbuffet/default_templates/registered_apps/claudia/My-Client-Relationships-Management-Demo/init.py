@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import base64
 import json
 import os
 import shutil
@@ -24,13 +23,41 @@ def launch(app_path):
         return
     if os.name != "nt":
         raise ValueError(f"Open a terminal in {target} and run claude on this system")
-    executable = shutil.which("claude")
-    command = ("Set-Location -LiteralPath '" + str(target).replace("'", "''") + "'\n"
-               "& '" + executable.replace("'", "''") + "'")
-    encoded = base64.b64encode(command.encode("utf-16le")).decode("ascii")
-    subprocess.Popen(["powershell.exe", "-NoLogo", "-NoProfile", "-NoExit",
-                      "-EncodedCommand", encoded], cwd=target,
-                     creationflags=subprocess.CREATE_NEW_CONSOLE)
+    subprocess.Popen(["powershell.exe", "-NoLogo", "-NoExit", "-Command", "claude"],
+                     cwd=target, creationflags=subprocess.CREATE_NEW_CONSOLE)
+
+
+def prepare_demo(app_path):
+    """Install Claudia's memory system and host integration with its own installer, then re-apply the router endpoint."""
+    npx = shutil.which("npx")
+    if not npx:
+        raise FileNotFoundError("Node.js (npx) must be installed and available on PATH to install Claudia")
+    target = Path(app_path).resolve()
+    install = [npx, "get-claudia", "claude", ".", "--yes"]
+    result = subprocess.run(install, cwd=target)
+    if result.returncode:
+        raise RuntimeError(f"npx get-claudia failed with exit code {result.returncode}")
+    # The installer looks for venv\Scripts\pip without .exe, so on Windows it skips installing the daemon, writing .mcp.json and the
+    # health check. An extension-less copy of pip.exe satisfies it; run the installer again so those steps happen.
+    venv_scripts = Path.home() / ".claudia" / "daemon" / "venv" / "Scripts"
+    if os.name == "nt" and (venv_scripts / "pip.exe").is_file() and not (venv_scripts / "pip").exists():
+        shutil.copyfile(venv_scripts / "pip.exe", venv_scripts / "pip")
+        result = subprocess.run(install, cwd=target)
+        if result.returncode:
+            raise RuntimeError(f"npx get-claudia failed with exit code {result.returncode}")
+    mcp_path = target / ".mcp.json"
+    if "claudia-memory" not in json.loads(mcp_path.read_text(encoding="utf-8")).get("mcpServers", {}):
+        raise RuntimeError(f"Claudia installer did not add claudia-memory to {mcp_path}")
+    # The installer also lists gmail, google-calendar and google_workspace; the demo starts with memory only.
+    mcp = json.loads(mcp_path.read_text(encoding="utf-8"))
+    mcp["mcpServers"] = {"claudia-memory": mcp["mcpServers"]["claudia-memory"]}
+    mcp_path.write_text(json.dumps(mcp, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    # Claude Code ignores the workspace's settings.local.json (the MCP approval) until the folder is trusted.
+    claude_json = Path.home() / ".claude.json"
+    state = json.loads(claude_json.read_text(encoding="utf-8")) if claude_json.exists() else {}
+    state.setdefault("projects", {}).setdefault(target.as_posix(), {})["hasTrustDialogAccepted"] = True
+    claude_json.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
+    init(app_path)
 
 
 def init(app_path=None):
@@ -46,7 +73,6 @@ def init(app_path=None):
     env.update(settings.pop("env", {}))
     client = config["client_settings"]
     env["ANTHROPIC_BASE_URL"] = client["active_endpoint"].removesuffix("/").removesuffix("/v1")
-    env["ANTHROPIC_MODEL"] = client["single_model_tier"]
     data.update(settings)
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

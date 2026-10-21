@@ -15,7 +15,6 @@
         "env": {
           "HOME": "{workspace}",
           "USERPROFILE": "{workspace}",
-          "GEMINI_API_KEY": "local-bridge",
           "GOOGLE_GEMINI_BASE_URL": "{active_endpoint}"
         },
         "requires": ".gemini/antigravity-cli/settings.json"

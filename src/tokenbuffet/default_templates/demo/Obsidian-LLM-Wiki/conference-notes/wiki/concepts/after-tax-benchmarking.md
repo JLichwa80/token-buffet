@@ -1,16 +1,17 @@
 ---
 type: concept
 created: 2026-10-18
-updated: 2026-10-18
-tags: [terminology]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
+tags:
+  - "terminology"
+  - "action_playbook"
 aliases:
   - "after-tax scoreboard"
   - "net of all layers of taxes"
   - "after-tax hurdle"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
-
-generation_complete: true
 ---
 
 # After-tax benchmarking
@@ -40,8 +41,9 @@ After-tax benchmarking is an investment evaluation framework that measures portf
 
 ## Related Entities
 
-- [[entities/rafi|RAFI]]
+- [[concepts/fundamental-indexing|RAFI]]
 
 ## Mentions in Source
 
 - "The benchmark here really isn’t to achieve annualized excess returns ahead of benchmark net of all costs, net of all taxes. That’s very, very, very difficult to do." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
+- "Reset expectations: the meaningful comparison is performance net of fees, net of taxes, and even post-liquidation." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]

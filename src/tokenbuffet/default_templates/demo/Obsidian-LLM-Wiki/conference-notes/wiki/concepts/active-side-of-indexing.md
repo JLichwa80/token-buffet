@@ -1,15 +1,15 @@
 ---
 type: concept
 created: 2026-10-18
-updated: 2026-10-18
-tags: [theory]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
+tags:
+  - "theory"
 aliases:
   - "the active trading side of indexing"
   - "Active Trading Side of Indexing"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
-
-generation_complete: true
 ---
 
 # Active side of indexing
@@ -25,7 +25,7 @@ The active side of indexing refers to the marginal slice of annual turnover insi
 - **Extreme Momentum Metaphor**: Described colloquially by proponents of fundamental weighting as operating "like Cathie Wood on crystal meth" due to its aggressive reinforcement of recent price trends.
 - **Measurable Tax Alpha Potential**: Serves as a quantifiable baseline for tax-loss harvesting and rebalancing simulations, delivering approximately 170 basis points of tax alpha in US large-cap simulations (2008–2023), closely trailing [[Fundamental Indexing]]/[[RAFI]]'s ~190 basis points.
 - **Index Design as Active Choice**: Highlights that selecting index rules and weighting schemes is fundamentally an active investment decision rather than an absence of management.
-
+- **Foundational Research Provenance**: Formally articulated and detailed in published CFA Institute Research Foundation literature, specifically the research papers titled *"The Active Side of Indexing"* and *"Trifecta"*.
 ## Applications
 
 - **Index Architecture & Evaluation**: Assessing the structural mechanics and implicit trading biases embedded within standard market-cap benchmark designs.
@@ -36,13 +36,15 @@ The active side of indexing refers to the marginal slice of annual turnover insi
 
 - [[concepts/cap-weighted-indexing|Cap-weighted indexing]]
 - [[concepts/tax-alpha|Tax alpha]]
+- [[concepts/fundamental-indexing|Fundamental Indexing]]
 
 ## Related Entities
 
 - [[entities/cfa-research-foundation|CFA Research Foundation]]
 - [[entities/schwab|Schwab]]
-- [[entities/rafi|RAFI]]
+- [[concepts/fundamental-indexing|RAFI]]
 
 ## Mentions in Source
 
 - "Core catchphrases and recurring terms include “tax alpha,” “rebalancing alpha,” “the active trading side of indexing,” and the idea that cap-weighted indexing is “not entirely passive.”" — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
+- "The speaker explicitly points to their CFA Research Foundation paper “The Active Side of Indexing” and another paper “Trifecta.”" — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]

@@ -1,14 +1,15 @@
 ---
 type: concept
 created: 2026-10-18
-updated: 2026-10-18
-tags: [theory]
+updated: 2026-10-19
+generation_complete: true
+sources:
+  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
+tags:
+  - "theory"
 aliases:
   - "rebalance alpha"
   - "Rebalancing Alpha"
-sources:
-  - "[[sources/10-09-keynote_-tax-alpha-fundamental-indexing-rafi-and-rebalancing-alpha-_1d585c]]"
-generation_complete: true
 ---
 
 # Rebalancing alpha
@@ -33,15 +34,16 @@ Rebalancing alpha refers to the excess return generated from a systematic, rules
 
 ## Related Concepts
 
-- [[entities/rafi|Fundamental Indexing]]
+- [[concepts/fundamental-indexing|Fundamental Indexing]]
 - [[concepts/equal-weight|Equal weight]]
 - [[concepts/value-tilt|Value tilt]]
 - [[concepts/cash-flow-rebalancing|Cash-flow rebalancing]]
 
 ## Related Entities
 
-- [[entities/rafi|RAFI]]
+- [[concepts/fundamental-indexing|RAFI]]
 
 ## Mentions in Source
 
 - "When the market is wrong, this systematic contrarian rebalancing earns rebalancing alpha." — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
+- "Core catchphrases and recurring terms include “tax alpha,” “rebalancing alpha,” “the active trading side of indexing,” and the idea that cap-weighted indexing is “not entirely passive.”" — [[_Inbox/10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)|10-09 Keynote_ Tax Alpha, Fundamental Indexing (RAFI), and Rebalancing Alpha After Fees & Taxes-Summary (2)]]
