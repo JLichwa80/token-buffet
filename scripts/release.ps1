@@ -4,7 +4,7 @@
 
 .DESCRIPTION
     Sets the version in pyproject.toml and src/tokenbuffet/__init__.py, commits everything
-    (git add -A), pushes, and creates the GitHub Release v<version> with the gh CLI. Publishing
+    (git add -A), pushs, and creates the GitHub Release v<version> with the gh CLI. Publishing
     the release starts .github/workflows/publish.yml, which builds and uploads via PyPI
     trusted publishing. Safe to re-run with the same version: nothing to commit is skipped and
     an existing release is left alone.
@@ -14,7 +14,7 @@
 #>
 param(
     [Parameter(Mandatory = $true, Position = 0)]
-    [string]$Version                          # X.Y.Z, always explicit
+    [string]$Version                          # X.Y.Z, always expliciti
 )
 
 $ErrorActionPreference = 'Stop'

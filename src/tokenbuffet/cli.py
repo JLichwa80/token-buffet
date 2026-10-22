@@ -1,4 +1,5 @@
 import os
+import re
 import signal
 import sys
 import shutil
@@ -300,8 +301,8 @@ def stop_fleet():
         print("No running processes found.")
 
 def force_stop():
-    """Kill the Token Buffet job (Windows), then every process whose command line mentions tokenbuffet or tbuffet,
-    except this command and its ancestors."""
+    """Kill the Token Buffet job (Windows), then every Token Buffet service process (python -m tokenbuffet.<service>),
+    except this command and its ancestors. Apps are never touched."""
     if os.name == "nt":
         from tokenbuffet import job
         if job.terminate():
@@ -323,8 +324,11 @@ def force_stop():
     while pid in processes and pid not in skip:
         skip.add(pid)
         pid = processes[pid][0]
+    # Only Token Buffet's own services; an app's command line may mention tokenbuffet through its workspace path.
+    service = re.compile(r"(?:^|\s)-m\s+tokenbuffet\.(?:logged_run|cli_proxy_server|local_router|dashboard|extractors)(?:\s|$)"
+                         r"|(?:-m\s+tokenbuffet\.cli|(?:tbuffet|tokenbuffet)(?:\.exe)?\"?)\s+start(?:\s|$)")
     targets = [(pid, command) for pid, (_, command) in processes.items()
-               if pid not in skip and ("tokenbuffet" in command.lower() or "tbuffet" in command.lower())]
+               if pid not in skip and service.search(command)]
     for pid, command in targets:
         if os.name == "nt":
             subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], capture_output=True)
@@ -668,7 +672,7 @@ def main():
     start_parser.add_argument("--background", action="store_true", help="Launch services in the background instead of waiting for Ctrl+C")
 
     stop_parser = subparsers.add_parser("stop", help="Stop all running services.")
-    stop_parser.add_argument("--force", action="store_true", help="Kill every process whose command line mentions tokenbuffet or tbuffet")
+    stop_parser.add_argument("--force", action="store_true", help="Kill the Token Buffet job and every Token Buffet service process (never apps)")
     subparsers.add_parser("status", help="Show running services.")
     subparsers.add_parser("doctor", help="Check directory health and dependencies.")
 

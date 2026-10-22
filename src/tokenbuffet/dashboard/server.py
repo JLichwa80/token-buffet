@@ -8,6 +8,7 @@ import shutil
 import signal
 import subprocess
 import sys
+import tempfile
 import time
 import urllib.parse
 import webbrowser
@@ -391,7 +392,18 @@ def open_app_instance(data):
     app, name = data.get("type"), data.get("name")
     if not all(isinstance(x, str) and x and Path(x).name == x and x not in (".", "..") for x in (app, name)):
         raise ValueError("Invalid app instance")
-    return {"opened": open_app(app, name)}
+    if os.name != "nt":
+        return {"opened": open_app(app, name)}
+    # Launch through a helper that leaves the fleet's job, so stopping the fleet never kills the app.
+    from tokenbuffet import job
+    with tempfile.TemporaryFile("w+") as errors:
+        result = subprocess.run([sys.executable, "-m", "tokenbuffet.cli", "open", app, name], cwd=ROOT,
+                                stdout=errors, stderr=subprocess.STDOUT, timeout=60,
+                                creationflags=job.CREATE_BREAKAWAY_FROM_JOB | subprocess.CREATE_NO_WINDOW)
+        if result.returncode:
+            errors.seek(0)
+            raise RuntimeError(errors.read().strip() or f"Could not open {app}/{name}")
+    return {"opened": f"{app}/{name}"}
 
 
 def launch_provider(data):
@@ -451,7 +463,7 @@ def stop_provider(data):
     if "tokenbuffet.cli_proxy_server" not in command or not re.search(r"--provider\s+" + re.escape(name) + r"(?:\s|$)", command):
         raise ValueError("Process identity does not match the provider")
     if os.name == "nt":
-        result = subprocess.run(["taskkill", "/PID", str(pid), "/T"], capture_output=True, text=True, timeout=10)
+        result = subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], capture_output=True, text=True, timeout=10)
         if result.returncode:
             raise RuntimeError(result.stderr.strip() or result.stdout.strip())
     else:
@@ -535,7 +547,7 @@ def stop_router(data):
             raise ValueError("Router process has already exited")
         return {"done": True, "output": f"Router stopping (pid {pid})"}
     if os.name == "nt":
-        result = subprocess.run(["taskkill", "/PID", str(pid), "/T"], capture_output=True, text=True, timeout=10)
+        result = subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"], capture_output=True, text=True, timeout=10)
         if result.returncode:
             raise RuntimeError(result.stderr.strip() or result.stdout.strip())
     else:
