@@ -4,3 +4,6 @@ data/*
 docs/archive/
 build/
 /macos-report/
+
+# Uncompressed demo originals
+res/Demos/originals/
