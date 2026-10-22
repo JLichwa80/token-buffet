@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: token-buffet
-Version: 0.1.1
+Version: 0.2.0
 Summary: A pure-Python proxy and routing system to bridge CLI-based LLMs to a standard OpenAI-compatible API.
 Author: Jack
 License-Expression: MIT
@@ -103,11 +103,6 @@ In your Token Buffet folder:
 ## From a repository checkout
 Install editable with `pip install -e .`, then run `tbuffet init` and `tbuffet start` from the repository root.
 
-`tbuffet init` also copies legacy launchers into `scripts/` (both `.ps1` and `.sh`):
-```powershell
-.\scripts\start_all_proxies.ps1   # each provider proxy; reports listening / already running / failed
-.\scripts\start_router.ps1        # port 8090
-.\scripts\start_dashboard.ps1     # port 8080
-```
+`tbuffet start` launches every provider proxy, the router (port 8090) and the dashboard (port 8080); `tbuffet stop` stops them. `tbuffet dashboard` starts the dashboard alone.
 
 The router listens on port 8090, and the dashboard is at `http://127.0.0.1:8080/`. See the [documentation index](docs/README.md) for the bridge guides.
