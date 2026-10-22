@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# Release token-buffet: set the version, commit, tag, and push. GitHub Actions publishes to PyPI.
+# Release token-buffet: set the version, commit, push, and create a GitHub Release. GitHub Actions publishes to PyPI.
 #
 # Sets the version in pyproject.toml and src/tokenbuffet/__init__.py, commits everything
-# (git add -A), tags v<version>, and pushes the commit and tag. The tag push starts
-# .github/workflows/publish.yml, which builds and uploads via PyPI trusted publishing.
-# Safe to re-run with the same version: nothing to commit is skipped and an existing tag is reused.
+# (git add -A), pushes, and creates the GitHub Release v<version> with the gh CLI. Publishing
+# the release starts .github/workflows/publish.yml, which builds and uploads via PyPI
+# trusted publishing. Safe to re-run with the same version: nothing to commit is skipped and
+# an existing release is left alone.
 #
 # Usage:
 #   ./scripts/release.sh 0.2.0
@@ -23,6 +24,10 @@ rm -f pyproject.toml.bak src/tokenbuffet/__init__.py.bak
 
 git add -A
 git diff --cached --quiet || git commit -m "Release $new"
-[ -n "$(git tag -l "v$new")" ] || git tag "v$new"
-git push --follow-tags
-echo "Pushed v$new. Watch the publish run under the repo's Actions tab."
+git push
+if gh release view "v$new" >/dev/null 2>&1; then
+    echo "Release v$new already exists."
+else
+    gh release create "v$new" --title "v$new" --generate-notes
+fi
+echo "Released v$new. Watch the publish run under the repo's Actions tab."
