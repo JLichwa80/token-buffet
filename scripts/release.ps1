@@ -29,10 +29,10 @@ $utf8 = New-Object System.Text.UTF8Encoding($false)
 $init = Get-Content src\tokenbuffet\__init__.py -Raw
 [IO.File]::WriteAllText("$PWD\src\tokenbuffet\__init__.py", [regex]::Replace($init, "(?m)^__version__ = .*", "__version__ = '$Version'"), $utf8)
 
-function Git { git @args; if ($LASTEXITCODE) { throw "git $args failed" } }
-Git add -A
+function Invoke-Git { git @args; if ($LASTEXITCODE) { throw "git $args failed" } }
+Invoke-Git add -A
 git diff --cached --quiet
-if ($LASTEXITCODE) { Git commit -m "Release $Version" }
-if (-not (git tag -l "v$Version")) { Git tag "v$Version" }
-Git push --follow-tags
+if ($LASTEXITCODE) { Invoke-Git commit -m "Release $Version" }
+if (-not (git tag -l "v$Version")) { Invoke-Git tag "v$Version" }
+Invoke-Git push --follow-tags
 Write-Host "Pushed v$Version. Watch the publish run under the repo's Actions tab." -ForegroundColor Green
