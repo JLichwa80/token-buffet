@@ -17,10 +17,10 @@ filenames, flags, and sequencing; Python only provides the two primitives
 (python -m tokenbuffet.logged_run --log extractors/console.log --module tokenbuffet.extractors capture|parse).
 
 .EXAMPLE
-  .\scripts\providers\read-provider.ps1 usage grok     # how much quota grok has left -> JSON
-  .\scripts\providers\read-provider.ps1 models grok    # grok's model list -> JSON
-  .\scripts\providers\read-provider.ps1 usage grok -RawOnly                       # capture only, skip parse
-  .\scripts\providers\read-provider.ps1 usage grok -Extract tests\grok_usage_raw.txt  # re-parse saved raw
+  .\scripts\providers\read_provider_status.ps1 usage grok     # how much quota grok has left -> JSON
+  .\scripts\providers\read_provider_status.ps1 models grok    # grok's model list -> JSON
+  .\scripts\providers\read_provider_status.ps1 usage grok -RawOnly                       # capture only, skip parse
+  .\scripts\providers\read_provider_status.ps1 usage grok -Extract tests\grok_usage_raw.txt  # re-parse saved raw
 #>
 [CmdletBinding()]
 param(

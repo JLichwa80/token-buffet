@@ -52,6 +52,19 @@
     ],
     "sandbox": {
       "enabled": false
+    },
+    "isolated_home": {
+      "path": "{workspace}/data/provider_homes/agy",
+      "env": ["HOME", "USERPROFILE"],
+      "files": {
+        ".gemini/antigravity-cli/settings.json": {
+          "toolPermission": "ask",
+          "permissions": {
+            "deny": ["command(*)", "read_file(*)", "write_file(*)", "read_url(*)",
+                     "execute_url(*)", "unsandboxed(*)", "mcp(*)"]
+          }
+        }
+      }
     }
   },
   "process_env": {

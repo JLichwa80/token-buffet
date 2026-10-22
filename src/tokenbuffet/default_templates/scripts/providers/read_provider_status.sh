@@ -13,7 +13,7 @@
 # (python -m tokenbuffet.logged_run --log extractors/console.log --module tokenbuffet.extractors capture|parse).
 #
 # Usage:
-#   ./scripts/providers/read-provider.sh <op> <config> [--raw-only] [--extract <file.txt>]
+#   ./scripts/providers/read_provider_status.sh <op> <config> [--raw-only] [--extract <file.txt>]
 #     <op>      usage  -> how much quota is left   |   models -> model list
 #     <config>  provider name, config.json path, or section JSON
 set -euo pipefail

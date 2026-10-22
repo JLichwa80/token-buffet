@@ -706,10 +706,14 @@ class ProxyHandler(BaseHTTPRequestHandler):
             for part in exec_conf.get("effort_arg", []):
                 cmd.append(part.replace("{effort}", str(requested_effort)))
 
-        from tokenbuffet.extractors.process_env import build_process_env
+        from tokenbuffet.extractors.process_env import build_process_env, isolated_home
         env = build_process_env(provider_config)
         for key in exec_conf.get("env_unset", []):
             env.pop(key, None)
+        home = isolated_home(provider_config)
+        if home:
+            for key in home[1]:
+                env[key] = str(home[0])
         temp_sandbox_dir = None
         sandbox = exec_conf.get("sandbox", {})
         if sandbox.get("enabled"):

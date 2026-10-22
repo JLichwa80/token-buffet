@@ -93,6 +93,8 @@ tbuffet open <type> <name>   # open a registered app via integrations/<type>/ini
 tbuffet start         # launch all proxies + router (8090) + dashboard (8080); Ctrl+C stops this session's process trees
 tbuffet start --debug # also capture full proxy request/response traces
 tbuffet start --background # explicitly launch in background; use tbuffet stop to shut down
+tbuffet start-provider [name] / stop-provider [name]   # one provider proxy, or all providers when no name is given
+tbuffet start-router / stop-router                     # the router only (8090)
 # equivalently: python -m tokenbuffet.cli {init,start}
 
 # Run one layer directly (debugging):
@@ -104,12 +106,12 @@ python -m tokenbuffet.dashboard
 Extractor capture/parse — use the OS wrapper scripts (they set `PYTHONPATH` and write raw captures to `data/providers_status/raw/`):
 
 ```powershell
-.\scripts\providers\read-provider.ps1 usage grok           # capture + parse a provider's usage
-.\scripts\providers\read-provider.ps1 models grok
-.\scripts\providers\read-provider.ps1 usage grok -RawOnly  # capture only
-.\scripts\providers\read-provider.ps1 usage grok -Extract data\providers_status\raw\grok_usage_raw.txt   # re-parse saved raw
+.\scripts\providers\read_provider_status.ps1 usage grok           # capture + parse a provider's usage
+.\scripts\providers\read_provider_status.ps1 models grok
+.\scripts\providers\read_provider_status.ps1 usage grok -RawOnly  # capture only
+.\scripts\providers\read_provider_status.ps1 usage grok -Extract data\providers_status\raw\grok_usage_raw.txt   # re-parse saved raw
 ```
-`scripts/providers/read-provider.sh` is the bash equivalent. Under the hood: `python -m tokenbuffet.extractors {capture,parse} <op> <config> ...`.
+`scripts/providers/read_provider_status.sh` is the bash equivalent. Under the hood: `python -m tokenbuffet.extractors {capture,parse} <op> <config> ...`.
 
 There is **no test runner, linter, or build step** and there are no unit tests; every package the code uses (`pyte`, `pywinpty`/`pexpect`, `openai`, `ai`) is a plain required dependency in `pyproject.toml` — no optional extras, no "if not installed" fallbacks; captured TUI raw text lands in `data/providers_status/raw/` (gitignored). Validate changes by capturing/parsing a provider and checking the JSON (periods sum to 100, models have no phantom entries).
 

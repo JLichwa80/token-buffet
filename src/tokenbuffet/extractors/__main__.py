@@ -1,6 +1,6 @@
 """Primitive subcommands for the tokenbuffet.extractors package.
 
-The OS entry-point scripts (read-provider.sh / read-provider.ps1) orchestrate these; this
+The OS entry-point scripts (read_provider_status.sh / read_provider_status.ps1) orchestrate these; this
 module only exposes the two reusable primitives as a CLI:
 
     python -m tokenbuffet.extractors capture <op> <config> <out_raw.txt>

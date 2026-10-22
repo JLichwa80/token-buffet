@@ -17,9 +17,36 @@
           "--settings",
           "{workspace}/.claude/settings.local.json"
         ],
-        "env": {},
+        "env": {
+          "CLAUDE_CONFIG_DIR": "{workspace}/.claude-home"
+        },
         "requires": ".claude/settings.local.json"
       }
     }
+  },
+  "copy_home": {
+    "env": "CLAUDE_CONFIG_DIR",
+    "default": "~/.claude",
+    "to": ".claude-home",
+    "skip": [
+      "logs",
+      "log",
+      "*.log",
+      "*.lock",
+      "tmp",
+      ".tmp",
+      ".tmp.*",
+      "projects",
+      "jobs",
+      "file-history",
+      "backups",
+      "session-env",
+      "shell-snapshots",
+      "paste-cache",
+      "telemetry",
+      "history.jsonl",
+      "stats-cache.json",
+      "*.zip"
+    ]
   }
 }

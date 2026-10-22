@@ -15,7 +15,8 @@
         "env": {
           "HOME": "{workspace}",
           "USERPROFILE": "{workspace}",
-          "GOOGLE_GEMINI_BASE_URL": "{active_endpoint}"
+          "GOOGLE_GEMINI_BASE_URL": "{active_endpoint}",
+          "GEMINI_API_KEY": "TokenBuffet"
         },
         "requires": ".gemini/antigravity-cli/settings.json"
       }

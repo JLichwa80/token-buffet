@@ -31,4 +31,4 @@ Write-Host "`nAll directories are set up!" -ForegroundColor Green
 Write-Host "Zero external dependencies detected (Pure Python Standard Library)." -ForegroundColor Green
 
 Write-Host "`nTo start the proxies and router, run:" -ForegroundColor Yellow
-Write-Host ".\scripts\fleet\start_all_proxies.ps1" -ForegroundColor White
+Write-Host "tbuffet start" -ForegroundColor White

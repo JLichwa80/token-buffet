@@ -56,6 +56,13 @@ def init_workspace():
             add_known_provider(name)
             print(f"  {name}: registered ({cli})")
 
+    from tokenbuffet.extractors.process_env import prepare_isolated_home
+    for name in list_providers():
+        config = json.loads((Path("registered_providers") / name / "config.json").read_text(encoding="utf-8"))
+        home = prepare_isolated_home(config)
+        if home:
+            print(f"  {name}: isolated home {home}")
+
     print("\nApps:")
     types = list_app_types()
     missing = [t for t in types if check_app_type(t)]
@@ -629,6 +636,22 @@ def _cmd_open(args):
     print(f"Opened {args.type}/{args.name}: {path}")
 
 
+def _cmd_service(args):
+    """Start or stop a single provider proxy, all provider proxies, or the router, via the dashboard's own controls."""
+    from tokenbuffet.dashboard import server
+    verb, target = args.command.split("-")
+    try:
+        if target == "router":
+            result = (server.start_router if verb == "start" else server.stop_router)({})
+        elif args.name:
+            result = (server.launch_provider if verb == "start" else server.stop_provider)({"provider": args.name})
+        else:
+            result = (server.start_providers if verb == "start" else server.stop_providers)({})
+    except (ValueError, RuntimeError, OSError) as exc:
+        sys.exit(f"Error: {exc}")
+    print(result.get("output") or f"{args.name}: {result}")
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Token Buffet — expose your CLI subscriptions as a local LLM API",
@@ -693,6 +716,11 @@ def main():
 
     subparsers.add_parser("dashboard", help="Start standalone web dashboard on port 8080.")
 
+    for verb in ("start", "stop"):
+        provider_parser = subparsers.add_parser(f"{verb}-provider", help=f"{verb.capitalize()} one provider proxy, or every provider proxy when no name is given.")
+        provider_parser.add_argument("name", nargs="?", help="Provider name (omit for all providers)")
+        subparsers.add_parser(f"{verb}-router", help=f"{verb.capitalize()} the router (port 8090).")
+
     args = parser.parse_args()
 
     if args.command == "init":
@@ -727,6 +755,8 @@ def main():
         _cmd_list_apps()
     elif args.command == "reconfigure-app":
         _cmd_reconfigure_app(args)
+    elif args.command in ("start-provider", "stop-provider", "start-router", "stop-router"):
+        _cmd_service(args)
     elif args.command == "dashboard":
         from tokenbuffet.dashboard.server import main as run_dashboard
         run_dashboard()

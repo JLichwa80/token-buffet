@@ -19,7 +19,7 @@ python -m tokenbuffet.extractors parse   <op> <config> <raw.txt> <out.json> --pr
 
 Always set `PYTHONPATH` to the repo root. On Windows always set
 `PYTHONIOENCODING=utf-8` (box/braille glyphs crash the default cp1252 console).
-The OS scripts (`scripts/read-provider.ps1` / `scripts/read-provider.sh`) wrap these and own
+The OS scripts (`scripts/providers/read_provider_status.ps1` / `scripts/providers/read_provider_status.sh`) wrap these and own
 naming; the re-parse path is `-Extract <raw>` (ps1) / `--extract <raw>` (sh).
 
 ## Step 1 — Locate and fingerprint the CLI

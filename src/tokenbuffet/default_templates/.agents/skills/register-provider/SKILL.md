@@ -75,7 +75,7 @@ or fixing an existing provider whose capture/parse is wrong. Read
 
    `<op>` is `models` or `usage`. Read the actual `_raw.txt` to confirm what
    `clean_screen` produced, then tune regexes and re-run `parse` only. The OS
-   scripts `scripts/read-provider.ps1` / `scripts/read-provider.sh` wrap this
+   scripts `scripts/providers/read_provider_status.ps1` / `scripts/providers/read_provider_status.sh` wrap this
    (`-Extract` / `--extract` = re-parse a saved raw).
 
 5. **Validate.** config is valid JSON; models `available`/`default` correct with
