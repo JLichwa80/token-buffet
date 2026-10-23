@@ -18,6 +18,10 @@ This shows how to turn your subscriptions into a local knowledge-synthesis engin
 - **Smart Load Balancing:** Reads exported CLI quota files and routes requests to the provider with the most remaining quota.
 - **True Parallelism:** Spawns sandbox directories to bypass SQLite locking limits in native CLIs.
 
+## Architecture
+
+![AI Subscriptions Hub Architecture](res/AI_Subscription_Architecture_landscape.png)
+
 ## Quick Start
 Token Buffet always works in the folder you run it from. Make one folder for it:
 

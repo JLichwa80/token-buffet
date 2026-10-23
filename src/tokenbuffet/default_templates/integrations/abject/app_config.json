@@ -8,6 +8,7 @@
         "active_endpoint": "http://127.0.0.1:8090",
         "single_model_tier": "medium",
         "model_mode": "true",
+        "permissions_mode": "allow",
         "task_model_tiers": {
             "smart": "reasoning",
             "balanced": "medium",

@@ -640,6 +640,17 @@ def _cmd_open(args):
     print(f"Opened {args.type}/{args.name}: {path}")
 
 
+def _cmd_install_abject():
+    from tokenbuffet.onboarding import _app_type_module
+    module = _app_type_module("abject")
+    if module is None:
+        sys.exit("Error: abject integration missing. Run: tbuffet init")
+    try:
+        module.install()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        sys.exit(f"Error: {exc}")
+
+
 def _cmd_service(args):
     """Start or stop a single provider proxy, all provider proxies, or the router, via the dashboard's own controls."""
     from tokenbuffet.dashboard import server
@@ -718,6 +729,8 @@ def main():
     reapply_parser.add_argument("type")
     reapply_parser.add_argument("name")
 
+    subparsers.add_parser("install-abject", help="Install the headless edition of Abject with its own install script (https://abject.world/install).")
+
     subparsers.add_parser("dashboard", help="Start standalone web dashboard on port 8080.")
 
     for verb in ("start", "stop"):
@@ -761,6 +774,8 @@ def main():
         _cmd_reconfigure_app(args)
     elif args.command in ("start-provider", "stop-provider", "start-router", "stop-router"):
         _cmd_service(args)
+    elif args.command == "install-abject":
+        _cmd_install_abject()
     elif args.command == "dashboard":
         from tokenbuffet.dashboard.server import main as run_dashboard
         run_dashboard()
