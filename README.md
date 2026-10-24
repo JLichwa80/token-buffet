@@ -1,4 +1,4 @@
-# Token Buffet — CLI LLM Proxy Router
+# Token Buffet: CLI LLM Proxy Router
 
 Expose your flat-rate CLI subscriptions (Claude, Codex, Grok, agy) as a local OpenAI/Ollama/Anthropic-compatible API. Route requests by semantic tier (`fast`/`medium`/`reasoning`), smart load balance by quota, and power your downstream tools without paying per token.
 
@@ -8,7 +8,7 @@ For an overview of the LLM Wiki pattern and how this fits in, watch:
 
 **[Karpathy LLM Wiki Overview](https://www.youtube.com/watch?v=iXd0t60YmMw)**
 
-*(Note: The video uses Claude Code as the example, but explains the LLM Wiki concepts and patterns well. Token Buffet applies the same pattern to any CLI-based LLM subscription — Claude, Codex, Grok, agy — and powers Obsidian vaults, community plugins, and agent frameworks.)*
+*(Note: The video uses Claude Code as the example, but explains the LLM Wiki concepts and patterns well. Token Buffet applies the same pattern to any CLI-based LLM subscription (Claude, Codex, Grok, agy) and powers Obsidian vaults, community plugins, and agent frameworks.)*
 
 This shows how to turn your subscriptions into a local knowledge-synthesis engine for tools like Obsidian, chatbot clients, and AI agents.
 

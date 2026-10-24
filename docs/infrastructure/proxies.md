@@ -13,8 +13,8 @@ If the configured port is taken by another process, the proxy binds the next fre
 
 A proxy does two independent jobs:
 
-1. **Prompt processing** — answer chat requests by running the CLI once per request.
-2. **Usage and model extraction** — read the CLI's quota and model list by driving its interactive screens, and cache them.
+1. **Prompt processing**: answer chat requests by running the CLI once per request.
+2. **Usage and model extraction**: read the CLI's quota and model list by driving its interactive screens, and cache them.
 
 The proxy never calls a vendor API itself. The CLI does, with the user's own login. The proxy only translates between HTTP and the CLI.
 
@@ -44,23 +44,23 @@ The `server.protocol` value in each config (currently `responses` for all four) 
 2. **Flatten to one prompt.** Messages become `[ROLE]:\ncontent` blocks joined by blank lines. Anthropic `system` and Responses `instructions` become a leading `[SYSTEM]:` block. List-style content keeps only its text parts.
 3. **Tool handoff** (only when the request carries client tools, or a tool history). `tool_wire.py` prepends an instruction asking the model for one structured tool-call decision, and the history of earlier calls and results is rendered into the prompt. The proxy returns that decision to the client in the client's own format; **the client executes the tool**, not the bridge. The provider config may add `execution.tool_handoff_args` (claude and grok use `--tools ""`) so the CLI does not run its own tools for these requests.
 4. **Build the command** from `execution`:
-   - `cmd_template` — `{prompt_file}` is replaced by a temp file holding the prompt, `{prompt}` by the prompt inline.
-   - `model_arg` — appends the requested `model` verbatim (e.g. `--model {model}`). The id must be one the CLI accepts; see section 2.
-   - `effort_arg` — appends `effort` / `reasoning_effort` from the request, when present.
-   - `tool_handoff_args` — appended in tool mode.
+   - `cmd_template`: `{prompt_file}` is replaced by a temp file holding the prompt, `{prompt}` by the prompt inline.
+   - `model_arg`: appends the requested `model` verbatim (e.g. `--model {model}`). The id must be one the CLI accepts; see section 2.
+   - `effort_arg`: appends `effort` / `reasoning_effort` from the request, when present.
+   - `tool_handoff_args`: appended in tool mode.
 5. **Build the environment** from the config:
-   - `env_unset` — keys removed so the CLI uses its own login instead of an inherited API key or base URL (claude: `ANTHROPIC_*`; codex: `OPENAI_*`; agy: `GOOGLE_GEMINI_BASE_URL`, `GEMINI_API_KEY`).
-   - `isolated_home` — runs the CLI with `HOME`/`USERPROFILE` pointed at a private folder (agy: `data/provider_homes/agy`, with a settings file that denies the CLI's own tools).
-   - `sandbox` — when enabled (grok), each request runs against a fresh temp dir holding a copy of the auth file, selected through the config's `env_var` (`GROK_HOME`), and deleted afterwards.
+   - `env_unset`: keys removed so the CLI uses its own login instead of an inherited API key or base URL (claude: `ANTHROPIC_*`; codex: `OPENAI_*`; agy: `GOOGLE_GEMINI_BASE_URL`, `GEMINI_API_KEY`).
+   - `isolated_home`: runs the CLI with `HOME`/`USERPROFILE` pointed at a private folder (agy: `data/provider_homes/agy`, with a settings file that denies the CLI's own tools).
+   - `sandbox`: when enabled (grok), each request runs against a fresh temp dir holding a copy of the auth file, selected through the config's `env_var` (`GROK_HOME`), and deleted afterwards.
 6. **Spawn the CLI** as a normal subprocess with piped stdin/stdout/stderr (no pseudo-console on this path). The prompt is delivered by `execution.input_method`: `file` (via `{prompt_file}`), `stdin` (written then closed), or `stream-json` (one JSON user event on stdin).
 7. **Parse stdout** line by line as JSON and apply `stream` rules from the config:
-   - `text_extractors` — each has `matches` (key/value conditions on the JSON line, dotted paths allowed) and `path` (where the text is; `[]` joins over a list). Matching text is appended.
-   - `error_extractors` — same shape; a match records a provider error.
-   - `done_when` — optional terminal event; once seen, the proxy stops waiting and kills a CLI that has not exited.
+   - `text_extractors`: each has `matches` (key/value conditions on the JSON line, dotted paths allowed) and `path` (where the text is; `[]` joins over a list). Matching text is appended.
+   - `error_extractors`: same shape; a match records a provider error.
+   - `done_when`: optional terminal event; once seen, the proxy stops waiting and kills a CLI that has not exited.
 8. **Respond in the request's format.**
-   - `stream: true` — each extracted piece is written to the client as it arrives (SSE, or NDJSON for Ollama). Anthropic streams send a `ping` every 10 s.
-   - Not streaming — the text is collected in memory and returned as one JSON object.
-   - Tool mode — the whole CLI output is buffered, parsed into a decision, then sent as tool calls or text. Streaming clients get heartbeat chunks while it waits.
+   - `stream: true`: each extracted piece is written to the client as it arrives (SSE, or NDJSON for Ollama). Anthropic streams send a `ping` every 10 s.
+   - Not streaming: the text is collected in memory and returned as one JSON object.
+   - Tool mode: the whole CLI output is buffered, parsed into a decision, then sent as tool calls or text. Streaming clients get heartbeat chunks while it waits.
 9. **Fail fast.** A non-zero exit, a provider error, or an empty answer is returned as an error (HTTP 502, or an error event if the stream already started). Nothing is retried or substituted. The CLI process is always killed and the temp files removed at the end.
 
 Token counts are not available: `usage` fields are zero placeholders (Anthropic responses carry the header `X-CLI-Bridge-Usage: unavailable; zero counts are placeholders`).
@@ -75,8 +75,8 @@ Console lines per request: `REQUEST`, `SPAWN`, `FIRST_OUTPUT`, `TEXT`, `WAIT` (n
 
 Quota and model lists are not available from any API, so the proxy reads them from the CLI's own screens. This is the extractor subsystem (`src/tokenbuffet/extractors/`), which has two deliberately separate steps:
 
-- **capture** (slow, live) — gets the screen text.
-- **parse** (cheap, re-runnable) — runs the config's regexes over the saved text.
+- **capture** (slow, live): gets the screen text.
+- **parse** (cheap, re-runnable): runs the config's regexes over the saved text.
 
 To tune a regex, re-run parse on the saved capture in `data/providers_status/raw/<provider>_<op>_raw.txt`; do not re-capture.
 
@@ -84,14 +84,14 @@ To tune a regex, re-run parse on the saved capture in `data/providers_status/raw
 
 Two sources, chosen per `usage` / `models` block in the config:
 
-- **`type: tui`** — `tui.py` starts the real CLI in a pseudo-console (ConPTY via `pywinpty` on Windows, a pty via `pexpect` on macOS/Linux), then:
+- **`type: tui`**: `tui.py` starts the real CLI in a pseudo-console (ConPTY via `pywinpty` on Windows, a pty via `pexpect` on macOS/Linux), then:
   1. waits `boot_wait`;
   2. answers onboarding **`gates`** (`when` text seen on screen → `send` keys);
   3. types `command` (e.g. `/usage`, `/model`, `/status`);
   4. snapshots the screen, and for multi-tab screens sends `tab_switch` and snapshots again, `views` times.
 
   The screen is reconstructed with `pyte` (a terminal emulator) because a TUI paints with cursor moves, so the raw stream has no usable line layout. `clean_screen` then turns box and bar glyphs into spaces, drops `strip_lines`, and collapses repeated lines.
-- **`list_cmd`** (models only) — runs a plain subcommand such as `grok models` or `agy models` with stdin closed. This is preferred where it exists because it prints the exact `--model` id, which the TUI picker does not (it shows friendly labels).
+- **`list_cmd`** (models only): runs a plain subcommand such as `grok models` or `agy models` with stdin closed. This is preferred where it exists because it prints the exact `--model` id, which the TUI picker does not (it shows friendly labels).
 
 An optional `expect` marker guards the capture: if the marker is missing, the CLI never reached the real screen (not signed in, onboarding or trust unfinished) and the capture fails with the partial screen saved for inspection.
 
@@ -101,9 +101,9 @@ The capture process runs with the provider's `process_env` applied.
 
 Per `usage` block:
 
-- `periods` — a map of period name → `pct` (regex whose group 1 is the percentage the CLI prints), `resets` (regex), and optionally `exhausted` (a message that means the limit is hit, which forces `remaining_pct: 0`).
-- `calculation` — turns the printed percentage into **`remaining_pct`**: `100 - float(value)` when the CLI prints percent used, `float(value)` when it prints percent left. `used_pct` is the complement, so the two always sum to 100.
-- `extractors` — flat descriptive fields, e.g. `plan`.
+- `periods`: a map of period name → `pct` (regex whose group 1 is the percentage the CLI prints), `resets` (regex), and optionally `exhausted` (a message that means the limit is hit, which forces `remaining_pct: 0`).
+- `calculation`: turns the printed percentage into **`remaining_pct`**: `100 - float(value)` when the CLI prints percent used, `float(value)` when it prints percent left. `used_pct` is the complement, so the two always sum to 100.
+- `extractors`: flat descriptive fields, e.g. `plan`.
 - A declared period whose regex does not match is reported as `null`. If no period yields a percentage, parsing fails and the proxy reports usage as unavailable.
 
 Result, in `data/providers_status/<provider>_usage.json`:
@@ -167,9 +167,9 @@ Extracting real per-model capabilities would need a source for them (a CLI subco
   - If a refresh fails, the previous export is kept and returned rather than overwritten.
 - `/v1/models` and `/api/tags` are the same model list in OpenAI and Ollama shape (`/api/tags` fills placeholder size and family fields).
 - Files in `data/providers_status/`:
-  - `<provider>_usage.json`, `<provider>_models.json` — the exports above.
-  - `<provider>_run_status.json` — `status` (`starting`, `running`, `stopped`, `failed`), `port`, `pid`, and `usage: {state: reading | ready | unavailable, reason}`.
-  - `raw/` — the cleaned captures.
+  - `<provider>_usage.json`, `<provider>_models.json`: the exports above.
+  - `<provider>_run_status.json`: `status` (`starting`, `running`, `stopped`, `failed`), `port`, `pid`, and `usage: {state: reading | ready | unavailable, reason}`.
+  - `raw/`: the cleaned captures.
 
 The router polls each running proxy's `/usage` and `/models` over HTTP; it never reads these files or runs the extractors itself. See `router.md`.
 

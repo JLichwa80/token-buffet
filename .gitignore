@@ -7,3 +7,7 @@ build/
 
 # Uncompressed demo originals
 res/Demos/originals/
+
+# Build output
+dist/
+*.egg-info/

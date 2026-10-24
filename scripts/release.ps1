@@ -1,13 +1,11 @@
 <#
 .SYNOPSIS
-    Release token-buffet: set the version, commit, push, and create a GitHub Release. GitHub Actions publishes to PyPI.
+    Release token-buffet: set the version. Git is left to you.
 
 .DESCRIPTION
-    Sets the version in pyproject.toml and src/tokenbuffet/__init__.py, commits everything
-    (git add -A), pushs, and creates the GitHub Release v<version> with the gh CLI. Publishing
-    the release starts .github/workflows/publish.yml, which builds and uploads via PyPI
-    trusted publishing. Safe to re-run with the same version: nothing to commit is skipped and
-    an existing release is left alone.
+    Sets the version in pyproject.toml and src/tokenbuffet/__init__.py and prints the git and gh
+    commands to run next. Publishing the GitHub Release starts .github/workflows/publish.yml,
+    which builds and uploads via PyPI trusted publishing. Safe to re-run with the same version.
 
 .EXAMPLE
     .\scripts\release.ps1 0.2.0
@@ -30,11 +28,6 @@ $utf8 = New-Object System.Text.UTF8Encoding($false)
 $init = Get-Content src\tokenbuffet\__init__.py -Raw
 [IO.File]::WriteAllText("$PWD\src\tokenbuffet\__init__.py", [regex]::Replace($init, "(?m)^__version__ = .*", "__version__ = '$Version'"), $utf8)
 
-function Invoke-Git { git @args; if ($LASTEXITCODE) { throw "git $args failed" } }
-Invoke-Git add -A
-git diff --cached --quiet
-if ($LASTEXITCODE) { Invoke-Git commit -m "Release $Version" }
-Invoke-Git push
-gh release view "v$Version" *> $null
-if ($LASTEXITCODE) { gh release create "v$Version" --title "v$Version" --generate-notes; if ($LASTEXITCODE) { throw "gh release create failed" } } else { Write-Host "Release v$Version already exists." }
-Write-Host "Released v$Version. Watch the publish run under the repo's Actions tab." -ForegroundColor Green
+Write-Host "Version set. Now commit, push and publish:" -ForegroundColor Green
+Write-Host "  git add -A; git commit -m `"Release $Version`"; git push"
+Write-Host "  gh release create v$Version --title v$Version --generate-notes"
