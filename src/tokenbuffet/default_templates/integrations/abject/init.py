@@ -10,7 +10,7 @@ from pathlib import Path
 def check():
     """Raise if Abject is not installed (https://abject.world/install)."""
     if not shutil.which("abject"):
-        raise ValueError("Abject is not installed; run: tbuffet install-abject")
+        raise ValueError("Abject is not installed; run: tbuffet install-app abject")
 
 
 def install():

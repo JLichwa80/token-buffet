@@ -2,18 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../KnowledgeContextEngineering"
-		},
-		{
-			"path": "C:/tb-src"
-		},
-		{
-			"path": "C:/TokenBuffet"
-		},
-		{
-			"path": "C:/tb-venv"
 		}
 	],
 	"settings": {}

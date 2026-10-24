@@ -640,11 +640,13 @@ def _cmd_open(args):
     print(f"Opened {args.type}/{args.name}: {path}")
 
 
-def _cmd_install_abject():
+def _cmd_install_app(args):
     from tokenbuffet.onboarding import _app_type_module
-    module = _app_type_module("abject")
+    module = _app_type_module(args.type)
     if module is None:
-        sys.exit("Error: abject integration missing. Run: tbuffet init")
+        sys.exit(f"Error: unknown app type {args.type}. Run: tbuffet init")
+    if not hasattr(module, "install"):
+        sys.exit(f"Error: {args.type} has no installer")
     try:
         module.install()
     except (OSError, subprocess.CalledProcessError) as exc:
@@ -729,7 +731,8 @@ def main():
     reapply_parser.add_argument("type")
     reapply_parser.add_argument("name")
 
-    subparsers.add_parser("install-abject", help="Install the headless edition of Abject with its own install script (https://abject.world/install).")
+    install_parser = subparsers.add_parser("install-app", help="Install an app type that has its own installer (e.g. tbuffet install-app abject).")
+    install_parser.add_argument("type")
 
     subparsers.add_parser("dashboard", help="Start standalone web dashboard on port 8080.")
 
@@ -774,8 +777,8 @@ def main():
         _cmd_reconfigure_app(args)
     elif args.command in ("start-provider", "stop-provider", "start-router", "stop-router"):
         _cmd_service(args)
-    elif args.command == "install-abject":
-        _cmd_install_abject()
+    elif args.command == "install-app":
+        _cmd_install_app(args)
     elif args.command == "dashboard":
         from tokenbuffet.dashboard.server import main as run_dashboard
         run_dashboard()
