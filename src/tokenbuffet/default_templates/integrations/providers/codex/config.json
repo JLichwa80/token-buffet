@@ -14,7 +14,7 @@
     "strip_lines": [],
     "calculation": "float(str(value).strip('%'))",
     "extractors": {
-      "plan": "Account:\\s*(\\w+)"
+      "plan": "Account:.*\\((\\w+)\\)"
     },
     "periods": {
       "5h": {
