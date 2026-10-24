@@ -30,7 +30,7 @@ def parse_models(cfg, text):
     if not pattern:
         return {'error': 'models config needs `list_regex`'}
 
-    rx = re.compile(pattern)
+    rx = re.compile(pattern, re.IGNORECASE)
     marker = cfg.get('default_marker', '(default)')
     id_case = cfg.get('id_case')
     start = (cfg.get('list_start') or '').lower()
