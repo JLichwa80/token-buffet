@@ -8,12 +8,11 @@
 
 
 # Pending engineering (bigger items)
-- Multimodal ingestion — see proposal below.
+- Multimodal ingestion — see proposal below. NOT STARTED: no `execution.attachments` in the proxy or any provider config; `analyzeEmbeddedImages` is still `false` in the demo `data.json`.
 
 ---
 
 # Router — known concerns (see [router.md](../infrastructure/router.md) for current behavior)
-- Pinned requests now try every eligible alternative in their tier before returning 503.
 - **`USAGE` quota cache is only as fresh as the refresh interval.** Remaining-quota is cached in
   memory, loaded at startup and refreshed on the `--refresh-interval` timer (default 30 min). A
   provider that hits 0 tokens *mid-interval* won't be skipped until the next refresh, so a request

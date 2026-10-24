@@ -11,3 +11,11 @@ res/Demos/originals/
 # Build output
 dist/
 *.egg-info/
+
+# Local tooling (keep on disk, not in the repo)
+.claude/
+.vscode/
+AGENTS.md
+*.code-workspace
+__pycache__/
+*.pyc

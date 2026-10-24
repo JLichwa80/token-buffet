@@ -1,3 +1,0 @@
-[console_scripts]
-tbuffet = tokenbuffet.cli:main
-tokenbuffet = tokenbuffet.cli:main

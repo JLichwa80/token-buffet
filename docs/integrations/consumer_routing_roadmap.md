@@ -56,7 +56,6 @@ Ollama/OpenAI endpoint**:
 
 | # | App | Built-in AI feature | How to point it at us | Fit |
 |---|-----|---------------------|----------------------|-----|
-| 1 | **Obsidian** | notes Q&A, wiki, autocomplete (our karpathywiki, Copilot, Ollama Assistant, AI Providers) | plugin's Ollama/base-URL field → `:8090`; model = tier | ★★★ our flagship, done |
 | 2 | **Brave browser (Leo)** | BYOM assistant: summarize pages, chat, ask-the-web | Leo → Bring Your Own Model → `http://127.0.0.1:8090/v1/chat/completions`, model = `reasoning` | ★★★ one field, huge reach |
 | 3 | **Raycast** | system-wide AI commands (Mac + Windows) | AI → Local Models / Custom Provider → Ollama host `:8090`; model = tier | ★★★ |
 | 4 | **Home Assistant** | voice assistant / conversation agent (native Ollama integration, 2025.6+) | add Ollama integration → URL `:8090`, model = tier | ★★★ "talk to your house," demo-friendly |
@@ -65,7 +64,6 @@ Ollama/OpenAI endpoint**:
 | 7 | **Thunderbird** | draft/summarize email (Ollama Compose extension) | extension → Ollama `:8090`; model = tier | ★★ everyday email |
 | 8 | **AnythingLLM** | private "chat with my documents" + agents | LLM provider → Ollama/Generic OpenAI `:8090`; model = tier | ★★ school-papers use-case |
 | 9 | **Enchanted / Msty** | friendly native desktop/iOS assistant over an Ollama host | set Ollama server `:8090`; model = tier | ★★ non-tech-friendly front-ends |
-| 10 | **claudia (Claude Code)** | the local "second brain" | `settings.local.json` base-URL → us; see [Claudia integration](claudia_integration.md) | ★★ our 2nd app type |
 
 ## Delivery model for non-tech people
 
@@ -101,7 +99,6 @@ the wiring (exactly like the obsidian / claudia app types). Three delivery tiers
 
 ## Recommended integration order (as `integrations/` app types)
 
-1. **Obsidian** — done (karpathywiki + the `demo/` vaults).
 2. **Brave Leo** — single settings field, massive install base, instant "my browser AI runs on my
    subscriptions" wow. Best next target.
 3. **Home Assistant** — the voice demo is the most impressive for non-tech audiences.
