@@ -20,17 +20,7 @@ Reference documentation for Token Buffet.
 |------|---------------|
 | [integrations/app_configuration.md](integrations/app_configuration.md) | Registered apps cascade and configure/init flow |
 | [integrations/chatbots.md](integrations/chatbots.md) | CLI clients (Claude Code, Codex, Grok, agy) as router clients |
-| [integrations/claudia_integration.md](integrations/claudia_integration.md) | Claudia (Claude Code second brain) integration wiring |
-| [integrations/claudia/](integrations/claudia/) | Upstream Claudia README, architecture and instructions (background reading for the demo product) |
-| [integrations/consumer_routing_roadmap.md](integrations/consumer_routing_roadmap.md) | Consumer apps routable to the bridge (Brave, Home Assistant, Obsidian…) |
-
-## Dashboard
-| File | What it covers |
-|------|---------------|
-| [dashboard/dashboard.md](dashboard/dashboard.md) | Live dashboard operating guide |
-| [dashboard/dashboard_design.md](dashboard/dashboard_design.md) | Dashboard design history and UI spec |
-
-## Marketing
+| [integrations/claudia_integration
 | File | What it covers |
 |------|---------------|
 | [marketing/outreach_draft.md](marketing/outreach_draft.md) | Video walkthrough and blog post plan |

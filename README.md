@@ -22,6 +22,13 @@ This shows how to turn your subscriptions into a local knowledge-synthesis engin
 
 ![AI Subscriptions Hub Architecture](res/diagrams/AI_Subscription_Architecture_landscape.png)
 
+## Interactive Documentation
+
+Browse the docs as interactive maps on GitHub Pages:
+
+- [Overview](https://jlichwa80.github.io/token-buffet/overview.html): architecture, CLI operations, client integrations, directory layout
+- [Productivity Apps](https://jlichwa80.github.io/token-buffet/productivity-apps.html): everyday apps that can run on Token Buffet
+
 ## Quick Start
 Token Buffet always works in the folder you run it from. Make one folder for it:
 

@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Buffet AI Subscription Hub</title>
+<style>
+  :root{
+    --ink:#eef1f7; --muted:#9aa4b6; --bg:#191c24; --panel-bg:#1f232d;
+    --card:#262b37; --line:#333a49; --panel-w:400px;
+
+    /* Default branch palette. builder.py binds each legend key to a slot in order
+       (--branch-<key>:var(--pal-N)); the injected block lives near the end of this style
+       element (below). Colors carry NO meaning — they only need to be distinct and readable on
+       the dark canvas. A project map.css can override any of these. Keep the count in sync with
+       PALETTE_SIZE in builder.py. --branch-navy is the structural / unbranched fallback. */
+    --pal-1:#6d4aff; --pal-2:#0e97b7; --pal-3:#1f8a5b; --pal-4:#e0701c;
+    --pal-5:#c2255c; --pal-6:#b08900; --pal-7:#2f7fd1; --pal-8:#d1477a;
+    --branch-navy:#26324a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+  #app{display:flex;flex-direction:column;height:100vh}
+
+  /* Header */
+  header{display:flex;align-items:center;gap:14px;padding:12px 20px;background:#20242e;border-bottom:1px solid var(--line);flex:0 0 auto}
+  .logo{width:34px;height:34px;border-radius:9px;background:#2f3646;display:grid;place-items:center;flex:0 0 auto}
+  .logo svg{width:20px;height:20px}
+  .brand h1{font-size:16px;margin:0;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+  .brand p{font-size:11px;margin:0;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+  .legend{margin-left:auto;display:flex;gap:14px;flex-wrap:wrap}
+  .legend span{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+  .legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
+  /* Persistent "Download PDF" link in the header. Points at the docs/downloads/ PDF render of
+     the source doc (builder.py DLPDF). The legend's margin-left:auto pushes both it and this
+     button to the right edge; on narrow screens (legend hidden) the media query re-adds the
+     auto push so this button stays right-aligned. */
+  .dl-md{margin-left:16px;display:inline-flex;align-items:center;gap:6px;flex:0 0 auto;
+    font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap;
+    color:#c3cad8;background:#2b3040;border:1px solid #454d60;border-radius:8px;padding:6px 11px}
+  .dl-md:hover{background:#343b4a;border-color:#6b7286;color:#fff}
+  .dl-md svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+  /* Main split — map on the left, description panel down the right side */
+  main{flex:1 1 auto;display:flex;flex-direction:row;min-height:0}
+  #map{flex:1 1 auto;position:relative;min-height:0;min-width:0;background:var(--bg)}
+  #mm{width:100%;height:100%}
+  #hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:12.5px;color:var(--muted);background:#262b37cc;padding:6px 12px;border-radius:8px;pointer-events:none;white-space:nowrap}
+  #hint .hint-adv{color:#ffd166;font-weight:800}
+
+  /* Rounded block nodes (NotebookLM style), tinted per branch */
+  .markmap-node{cursor:pointer}
+  .markmap-node > line{display:none}                 /* hide default underline segment */
+  /* markmap fills each foreignObject with a ~10000px-wide inner div (its width-measurement trick)
+     that would otherwise capture hover across the whole row. So make the foreignObject inert and
+     re-enable pointer events only on the visible pill + chevron. */
+  .markmap-foreign{border-bottom:none !important;overflow:visible;pointer-events:none}
+  .markmap-foreign span.pill,.markmap-foreign span.fold-toggle{pointer-events:auto}
+  .markmap-foreign span.pill{
+    display:inline-block;padding:8px 14px;border-radius:10px;
+    background:color-mix(in srgb, var(--nc,var(--branch-navy)) 30%, #2a2f3c);
+    color:#f4f6fb;font-weight:600;font-size:13px;line-height:1.3;white-space:nowrap;
+    border:1px solid color-mix(in srgb, var(--nc,var(--branch-navy)) 55%, transparent);
+    box-shadow:0 1px 3px rgba(0,0,0,.35);
+  }
+  /* Per-branch tint: builder.py adds a `b-<key>` class to each pill and generates the
+     `.pill.b-<key>{--nc:…}` bindings (see the block near the end of this style element). No class
+     => --nc unset => --branch-navy. Those rules only set --nc, so the higher-specificity rule
+     above (which reads --nc) doesn't override them. */
+  .markmap-foreign span.pill.sel{
+    outline:2px solid var(--nc,var(--branch-navy));
+    box-shadow:0 0 0 4px color-mix(in srgb, var(--nc,var(--branch-navy)) 35%, transparent);
+  }
+  .markmap-foreign span.pill code{background:rgba(255,255,255,.16);color:#fff;padding:0 4px;border-radius:4px}
+  /* Star marker on nodes the author flagged with a `-*-` token */
+  .markmap-foreign span.pill .adv{color:#ffd166;font-weight:800;font-size:1.15em;line-height:0;margin-left:5px;vertical-align:middle}
+  /* Custom fold chevron (builder.py CHEVRON), a sibling of the pill. Bigger / easier target
+     than markmap's native fold circle, which we hide. The click listener calls
+     mm.toggleNode() on it; direction follows markmap's `.markmap-fold` class on the node. */
+  .markmap-node > circle{display:none}               /* hide markmap's native fold dot */
+  .markmap-foreign span.fold-toggle{
+    display:inline-grid;place-items:center;width:20px;height:20px;margin-left:8px;
+    border-radius:50%;background:#2b3040;border:1px solid #565d70;cursor:pointer;vertical-align:middle;
+  }
+  .markmap-foreign span.fold-toggle:hover{background:#343b4a;border-color:#6b7286}
+  .markmap-foreign span.fold-toggle svg{
+    width:12px;height:12px;fill:none;stroke:#c7cede;stroke-width:2;
+    stroke-linecap:round;stroke-linejoin:round;transition:transform .2s;
+  }
+  g.markmap-node.markmap-fold span.fold-toggle svg{transform:rotate(180deg)}
+
+  /* NotebookLM-style vertical toolbar (top-left) */
+  #tools{position:absolute;top:18px;left:18px;display:flex;flex-direction:column;gap:12px;z-index:6}
+  #tools .grp{display:flex;flex-direction:column;background:#2a2f3b;border-radius:16px;box-shadow:0 4px 14px rgba(0,0,0,.45);overflow:hidden}
+  #tools .grp.round{border-radius:50%}
+  #tools button{width:44px;height:44px;display:grid;place-items:center;background:transparent;border:0;color:#c3cad8;cursor:pointer;padding:0}
+  #tools button:hover{background:#343b4a;color:#fff}
+  #tools svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+  /* Search — floating box top-center of the map. Filters node labels; a result reveals +
+     selects + deep-links the node via the same revealAndSelect/pushHash used by hash links. */
+  #search{position:absolute;top:18px;left:50%;transform:translateX(-50%);z-index:7;width:340px;max-width:calc(100% - 132px)}
+  #search-box{display:flex;align-items:center;gap:8px;background:#2a2f3b;border:1px solid #3c4354;
+    border-radius:12px;box-shadow:0 4px 14px rgba(0,0,0,.45);padding:9px 12px}
+  #search-box:focus-within{border-color:#6b7286}
+  #search-box svg{width:17px;height:17px;flex:0 0 auto;fill:none;stroke:#9aa4b6;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  #search-input{flex:1 1 auto;min-width:0;border:0;outline:0;background:transparent;color:var(--ink);font-size:13.5px;font-family:inherit}
+  #search-input::placeholder{color:var(--muted)}
+  #search-mode{flex:0 0 auto;background:#343b4a;border:1px solid #454d60;border-radius:8px;color:#c3cad8;
+    font:600 11px/1 inherit;font-family:inherit;padding:5px 8px;cursor:pointer}
+  #search-mode:hover{background:#3d4658;color:#fff}
+  .sr-snip{display:block;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sr-snip mark{background:transparent;color:#ffd166;font-weight:700}
+  #search-clear{flex:0 0 auto;display:none;background:transparent;border:0;color:var(--muted);cursor:pointer;
+    font-size:18px;line-height:1;padding:0 2px}
+  #search-clear:hover{color:var(--ink)}
+  #search.has-text #search-clear{display:block}
+  #search-results{margin-top:8px;background:#232833;border:1px solid #3c4354;border-radius:12px;
+    box-shadow:0 8px 22px rgba(0,0,0,.5);overflow:hidden auto;max-height:min(60vh,420px);display:none}
+  #search.open #search-results{display:block}
+  .sr-item{display:flex;align-items:center;gap:10px;padding:9px 13px;cursor:pointer;border-bottom:1px solid #2c313d}
+  .sr-item:last-child{border-bottom:none}
+  .sr-item.active,.sr-item:hover{background:#2f3646}
+  .sr-dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .sr-text{flex:1 1 auto;min-width:0}
+  .sr-label{font-size:13px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sr-label mark{background:transparent;color:#ffd166;font-weight:700}
+  .sr-branch{font-size:10.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sr-empty{padding:12px 14px;font-size:13px;color:var(--muted);font-style:italic}
+
+  /* Drag handle between map and panel; sets --panel-w (double-click resets to the default). */
+  #resizer{flex:0 0 6px;margin:0 -3px;z-index:6;cursor:col-resize;background:transparent}
+  #resizer:hover,#resizer.drag{background:#6b728655}
+  /* Panel — column on the right, full height; width from --panel-w (map.css or drag) */
+  #panel{flex:0 0 var(--panel-w);width:var(--panel-w);height:100%;padding:22px;overflow-y:auto;background:var(--panel-bg);border-left:1px solid var(--line)}
+  .card{position:relative;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--ink);border-radius:14px;padding:22px 22px 24px;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+  .copy-link{position:absolute;top:16px;right:16px;display:none;align-items:center;gap:6px;font-size:11.5px;font-weight:600;
+    color:#c3cad8;background:#2b3040;border:1px solid #454d60;border-radius:8px;padding:5px 10px;cursor:pointer}
+  .copy-link:hover{background:#343b4a;border-color:#6b7286;color:#fff}
+  .copy-link.show{display:inline-flex}
+  .copy-link svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .kicker{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .card h2{font-size:20px;line-height:1.25;margin:0 0 14px;color:var(--ink)}
+  .desc{font-size:14.5px;line-height:1.65;color:#c4ccda}
+  .desc code{background:#2f3644;color:#c7b8ff;padding:1px 6px;border-radius:5px;font-size:.88em}
+  .desc>:first-child{margin-top:0}
+  .desc>:last-child{margin-bottom:0}
+  .desc p{margin:0 0 12px}
+  .desc h1,.desc h2,.desc h3,.desc h4{color:var(--ink);line-height:1.3;margin:20px 0 8px}
+  .desc h1,.desc h2{font-size:17px}.desc h3{font-size:15.5px}.desc h4{font-size:14.5px}
+  .desc ul,.desc ol{margin:0 0 12px;padding-left:22px}
+  .desc li{margin:3px 0}
+  .desc blockquote{margin:0 0 12px;padding-left:14px;border-left:3px solid var(--line);color:var(--muted)}
+  .desc pre{background:#2f3644;padding:12px;border-radius:8px;overflow-x:auto}
+  .desc pre code{background:none;padding:0}
+  .desc table{border-collapse:collapse;margin:0 0 12px;font-size:13.5px}
+  .desc th,.desc td{border:1px solid var(--line);padding:5px 9px;text-align:left}
+  .desc hr{border:0;border-top:1px solid var(--line);margin:16px 0}
+  .empty{color:var(--muted);font-style:italic}
+  .desc a{color:#8fa3c4;text-underline-offset:2px}
+
+  /* Links in the panel description. Muted slate-blue with a soft underline so they read clearly
+     on dark instead of the glaring default browser blue. */
+  .desc a{color:#8fa3c4;font-weight:500;text-decoration:underline;
+    text-decoration-color:#8fa3c455;text-underline-offset:2px}
+  .desc a:hover{color:#b3c2de;text-decoration-color:#b3c2de}
+
+  @media (max-width:860px){
+    .legend{display:none}
+    .dl-md{margin-left:auto}
+    main{flex-direction:column}
+    #resizer{display:none}
+    #panel{flex:0 0 42vh;width:100%;height:42vh;border-left:none;border-top:1px solid var(--line)}
+  }
+
+  /* Per-map branch bindings: builder.py maps each legend key to a --pal-* slot above, then
+     appends any project map.css after (which overrides via the cascade). */
+:root{
+    --branch-b1:var(--pal-1);
+    --branch-b2:var(--pal-2);
+    --branch-b3:var(--pal-3);
+    --branch-b4:var(--pal-4);
+  }
+  .markmap-foreign span.pill.b-b1{--nc:var(--branch-b1)}
+  .markmap-foreign span.pill.b-b2{--nc:var(--branch-b2)}
+  .markmap-foreign span.pill.b-b3{--nc:var(--branch-b3)}
+  .markmap-foreign span.pill.b-b4{--nc:var(--branch-b4)}
+:root{--panel-w:720px}
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round">
+        <circle cx="6" cy="12" r="2.3" fill="#fff" stroke="none"/>
+        <circle cx="17" cy="6" r="2.3" fill="#fff" stroke="none"/>
+        <circle cx="17" cy="18" r="2.3" fill="#fff" stroke="none"/>
+        <line x1="8" y1="11" x2="15" y2="7"/><line x1="8" y1="13" x2="15" y2="17"/>
+      </svg>
+    </div>
+    <div class="brand">
+      <h1>Token Buffet</h1>
+      <p>Interactive Documentation</p>
+    </div>
+    <div class="legend" id="legend"></div>
+    <a class="dl-md" href="downloads/overview.pdf" download title="Download this map's document as PDF">
+      <svg viewBox="0 0 24 24"><path d="M12 4v10"/><polyline points="8 11 12 15 16 11"/><path d="M5 19h14"/></svg>
+      <span>PDF</span>
+    </a>
+  </header>
+  <main>
+    <div id="map">
+      <div id="search">
+        <div id="search-box">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+          <input id="search-input" type="text" placeholder="Search concepts…" autocomplete="off" spellcheck="false" aria-label="Search concepts">
+          <button id="search-mode" title="Search concept names or description text">Concepts</button>
+          <button id="search-clear" title="Clear search" aria-label="Clear search">&times;</button>
+        </div>
+        <div id="search-results" role="listbox"></div>
+      </div>
+      <div id="hint">Click a node to read about it</div>
+      <svg id="mm"></svg>
+    </div>
+    <div id="resizer" title="Drag to resize; double-click to reset"></div>
+    <aside id="panel">
+      <div class="card" id="card">
+        <button class="copy-link" id="copy-link" title="Copy a link to this concept">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+          <span id="copy-link-text">Copy link</span>
+        </button>
+        <button class="copy-link" id="open-win" style="right:128px" title="Open this concept in a new window">
+          <svg viewBox="0 0 24 24"><path d="M14 3h7v7"/><path d="M21 3l-9 9"/><path d="M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>
+          <span>New window</span>
+        </button>
+        <p class="kicker" id="p-kicker">Token Buffet</p>
+        <h2 id="p-title">Select a concept</h2>
+        <div class="desc" id="p-desc"><span class="empty">Click any node in the map to read its description here.</span></div>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+<script>
+  const DATA  = {"content": "<span class=\"pill\">Token Buffet AI Subscription Hub<\/span><span class=\"fold-toggle\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\"><path d=\"M7.5 2 L3.5 6 L7.5 10\"/><\/svg><\/span>", "payload": {"id": 0}, "children": [{"content": "<span class=\"pill b-b1\">1. Core Architecture<\/span><span class=\"fold-toggle\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\"><path d=\"M7.5 2 L3.5 6 L7.5 10\"/><\/svg><\/span>", "payload": {"id": 1}, "children": [{"content": "<span class=\"pill b-b1\">CLI Proxies &amp; Vendor Adapters<\/span><span class=\"fold-toggle\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\"><path d=\"M7.5 2 L3.5 6 L7.5 10\"/><\/svg><\/span>", "payload": {"id": 2}, "children": [{"content": "<span class=\"pill b-b1\">API Standardization<\/span>", "payload": {"id": 3}, "children": []}, {"content": "<span class=\"pill b-b1\">Sandbox &amp; Session Isolation<\/span>", "payload": {"id": 4}, "children": []}, {"content": "<span class=\"pill b-b1\">Execution &amp; Streaming<\/span>", "payload": {"id": 5}, "children": []}]}, {"content": "<span class=\"pill b-b1\">Smart Router<\/span><span class=\"fold-toggle\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\"><path d=\"M7.5 2 L3.5 6 L7.5 10\"/><\/svg><\/span>", "payload": {"id": 6}, "children": [{"content": "<span class=\"pill b-b1\">Semantic Tier Mapping<\/span>", "payload": {"id": 7}, "children": []}, {"content": "<span class=\"pill b-b1\">Smart Load Balancing<\/span>", "payload": {"id": 8}, "children": []}, {"content": "<span class=\"pill b-b1\">Failover &amp; Automatic Retries<\/span>", "payload": {"id": 9}, "children": []}, {"content": "<span class=\"pill b-b1\">Tool Handoff<\/span>", "payload": {"id": 10}, "children": []}]}, {"content": "<span class=\"pill b-b1\">Dashboard Control Center<\/span><span class=\"fold-toggle\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\"><path d=\"M7.5 2 L3.5 6 L7.5 10\"/><\/svg><\/span>", "payload": {"id": 11}, "children": [{"content": "<span class=\"pill b-b1\">Fleet Management<\/span>", "payload": {"id": 12}, "children": []}, {"content": "<span class=\"pill b-b1\">Lifecycle &amp; Auth Operations<\/span>", "payload": {"id": 13}, "children": []}, {"content": "<span class=\"pill b-b1\">App Registration Wizard<\/span>", "payload": {"id": 14}, "children": []}]}, {"content": "<span class=\"pill b-b1\">Extractor Subsystem<\/span><span class=\"fold-toggle\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\"><path d=\"M7.5 2 L3.5 6 L7.5 10\"/><\/svg><\/span>", "payload": {"id": 15}, "children": [{"content": "<span class=\"pill b-b1\">Structured State Export<\/span>", "payload": {"id": 16}, "children": []}]}]}, {"content": "<span class=\"pill b-b2\">2. Quick Start &amp; CLI Operations<\/span><span class=\"fold-toggle\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\"><path d=\"M7.5 2 L3.5 6 L7.5 10\"/><\/svg><\/span>", "payload": {"id": 17}, "children": [{"content": "<span class=\"pill b-b2\">Initialization &amp; Setup<\/span><span class=\"fold-toggle\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\"><path d=\"M7.5 2 L3.5 6 L7.5 10\"/><\/svg><\/span>", "payload": {"id": 18}, "children": [{"content": "<span class=\"pill b-b2\">Scaffold Workspace<\/span>", "payload": {"id": 19}, "children": []}, {"content": "<span class=\"pill b-b2\">Demo Setup<\/span>", "payload": {"id": 20}, "children": []}, {"content": "<span class=\"pill b-b2\">Start Services<\/span>", "payload": {"id": 21}, "children": []}]}, {"content": "<span class=\"pill b-b2\">Management Commands<\/span><span class=\"fold-toggle\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\"><path d=\"M7.5 2 L3.5 6 L7.5 10\"/><\/svg><\/span>", "payload": {"id": 22}, "children": [{"content": "<span class=\"pill b-b2\">Add Provider<\/span>", "payload": {"id": 23}, "children": []}, {"content": "<span class=\"pill b-b2\">Add Application<\/span>", "payload": {"id": 24}, "children": []}, {"content": "<span class=\"pill b-b2\">Status Control<\/span>", "payload": {"id": 25}, "children": []}]}]}, {"content": "<span class=\"pill b-b3\">3. Client Integrations<\/span><span class=\"fold-toggle\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\"><path d=\"M7.5 2 L3.5 6 L7.5 10\"/><\/svg><\/span>", "payload": {"id": 26}, "children": [{"content": "<span class=\"pill b-b3\">Supported Chatbots<\/span><span class=\"fold-toggle\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\"><path d=\"M7.5 2 L3.5 6 L7.5 10\"/><\/svg><\/span>", "payload": {"id": 27}, "children": [{"content": "<span class=\"pill b-b3\">Claude Code<\/span>", "payload": {"id": 28}, "children": []}, {"content": "<span class=\"pill b-b3\">Codex CLI<\/span>", "payload": {"id": 29}, "children": []}, {"content": "<span class=\"pill b-b3\">Grok Build<\/span>", "payload": {"id": 30}, "children": []}, {"content": "<span class=\"pill b-b3\">Gemini Antigravity<\/span>", "payload": {"id": 31}, "children": []}]}, {"content": "<span class=\"pill b-b3\">Applications &amp; Demos<\/span><span class=\"fold-toggle\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\"><path d=\"M7.5 2 L3.5 6 L7.5 10\"/><\/svg><\/span>", "payload": {"id": 32}, "children": [{"content": "<span class=\"pill b-b3\">Obsidian LLM Wiki<\/span>", "payload": {"id": 33}, "children": []}, {"content": "<span class=\"pill b-b3\">Claudia<\/span>", "payload": {"id": 34}, "children": []}, {"content": "<span class=\"pill b-b3\">Abject<\/span>", "payload": {"id": 35}, "children": []}]}]}, {"content": "<span class=\"pill b-b4\">4. Directory Layout<\/span><span class=\"fold-toggle\" aria-hidden=\"true\"><svg viewBox=\"0 0 12 12\"><path d=\"M7.5 2 L3.5 6 L7.5 10\"/><\/svg><\/span>", "payload": {"id": 36}, "children": [{"content": "<span class=\"pill b-b4\">Source Code<\/span>", "payload": {"id": 37}, "children": []}, {"content": "<span class=\"pill b-b4\">Templates<\/span>", "payload": {"id": 38}, "children": []}, {"content": "<span class=\"pill b-b4\">Runtime Data<\/span>", "payload": {"id": 39}, "children": []}, {"content": "<span class=\"pill b-b4\">Logs<\/span>", "payload": {"id": 40}, "children": []}]}]};
+  const DESC  = {"0": "Turns the AI CLIs you already pay for into one local, standard API.", "1": "Three long-running processes plus a scraper for quotas and models.", "3": "Exposes standard endpoints (/v1/chat/completions, /v1/messages)", "4": "Uses dedicated environment homes (e.g., GROK_HOME) to prevent SQLite locking", "5": "Runs prompts via PTY/Pexpect and streams SSE line-by-line", "7": "Maps abstract tiers (fast, medium, reasoning) to backend models", "8": "Routes requests based on remaining quota percentage", "9": "Bypasses offline or rate-limited providers automatically", "10": "Intercepts and returns structured tool-calling decisions to clients", "12": "Single-page console monitoring statuses, ports, PIDs, and quotas", "13": "Controls process start, stop, and terminal logins", "14": "Configures external client applications via script pipelines", "16": "Parses TUI outputs to discover models and track quotas", "19": "tbuffet init registers local provider CLIs on PATH", "20": "tbuffet demo init copies pre-configured demo workspaces", "21": "tbuffet start launches proxies, router (8090), and dashboard (8080)", "23": "tbuffet add-provider NAME --validate", "24": "tbuffet add-app TYPE NAME --path PATH", "25": "tbuffet status | stop | restart | doctor", "28": "Uses Anthropic Messages API (/v1/messages)", "29": "Uses OpenAI Responses API (/v1/responses)", "30": "Uses OpenAI chat completions (/v1/chat/completions)", "31": "Uses Gemini GenerateContent API", "33": "Knowledge management and query vault integration", "34": "Terminal-based chief-of-staff assistant with a memory daemon", "35": "Converts natural language prompts into custom applications", "37": "src/tokenbuffet/ (proxy, router, dashboard, extractors)", "38": "src/tokenbuffet/default_templates/ (configurations and demos)", "39": "data/ (provider status, homes, temporary files)", "40": "logs/ (proxy, router, and session log files)"};
+  const META  = {"1": {"k": "b1", "b": "1. Core Architecture"}, "2": {"k": "b1", "b": "1. Core Architecture"}, "3": {"k": "b1", "b": "1. Core Architecture"}, "4": {"k": "b1", "b": "1. Core Architecture"}, "5": {"k": "b1", "b": "1. Core Architecture"}, "6": {"k": "b1", "b": "1. Core Architecture"}, "7": {"k": "b1", "b": "1. Core Architecture"}, "8": {"k": "b1", "b": "1. Core Architecture"}, "9": {"k": "b1", "b": "1. Core Architecture"}, "10": {"k": "b1", "b": "1. Core Architecture"}, "11": {"k": "b1", "b": "1. Core Architecture"}, "12": {"k": "b1", "b": "1. Core Architecture"}, "13": {"k": "b1", "b": "1. Core Architecture"}, "14": {"k": "b1", "b": "1. Core Architecture"}, "15": {"k": "b1", "b": "1. Core Architecture"}, "16": {"k": "b1", "b": "1. Core Architecture"}, "17": {"k": "b2", "b": "2. Quick Start & CLI Operations"}, "18": {"k": "b2", "b": "2. Quick Start & CLI Operations"}, "19": {"k": "b2", "b": "2. Quick Start & CLI Operations"}, "20": {"k": "b2", "b": "2. Quick Start & CLI Operations"}, "21": {"k": "b2", "b": "2. Quick Start & CLI Operations"}, "22": {"k": "b2", "b": "2. Quick Start & CLI Operations"}, "23": {"k": "b2", "b": "2. Quick Start & CLI Operations"}, "24": {"k": "b2", "b": "2. Quick Start & CLI Operations"}, "25": {"k": "b2", "b": "2. Quick Start & CLI Operations"}, "26": {"k": "b3", "b": "3. Client Integrations"}, "27": {"k": "b3", "b": "3. Client Integrations"}, "28": {"k": "b3", "b": "3. Client Integrations"}, "29": {"k": "b3", "b": "3. Client Integrations"}, "30": {"k": "b3", "b": "3. Client Integrations"}, "31": {"k": "b3", "b": "3. Client Integrations"}, "32": {"k": "b3", "b": "3. Client Integrations"}, "33": {"k": "b3", "b": "3. Client Integrations"}, "34": {"k": "b3", "b": "3. Client Integrations"}, "35": {"k": "b3", "b": "3. Client Integrations"}, "36": {"k": "b4", "b": "4. Directory Layout"}, "37": {"k": "b4", "b": "4. Directory Layout"}, "38": {"k": "b4", "b": "4. Directory Layout"}, "39": {"k": "b4", "b": "4. Directory Layout"}, "40": {"k": "b4", "b": "4. Directory Layout"}};          // { id: {k: "branchKey", b: "Branch label"} }
+  const LABELS = {"0": "Token Buffet AI Subscription Hub", "1": "1. Core Architecture", "2": "CLI Proxies & Vendor Adapters", "3": "API Standardization", "4": "Sandbox & Session Isolation", "5": "Execution & Streaming", "6": "Smart Router", "7": "Semantic Tier Mapping", "8": "Smart Load Balancing", "9": "Failover & Automatic Retries", "10": "Tool Handoff", "11": "Dashboard Control Center", "12": "Fleet Management", "13": "Lifecycle & Auth Operations", "14": "App Registration Wizard", "15": "Extractor Subsystem", "16": "Structured State Export", "17": "2. Quick Start & CLI Operations", "18": "Initialization & Setup", "19": "Scaffold Workspace", "20": "Demo Setup", "21": "Start Services", "22": "Management Commands", "23": "Add Provider", "24": "Add Application", "25": "Status Control", "26": "3. Client Integrations", "27": "Supported Chatbots", "28": "Claude Code", "29": "Codex CLI", "30": "Grok Build", "31": "Gemini Antigravity", "32": "Applications & Demos", "33": "Obsidian LLM Wiki", "34": "Claudia", "35": "Abject", "36": "4. Directory Layout", "37": "Source Code", "38": "Templates", "39": "Runtime Data", "40": "Logs"};        // { id: "concept label" }
+  const SLUGS  = {"0": "token-buffet-ai-subscription-hub", "1": "core-architecture", "2": "cli-proxies-vendor-adapters", "3": "api-standardization", "4": "sandbox-session-isolation", "5": "execution-streaming", "6": "smart-router", "7": "semantic-tier-mapping", "8": "smart-load-balancing", "9": "failover-automatic-retries", "10": "tool-handoff", "11": "dashboard-control-center", "12": "fleet-management", "13": "lifecycle-auth-operations", "14": "app-registration-wizard", "15": "extractor-subsystem", "16": "structured-state-export", "17": "quick-start-cli-operations", "18": "initialization-setup", "19": "scaffold-workspace", "20": "demo-setup", "21": "start-services", "22": "management-commands", "23": "add-provider", "24": "add-application", "25": "status-control", "26": "client-integrations", "27": "supported-chatbots", "28": "claude-code", "29": "codex-cli", "30": "grok-build", "31": "gemini-antigravity", "32": "applications-demos", "33": "obsidian-llm-wiki", "34": "claudia", "35": "abject", "36": "directory-layout", "37": "source-code", "38": "templates", "39": "runtime-data", "40": "logs"};         // { id: "url-slug" }
+  const ID_BY_SLUG = Object.fromEntries(Object.entries(SLUGS).map(([id, s]) => [s, id]));
+  const PALETTE = [["b1", "1. Core Architecture"], ["b2", "2. Quick Start & CLI Operations"], ["b3", "3. Client Integrations"], ["b4", "4. Directory Layout"]];      // [ [branchKey,label], ... ] for the legend
+  const { Markmap } = window.markmap;
+
+  // Branch colors live in CSS (:root --branch-<key>); resolve a key -> hex for the places
+  // that need a JS color string (markmap's connector lines, the panel accent, the legend).
+  const CSSVARS = getComputedStyle(document.documentElement);
+  const _hex = {};
+  function hexOf(k){
+    k = k || 'navy';
+    if (!(k in _hex)) _hex[k] = (CSSVARS.getPropertyValue('--branch-' + k) || '').trim() || '#26324a';
+    return _hex[k];
+  }
+
+  // Native identification: our build-time id rides in markmap's payload (preserved across
+  // renders), so we read it straight off the node datum — no HTML parsing, no data-* attrs.
+  const idOf = (node) => (node && node.payload && node.payload.id != null) ? String(node.payload.id) : null;
+  const colorOf = (node) => { const id = idOf(node); return hexOf(id && META[id] && META[id].k); };
+
+  const svg = document.getElementById('mm');
+  const mm = Markmap.create(svg, {
+    initialExpandLevel: 3, color: colorOf, spacingVertical: 16, paddingX: 16, duration: 250,
+  }, DATA);
+
+  // --- NotebookLM-style toolbar (expand/collapse · zoom · fit · download) ---
+  const IC = {
+    expand: '<svg viewBox="0 0 24 24"><polyline points="8 9 12 5 16 9"/><polyline points="8 15 12 19 16 15"/></svg>',
+    plus:   '<svg viewBox="0 0 24 24"><line x1="12" y1="6" x2="12" y2="18"/><line x1="6" y1="12" x2="18" y2="12"/></svg>',
+    minus:  '<svg viewBox="0 0 24 24"><line x1="6" y1="12" x2="18" y2="12"/></svg>',
+    fit:    '<svg viewBox="0 0 24 24"><path d="M9 4H5a1 1 0 0 0-1 1v4"/><path d="M15 4h4a1 1 0 0 1 1 1v4"/><path d="M9 20H5a1 1 0 0 1-1-1v-4"/><path d="M15 20h4a1 1 0 0 0 1-1v-4"/></svg>',
+    dl:     '<svg viewBox="0 0 24 24"><path d="M12 4v10"/><polyline points="8 11 12 15 16 11"/><path d="M5 19h14"/></svg>',
+  };
+  const tools = document.createElement('div');
+  tools.id = 'tools';
+  tools.innerHTML =
+    `<div class="grp round"><button data-a="toggle" title="Expand / collapse all">${IC.expand}</button></div>` +
+    `<div class="grp"><button data-a="in" title="Zoom in">${IC.plus}</button><button data-a="out" title="Zoom out">${IC.minus}</button></div>` +
+    `<div class="grp round"><button data-a="fit" title="Fit to screen">${IC.fit}</button></div>` +
+    `<div class="grp round"><button data-a="dl" title="Download SVG">${IC.dl}</button></div>`;
+  document.getElementById('map').appendChild(tools);
+
+  // Expand / collapse every node. Uses renderData() rather than setData() on purpose:
+  // setData re-runs markmap's initializeData, which re-applies initialExpandLevel and
+  // clobbers the bulk fold flags we set here (so "expand all" appeared to do nothing).
+  function setFoldAll(fold){
+    (function walk(n, depth){
+      if (n.children && n.children.length){
+        n.payload = n.payload || {};
+        n.payload.fold = (fold && depth > 1) ? 1 : 0;   // collapse keeps depths 0-1 open (3 visible levels)
+        n.children.forEach(c => walk(c, depth + 1));
+      }
+    })(mm.state.data, 0);
+    mm.renderData(); mm.fit();
+  }
+  function anyCollapsed(){
+    let found = false;
+    (function walk(n){
+      if (found || !(n.children && n.children.length)) return;
+      if (n.payload && n.payload.fold){ found = true; return; }
+      n.children.forEach(walk);
+    })(mm.state.data);
+    return found;
+  }
+  function downloadSVG(){
+    const SVGNS = 'http://www.w3.org/2000/svg';
+    const pad = 24;
+    const g = svg.querySelector('g');                 // markmap's pan/zoom group
+    const bb = g.getBBox();                            // layout bounds (ignores live zoom/pan)
+    const w = Math.ceil(bb.width + pad * 2), h = Math.ceil(bb.height + pad * 2);
+    const vx = bb.x - pad, vy = bb.y - pad;
+
+    const clone = svg.cloneNode(true);
+    clone.setAttribute('xmlns', SVGNS);
+    clone.setAttribute('width', w);
+    clone.setAttribute('height', h);
+    clone.setAttribute('viewBox', `${vx} ${vy} ${w} ${h}`);
+    clone.querySelector('g').removeAttribute('transform');   // drop live zoom/pan; viewBox frames all
+
+    // Inline the page CSS so the standalone SVG keeps the same colors. The pills are HTML in
+    // <foreignObject>, tinted by the --branch-* palette + .pill.b-<key> rules — none of which
+    // travel with a bare cloned <svg>. (Connector-line strokes are already inline via markmap's
+    // `color` option, so they survive on their own.) `:root` in the saved file resolves to the
+    // <svg> root, so the palette variables cascade. Also paint the dark bg the light text needs.
+    const bg = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() || '#191c24';
+    const style = document.createElementNS(SVGNS, 'style');
+    style.textContent = [...document.querySelectorAll('style')].map(s => s.textContent).join('\n');
+    const rect = document.createElementNS(SVGNS, 'rect');
+    rect.setAttribute('x', vx); rect.setAttribute('y', vy);
+    rect.setAttribute('width', w); rect.setAttribute('height', h);
+    rect.setAttribute('fill', bg);
+    clone.insertBefore(rect, clone.firstChild);
+    clone.insertBefore(style, clone.firstChild);
+
+    const blob = new Blob([new XMLSerializer().serializeToString(clone)], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = "overview.svg"; a.click();
+    URL.revokeObjectURL(url);
+  }
+  tools.addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    const a = b.dataset.a;
+    if (a === 'in') mm.rescale(1.25);
+    else if (a === 'out') mm.rescale(0.8);
+    else if (a === 'fit') mm.fit();
+    else if (a === 'toggle') { setFoldAll(!anyCollapsed()); }  // any folded -> expand all, else collapse all
+    else if (a === 'dl') downloadSVG();
+  });
+
+  // Legend (hidden entirely when the map has no branches / colors)
+  const legendEl = document.getElementById('legend');
+  legendEl.innerHTML =
+    PALETTE.map(([k,l]) => `<span><i style="background:${hexOf(k)}"></i>${l}</span>`).join('');
+  if (!PALETTE.length) legendEl.style.display = 'none';
+
+  // Panel
+  const card = document.getElementById('card');
+  const pKick = document.getElementById('p-kicker');
+  const pTitle = document.getElementById('p-title');
+  const pDesc = document.getElementById('p-desc');
+  const copyBtn = document.getElementById('copy-link');
+  const copyTxt = document.getElementById('copy-link-text');
+  const openBtn = document.getElementById('open-win');
+
+  // Descriptions are Markdown; render and sanitize them. External links open in a new tab.
+  DOMPurify.addHook('afterSanitizeAttributes', n => {
+    if (n.tagName === 'A' && /^https?:/i.test(n.getAttribute('href') || '')){
+      n.setAttribute('target', '_blank'); n.setAttribute('rel', 'noopener');
+    }
+  });
+  const renderMd = md => DOMPurify.sanitize(marked.parse(md));
+
+  let selected = null;
+  let currentId = null;
+
+  // Populate the panel for a node id and highlight its pill (if currently rendered).
+  function selectNode(id){
+    id = String(id);
+    currentId = id;
+    const meta = META[id] || {k: 'navy', b: "Token Buffet"};
+    const accent = hexOf(meta.k);
+    card.style.borderLeftColor = accent;
+    pKick.textContent = meta.b;
+    pKick.style.color = accent;
+    pTitle.textContent = LABELS[id] || '(concept)';
+    const d = DESC[id];
+    pDesc.innerHTML = d ? renderMd(d) : '<span class="empty">No description yet for this concept.</span>';
+    copyBtn.classList.add('show');
+    openBtn.classList.add('show');
+    resetCopyLabel();
+    if (selected) selected.classList.remove('sel');
+    // Locate the pill natively: find the node <g> whose datum payload matches, then its pill.
+    const g = [...svg.querySelectorAll('g.markmap-node')]
+      .find(el => el.__data__ && idOf(el.__data__) === id);
+    const span = g && g.querySelector('span.pill');
+    if (span){ span.classList.add('sel'); selected = span; } else { selected = null; }
+  }
+
+  // Find a markmap node object and its ancestor chain by (payload) id.
+  function findPath(id){
+    id = String(id); let result = null;
+    (function walk(n, anc){
+      if (result) return;
+      if (idOf(n) === id){ result = anc.concat(n); return; }
+      (n.children || []).forEach(c => walk(c, anc.concat(n)));
+    })(mm.state.data, []);
+    return result;
+  }
+
+  // Unfold ancestors so the node is visible, then select + frame the revealed path.
+  function revealAndSelect(id){
+    const path = findPath(id);
+    if (!path){ selectNode(id); return; }
+    path.forEach(n => { if (n.children && n.children.length){ n.payload = n.payload || {}; n.payload.fold = 0; } });
+    // Unfold ancestors with renderData (not setData: setData re-applies initialExpandLevel
+    // and would re-fold the ancestors we just opened, leaving the target hidden), then
+    // select synchronously. selectNode must not depend on the setData promise (never
+    // resolves) or requestAnimationFrame (throttled in background tabs) or a freshly-opened
+    // deep link would fail to populate.
+    mm.renderData();
+    selectNode(id);
+    // Frame the revealed path. fit() (not centerNode, which mis-places the target off-screen
+    // to the right, behind the panel) is deferred past markmap's ~250ms layout transition so
+    // it measures final node positions.
+    setTimeout(() => { try { mm.fit(); } catch(e){} }, 300);
+  }
+
+  // Update the address bar (no reload, no history spam) so the URL points at this node.
+  function pushHash(id){
+    const slug = SLUGS[id] || ('n' + id);
+    if (history.replaceState) history.replaceState(null, '', '#' + slug);
+    else location.hash = slug;
+  }
+
+  // Selection + fold listener. Fold is driven by our custom chevron via mm.toggleNode
+  // (bigger, more reliable target than the native fold circle). Selection is bound to the
+  // visible PILL span only — this is the ONLY element tight to the node's on-screen bounds.
+  //
+  // DO NOT widen this to `g.markmap-node` or `.markmap-foreign`. Verified in-browser: inside
+  // each node's <foreignObject> markmap wraps the label in an inner `<div style="width:9999px">`
+  // (its natural-width measurement trick) that is ~9000px wide, pointer-events:auto, and sits at
+  // the node's own row height. So `closest('g.markmap-node')` OR `closest('.markmap-foreign')`
+  // both match clicks anywhere along that row — including the empty area where children render
+  // after expansion — and select the wrong/hidden node (positions shift with folds, so the dead
+  // zone moves). The pill span excludes that inner div: it is the pill's child, not a `.pill`.
+  // (An earlier note claimed pill-only "drops clicks in the padding gap"; that gap is the chevron,
+  // which has its own handler below — a non-issue, and far better than a full-width misfire.)
+  svg.addEventListener('click', (e) => {
+    if (e.target.closest('.fold-toggle')) {          // chevron -> fold/unfold
+      const g = e.target.closest('g.markmap-node');
+      if (g && g.__data__) mm.toggleNode(g.__data__);
+      return;
+    }
+
+    const pill = e.target.closest('span.pill');      // select ONLY on the visible pill
+    if (!pill) return;                               // empty space / 9999px measure-div -> ignore
+    const g = e.target.closest('g.markmap-node');
+    const node = g && g.__data__;
+    if (!node) return;
+    const id = idOf(node);
+    if (id == null) return;
+    selectNode(id);
+    pushHash(id);
+
+    // Clicking a collapsed parent's pill also expands it.
+    if (node.children && node.children.length && node.payload && node.payload.fold) {
+      mm.toggleNode(node);
+    }
+  });
+
+  // --- Deep linking: opening #slug reveals + selects that node ---
+  function gotoHash(){
+    const raw = decodeURIComponent((location.hash || '').replace(/^#/, ''));
+    if (!raw) return;
+    const id = ID_BY_SLUG[raw] || (/^n\d+$/.test(raw) ? raw.slice(1) : null);
+    if (id != null && LABELS[id] != null) revealAndSelect(id);
+  }
+  window.addEventListener('hashchange', gotoHash);
+
+  // --- Copy-link button ---
+  let copyTimer = null;
+  function resetCopyLabel(){ clearTimeout(copyTimer); copyTxt.textContent = 'Copy link'; }
+  function copyText(text){
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+    return new Promise((res, rej) => {
+      const t = document.createElement('textarea'); t.value = text;
+      t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); res(); } catch(err){ rej(err); } finally { t.remove(); }
+    });
+  }
+  copyBtn.addEventListener('click', () => {
+    if (currentId != null) pushHash(currentId);
+    copyText(location.href).then(() => {
+      copyTxt.textContent = 'Copied!';
+      copyTimer = setTimeout(() => { copyTxt.textContent = 'Copy link'; }, 1500);
+    }).catch(() => { copyTxt.textContent = 'Press Ctrl+C'; });
+  });
+
+  // Resizable panel: drag the handle; the chosen width is remembered per page in this browser.
+  const resizer = document.getElementById('resizer');
+  const PANEL_KEY = 'concept-map-panel-w:' + location.pathname;
+  const setPanelW = w => document.documentElement.style.setProperty('--panel-w', w + 'px');
+  try { const w = parseInt(localStorage.getItem(PANEL_KEY), 10); if (w) setPanelW(w); } catch (e) {}
+  resizer.addEventListener('pointerdown', (e) => {
+    resizer.setPointerCapture(e.pointerId);
+    resizer.classList.add('drag');
+  });
+  resizer.addEventListener('pointermove', (e) => {
+    if (!resizer.classList.contains('drag')) return;
+    setPanelW(Math.round(Math.min(window.innerWidth * 0.8, Math.max(280, window.innerWidth - e.clientX))));
+  });
+  resizer.addEventListener('pointerup', () => {
+    resizer.classList.remove('drag');
+    try { localStorage.setItem(PANEL_KEY, parseInt(getComputedStyle(panel).width, 10)); } catch (e) {}
+    mm.fit();   // reframe the tree in the resized map area
+  });
+  resizer.addEventListener('dblclick', () => {
+    document.documentElement.style.removeProperty('--panel-w');
+    mm.fit();
+    try { localStorage.removeItem(PANEL_KEY); } catch (e) {}
+  });
+  const panel = document.getElementById('panel');
+
+  // Open the selected concept's text alone in a new window.
+  openBtn.addEventListener('click', () => {
+    const w = window.open('', '_blank', 'width=900,height=800');
+    if (!w) return;
+    const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    w.document.write('<!doctype html><meta charset="utf-8"><title>' + esc(pTitle.textContent) + '</title>' +
+      '<style>body{margin:0;padding:32px 40px;background:#191c24;color:#c4ccda;font:16px/1.7 system-ui,sans-serif}' +
+      'h1{color:#eef1f7;font-size:26px}.k{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#9aa4b6}' +
+      'code{background:#2f3644;color:#c7b8ff;padding:1px 6px;border-radius:5px}a{color:#8fa3c4}' +
+      'h2,h3,h4{color:#eef1f7}table{border-collapse:collapse}th,td{border:1px solid #333a49;padding:5px 9px}' +
+      'blockquote{margin:0;padding-left:14px;border-left:3px solid #333a49;color:#9aa4b6}</style>' +
+      '<p class="k">' + esc(pKick.textContent) + '</p><h1>' + esc(pTitle.textContent) + '</h1>' + pDesc.innerHTML);
+    w.document.close();
+  });
+
+  // --- Search: filter node labels, reveal + deep-link the chosen node ---
+  // Index every node once (id, label, lowercased label, branch label for context). Reuses
+  // the existing revealAndSelect (unfold ancestors + select + frame) and pushHash (update
+  // the URL to the node's #slug) so a search hit behaves exactly like a clicked/linked node.
+  const SEARCH_INDEX = Object.keys(LABELS).map(id => ({
+    id, label: LABELS[id],
+    lower: LABELS[id].toLowerCase(),
+    branch: (META[id] && META[id].b) || '',
+    key: (META[id] && META[id].k) || 'navy',
+    plain: (DESC[id] || '').replace(/[#>*_`|]/g, ' ').replace(/\s+/g, ' ').trim(),
+  }));
+  SEARCH_INDEX.forEach(n => { n.plainLower = n.plain.toLowerCase(); });
+  let searchMode = 'concepts';   // 'concepts' (names) or 'content' (description text)
+  const SEARCH_MAX = 25;
+
+  const searchWrap = document.getElementById('search');
+  const searchInput = document.getElementById('search-input');
+  const searchClear = document.getElementById('search-clear');
+  const searchResults = document.getElementById('search-results');
+  let searchMatches = [];
+  let searchActive = -1;
+
+  // Escape a user query for safe use inside a RegExp (highlighting the matched span).
+  function reEscape(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  // Escape text for safe HTML injection into a result row.
+  function htmlEscape(s){
+    return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  }
+  // Bold the matched substring within a label (case-insensitive), HTML-escaped.
+  function highlight(label, q){
+    const i = label.toLowerCase().indexOf(q.toLowerCase());
+    if (i < 0) return htmlEscape(label);
+    return htmlEscape(label.slice(0, i)) + '<mark>' +
+      htmlEscape(label.slice(i, i + q.length)) + '</mark>' + htmlEscape(label.slice(i + q.length));
+  }
+
+  // A highlighted excerpt of the description around the first match.
+  function snippet(n, q){
+    const i = n.plainLower.indexOf(q.toLowerCase());
+    const start = Math.max(0, i - 30);
+    const text = (start ? '…' : '') + n.plain.slice(start, start + 90 + q.length);
+    return highlight(text, q);
+  }
+
+  function runSearch(q){
+    q = q.trim();
+    searchWrap.classList.toggle('has-text', q.length > 0);
+    if (!q){ closeSearch(); return; }
+    const ql = q.toLowerCase();
+    if (searchMode === 'content'){
+      searchMatches = SEARCH_INDEX
+        .filter(n => n.plainLower.includes(ql))
+        .sort((a, b) => a.plainLower.indexOf(ql) - b.plainLower.indexOf(ql))
+        .slice(0, SEARCH_MAX);
+      searchActive = searchMatches.length ? 0 : -1;
+      renderSearch(q);
+      searchWrap.classList.add('open');
+      return;
+    }
+    // Rank: label starts with query first, then earliest match position, then shorter label.
+    searchMatches = SEARCH_INDEX
+      .filter(n => n.lower.includes(ql))
+      .sort((a, b) => {
+        const sa = a.lower.startsWith(ql), sb = b.lower.startsWith(ql);
+        if (sa !== sb) return sa ? -1 : 1;
+        const pa = a.lower.indexOf(ql), pb = b.lower.indexOf(ql);
+        if (pa !== pb) return pa - pb;
+        return a.label.length - b.label.length;
+      })
+      .slice(0, SEARCH_MAX);
+    searchActive = searchMatches.length ? 0 : -1;
+    renderSearch(q);
+    searchWrap.classList.add('open');
+  }
+
+  function renderSearch(q){
+    if (!searchMatches.length){
+      searchResults.innerHTML = '<div class="sr-empty">' +
+        (searchMode === 'content' ? 'No matching descriptions' : 'No matching concepts') + '</div>';
+      return;
+    }
+    searchResults.innerHTML = searchMatches.map((n, i) =>
+      `<div class="sr-item${i === searchActive ? ' active' : ''}" role="option" data-id="${n.id}">` +
+        `<span class="sr-dot" style="background:${hexOf(n.key)}"></span>` +
+        `<span class="sr-text">` +
+          `<span class="sr-label">${searchMode === 'content' ? htmlEscape(n.label) : highlight(n.label, q)}</span>` +
+          (searchMode === 'content' ? `<span class="sr-snip">${snippet(n, q)}</span>`
+            : (n.branch ? `<span class="sr-branch">${htmlEscape(n.branch)}</span>` : '')) +
+        `</span>` +
+      `</div>`).join('');
+  }
+
+  function closeSearch(){
+    searchWrap.classList.remove('open');
+    searchResults.innerHTML = '';
+    searchMatches = []; searchActive = -1;
+  }
+
+  // Reveal + select + deep-link the chosen node, then dismiss the results (keep the query).
+  function chooseSearch(id){
+    if (id == null) return;
+    revealAndSelect(id);
+    pushHash(id);
+    closeSearch();
+    searchInput.blur();
+  }
+
+  function setActive(i){
+    if (!searchMatches.length) return;
+    searchActive = (i + searchMatches.length) % searchMatches.length;
+    [...searchResults.children].forEach((el, idx) => el.classList.toggle('active', idx === searchActive));
+    const el = searchResults.children[searchActive];
+    if (el) el.scrollIntoView({block: 'nearest'});
+  }
+
+  const searchModeBtn = document.getElementById('search-mode');
+  searchModeBtn.addEventListener('click', () => {
+    searchMode = searchMode === 'concepts' ? 'content' : 'concepts';
+    searchModeBtn.textContent = searchMode === 'concepts' ? 'Concepts' : 'Content';
+    searchInput.placeholder = searchMode === 'concepts' ? 'Search concepts…' : 'Search descriptions…';
+    runSearch(searchInput.value);
+    searchInput.focus();
+  });
+  searchInput.addEventListener('input', () => runSearch(searchInput.value));
+  searchInput.addEventListener('focus', () => { if (searchInput.value.trim()) runSearch(searchInput.value); });
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown'){ e.preventDefault(); setActive(searchActive + 1); }
+    else if (e.key === 'ArrowUp'){ e.preventDefault(); setActive(searchActive - 1); }
+    else if (e.key === 'Enter'){ e.preventDefault(); if (searchMatches[searchActive]) chooseSearch(searchMatches[searchActive].id); }
+    else if (e.key === 'Escape'){ e.preventDefault(); if (searchWrap.classList.contains('open')) closeSearch(); else { searchInput.value = ''; searchWrap.classList.remove('has-text'); searchInput.blur(); } }
+  });
+  searchResults.addEventListener('click', (e) => {
+    const item = e.target.closest('.sr-item');
+    if (item) chooseSearch(item.dataset.id);
+  });
+  searchClear.addEventListener('click', () => {
+    searchInput.value = '';
+    searchWrap.classList.remove('has-text');
+    closeSearch();
+    searchInput.focus();
+  });
+  // Click outside the search box dismisses the dropdown.
+  document.addEventListener('click', (e) => { if (!searchWrap.contains(e.target)) closeSearch(); });
+  // Global "/" focuses search (unless already typing in an input).
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== searchInput && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
+      e.preventDefault(); searchInput.focus();
+    }
+  });
+
+  // On load: reveal a #slug deep link, or otherwise frame the tree. Uses setTimeout (not
+  // requestAnimationFrame, which is paused in background tabs) and retries briefly until the
+  // map has rendered. The initial fit is needed because markmap.create doesn't center the
+  // tree into the (panel-narrowed) map area on its own — the root ends up clipped off-left.
+  (function initView(tries){
+    if (mm && mm.state && mm.state.data){
+      if (location.hash) gotoHash(); else mm.fit();
+      return;
+    }
+    if (tries > 0) setTimeout(() => initView(tries - 1), 50);
+  })(40);
+</script>
+</body>
+</html>
