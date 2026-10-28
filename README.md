@@ -29,6 +29,10 @@ Browse the docs as interactive maps on GitHub Pages:
 - [Overview](https://jlichwa80.github.io/token-buffet/overview.html): architecture, CLI operations, client integrations, directory layout
 - [Productivity Apps](https://jlichwa80.github.io/token-buffet/productivity-apps.html): everyday apps that can run on Token Buffet
 
+And a plain guide page:
+
+- [Free & Affordable AI CLI Coding Agents](https://jlichwa80.github.io/token-buffet/ai-cli-coding-agents-guide.html): student discounts, free tiers, and low-cost plans
+
 ## Quick Start
 Token Buffet always works in the folder you run it from. Make one folder for it:
 

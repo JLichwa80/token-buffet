@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-    Regenerate the interactive documentation site (site/) from docs/interactive-documentation/.
+    Regenerate the documentation site (site/) from docs/interactive-documentation/ and docs/static-pages/.
 
 .DESCRIPTION
-    Needs: pip install concept-mapmaker. Everything in the output folder is replaced.
+    Needs: pip install "concept-mapmaker>=0.2.0". Everything in the output folder is replaced.
     Arguments pass through to build_interactive_docs.py: [SRC] [--out OUT].
 
 .EXAMPLE

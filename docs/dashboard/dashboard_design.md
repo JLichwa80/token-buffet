@@ -13,7 +13,7 @@ app's settings/meta in place.
 
 ## Purpose
 
-One page (`dashboard.py`, port 8080) to:
+One page (`dashboard/server.py` plus static files, port 8080) to:
 1. **Control the fleet** — see every proxy + router + dashboard, their ports, PIDs, quota;
    launch / kill / restart / login per provider.
 2. **Register apps** — pick an app type, give a name + path + per-type extras, and run the
@@ -25,7 +25,7 @@ One page (`dashboard.py`, port 8080) to:
 
 ## Constraints (carry the project ethos)
 
-- **Stdlib only**, single `dashboard.py`, `http.server` — no framework, no build step.
+- **Stdlib only**, `http.server` in `dashboard/server.py` — no framework, no build step.
 - **Config-driven, no per-provider / per-app branches** in the dashboard. It renders whatever
   it discovers on disk. Adding a provider or app type is a filesystem change, never a
   dashboard edit.
@@ -726,25 +726,25 @@ received (the `/v1/responses` wire). Useful for debugging what an app actually s
 
 ## HTTP API
 
-Read:
-- `GET /api/fleet` — providers (config port, live port/up, pid, usage summary) + router +
-  dashboard state. Replaces the grok-centric `/api/stats` process scan; prefer
-  `<p>_run_status.json` over `wmic`/`tasklist`/`ps`, fall back to a scan only to find PIDs.
-- `GET /api/providers` — each `registered_providers/*/config.json` + merged `_models.json`.
-- `GET /api/router` — `router_config.json`.
-- `GET /api/apps/types` — folders under `integrations/` (minus `_base`), each with its
-  `vault_types.json` keys and declared `[placeholders]`.
-- `GET /api/apps` — walk `registered_apps/<app>/<name>/app_meta.json`.
-- `GET /api/apps/<app>/<name>` — that instance's three JSONs.
+Implemented in `src/tokenbuffet/dashboard/server.py` (stdlib `http.server`, static UI in
+`src/tokenbuffet/dashboard/static/`). The earlier `/api/fleet`, `/api/apps/<app>/<name>/configure`
+and `/api/fleet/*` routes in this document's body were never built.
 
-Write / execute:
-- `POST /api/providers/<p>/tools` — toggle `tools.enabled` (exists today, keep).
-- `POST /api/router` — rewrite `mode` / `custom_order`.
-- `POST /api/apps/register` — `{app, name, path, extras{}}` → shell `register.py`.
-- `POST /api/apps/<app>/<name>` — save edited instance JSON(s).
-- `POST /api/apps/<app>/<name>/configure` — re-run `configure`.
-- `POST /api/fleet/{launch,kill,login}` — lifecycle (launch reads the port from config, not a
-  hardcoded map).
+Read:
+- `GET /api/state` — providers, router config, registered apps, app types and fleet status in one payload.
+- `GET /api/history?name=&days=` — quota history for one provider.
+- `GET /api/logs?name=&lines=` — tail of one process log.
+
+Write / execute (all `POST`, loopback origin only):
+- `/api/router` — rewrite `mode` / `custom_order` / tiers.
+- `/api/providers/tools` — toggle `tools.enabled`.
+- `/api/providers/add`, `/api/providers/validate` — add and validate a provider.
+- `/api/providers/launch`, `/stop`, `/restart`, `/login` — one provider's lifecycle.
+- `/api/control/providers`, `/providers-stop`, `/router`, `/router-stop`, `/refresh`, `/all-start`,
+  `/all-stop` — fleet-wide start, stop and refresh.
+- `/api/apps/register` — register an app instance (shells out to `register.py`).
+- `/api/apps/apply` — re-apply an instance's settings.
+- `/api/apps/open`, `/api/apps/pick-folder` — launch an instance; folder picker.
 
 ## Non-goals
 
