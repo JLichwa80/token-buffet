@@ -20,6 +20,7 @@ Reference documentation for Token Buffet.
 |------|---------------|
 | [integrations/app_configuration.md](integrations/app_configuration.md) | Registered apps cascade and configure/init flow |
 | [integrations/chatbots.md](integrations/chatbots.md) | CLI clients (Claude Code, Codex, Grok, agy) as router clients |
+| [integrations/obsidian-llm-wiki/](integrations/obsidian-llm-wiki/README.md) | Karpathy LLM Wiki plugin: capabilities, architecture flow, pipelines, demo vaults, graphify/data-views plan |
 | [integrations/claudia_integration
 | File | What it covers |
 |------|---------------|

@@ -6,7 +6,7 @@ build/
 /macos-report/
 
 # Uncompressed demo originals
-res/Demos/originals/
+resources/Demos/originals/
 
 # Build output
 dist/

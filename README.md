@@ -20,7 +20,7 @@ This shows how to turn your subscriptions into a local knowledge-synthesis engin
 
 ## Architecture
 
-![AI Subscriptions Hub Architecture](res/diagrams/AI_Subscription_Architecture_landscape.png)
+![AI Subscriptions Hub Architecture](resources/diagrams/AI_Subscription_Architecture_landscape.png)
 
 ## Interactive Documentation
 
