@@ -18,7 +18,6 @@ The same launcher is available with `tbuffet open claudia "My Client Relationshi
     "path": "../../../demo/claudia/My-Client-Relationships-Management-Demo",
     "client_settings": {
         "active_endpoint": "http://127.0.0.1:8090",
-        "single_model_tier": "medium",
         "model_mode": "false",
         "task_model_tiers": {
             "taskType1": "fast",

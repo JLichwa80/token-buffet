@@ -6,7 +6,6 @@
     "path": "[app_path]",
     "client_settings": {
         "active_endpoint": "http://127.0.0.1:8090/v1/",
-        "single_model_tier": "fast",
         "model_mode": "true",
         "task_model_tiers": {
             "ingest": "fast",

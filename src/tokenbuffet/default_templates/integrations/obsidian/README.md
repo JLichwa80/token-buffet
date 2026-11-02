@@ -32,7 +32,6 @@ They come from `app_config.json → client_settings`, merged over `app_settings.
 |---|---|
 | `provider` | `custom-responses` (calls the router's `/v1/responses`) |
 | `baseUrl` | `http://127.0.0.1:8090/v1/` |
-| `model` | `single_model_tier` (default `fast`) |
 | `usePerTaskModels` | `model_mode` |
 | `ingestModel` / `lintModel` / `queryModel` | `task_model_tiers` (`fast` / `reasoning` / `reasoning`) |
 

@@ -1,6 +1,6 @@
 {
   "format": "text",
-  "content": "[model.local-bridge]\nmodel = \"{single_model_tier}\"\nbase_url = \"{active_endpoint}\"\nname = \"Local Bridge\"\napi_backend = \"chat_completions\"\n\n[models]\ndefault = \"local-bridge\"\n",
+  "content": "[model.local-bridge]\nbase_url = \"{active_endpoint}\"\nname = \"Local Bridge\"\napi_backend = \"chat_completions\"\n\n[models]\ndefault = \"local-bridge\"\n",
   "files": {
     "launch.json": {
       "format": "json",

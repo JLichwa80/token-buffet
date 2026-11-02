@@ -33,13 +33,12 @@ a snapshot, so a later re-login in either place is not shared. Codex copies `aut
 credential storage (the OS keyring is not copied). The user profile (`HOME`/`USERPROFILE`) must be defined,
 and the workspace should be opened with `tbuffet open` so the `launch.json` home override applies.
 
-Each preset selects the router's `medium` tier by default. User-wide configuration is not edited.
+Presets do not set a model; the router chooses. User-wide configuration is not edited.
 Run `tbuffet start` before using AI features. The client route excludes that CLI's own provider backend.
 
 ## Change an existing client
 
-Edit `registered_apps/chatbot/NAME/app_config.json` to change `client_settings.active_endpoint` or
-`client_settings.single_model_tier`, then run:
+Edit `registered_apps/chatbot/NAME/app_config.json` to change `client_settings.active_endpoint`, then run:
 
 ```powershell
 tbuffet reconfigure-app chatbot NAME
@@ -52,12 +51,12 @@ Reapply rewrites the native configuration and launcher using that instance's sav
 Create `integrations/chatbot/presets/NEW/` by copying a related preset. Edit its two files:
 
 - `app_config.json`: declared client type, required workspace path (`[app_path]`), router endpoint,
-  model tier, and primary native settings path in `bridge_configuration`.
+  and primary native settings path in `bridge_configuration`.
 - `app_settings.json`: primary native settings (`format: json` with `data`, or `format: text` with
   `content`) and a `files` object containing `launch.json` (`command`, `env`, and `requires`, the settings file that must exist; `{workspace}` expands to the workspace folder) and any additional workspace files.
   Every additional file also declares its `format` and `data` or `content`.
 
-`{active_endpoint}` and `{single_model_tier}` in template strings are replaced with that instance's
+`{active_endpoint}` in template strings is replaced with that instance's
 client settings. All generated
 files must stay inside the chosen workspace. Use the CLI's documented configuration mechanism.
 Keep credentials out of preset files; the existing demos use a local placeholder router key.

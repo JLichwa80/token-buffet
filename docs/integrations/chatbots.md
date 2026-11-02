@@ -41,7 +41,7 @@ variable only for the session. The router excludes each originating CLI's own ba
 
 ## Wire format details
 
-**Claude Code** — Sends Anthropic Messages (`/v1/messages?beta=true`). May also probe `HEAD /api/hello`. Demo disables thinking (`CLAUDE_CODE_DISABLE_THINKING=1`) and enables gateway model discovery so `/model` lists available tiers.
+**Claude Code** — Sends Anthropic Messages (`/v1/messages?beta=true`). May also probe `HEAD /api/hello`.
 
 **Codex CLI** — Uses the OpenAI Responses API (`/v1/responses`). Requires the `openai` Python SDK in the proxy environment; returns HTTP 503 if absent. Supports buffered function, custom freeform, and `apply_patch` tool handoff. Router holds continuation history for up to 100 recent responses (lost on restart).
 

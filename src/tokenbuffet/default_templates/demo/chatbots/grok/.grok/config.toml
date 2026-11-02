@@ -1,5 +1,4 @@
 [model.local-bridge]
-model = "medium"
 base_url = "http://127.0.0.1:8090/v1"
 name = "Local Bridge"
 api_backend = "chat_completions"

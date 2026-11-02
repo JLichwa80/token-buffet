@@ -1,4 +1,3 @@
-model = "medium"
 model_provider = "local_bridge"
 
 [model_providers.local_bridge]

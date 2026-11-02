@@ -475,44 +475,30 @@ class RouterHandler(http.server.BaseHTTPRequestHandler):
             
         logging.info("REQUEST id=%s model=%s path=%s", request_id, str(requested_model).replace("\n", " "), self.path)
 
-        # Best-effort resolution of the requested model to a backend list.
-        # tier -> exact id -> provider name -> fuzzy family match -> medium.
+        # Resolve the requested model to a tier's backend list.
+        # tier -> provider name -> model id (exact, else fuzzy family match) -> its tier -> medium.
         tier = requested_model
-        specific = None  # a single pinned {provider, model} (exact id or fuzzy match)
         backends = TIERS.get(tier)
 
-        if backends is None and tier in ALL_MODELS:
-            # Exact vendor id -> straight to that provider with that id.
-            prov = ALL_MODELS[tier]
-            effort = (CONFIG.get("providers", {}).get(prov, {}).get("effort", {}).get(tier)
-                      if isinstance(CONFIG.get("providers", {}).get(prov, {}).get("effort"), dict)
-                      else CONFIG.get("providers", {}).get(prov, {}).get("effort"))
-            specific = {"provider": prov, "model": tier}
-            if effort:
-                specific["effort"] = effort
-
-        if backends is None and specific is None:
+        if backends is None:
             # Provider name (e.g. "claude") -> that provider's first tier.
             for t, b in TIERS.items():
                 if any(x["provider"] == tier for x in b):
                     tier, backends = t, b
                     break
 
-        if backends is None and specific is None:
-            # Fuzzy family match against the cached catalog (e.g. "opus" -> claude-opus-...).
-            match = next((mid for mid in ALL_MODELS
-                          if tier.lower() in mid.lower() or mid.lower() in tier.lower()), None)
-            if match:
-                logging.info(f"Fuzzy-matched '{requested_model}' -> {match} ({ALL_MODELS[match]}).")
-                prov = ALL_MODELS[match]
-                effort = (CONFIG.get("providers", {}).get(prov, {}).get("effort", {}).get(match)
-                          if isinstance(CONFIG.get("providers", {}).get(prov, {}).get("effort"), dict)
-                          else CONFIG.get("providers", {}).get(prov, {}).get("effort"))
-                specific = {"provider": prov, "model": match}
-                if effort:
-                    specific["effort"] = effort
+        if backends is None:
+            # A model id (e.g. "claude-haiku-4-5") -> the tier that model belongs to.
+            model = tier if tier in ALL_MODELS else next(
+                (mid for mid in ALL_MODELS if tier.lower() in mid.lower() or mid.lower() in tier.lower()), None)
+            if model:
+                member = next(((t, b) for t, b in TIERS.items()
+                               if any(x["provider"] == ALL_MODELS[model] and x["model"] == model for x in b)), None)
+                if member:
+                    logging.info(f"Model '{requested_model}' ({model}) belongs to tier {member[0]}.")
+                    tier, backends = member
 
-        if backends is None and specific is None:
+        if backends is None:
             # Nothing matched -> default to the medium tier.
             logging.info(f"Unmapped model '{requested_model}' -> defaulting to medium tier.")
             tier, backends = "medium", TIERS.get("medium")
@@ -528,18 +514,6 @@ class RouterHandler(http.server.BaseHTTPRequestHandler):
                 }}).encode("utf-8"))
                 return
 
-        # A pinned (exact id / fuzzy) model is tried first; if it's out of tokens or
-        # down, try the other providers in the SAME tier as that model.
-        if specific is not None:
-            prov = specific["provider"]
-            tier = next((t for t, bs in TIERS.items()
-                         if any(x["provider"] == prov and x["model"] == specific["model"] for x in bs)), None)
-            if tier is None:
-                tier = next((t for t, bs in TIERS.items() if any(x["provider"] == prov for x in bs)), "medium")
-            retry = [b for b in TIERS.get(tier, []) if b["provider"] != prov]
-        else:
-            retry = []
-
         # Order per the configured mode. usage: most remaining first. custom: global
         # provider preference (unlisted last). Depleted/down are skipped in the loop.
         if MODE == "custom":
@@ -548,12 +522,7 @@ class RouterHandler(http.server.BaseHTTPRequestHandler):
         else:
             order = lambda lst: sorted(lst, key=lambda b: USAGE.get(b.get("provider", "")) or 0, reverse=True)
 
-        if specific is not None:
-            primary = [specific]                 # requested model stays first
-            sorted_backends = primary + order(retry)   # try every eligible same-tier alternate
-        else:
-            primary = order(backends)
-            sorted_backends = primary
+        sorted_backends = order(backends)
 
         order_summary = " -> ".join(
             f"{b['provider']}:{b['model']}{'(' + b['effort'] + ')' if b.get('effort') else ''}({USAGE.get(b['provider']) if USAGE.get(b['provider']) is not None else '?'})"
@@ -572,6 +541,7 @@ class RouterHandler(http.server.BaseHTTPRequestHandler):
         # keeps the same effort: the client's if given, else the first
         # candidate's resolved effort.
         locked_effort = (payload.get("effort") or payload.get("reasoning_effort") or
+                         (payload.get("output_config") or {}).get("effort") or
                          next((b.get("effort") for b in sorted_backends if b.get("effort")), None))
         client_started = False
 
@@ -617,9 +587,7 @@ class RouterHandler(http.server.BaseHTTPRequestHandler):
             except OSError:
                 pass
 
-        for i, backend in enumerate(sorted_backends):
-            if i == len(primary) and len(sorted_backends) > len(primary):
-                logging.info("RETRY id=%s tier=%s", request_id, tier)
+        for backend in sorted_backends:
             prov = backend["provider"]
             remaining = USAGE.get(prov)
             if remaining is not None and remaining <= 0:

@@ -1,6 +1,6 @@
 {
   "format": "text",
-  "content": "model = \"{single_model_tier}\"\nmodel_provider = \"local_bridge\"\n\n[model_providers.local_bridge]\nname = \"Local Bridge\"\nbase_url = \"{active_endpoint}\"\nwire_api = \"responses\"\nrequires_openai_auth = false\nsupports_websockets = false\n",
+  "content": "model_provider = \"local_bridge\"\n\n[model_providers.local_bridge]\nname = \"Local Bridge\"\nbase_url = \"{active_endpoint}\"\nwire_api = \"responses\"\nrequires_openai_auth = false\nsupports_websockets = false\n",
   "files": {
     "launch.json": {
       "format": "json",

@@ -26,7 +26,7 @@ The router derives its internal tier lookup from this structure. Exact model IDs
 
 ## Routing and retries
 
-Requests resolve by tier, exact model ID, provider name, fuzzy model match, then the medium tier. If no medium fallback is configured, an unmapped request returns a structured HTTP 503.
+Requests resolve by tier, provider name, then model ID (exact, else fuzzy match) to the tier that model belongs to, then the medium tier. A model ID never pins a backend: the router routes within its tier by the configured mode. If no medium fallback is configured, an unmapped request returns a structured HTTP 503.
 
 Usage mode sorts providers by remaining quota. Custom mode follows `custom_order`. Both skip known depleted or stopped providers. Exact-model requests try their provider first and then every alternate in the same tier. Tier requests try all eligible backends in order.
 

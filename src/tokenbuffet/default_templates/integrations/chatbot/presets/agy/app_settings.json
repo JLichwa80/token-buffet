@@ -8,9 +8,7 @@
       "format": "json",
       "data": {
         "command": [
-          "agy",
-          "--model",
-          "{single_model_tier}"
+          "agy"
         ],
         "env": {
           "HOME": "{workspace}",

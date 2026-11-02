@@ -2,10 +2,7 @@
   "format": "json",
   "data": {
     "env": {
-      "ANTHROPIC_BASE_URL": "{active_endpoint}",
-      "ANTHROPIC_MODEL": "{single_model_tier}",
-      "CLAUDE_CODE_DISABLE_THINKING": "1",
-      "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY": "1"
+      "ANTHROPIC_BASE_URL": "{active_endpoint}"
     }
   },
   "files": {

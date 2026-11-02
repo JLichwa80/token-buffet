@@ -13,7 +13,7 @@ registered_apps/obsidian/<name>/   one registered vault (its app_config.json car
 
 | File | Role |
 |---|---|
-| `app_config.json` | Endpoint, `single_model_tier`, `model_mode`, `task_model_tiers`, `vault_type`, `bridge_configuration` (the `data.json` path) |
+| `app_config.json` | Endpoint, `model_mode`, `task_model_tiers`, `vault_type`, `bridge_configuration` (the `data.json` path) |
 | `app_settings.json` | Base plugin settings and automation defaults |
 | `vault_types.json` | Presets merged over the base: `default`, `finance-conference`, `research-papers`, `daily-notes` |
 | `configure.py` | Builds `data.json` |

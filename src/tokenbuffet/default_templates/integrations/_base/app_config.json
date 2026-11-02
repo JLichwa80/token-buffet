@@ -3,8 +3,7 @@
     "type": "generic",
     "path": ".",
     "client_settings": {
-        "active_endpoint": "http://127.0.0.1:8090/v1",
-        "single_model_tier": "medium",
+        "active_endpoint": "http://127.0.0.1:8090/v1",
         "model_mode": "false",
         "task_model_tiers": {
             "taskType1": "fast",

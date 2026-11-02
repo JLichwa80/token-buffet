@@ -6,7 +6,6 @@
   "openAICodexModels": [],
   "openAICodexModelsFetchedAt": 0,
   "baseUrl": "http://127.0.0.1:8090/v1/",
-  "model": "fast",
   "markdownConversionBackend": "native",
   "wikiFolder": "wiki",
   "language": "en",

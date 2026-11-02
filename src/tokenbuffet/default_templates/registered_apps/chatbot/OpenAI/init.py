@@ -59,7 +59,7 @@ def _render(value, client):
     if isinstance(value, list):
         return [_render(item, client) for item in value]
     if isinstance(value, str):
-        for key in ("active_endpoint", "single_model_tier"):
+        for key in ("active_endpoint",):
             value = value.replace("{" + key + "}", client[key])
     return value
 

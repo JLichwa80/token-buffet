@@ -2,7 +2,7 @@
 
 After starting the bridge, run `tbuffet open chatbot OpenAI` or use **Open** in the Hub.
 The launcher sets `CODEX_HOME` to this workspace's `.codex/` folder for the current session.
-Its `.codex/config.toml` selects the router's `medium` tier and custom Responses provider.
+Its `.codex/config.toml` sets no model and uses the custom Responses provider.
 
 Codex ignores custom provider definitions in ordinary project config. Setting `CODEX_HOME`
 makes this folder the session's configuration home instead, so those definitions apply without

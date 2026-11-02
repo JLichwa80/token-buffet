@@ -14,6 +14,7 @@ dist/
 
 # Local tooling (keep on disk, not in the repo)
 .claude/
+!src/tokenbuffet/default_templates/demo/chatbots/claude/.claude/
 .vscode/
 AGENTS.md
 *.code-workspace

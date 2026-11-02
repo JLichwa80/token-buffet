@@ -15,7 +15,6 @@ def configure():
     data.update(presets[config.get("vault_type", "default")])
     settings = config["client_settings"]
     data.update(provider="custom-responses", baseUrl=settings["active_endpoint"],
-                model=settings["single_model_tier"],
                 usePerTaskModels=str(settings["model_mode"]).lower() == "true")
     for task, tier in settings["task_model_tiers"].items():
         data[task + "Model"] = tier

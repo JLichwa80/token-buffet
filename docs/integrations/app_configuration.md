@@ -5,7 +5,7 @@
 - `name` and `type`: instance name and integration type.
 - `path`: app root. Defaults to `.` (the folder containing the instance's `app_config.json`). Relative paths resolve from that instance folder.
 - `bridge_configuration`: settings file written by the bridge. Relative paths resolve from `path`; absolute paths are accepted. Defaults are `.obsidian/plugins/karpathywiki/data.json` for Obsidian and `.claude/settings.local.json` for Claudia.
-- `client_settings`: `active_endpoint`, `single_model_tier`, `model_mode` (`"false"` or `"true"`), and `task_model_tiers`.
+- `client_settings`: `active_endpoint`, `model_mode` (`"false"` or `"true"`), and `task_model_tiers`.
 
 `tbuffet add-app TYPE NAME --path APP_PATH [--preset CLIENT] [--vault-type PRESET] [--label L]`
 (which wraps `integrations/register.py`) copies the integration into `registered_apps/TYPE/NAME`.
@@ -30,6 +30,6 @@ The four chatbot demos are registered in `registered_apps/chatbot/` as
 under `demo/chatbots/`. Reapplying an instance copies its saved
 `app_settings.json` into that target, merging JSON settings and replacing
 text config files. Its `files` object supplies the launcher and
-additional workspace files. `{active_endpoint}` and `{single_model_tier}` are rendered from the
+additional workspace files. `{active_endpoint}` is rendered from the
 instance's `client_settings`; source templates remain unchanged. The agy backend
 uses a separate home at `data/provider_homes/agy`.
