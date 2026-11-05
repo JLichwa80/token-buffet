@@ -78,11 +78,11 @@ def init_workspace():
     print("\nNext: tbuffet start   (demos: tbuffet demo init)")
 
 
-def start_fleet(debug=False, foreground=True):
+def start_fleet(debug=False, foreground=True, router_port=8090):
     """Start the fleet; a foreground session owns its entire process trees."""
     processes = []
     try:
-        _start_fleet(debug, foreground, processes)
+        _start_fleet(debug, foreground, processes, router_port)
     except KeyboardInterrupt:
         if not foreground:
             raise
@@ -125,7 +125,7 @@ def _stop_started_processes(processes):
         raise RuntimeError("Could not stop all foreground services: " + "; ".join(failures))
 
 
-def _start_fleet(debug, foreground, processes):
+def _start_fleet(debug, foreground, processes, router_port):
     """Launch services and optionally wait for them in the foreground."""
     from tokenbuffet import loopback
     config_dir = Path("registered_providers")
@@ -202,10 +202,10 @@ def _start_fleet(debug, foreground, processes):
     for prov in pending:
         print(f"  {prov} did not start within 30s; starting the router without it.")
 
-    # 2. Start router on 8090
-    print("Starting Local Router on port 8090 (provider models and usage appear as each proxy finishes reading them)...")
+    # 2. Start router
+    print(f"Starting Local Router on port {router_port} (provider models and usage appear as each proxy finishes reading them)...")
     p = subprocess.Popen(
-        [sys.executable, "-m", "tokenbuffet.logged_run", "--log", "router/console.log", "--module", "tokenbuffet.local_router", "--port", "8090"],
+        [sys.executable, "-m", "tokenbuffet.logged_run", "--log", "router/console.log", "--module", "tokenbuffet.local_router", "--port", str(router_port)],
         **process_options,
     )
     processes.append(p)
@@ -659,7 +659,7 @@ def _cmd_service(args):
     verb, target = args.command.split("-")
     try:
         if target == "router":
-            result = (server.start_router if verb == "start" else server.stop_router)({})
+            result = (server.start_router if verb == "start" else server.stop_router)({"port": args.port} if verb == "start" else {})
         elif args.name:
             result = (server.launch_provider if verb == "start" else server.stop_provider)({"provider": args.name})
         else:
@@ -683,6 +683,7 @@ def main():
     start_parser = subparsers.add_parser("start", help="Start proxies, router, and dashboard; Ctrl+C stops them.")
     start_parser.add_argument("--debug", action="store_true", help="Capture full proxy request traces")
     start_parser.add_argument("--background", action="store_true", help="Launch services in the background instead of waiting for Ctrl+C")
+    start_parser.add_argument("--router-port", type=int, default=8090, help="Port for the router (default 8090)")
 
     stop_parser = subparsers.add_parser("stop", help="Stop all running services.")
     stop_parser.add_argument("--force", action="store_true", help="Kill the Token Buffet job and every Token Buffet service process (never apps)")
@@ -692,6 +693,7 @@ def main():
     restart_parser = subparsers.add_parser("restart", help="Stop then start all services.")
     restart_parser.add_argument("--debug", action="store_true")
     restart_parser.add_argument("--background", action="store_true", help="Launch services in the background instead of waiting for Ctrl+C")
+    restart_parser.add_argument("--router-port", type=int, default=8090, help="Port for the router (default 8090)")
 
     demo_parser = subparsers.add_parser("demo", help="Demo apps.")
     demo_parser.add_argument("action", choices=["init"], help="init: copy the demos, add them to their apps, report which can run")
@@ -739,18 +741,20 @@ def main():
     for verb in ("start", "stop"):
         provider_parser = subparsers.add_parser(f"{verb}-provider", help=f"{verb.capitalize()} one provider proxy, or every provider proxy when no name is given.")
         provider_parser.add_argument("name", nargs="?", help="Provider name (omit for all providers)")
-        subparsers.add_parser(f"{verb}-router", help=f"{verb.capitalize()} the router (port 8090).")
+        router_parser = subparsers.add_parser(f"{verb}-router", help=f"{verb.capitalize()} the router (default port 8090).")
+        if verb == "start":
+            router_parser.add_argument("--port", type=int, default=8090, help="Port for the router (default 8090)")
 
     args = parser.parse_args()
 
     if args.command == "init":
         init_workspace()
     elif args.command == "start":
-        start_fleet(debug=args.debug, foreground=not args.background)
+        start_fleet(debug=args.debug, foreground=not args.background, router_port=args.router_port)
     elif args.command == "restart":
         stop_fleet()
         time.sleep(2)
-        start_fleet(debug=args.debug, foreground=not args.background)
+        start_fleet(debug=args.debug, foreground=not args.background, router_port=args.router_port)
     elif args.command == "stop":
         force_stop() if args.force else stop_fleet()
     elif args.command == "status":

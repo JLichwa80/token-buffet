@@ -525,15 +525,16 @@ def start_router(data):
     status = read_json(STATUS_DIR / "router_run_status.json", {})
     if status.get("status") == "running" and listening(status.get("port")):
         raise ValueError(f"Router is already running on port {status['port']}")
-    if listening(8090):
-        raise ValueError("Port 8090 is already in use")
+    port = data.get("port", 8090)
+    if listening(port):
+        raise ValueError(f"Port {port} is already in use")
     flags = subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0
     output = LOG_DIR / "router" / "console.log"
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open("a", encoding="utf-8") as stream:
-        process = subprocess.Popen([sys.executable, "-m", "tokenbuffet.local_router", "--port", "8090"],
+        process = subprocess.Popen([sys.executable, "-m", "tokenbuffet.local_router", "--port", str(port)],
                                    cwd=ROOT, stdout=stream, stderr=subprocess.STDOUT, creationflags=flags)
-    return {"launched": True, "output": f"Router starting on port 8090 (pid {process.pid})"}
+    return {"launched": True, "output": f"Router starting on port {port} (pid {process.pid})"}
 
 
 def stop_router(data):

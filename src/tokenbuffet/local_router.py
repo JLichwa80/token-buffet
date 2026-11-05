@@ -813,13 +813,15 @@ if __name__ == "__main__":
     parser.add_argument("--port", type=int, default=8090, help="Port to bind the router to")
     parser.add_argument("--refresh-interval", type=int, default=1800,
                         help="Seconds between proxy metadata polls (0 means startup only)")
+    parser.add_argument("--extra", action="store_true",
+                        help="Run as an additional router: skip the single-router check and leave router_run_status.json alone")
     args = parser.parse_args()
 
     logging.info(f"Starting Multi-Provider Router on port {args.port}...")
     logging.info(f"Routing mode: {MODE}" + (f" (order: {', '.join(CUSTOM_ORDER)})" if MODE == "custom" and CUSTOM_ORDER else ""))
     logging.info(f"Reading usage and models from provider proxies every {args.refresh_interval}s.")
     start_refresher(args.refresh_interval)
-    existing_router_port = loopback.already_running(os.path.join("data", "providers_status", "router_run_status.json"))
+    existing_router_port = None if args.extra else loopback.already_running(os.path.join("data", "providers_status", "router_run_status.json"))
     if existing_router_port:
         logging.error(f"Cannot start router: one is already running on port {existing_router_port}.")
         sys.exit(1)
@@ -831,6 +833,8 @@ if __name__ == "__main__":
     port = server.server_address[1]
     if port != args.port:
         logging.warning(f"Port {args.port} is taken by another process; router is using {port}.")
+    if args.extra:
+        server.serve_forever()
     # Publish router PID so `tbuffet stop` can find and kill this process.
     _status_dir = os.path.join("data", "providers_status")
     os.makedirs(_status_dir, exist_ok=True)

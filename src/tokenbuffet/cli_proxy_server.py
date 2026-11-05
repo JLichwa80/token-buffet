@@ -389,7 +389,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
         from .gemini_wire import parse_generate_path
         request_path = urllib.parse.urlsplit(self.path).path
         gemini_route = parse_generate_path(self.path)
-        if request_path in ["/v1/chat/completions", "/api/chat"]:
+        if request_path in ["/v1/chat/completions", "/api/chat", "/v1/completions", "/api/generate"]:
             self.handle_chat()
         elif gemini_route:
             self.handle_chat(gemini=gemini_route)
@@ -505,7 +505,9 @@ class ProxyHandler(BaseHTTPRequestHandler):
 
         messages = payload.get("messages", [])
 
-        if not messages and "input" in payload:
+        if not messages and isinstance(payload.get("prompt"), str):
+            messages = [{"role": "user", "content": payload["prompt"]}]
+        elif not messages and "input" in payload:
             response_input = payload["input"]
             if isinstance(response_input, str):
                 messages = [{"role": "user", "content": response_input}]
